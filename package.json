@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "graphql": "^16.8.1",
     "next": "14.2.2",
     "react": "^18",
     "react-dom": "^18"
@@ -21,9 +22,7 @@
     "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.2",
-    "eslint-config-prettier": "^9.1.0",
     "postcss": "^8",
-    "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.4.5"
   }
