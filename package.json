@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "rundgang-website-2024",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "engines": {
+    "npm": ">=10.0.0 <11.0.0",
+    "node": ">=20.0.0 <21.0.0"
   },
   "dependencies": {
     "next": "14.2.2",
