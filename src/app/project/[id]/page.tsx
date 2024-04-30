@@ -1,7 +1,5 @@
 import { cache } from "react";
-import ProjectPageComponent, {
-  ProjectPageProps,
-} from "@/components/compositions/ProjectPage.server";
+import ProjectPageComponent from "./ProjectPage.server";
 
 export const getProject = cache(async (id: string) => {
   const res = await fetch(
@@ -10,8 +8,8 @@ export const getProject = cache(async (id: string) => {
   return res.json();
 });
 
-export default async function ProjectsPage(props: { params: { id } }) {
-  const project = await getProject(props);
+export default async function ProjectsPage(props: { params: { id: string } }) {
+  const project = await getProject(props.params.id);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>

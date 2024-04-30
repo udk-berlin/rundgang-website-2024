@@ -1,13 +1,10 @@
 import Link from "next/link";
 import { Entry } from "@/types";
 export type LocationPageProps = {
-  x?: any;
+  locations: Entry;
 };
 
-export default function LocationPageComponent(
-  props: LocationPageProps,
-  locations: Entry[]
-) {
+export default function LocationPageComponent(props: LocationPageProps) {
   return (
     <div>
       <div>location</div>
