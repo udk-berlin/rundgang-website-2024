@@ -12,7 +12,7 @@ export default function ProjectCard({ item }: ProjectCardProps) {
       href={`/project/${item.id}`}
       className="h-full w-full border border-black bg-black"
     >
-      <div className="h-full w-full rounded-md bg-white p-2 text-black hover:bg-secondary">
+      <div className="w-full rounded-md bg-primarybg p-2 hover:bg-secondary hover:text-black">
         <div>
           {item.thumbnail && (
             <Image
