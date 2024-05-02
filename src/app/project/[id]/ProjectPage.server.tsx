@@ -1,24 +1,18 @@
-import Image from 'next/image';
 import { Item } from '@/types/graphql';
+import ImageWrapper from '@/components/image';
 
 export type ProjectPageProps = {
   project: Item;
 };
 
-export default function ProjectPageComponent(props: ProjectPageProps) {
+export default function ProjectPageComponent({ project }: ProjectPageProps) {
   return (
     <div>
-      ({props.project.id})<div>{props.project.name}</div>
+      ({project.id})<div>{project.name}</div>
       <div>
-        <Image
-          className="rounded-md"
-          src={props.project.thumbnail}
-          width={500}
-          height={500}
-          alt="thumbnail of student project"
-        />
+        <ImageWrapper src={project.thumbnail_full_size} />
       </div>
-      <div>{props.project.description.default}</div>
+      <div>{project.description.default}</div>
     </div>
   );
 }

@@ -1,37 +1,33 @@
 import Link from 'next/link';
 import { Item } from '@/types/graphql';
-import Image from 'next/image';
-
+import ImageWrapper from '@/components/image';
+import FormatTag from '@/components/formatTag';
 export type ProjectCardProps = {
-  item: Item;
+  item: Item & {
+    format: Item;
+    authors: string[];
+  };
 };
 
 export default function ProjectCard({ item }: ProjectCardProps) {
   return (
-    <Link
-      href={`/project/${item.id}`}
-      className="h-full w-full border border-black bg-black"
-    >
-      <div className="w-full rounded-md bg-primarybg p-2 hover:bg-secondary hover:text-black">
-        <div>
-          {item.thumbnail && (
-            <Image
-              className="rounded-md"
-              src={item.thumbnail}
-              width={500}
-              height={500}
-              alt="thumbnail of student project"
-            />
-          )}
+    <Link href={`/project/${item.id}`}>
+      <div className="w-full border border-primary bg-primary">
+        <div className="w-full rounded-md bg-primarybg p-2 hover:bg-secondary hover:text-black">
+          <div className="relative w-full overflow-hidden bg-secondary">
+            <ImageWrapper src={item.thumbnail} />
+          </div>
+          <div className="text-md pt-2 font-bold">{item.name}</div>
+          <div className="pt-2 text-right">
+            {item.origin.authors
+              .map((a) => a.name)
+              .slice(0, 5)
+              .join(', ')}
+          </div>
+          <div>
+            <FormatTag format={item.format} />
+          </div>
         </div>
-        <div className="">{item.name}</div>
-        <div>
-          {item.origin?.authors
-            ?.map((a) => a.name)
-            .slice(0, 5)
-            .join(', ')}
-        </div>
-        <div className="bg-black text-white">{item.context}</div>
       </div>
     </Link>
   );
