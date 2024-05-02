@@ -1,5 +1,5 @@
 import { cache } from "react";
-import ProgramPageComponent from "@/components/compositions/ProgramPage.server";
+import ProgramPageComponent from "./ProgramPage.server";
 
 export const getProgram = cache(async (id: string) => {
   const res = await fetch(
@@ -8,8 +8,7 @@ export const getProgram = cache(async (id: string) => {
   return res.json();
 });
 
-export const getGraphQLProgram = cache(async (id: string) => {
-  const endpoint = "https://2023.api.rundgang.udk-berlin.de/graphql";
+export const getGraphQLProgram = cache(async () => {
   const headers = {
     "content-type": "application/json",
   };
@@ -48,7 +47,7 @@ export const getGraphQLProgram = cache(async (id: string) => {
     body: JSON.stringify(graphqlQuery),
   };
 
-  const response = await fetch(endpoint, options);
+  const response = await fetch(process.env.GRAPHQL, options);
   const data = await response.json();
 
   return data.data.items;
@@ -58,7 +57,7 @@ export default async function ProgramsPage(props: any) {
   const program = await getGraphQLProgram();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-0">
       <div>
         <ProgramPageComponent program={program} />
       </div>

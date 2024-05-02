@@ -1,7 +1,5 @@
 import { cache } from "react";
-import LocationPageComponent, {
-  LocationPageProps,
-} from "@/components/compositions/LocationPage.server";
+import LocationPageComponent from "./LocationPage.server";
 
 export const getLocations = cache(async (id: string) => {
   const res = await fetch(
@@ -10,14 +8,14 @@ export const getLocations = cache(async (id: string) => {
   return res.json();
 });
 
-export default async function LocationsPage(props: LocationsPageProps) {
+export default async function LocationsPage(props: any) {
   const locations = await getLocations(
     "!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de"
   );
-  console.log(locations?.context);
+  console.log(locations?.context, props);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between p-0">
       <div>
         <LocationPageComponent {...props} locations={locations} />
       </div>

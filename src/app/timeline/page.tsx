@@ -1,7 +1,5 @@
 import { cache } from "react";
-import TimelinePageComponent, {
-  TimelinePageProps,
-} from "@/components/compositions/TimelinePage.server";
+import TimelinePageComponent from "./TimelinePage.server";
 
 export const getTimelines = cache(async (id: string) => {
   const res = await fetch(
@@ -10,7 +8,7 @@ export const getTimelines = cache(async (id: string) => {
   return res.json();
 });
 
-export default async function TimelinesPage(props: TimelinesPageProps) {
+export default async function TimelinesPage(props: any) {
   const events = await getTimelines(
     "!BTcywpcJQUsfkBptcB:content.udk-berlin.de"
   );
