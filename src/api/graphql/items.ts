@@ -1,11 +1,12 @@
-import {cache} from "react";
+import { cache } from 'react';
+import { graphqlApiEndpoint } from '@/api/graphql/api';
 
 export const getGraphQLProgram = cache(async () => {
   const headers = {
-    "content-type": "application/json",
+    'content-type': 'application/json',
   };
   const graphqlQuery = {
-    operationName: "fetchProgram",
+    operationName: 'fetchProgram',
     query: `query fetchProgram {
     items {
       id
@@ -34,12 +35,12 @@ export const getGraphQLProgram = cache(async () => {
   };
 
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: headers,
     body: JSON.stringify(graphqlQuery),
   };
 
-  const response = await fetch(process.env.GRAPHQL, options);
+  const response = await fetch(graphqlApiEndpoint, options);
   const data = await response.json();
 
   return data.data.items;

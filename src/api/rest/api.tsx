@@ -1,5 +1,5 @@
-export const restApiUrl = process.env.REST_API_URL
+export const restApiEndpoint = process.env.REST_API_ENDPOINT
 
-export function getRestApiUrl (query: string): string {
-  return `${restApiUrl}/${query}`
+export function getRestApiQuery(query: string): string {
+  return `${restApiEndpoint}/${query}`;
 }

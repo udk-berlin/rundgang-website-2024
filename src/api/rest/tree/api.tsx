@@ -1,15 +1,15 @@
-import {getRestApiUrl} from "@/api/rest/api";
+import {getRestApiQuery} from "@/api/rest/api";
 
 export const restApiFormatsRootId = process.env.REST_API_FORMATS_ROOT_ID
 
-export function getRestApiTreeFormatsUrl(): string {
+export function getRestApiTreeFormatsQuery(): string {
   if (typeof restApiFormatsRootId !== 'string') {
     throw new Error('formatsRootId must be a string');
   }
 
-  return getRestApiTreeUrl(restApiFormatsRootId);
+  return getRestApiTreeQuery(restApiFormatsRootId);
 }
 
-export function getRestApiTreeUrl(id: string): string {
-  return getRestApiUrl(`${id}/tree`)
+export function getRestApiTreeQuery(id: string): string {
+  return getRestApiQuery(`${id}/tree`)
 }

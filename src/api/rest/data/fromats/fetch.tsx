@@ -1,7 +1,7 @@
-import {getRestApiTreeFormatsUrl} from "@/api/rest/tree/api";
+import {getRestApiTreeFormatsQuery} from "@/api/rest/tree/api";
 
 export async function fetchFormats() {
-  const res = await fetch(getRestApiTreeFormatsUrl())
+  const res = await fetch(getRestApiTreeFormatsQuery())
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
