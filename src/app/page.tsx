@@ -1,11 +1,10 @@
-import Image from 'next/image';
-import LandingPageComponent from './LandingPage';
+import Landing from './components/landing.server';
 
-export default function Home() {
+export default function LandingPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>
-        <LandingPageComponent />
+        <Landing />
       </div>
     </main>
   );
