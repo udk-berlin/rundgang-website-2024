@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Entry } from '@/types';
+import { Entry } from '@/types/graphql';
 export type LocationPageProps = {
   locations: Entry;
 };

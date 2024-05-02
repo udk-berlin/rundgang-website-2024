@@ -1,4 +1,4 @@
-import { Temporal } from '@/types/types';
+import { Temporal } from '@/types/graphql';
 
 export type TimelinePageProps = {
   events: Temporal[];

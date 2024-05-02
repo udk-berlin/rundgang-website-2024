@@ -1,8 +1,8 @@
 import ProjectCard from '@/app/program/components/projectCard.server';
 
-export interface ProgramProps {
+export type ProgramProps = {
   program: any[];
-}
+};
 
 export default function Program({ program }: ProgramProps) {
   return (

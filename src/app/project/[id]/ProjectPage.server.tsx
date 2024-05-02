@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Item } from '@/types';
+import { Item } from '@/types/graphql';
 
 export type ProjectPageProps = {
   project: Item;

@@ -1,34 +1,37 @@
 import Link from 'next/link';
+import { Item } from '@/types/graphql';
 import Image from 'next/image';
-import { Item } from '@/types';
+
 export type ProjectCardProps = {
   item: Item;
 };
 
-export default function ProjectCard(props: ProjectCardProps) {
+export default function ProjectCard({ item }: ProjectCardProps) {
   return (
     <Link
-      href={`/project/${props.item.id}`}
+      href={`/project/${item.id}`}
       className="h-full w-full border border-black bg-black"
     >
       <div className="hover:bg-secondary h-full w-full rounded-md bg-white p-2 text-black">
         <div>
-          <Image
-            className="rounded-md"
-            src={props.item.thumbnail}
-            width={500}
-            height={500}
-            alt="thumbnail of student project"
-          />
+          {item.thumbnail && (
+            <Image
+              className="rounded-md"
+              src={item.thumbnail}
+              width={500}
+              height={500}
+              alt="thumbnail of student project"
+            />
+          )}
         </div>
-        <div className="">{props.item.name}</div>
+        <div className="">{item.name}</div>
         <div>
-          {props.item.origin.authors
-            .map((a) => a.name)
+          {item.origin?.authors
+            ?.map((a) => a.name)
             .slice(0, 5)
             .join(', ')}
         </div>
-        <div className="bg-black text-white">{props.item.context}</div>
+        <div className="bg-black text-white">{item.context}</div>
       </div>
     </Link>
   );

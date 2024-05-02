@@ -1,25 +1,14 @@
+import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
+import { Items } from '@/types/graphql';
+import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
-import { graphqlApiEndpoint } from '@/api/graphql/api';
 
-export const getGraphQLProgram = cache(async () => {
-  const headers = {
-    'content-type': 'application/json',
-  };
-  const graphqlQuery = {
-    operationName: 'fetchProgram',
-    query: `query fetchProgram {
+const graphQLItemsQuery: DocumentNode = gql`
+  query Items {
     items {
       id
       name
       thumbnail
-      template
-      type
-      allocation {
-        temporal {
-          start
-          end
-        }
-      }
       origin {
         authors {
           name
@@ -30,18 +19,16 @@ export const getGraphQLProgram = cache(async () => {
         name
       }
     }
-  }`,
+  }
+`;
+
+async function fetchGraphQLItems(): Promise<ApolloQueryResult<Items>> {
+  return getGraphQLClient().query({
+    query: graphQLItemsQuery,
     variables: {},
-  };
+  });
+}
 
-  const options = {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(graphqlQuery),
-  };
-
-  const response = await fetch(graphqlApiEndpoint, options);
-  const data = await response.json();
-
-  return data.data.items;
+export const getGraphQLItems = cache(async () => {
+  return fetchGraphQLItems().then((res) => res.data.items);
 });

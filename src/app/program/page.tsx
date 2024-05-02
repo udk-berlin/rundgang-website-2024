@@ -1,8 +1,10 @@
 import Program from '@/app/program/components/program.server';
-import { getGraphQLProgram } from '@/api/graphql/items';
+import { getGraphQLItems } from '@/api/graphql/items';
 
-export default async function ProgramPage(props: any) {
-  const program = await getGraphQLProgram();
+export const revalidate = 0;
+
+export default async function ProgramPage() {
+  const program = await getGraphQLItems();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-0">
