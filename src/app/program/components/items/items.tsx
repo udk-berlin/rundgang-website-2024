@@ -8,7 +8,6 @@ export default async function ProgramPageItems({}: ProgramPageItemsProps) {
 
   console.log(Object.values(formats.children))//Object.keys(data))
 
-
   return (
       <div>
         {Object.values(formats.children).length}
