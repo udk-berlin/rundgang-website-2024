@@ -1,10 +1,10 @@
-import ProjectCard from "@/app/program/components/projectCard.server";
+import ProjectCard from '@/app/program/components/projectCard.server';
 
 export interface ProgramProps {
   program: any[];
 }
 
-export default function Program({program}: ProgramProps) {
+export default function Program({ program }: ProgramProps) {
   return (
     <div>
       <div className="grid grid-cols-4 gap-0">

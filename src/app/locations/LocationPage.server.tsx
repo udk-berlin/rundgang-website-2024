@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Entry } from "@/types";
+import Link from 'next/link';
+import { Entry } from '@/types';
 export type LocationPageProps = {
   locations: Entry;
 };

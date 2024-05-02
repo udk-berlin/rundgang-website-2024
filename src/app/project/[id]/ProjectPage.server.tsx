@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { Item } from "@/types";
+import Image from 'next/image';
+import { Item } from '@/types';
 
 export type ProjectPageProps = {
   project: Item;

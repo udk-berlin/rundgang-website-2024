@@ -1,4 +1,4 @@
-import {ApolloClient, InMemoryCache} from "@apollo/client";
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 export const graphqlApiEndpoint = process.env.GRAPHQL_API_ENDPOINT;
 let client: undefined | any;

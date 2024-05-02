@@ -1,11 +1,11 @@
-import {getRestApiTreeFormatsQuery} from "@/api/rest/tree/api";
+import { getRestApiTreeFormatsQuery } from '@/api/rest/tree/api';
 
 export async function fetchFormats() {
-  const res = await fetch(getRestApiTreeFormatsQuery())
+  const res = await fetch(getRestApiTreeFormatsQuery());
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data')
+    throw new Error('Failed to fetch data');
   }
 
-  return res.json()
+  return res.json();
 }

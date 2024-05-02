@@ -1,4 +1,4 @@
-import { Temporal } from "@/types";
+import { Temporal } from '@/types/types';
 
 export type TimelinePageProps = {
   events: Temporal[];

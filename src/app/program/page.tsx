@@ -1,5 +1,5 @@
-import Program from "@/app/program/components/program.server";
-import {getGraphQLProgram} from "@/api/graphql/items";
+import Program from '@/app/program/components/program.server';
+import { getGraphQLProgram } from '@/api/graphql/items';
 
 export default async function ProgramPage(props: any) {
   const program = await getGraphQLProgram();

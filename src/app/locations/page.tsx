@@ -1,16 +1,16 @@
-import { cache } from "react";
-import LocationPageComponent from "./LocationPage.server";
+import { cache } from 'react';
+import LocationPageComponent from './LocationPage.server';
 
 export const getLocations = cache(async (id: string) => {
   const res = await fetch(
-    `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}`
+    `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}`,
   );
   return res.json();
 });
 
 export default async function LocationsPage(props: any) {
   const locations = await getLocations(
-    "!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de"
+    '!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de',
   );
   console.log(locations?.context, props);
 
