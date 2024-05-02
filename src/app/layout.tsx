@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans } from 'next/font/google';
 import Link from 'next/link';
 
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const noto = Noto_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Rundgang 2024',
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={noto.className}>
         <div>header</div>
 
         <Link href="/locations">Locations</Link>
