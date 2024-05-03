@@ -1,5 +1,5 @@
 import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
-import { Items } from '@/types/graphql';
+import { Items, Item } from '@/types/graphql';
 import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
 
@@ -30,14 +30,14 @@ async function fetchGraphQLItems(): Promise<ApolloQueryResult<Items>> {
 }
 
 export const getGraphQLItems = cache(async () => {
-  return fetchGraphQLItems().then((res) => res.data.items);
-});
-
-/* .map((item: Item) => ({
+  return fetchGraphQLItems().then((res) =>
+    res.data.items.map((item: Item) => ({
       ...item,
       authors: item.origin.authors
         .map((a) => a.name)
         .slice(0, 5)
         .join(', '),
       format: { id: item.parents[0], name: 'test' },
-    })) */
+    })),
+  );
+});

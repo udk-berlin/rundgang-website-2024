@@ -11,7 +11,7 @@ export default function FormatTag({ format }: FormatTagProps) {
       href={{
         pathname: '/program',
         query: {
-          format: format.id,
+          format: format?.id,
         },
       }}
     >

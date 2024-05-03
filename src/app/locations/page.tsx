@@ -12,7 +12,6 @@ export default async function LocationsPage(props: any) {
   const locations = await getLocations(
     '!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de',
   );
-  console.log(locations?.context, props);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-0">

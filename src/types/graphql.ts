@@ -87,7 +87,7 @@ export type Item = Space & {
 };
 
 export type Items = {
-  items?: Item[];
+  items: Item[];
 };
 
 export type Context = Space & {

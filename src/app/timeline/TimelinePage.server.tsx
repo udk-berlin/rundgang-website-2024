@@ -5,8 +5,6 @@ export type TimelinePageProps = {
 };
 
 export default function TimelinePageComponent(props: TimelinePageProps) {
-  console.log(props.events);
-
   // {events.map((event) => event.id).join("")}
   return (
     <div>

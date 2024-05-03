@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { noto, jungka } from './fonts/fonts';
 import './globals.css';
+import Header from '@/components/header';
 
 export const metadata: Metadata = {
   title: 'Rundgang 2024',
@@ -18,11 +19,7 @@ export default function RootLayout({
       <body
         className={`${jungka.variable} ${noto.variable} ${jungka.className}`}
       >
-        <div>header</div>
-
-        <Link href="/locations">Locations</Link>
-        <Link href="/timeline">Timeline</Link>
-        <Link href="/program">Program</Link>
+        <Header />
         {children}
       </body>
     </html>

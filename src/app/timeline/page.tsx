@@ -13,8 +13,6 @@ export default async function TimelinesPage(props: any) {
     '!BTcywpcJQUsfkBptcB:content.udk-berlin.de',
   );
 
-  console.log(events);
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div>

@@ -6,12 +6,14 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'selector',
   theme: {
     screens: {
-      sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      xl: { min: '1921px' },
+      lg: { max: '1920px' },
+      md: { max: '1440px' },
+      sm: { max: '1200px' },
+      xs: { max: '600px' },
     },
     colors: {
       initial: '#000',
@@ -23,11 +25,6 @@ const config: Config = {
       white: '#fff',
     },
     fontSize: {
-      'root/sm': ['15px'],
-      'root/md': ['15px'],
-      'root/xl': ['min(1.1vw, 40px)'],
-      'root/xs': ['3.48vw'],
-
       xl: [
         '2.7rem',
         {
@@ -74,6 +71,10 @@ const config: Config = {
         '7xl': '72rem',
         '8xl': '96rem',
         '9xl': '128rem',
+      },
+      gridTemplateColumns: {
+        footer: 'repeat(3,minmax(200px, 1fr))',
+        header: 'repeat(5,minmax(200px, 1fr)) 40px 40px',
       },
     },
   },
