@@ -38,7 +38,7 @@ export default function MenuMobile({}: MenuMobileProps) {
     <div
       onClick={() => setMenuOpen(!menuOpen)}
       className={cx(
-        'border-2 border-primary bg-primarybg hover:bg-secondary hover:text-black',
+        'border border-primary bg-primarybg hover:bg-secondary hover:text-black',
         menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
       )}
     >

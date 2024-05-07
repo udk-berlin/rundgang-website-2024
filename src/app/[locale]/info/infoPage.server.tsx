@@ -7,7 +7,7 @@ export type InfoPageProps = {
 export default function InfoPageComponent(props: InfoPageProps) {
   return (
     <div>
-      <div>Info</div>
+      <div>Info Full Page</div>
     </div>
   );
 }

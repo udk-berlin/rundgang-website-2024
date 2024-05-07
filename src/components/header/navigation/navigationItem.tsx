@@ -11,7 +11,7 @@ export default function NavigationItem({ item, active }: NavigationItemProps) {
   return (
     <Link
       className={cx(
-        'border-2 border-primary bg-primarybg hover:bg-secondary hover:text-black',
+        'border border-primary bg-primarybg hover:bg-secondary hover:text-black',
         active ? 'rounded-t-md border-b-0' : 'rounded-md',
       )}
       href={item.href}

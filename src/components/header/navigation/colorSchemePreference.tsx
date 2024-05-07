@@ -30,14 +30,14 @@ export const ColorSchemePreference = ({}: ColorSchemePreferenceProps) => {
 
   return (
     <div className="h-full bg-primarybg">
-      <div className="text-md h-full content-around bg-primary text-center text-primarybg hover:bg-secondary hover:text-black">
-        <label htmlFor="darkmodecheck" className="">
+      <div className="h-full content-around bg-primary text-center text-md text-primarybg hover:bg-secondary hover:text-black">
+        <label htmlFor="darkmodecheck" className="relative left-0 top-0">
           *
         </label>
         <input
           checked={isDark}
           type="checkbox"
-          className="absolute m-0 h-full w-full p-0"
+          className=""
           id="darkmodecheck"
           onChange={({ target }) => toggleDarkMode(target.checked)}
           aria-label="Dark mode toggle"

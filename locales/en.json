@@ -1,0 +1,20 @@
+{
+    "rundgang": "round tour",
+    "imprint": "Imprint",
+    "contact": "Contact",
+    "info": "Info",
+    "design": "Design",
+    "program": "Program",
+    "locations": "Locations",
+    "timeline": "Timeline",
+    "filter": "Filter",
+    "LocaleSwitcher": {
+        "en": "English",
+        "de": "Deutsch",
+        "label": "Language"
+    },
+    "RootLayout": {
+        "title": "Round Tour 2024",
+        "description": "Round Tour 2024"
+    }
+}

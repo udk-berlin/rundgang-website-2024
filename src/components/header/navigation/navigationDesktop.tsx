@@ -1,5 +1,5 @@
 import { usePathname } from 'next/navigation';
-import { ColorSchemePreference } from './colorSchemePreference';
+/* import { ColorSchemePreference } from './colorSchemePreference'; */
 import NavigationItem from './navigationItem';
 import SavedItems from './savedItems';
 
@@ -34,7 +34,7 @@ const menuItems = [
 export default function NavigationDesktop() {
   const pathname = usePathname();
   return (
-    <div className="grid-cols-header grid w-screen overflow-hidden md:hidden">
+    <nav className="grid w-screen grid-cols-header overflow-hidden md:hidden">
       {menuItems.map((item) => (
         <NavigationItem
           key={item.href}
@@ -43,7 +43,7 @@ export default function NavigationDesktop() {
         />
       ))}
       <SavedItems />
-      <ColorSchemePreference />
-    </div>
+      {/* <ColorSchemePreference /> */}
+    </nav>
   );
 }

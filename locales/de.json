@@ -1,0 +1,20 @@
+{
+    "rundgang": "Rundgang",
+    "imprint": "Impressum",
+    "contact": "Kontakt",
+    "info": "Info",
+    "design": "Design",
+    "program": "Programm",
+    "locations": "Orte",
+    "timeline": "Zeitplan",
+    "filter": "Filter",
+    "LocaleSwitcher": {
+        "en": "English",
+        "de": "Deutsch",
+        "label": "Sprache"
+    },
+    "RootLayout": {
+        "title": "Rundgang 2024",
+        "description": "Rundgang 2024"
+    }
+}

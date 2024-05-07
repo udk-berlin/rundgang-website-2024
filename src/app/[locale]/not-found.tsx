@@ -6,10 +6,10 @@ import Error from 'next/error';
 // is requested that doesn't match the middleware and
 // therefore doesn't have a locale associated with it.
 
-export default function Loading() {
+export default function NotFound() {
   return (
-    <html lang="en">
-      <body>Loading</body>
-    </html>
+    <div>
+      <Error statusCode={404} />
+    </div>
   );
 }
