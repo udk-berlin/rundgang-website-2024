@@ -1,0 +1,19 @@
+:root {
+    --black: #000;
+    --white: #FFF;
+    --grey: #858585;
+    --highlight: #00FDA0FF;
+}
+
+html,
+body {
+    line-height: 1
+}
+
+::selection {
+    background: var(--highlight) !important;
+}
+
+::-moz-selection { /* Code for Firefox */
+    background: var(--highlight) !important;
+}
