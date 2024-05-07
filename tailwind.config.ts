@@ -74,7 +74,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         footer: 'repeat(3,minmax(200px, 1fr))',
-        header: 'repeat(5,minmax(200px, 1fr)) 40px 40px',
+        header: 'repeat(5,minmax(200px, 1fr)) 40px 40px 40px',
       },
     },
   },

@@ -1,5 +1,3 @@
-'use client';
-
 import cx from 'classnames';
 import { useParams } from 'next/navigation';
 import { ChangeEvent, ReactNode, useTransition } from 'react';
@@ -37,21 +35,19 @@ export default function LocaleSwitcherSelect({
   return (
     <label
       className={cx(
-        'text-gray-400 relative',
+        'h-10 bg-primary',
         isPending && 'transition-opacity [&:disabled]:opacity-30',
       )}
-      aria-label={label}
     >
-      {/* <p className="sr-only">{label}</p> */}
+      <p className="sr-only">{label}</p>
       <select
-        className="bg-transparent inline-flex appearance-none py-3 pl-2 pr-6"
+        className="inline-flex h-full w-full appearance-none content-around rounded-md border border-primary bg-primarybg text-center uppercase hover:bg-secondary hover:text-black"
         defaultValue={defaultValue}
         disabled={isPending}
         onChange={onSelectChange}
       >
         {children}
       </select>
-      <span className="pointer-events-none absolute right-2 top-[8px]">⌄</span>
     </label>
   );
 }

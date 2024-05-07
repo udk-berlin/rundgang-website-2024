@@ -1,4 +1,4 @@
-import Program from '@/app/program/components/program.server';
+import Program from './components/program.server';
 import { getGraphQLItems } from '@/api/graphql/items';
 
 export const revalidate = 0;

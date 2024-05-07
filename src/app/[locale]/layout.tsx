@@ -1,4 +1,9 @@
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import {
+  getTranslations,
+  unstable_setRequestLocale,
+  getMessages,
+} from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
 import { noto, jungka } from '../fonts/fonts';
 import { locales } from '@/config';
 import Header from '@/components/header';
@@ -26,22 +31,25 @@ export async function generateMetadata({
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   modal,
   params: { locale },
 }: Readonly<Props>) {
   unstable_setRequestLocale(locale);
+  const messages = await getMessages({ locale });
   return (
     <html lang={locale}>
       <body
         className={`${jungka.variable} ${noto.variable} ${jungka.className}`}
       >
-        <Header />
-        {children}
-        {modal}
-        <div id="modal-root" />
-        <Footer />
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <Header />
+          {children}
+          {modal}
+          <div id="modal-root" />
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

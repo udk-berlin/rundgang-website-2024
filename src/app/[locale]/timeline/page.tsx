@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import TimelinePageComponent from './TimelinePage.server';
 
-export const getTimelines = cache(async (id: string) => {
+const getTimelines = cache(async (id: string) => {
   const res = await fetch(
     `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}/list/filter/allocation/temporal`,
   );

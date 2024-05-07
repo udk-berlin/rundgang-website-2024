@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import ProjectPageComponent from './ProjectPage.server';
 
-export const getProject = cache(async (id: string) => {
+const getProject = cache(async (id: string) => {
   const res = await fetch(
     `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}`,
   );

@@ -1,4 +1,4 @@
-import ProjectCard from '@/app/program/components/projectCard.server';
+import ProjectCard from './projectCard.server';
 
 export type ProgramProps = {
   program: any[];
@@ -6,7 +6,7 @@ export type ProgramProps = {
 
 export default function Program({ program }: ProgramProps) {
   return (
-    <div className="xs:columns-1 w-screen gap-0 bg-primary md:columns-2 lg:columns-4">
+    <div className="w-screen gap-0 bg-primary lg:columns-4 md:columns-2 xs:columns-1">
       {program.map((item) => (
         <ProjectCard key={`project-card-${item.id}`} item={item} />
       ))}

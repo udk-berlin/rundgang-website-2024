@@ -15,7 +15,7 @@ export type Space = {
 export type Origin = {
   application?: Application[];
   server?: Server[];
-  authors?: User[];
+  authors: User[];
 };
 
 export type Description = {
@@ -76,12 +76,12 @@ export type Item = Space & {
   type?: String;
   template?: String;
   name?: String;
-  parents?: Entry[];
+  parents: Entry[];
   content?: Content[];
   thumbnail?: String;
   thumbnail_full_size?: String;
   allocation?: Allocation;
-  origin?: Origin;
+  origin: Origin;
   description?: Description[];
   localDepth?: String;
 };

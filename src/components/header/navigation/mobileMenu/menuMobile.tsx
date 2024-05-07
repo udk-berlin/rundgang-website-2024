@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import cx from 'classnames';
-import Link from 'next/link';
+import { Link } from '@/navigation';
 
 export type MenuMobileProps = {};
 export type MobileMenuItemProps = {
   title: string;
-  href: URL | string;
+  href: any;
   isTop: boolean;
   active: boolean;
 };

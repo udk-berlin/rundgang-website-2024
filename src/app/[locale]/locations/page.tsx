@@ -1,7 +1,7 @@
 import { cache } from 'react';
 import LocationPageComponent from './LocationPage.server';
 
-export const getLocations = cache(async (id: string) => {
+const getLocations = cache(async (id: string) => {
   const res = await fetch(
     `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}`,
   );

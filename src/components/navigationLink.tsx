@@ -2,27 +2,34 @@
 
 import cx from 'classnames';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { ComponentProps } from 'react';
-import type { AppPathnames } from '@/config';
 import { Link } from '@/navigation';
 
-export default function NavigationLink<Pathname extends AppPathnames>({
+export type NavigationLinkProps = {
+  href: any;
+  isFooter?: boolean;
+  children: any;
+};
+export default function NavigationLink({
   href,
-  ...rest
-}: ComponentProps<typeof Link<Pathname>>) {
+  isFooter = false,
+  children,
+}: NavigationLinkProps) {
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
   const isActive = pathname === href;
-
+  const activeStyle = isFooter
+    ? 'rounded-b-md border-t-0'
+    : 'rounded-t-md border-b-0';
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
       className={cx(
-        'inline-block px-2 py-3 transition-colors',
-        isActive ? 'text-white' : 'text-gray-400 hover:text-gray-200',
+        'border border-primary bg-primarybg hover:bg-secondary hover:text-black',
+        isActive ? activeStyle : 'rounded-md',
       )}
       href={href}
-      {...rest}
-    />
+    >
+      <div className="h-9 content-around text-center">{children}</div>
+    </Link>
   );
 }

@@ -1,49 +1,24 @@
-import { usePathname } from 'next/navigation';
-/* import { ColorSchemePreference } from './colorSchemePreference'; */
-import NavigationItem from './navigationItem';
+import { useTranslations } from 'next-intl';
+import { ColorSchemePreference } from './colorSchemePreference';
+import NavigationLink from '../../navigationLink';
 import SavedItems from './savedItems';
-
-const menuItems = [
-  {
-    href: '/',
-    logo: '/media/rng.png',
-    title: '',
-  },
-  {
-    href: '/program',
-    logo: '',
-    title: 'Program',
-  },
-  {
-    href: '/locations',
-    logo: '',
-    title: 'Locations',
-  },
-  {
-    href: '/timeline',
-    logo: '',
-    title: 'Timeline',
-  },
-  {
-    href: '/info',
-    logo: '',
-    title: 'Info',
-  },
-];
+import RundgangLogo from './rundgangLogo';
+import LocaleSwitcher from './localeSwitcher';
 
 export default function NavigationDesktop() {
-  const pathname = usePathname();
+  const t = useTranslations('Navigation');
   return (
     <nav className="grid w-screen grid-cols-header overflow-hidden md:hidden">
-      {menuItems.map((item) => (
-        <NavigationItem
-          key={item.href}
-          item={item}
-          active={pathname == item.href}
-        />
-      ))}
+      <NavigationLink href="/">
+        <RundgangLogo logo="/public/media/rng.png" />
+      </NavigationLink>
+      <NavigationLink href="/program">{t('program')}</NavigationLink>
+      <NavigationLink href="/locations">{t('locations')}</NavigationLink>
+      <NavigationLink href="/timeline">{t('timeline')}</NavigationLink>
+      <NavigationLink href="/info">{t('info')}</NavigationLink>
       <SavedItems />
-      {/* <ColorSchemePreference /> */}
+      <LocaleSwitcher />
+      <ColorSchemePreference />
     </nav>
   );
 }

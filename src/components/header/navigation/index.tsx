@@ -3,9 +3,9 @@ import NavigationMobile from './navigationMobile';
 
 export default function Navigation() {
   return (
-    <div className="">
+    <nav className="">
       <NavigationDesktop />
       <NavigationMobile />
-    </div>
+    </nav>
   );
 }

@@ -14,21 +14,33 @@ export const pathnames = {
     en: '/contact',
     de: '/kontakt',
   },
+  '/design': {
+    en: '/design',
+    de: '/design',
+  },
   '/imprint': {
     en: '/imprint',
     de: '/impressum',
+  },
+  '/info': {
+    en: '/info',
+    de: '/info',
+  },
+  '/locations': {
+    en: '/locations',
+    de: '/orte',
   },
   '/program': {
     en: '/program',
     de: '/programm',
   },
+  '/project': {
+    en: '/project',
+    de: '/project',
+  },
   '/timeline': {
     en: '/timeline',
     de: '/zeitplan',
-  },
-  '/locations': {
-    en: '/locations',
-    de: '/orte',
   },
 } satisfies Pathnames<typeof locales>;
 

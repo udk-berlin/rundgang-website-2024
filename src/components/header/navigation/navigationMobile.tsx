@@ -1,34 +1,20 @@
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import cx from 'classnames';
-import Link from 'next/link';
-import NavigationItem from './navigationItem';
-import MenuMobile from '../../mobileMenu/menuMobile';
-
-const menuItems = [
-  {
-    href: '/',
-    logo: '/media/rng',
-    title: '',
-  },
-  {
-    href: '/info',
-    logo: '',
-    title: 'Info',
-  },
-];
+import NavigationLink from '../../navigationLink';
+import MenuMobile from './mobileMenu/menuMobile';
+import RundgangLogo from './rundgangLogo';
 
 export default function NavigationMobile() {
-  const pathname = usePathname();
+  const t = useTranslations('Navigation');
   const [menuOpen, setMenuOpen] = useState(false); // make global state
 
   return (
     <div className="hidden overflow-hidden md:flex">
       <nav className="grid h-10 w-screen grid-cols-3">
-        <NavigationItem
-          item={menuItems[0]}
-          active={pathname == menuItems[0].href && !menuOpen}
-        />
+        <NavigationLink href="/">
+          <RundgangLogo logo="test" />
+        </NavigationLink>
         <div
           onClick={() => setMenuOpen(!menuOpen)}
           className={cx(
@@ -38,10 +24,7 @@ export default function NavigationMobile() {
         >
           <div className="h-9 content-around text-center">{'='}</div>
         </div>
-        <NavigationItem
-          item={menuItems[1]}
-          active={pathname == menuItems[1].href && !menuOpen}
-        />
+        <NavigationLink href="/info">{t('info')}</NavigationLink>
       </nav>
     </div>
   );
