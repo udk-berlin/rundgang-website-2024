@@ -1,10 +1,12 @@
 import LandingTitle from '@/app/landing/components/title.server';
 import { ReactNode } from 'react';
 import LandingFilters from '@/app/landing/components/filters/filters.server';
+import {LandingPageProps} from "@/app/page";
 
-export default function Landing() {
+export default function Landing({searchParams}: LandingPageProps) {
   return (
     <LandingContainer>
+      <div>{searchParams && 'audio' in searchParams && searchParams.audio}</div>
       <LandingTitle />
       <LandingFilters />
     </LandingContainer>
