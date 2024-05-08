@@ -1,15 +1,15 @@
 export type Space = {
-  id: String;
-  name?: String;
-  type?: String;
-  template?: String;
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  id: string;
+  name?: string;
+  type?: string;
+  template?: string;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   parents?: Entry[];
   allocation?: Allocation;
   origin?: Origin;
   description?: Description[];
-  localDepth?: String;
+  localDepth?: string;
 };
 
 export type Origin = {
@@ -19,8 +19,8 @@ export type Origin = {
 };
 
 export type Description = {
-  language: String;
-  content?: String;
+  language: string;
+  content?: string;
 };
 
 export type Allocation = {
@@ -29,111 +29,113 @@ export type Allocation = {
 };
 
 export type Application = {
-  name?: String;
+  name?: string;
 };
 
 export type Physical = {
-  app?: String;
-  lat?: String;
-  lng?: String;
-  info?: String;
-  radius?: String;
-  Path?: String[];
+  app?: string;
+  lat?: string;
+  lng?: string;
+  info?: string;
+  radius?: string;
+  Path?: string[];
 };
 
 export type Temporal = {
-  app: String;
-  start?: String;
-  end?: String;
-  timestamp?: String;
-  year?: String;
-  month?: String;
-  day?: String;
-  hour?: String;
-  minute?: String;
-  second?: String;
+  app: string;
+  start?: string;
+  end?: string;
+  timestamp?: string;
+  year?: string;
+  month?: string;
+  day?: string;
+  hour?: string;
+  minute?: string;
+  second?: string;
 };
 
 export type Entry = Space & {
-  id: String;
-  type?: String;
-  template?: String;
-  name?: String;
+  id: string;
+  type?: string;
+  template?: string;
+  name?: string;
   parents?: Entry[];
   content?: Content[];
   item?: Item[];
   context?: Context[];
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   allocation?: Allocation;
   origin?: Origin;
   description?: Description[];
-  localDepth?: String;
+  localDepth?: string;
 };
 
 export type Item = Space & {
-  id: String;
-  type?: String;
-  template?: String;
-  name?: String;
+  id: string;
+  type?: string;
+  template: string;
+  name?: string;
   parents: Entry[];
   content?: Content[];
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   allocation?: Allocation;
   origin: Origin;
   description?: Description[];
-  localDepth?: String;
+  localDepth?: string;
 };
+
+export type Filter = Pick<Item, 'id' | 'name' | 'template'>;
 
 export type Items = {
   items: Item[];
 };
 
 export type Context = Space & {
-  id: String;
-  type?: String;
-  template?: String;
-  name?: String;
+  id: string;
+  type?: string;
+  template?: string;
+  name?: string;
   parents?: Entry[];
   item?: Item[];
   context?: Context[];
   content?: Content[];
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   allocation?: Allocation;
   origin?: Origin;
   description?: Description[];
-  localDepth?: String;
+  localDepth?: string;
 };
 
 export type Content = Space & {
-  id: String;
-  type?: String;
-  template?: String;
-  name?: String;
+  id: string;
+  type?: string;
+  template?: string;
+  name?: string;
   parents?: Entry[];
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   allocation?: Allocation;
   origin?: Origin;
   description?: Description[];
-  localDepth?: String;
+  localDepth?: string;
 };
 
 export type User = {
-  id: String;
-  name?: String;
+  id: string;
+  name?: string;
   server?: Server;
-  thumbnail?: String;
-  thumbnail_full_size?: String;
+  thumbnail?: string;
+  thumbnail_full_size?: string;
   context?: Context[];
   item?: Item[];
   content?: Content[];
 };
 
 export type Server = {
-  url: String;
+  url: string;
   users?: User[];
   context?: Context[];
   item?: Item[];
@@ -141,21 +143,21 @@ export type Server = {
 };
 
 export type Query = {
-  entries(template?: String, type?: String): Entry[];
-  entry(id: String): Entry;
+  entries(template?: string, type?: string): Entry[];
+  entry(id: string): Entry;
   items(
-    template?: String,
+    template?: string,
     pagination?: Boolean,
     offset?: number,
     start?: number,
   ): Item[];
-  item(id: String): Item;
-  contexts(template?: String): Context[];
-  context(id: String): Context;
+  item(id: string): Item;
+  contexts(template?: string): Context[];
+  context(id: string): Context;
   contents: Content[];
-  content(id: String): Content;
+  content(id: string): Content;
   servers: Server[];
-  server(url: String): Server;
+  server(url: string): Server;
   users: User[];
-  user(id: String): User;
+  user(id: string): User;
 };

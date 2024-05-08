@@ -9,7 +9,12 @@
         "locations": "Orte",
         "timeline": "Zeitplan"
     },
-    "filter": "Filter",
+    "Filtering": {
+        "filter": "Filter:",
+        "formats": "Formate:",
+        "faculties": "Fakultäten/Zentren:",
+        "languages": "Sprachen:"
+    },
     "RootLayout": {
         "title": "Rundgang 2024",
         "description": "Rundgang 2024"

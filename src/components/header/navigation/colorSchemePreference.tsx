@@ -7,8 +7,7 @@ export const ColorSchemePreference = ({}: ColorSchemePreferenceProps) => {
   useEffect(() => {
     if (
       localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
+      window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       setIsDark(true);
     } else {

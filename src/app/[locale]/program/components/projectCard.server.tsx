@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Item } from '@/types/graphql';
 import ImageWrapper from '@/components/image';
-import FormatTag from '@/components/formatTag';
+import FilterTag from '@/components/filterTag';
 export type ProjectCardProps = {
   item: Item & {
     format: Item;
@@ -12,7 +12,7 @@ export type ProjectCardProps = {
 export default function ProjectCard({ item }: ProjectCardProps) {
   return (
     <Link href={`/project/${item.id}`}>
-      <div className="w-full border border-primary bg-primary">
+      <div className="max-h-fit w-full border border-primary bg-primary">
         <div className="w-full rounded-md bg-primarybg p-2 hover:bg-secondary hover:text-black">
           <div className="relative w-full overflow-hidden bg-secondary">
             <ImageWrapper src={item.thumbnail} />
@@ -25,7 +25,7 @@ export default function ProjectCard({ item }: ProjectCardProps) {
               .join(', ')}
           </div>
           <div>
-            <FormatTag format={item.format} />
+            <FilterTag filter={item.format} />
           </div>
         </div>
       </div>
