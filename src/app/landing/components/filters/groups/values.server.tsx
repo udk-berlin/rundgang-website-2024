@@ -19,8 +19,10 @@ function LandingFiltersGroupsValuesContainer({
   children: ReactNode;
 }) {
   return (
-    <ResponsiveDiv className="grid grid-cols-3 bg-black p-[2px]">
-      {children}
+    <ResponsiveDiv className="p-border bg-black">
+      <div className="grid max-h-[calc((100vh-20px)*0.2)] grid-cols-3 overflow-y-scroll ">
+        {children}
+      </div>
     </ResponsiveDiv>
   );
 }

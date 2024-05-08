@@ -23,5 +23,7 @@ function LandingFiltersGroupValuesContainer({
 }: {
   children: ReactNode;
 }) {
-  return <div className="flex flex-wrap gap-[2px]">{children}</div>;
+  return (
+    <div className="flex flex-wrap content-start gap-[2px]">{children}</div>
+  );
 }

@@ -1,11 +1,8 @@
-export const smTextClassName =
-  'text-sm leading-sm desktop:text-desktop-sm desktop:leading-desktop-sm';
+export const smTextClassName = 'text-sm leading-1 desktop:text-desktop-sm';
 
-export const mdTextClassName =
-  'text-md leading-md desktop:text-desktop-md desktop:leading-desktop-md';
+export const mdTextClassName = 'text-md leading-1 desktop:text-desktop-md';
 
-export const lgTextClassName =
-  'text-lg leading-lg desktop:text-desktop-lg desktop:leading-desktop-lg';
+export const lgTextClassName = 'text-lg leading-1 desktop:text-desktop-lg';
 
 export const sizeToTextClassName = {
   sm: smTextClassName,
