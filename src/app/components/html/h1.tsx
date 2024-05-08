@@ -13,3 +13,15 @@ export function ResponsiveH1({
     </h1>
   );
 }
+
+export function ResponsiveH2({
+  className,
+  textSize = 'lg',
+  children,
+}: ResponsiveHtmlProps) {
+  return (
+    <h2 className={cn('font-bold', sizeToTextClassName[textSize], className)}>
+      {children}
+    </h2>
+  );
+}

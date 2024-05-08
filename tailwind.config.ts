@@ -16,6 +16,14 @@ const config: Config = {
         lg: '56px',
         'desktop-lg': '56px',
       },
+      lineHeight: {
+        sm: '12px',
+        'desktop-sm': '12px',
+        md: '16px',
+        'desktop-md': '16px',
+        lg: '56px',
+        'desktop-lg': '56px',
+      },
       spacing: {
         'header-height': '20px',
         'desktop-header-height': '20px',

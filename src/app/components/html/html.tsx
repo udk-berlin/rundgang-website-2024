@@ -3,7 +3,7 @@ import { ResponsiveSize } from '@/types/types';
 
 export type HtmlProps = {
   className?: string;
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export type ResponsiveHtmlProps = HtmlProps & { textSize?: ResponsiveSize };

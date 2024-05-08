@@ -11,9 +11,11 @@ body {
 }
 
 ::selection {
-    background: var(--highlight) !important;
+    color: var(--white) !important;
+    background-color: var(--black) !important;
 }
 
 ::-moz-selection { /* Code for Firefox */
-    background: var(--highlight) !important;
+    color: var(--white) !important;
+    background-color: var(--black) !important;
 }
