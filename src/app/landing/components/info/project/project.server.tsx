@@ -1,17 +1,20 @@
 import { ReactNode } from 'react';
-import { ResponsiveP } from '@/components/html/p';
 import LandingInfoProjectSound from '@/app/landing/components/info/project/sound.client';
+import { ResponsiveDiv } from '@/components/html/div';
 
 export default function LandingInfoProject() {
   return (
     <LandingInfoProjectContainer>
       <LandingInfoProjectSound />
-      <ResponsiveP className="flex flex-col gap-[2px] text-right text-grey">
+      <ResponsiveDiv
+        className="flex flex-col gap-[2px] text-right text-grey"
+        textSize="sm"
+      >
         <p>Name</p>
         <p>Language</p>
         <p>Studies</p>
         <p>Faculty</p>
-      </ResponsiveP>
+      </ResponsiveDiv>
     </LandingInfoProjectContainer>
   );
 }
