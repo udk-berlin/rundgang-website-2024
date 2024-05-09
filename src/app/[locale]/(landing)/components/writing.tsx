@@ -20,7 +20,7 @@ function LandingWritingContainer({ children }: { children: ReactNode }) {
     <BorderContainer
       className="h-full"
       innerClassName="flex h-full items-center justify-center px-[5vw]"
-      borders={['x']}
+      borders={['x', 't']}
     >
       {children}
     </BorderContainer>

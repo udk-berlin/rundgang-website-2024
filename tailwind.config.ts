@@ -18,8 +18,8 @@ const config: Config = {
     },
     colors: {
       initial: '#000',
-      primary: 'rgb(var(--foreground-rgb))',
-      primarybg: 'rgb(var(--background-rgb))',
+      primary: 'rgb(var(--primary))',
+      primarybg: 'rgb(var(--secondary))',
       secondary: '#00ffa1',
       grey: '#888888',
       black: '#000',

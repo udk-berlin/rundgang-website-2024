@@ -3,23 +3,55 @@
     --white: #FFF;
     --grey: #858585;
     --highlight: #00FDA0FF;
+    --primary: 0, 0, 0;
+    --secondary: 255, 255, 255;
 
     --border: 2px;
     --height-md: 50px;
     --gutter-lg: 50px;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: 255, 255, 255;
+        --secondary: 0, 0, 0;
+    }
+}
+
+:root[data-theme='dark'] {
+    --primary: 255, 255, 255;
+    --secondary: 0, 0, 0;
+}
+:root[data-theme='light'] {
+    --primary: 0, 0, 0;
+    --secondary: 255, 255, 255;
+}
+
+.dark\:underline:where([data-mode='dark'], [data-mode='dark'] *) {
+    --primary: 255, 255, 255;
+    --secondary: 0, 0, 0;
+}
+
+
 html,
 body {
+    color: rgb(var(--primary));
+    background: rgb(var(--secondary));
     line-height: 1
 }
 
 ::selection {
-    color: var(--white) !important;
-    background-color: var(--black) !important;
+    color: var(--primary) !important;
+    background-color: var(--secondary) !important;
 }
 
 ::-moz-selection {
-    color: var(--white) !important;
-    background-color: var(--black) !important;
+    color: var(--primary) !important;
+    background-color: var(--secondary) !important;
 }
+
+/*@layer utilities {*/
+/*    .text-balance {*/
+/*        text-wrap: balance;*/
+/*    }*/
+/*}*/
