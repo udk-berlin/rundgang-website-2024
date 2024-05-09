@@ -1,4 +1,4 @@
-import Landing from './landing/components/landing.server';
+import Landing from './(landing)/components/landing.server';
 
 export type LandingPageProps = {
   searchParams?: { [key: string]: string | string[] | undefined };

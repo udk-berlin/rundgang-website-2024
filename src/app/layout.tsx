@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
 
-import './styles/app.css';
-import './styles/tailwind.css';
+import '@/styles/app.css';
+import '@/styles/tailwind.css';
 import '/node_modules/modern-normalize/modern-normalize.css';
 import { ReactNode } from 'react';
 
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-header-height max-header-height min-header-height desktop:h-desktop-header-height desktop:max-desktop-header-height desktop:min-desktop-header-height flex items-center justify-center gap-2">
+        <div className="flex h-md max-h-md min-h-md items-center justify-center desktop:h-desktop-md desktop:max-h-desktop-md desktop:min-h-desktop-md">
           <Link href="/locations">Locations</Link>
           <Link href="/timeline">Timeline</Link>
           <Link href="/program">Program</Link>
