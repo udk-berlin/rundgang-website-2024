@@ -1,0 +1,25 @@
+:root {
+    --black: #000;
+    --white: #FFF;
+    --grey: #858585;
+    --highlight: #00FDA0FF;
+
+    --border: 2px;
+    --height-md: 50px;
+    --gutter-lg: 50px;
+}
+
+html,
+body {
+    line-height: 1
+}
+
+::selection {
+    color: var(--white) !important;
+    background-color: var(--black) !important;
+}
+
+::-moz-selection {
+    color: var(--white) !important;
+    background-color: var(--black) !important;
+}

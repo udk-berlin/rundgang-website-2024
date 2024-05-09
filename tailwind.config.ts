@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/styles/constants.ts',
   ],
   darkMode: 'selector',
   theme: {
@@ -61,16 +62,24 @@ const config: Config = {
         },
       ],
     },
-    fontFamily: {
-      sans: ['var(--font-jungka)'],
-    },
     extend: {
+      height: {
+        sm: '35px',
+        'desktop-sm': '35px',
+        md: '50px',
+        'desktop-md': '50px',
+      },
+      borderRadius: {
+        md: '2px',
+        'desktop-md': '2px',
+      },
       spacing: {
-        '5xl': '48rem',
-        '6xl': '64rem',
-        '7xl': '72rem',
-        '8xl': '96rem',
-        '9xl': '128rem',
+        'gutter-xxs': '4px',
+        'gutter-xs': '8px',
+        'gutter-sm': '12px',
+        'gutter-md': '20px',
+        'gutter-lg': '50px',
+        border: '2px',
       },
       gridTemplateColumns: {
         footer: 'repeat(3,minmax(200px, 1fr))',

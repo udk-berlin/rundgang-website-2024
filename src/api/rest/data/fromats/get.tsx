@@ -1,6 +1,6 @@
 import { getRestApiTreeFormatsQuery } from '@/api/rest/tree/api';
 
-export async function fetchFormats() {
+export async function getFormats() {
   const res = await fetch(getRestApiTreeFormatsQuery());
 
   if (!res.ok) {
