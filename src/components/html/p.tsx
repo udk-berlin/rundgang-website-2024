@@ -4,7 +4,7 @@ import { sizeToTextClassName } from '@/styles/constants';
 
 export function ResponsiveP({
   className,
-  textSize = 'sm',
+  textSize = 'md',
   dangerouslySetInnerHTML,
   children,
 }: ResponsiveHtmlWithInnerHtmlProps) {

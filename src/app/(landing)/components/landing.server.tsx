@@ -3,15 +3,20 @@ import LandingFilters from '@/app/(landing)/components/filters/filters.server';
 import { LandingPageProps } from '@/app/page';
 import LandingWriting from '@/app/(landing)/components/writing';
 import LandingInfo from '@/app/(landing)/components/info/info.server';
+import BorderContainer from '@/components/containers/border';
 
 export default function Landing({ searchParams }: LandingPageProps) {
   console.log(searchParams);
   return (
     <LandingContainer>
-      <div className="relative grow-[1]">
+      <BorderContainer
+        className="relative grow-[1]"
+        innerClassName="h-full"
+        borders={['x']}
+      >
         <LandingWriting />
         <LandingInfo />
-      </div>
+      </BorderContainer>
       <LandingFilters />
     </LandingContainer>
   );

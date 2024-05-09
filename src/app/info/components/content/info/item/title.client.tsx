@@ -19,11 +19,7 @@ export default function InfoContentInfoItemTitle({
 function InfoContentInfoItemTitleContainer({ className, children }: HtmlProps) {
   return (
     <ResponsiveH5
-      className={cn(
-        'flex items-center',
-        sizeToHeightClassName['sm'],
-        className,
-      )}
+      className={cn('py-gutter-sm desktop:py-desktop-gutter-sm', className)}
       textSize="md"
     >
       {children}

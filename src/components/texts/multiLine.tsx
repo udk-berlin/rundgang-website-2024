@@ -4,7 +4,7 @@ import { ResponsiveSize } from '@/types/types';
 export function ResponsiveMultiLineText({
   className,
   text,
-  textSize = 'sm',
+  textSize = 'md',
 }: {
   className?: string;
   text: string;

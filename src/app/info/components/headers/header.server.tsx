@@ -18,7 +18,7 @@ function InfoHeaderContainer({ className, children }: HtmlProps) {
   return (
     <ResponsiveH1
       className={cn(
-        'px-gutter-sm desktop:px-desktop-gutter-sm pb-gutter-xxs desktop:pb-desktop-gutter-xxs col-span-2 flex items-end text-grey',
+        'px-gutter-md desktop:px-desktop-gutter-md pb-gutter-xs desktop:pb-desktop-gutter-xs col-span-2 flex items-end text-grey',
         className,
       )}
       textSize="sm"

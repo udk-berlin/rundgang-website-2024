@@ -6,10 +6,12 @@ import { ResponsiveH2 } from '@/components/html/h2';
 export default function LandingInfoTitle() {
   return (
     <LandingTitleContainer>
-      <ResponsiveH1 className="font-medium">UdK Berlin</ResponsiveH1>
+      <ResponsiveH1 className="font-medium" textSize="xl">
+        UdK Berlin
+      </ResponsiveH1>
       <div>
         <ResponsiveBr textSize="xl" />
-        <ResponsiveH2>19. - 21. Juli 2024</ResponsiveH2>
+        <ResponsiveH2 textSize="xl">19. - 21. Juli 2024</ResponsiveH2>
       </div>
     </LandingTitleContainer>
   );

@@ -19,7 +19,7 @@ export default function LandingInfoProject() {
 function LandingInfoProjectContainer({ children }: { children: ReactNode }) {
   return (
     <div className="ml-auto mt-auto">
-      <div className="gap-gutter-xs desktop:gap-desktop-gutter-xs flex flex-col items-end">
+      <div className="gap-gutter-sm desktop:gap-desktop-gutter-sm flex flex-col items-end">
         {children}
       </div>
     </div>

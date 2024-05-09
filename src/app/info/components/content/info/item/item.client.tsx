@@ -32,9 +32,8 @@ export default function InfoContentInfoItem({
       <InfoContentInfoItemTitle item={item} isHovered={isHovered} />
       {isHovered && (
         <ResponsiveMultiLineText
-          className="pb-gutter-xs desktop:pb-desktop-gutter-xs"
+          className="pb-gutter-sm desktop:pb-desktop-gutter-sm"
           text={item.content}
-          textSize="md"
         />
       )}
     </InfoContentInfoItemContainer>
@@ -52,7 +51,7 @@ function InfoContentInfoItemContainer({
   return (
     <ClientResponsiveDiv
       className={cn(
-        'px-gutter-sm desktop:px-desktop-gutter-sm cursor-pointer rounded-md bg-white desktop:hover:bg-highlight',
+        'px-gutter-md desktop:px-desktop-gutter-md cursor-pointer rounded-md bg-white desktop:hover:bg-highlight',
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

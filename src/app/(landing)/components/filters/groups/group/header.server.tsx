@@ -22,7 +22,10 @@ function LandingFiltersGroupsHeaderContainer({
   children: ReactNode;
 }) {
   return (
-    <ResponsiveDiv className="p-[10px] text-grey" textSize="sm">
+    <ResponsiveDiv
+      className="px-gutter-xs desktop:px-desktop-gutter-xs py-gutter-xxs desktop:py-desktop-gutter-xxs text-grey"
+      textSize="sm"
+    >
       {children}
     </ResponsiveDiv>
   );

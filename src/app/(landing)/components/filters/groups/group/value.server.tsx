@@ -11,10 +11,7 @@ export default function LandingFiltersGroupValue({
 }: LandingFiltersGroupValueProps) {
   return (
     <Link href="/">
-      <ResponsiveDiv
-        className="rounded-[2px] bg-white p-[10px] desktop:hover:bg-highlight"
-        textSize="sm"
-      >
+      <ResponsiveDiv className="p-gutter-xs desktop:p-desktop-gutter-xs rounded-md bg-white desktop:hover:bg-highlight">
         {value.en}
       </ResponsiveDiv>
     </Link>
