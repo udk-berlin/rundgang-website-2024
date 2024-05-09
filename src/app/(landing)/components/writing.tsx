@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
-import BorderContainer from "@/components/containers/border";
+import BorderContainer from '@/components/containers/border';
 
 export default function LandingWriting() {
   return (
