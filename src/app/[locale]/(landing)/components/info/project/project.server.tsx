@@ -6,7 +6,7 @@ export default function LandingInfoProject() {
   return (
     <LandingInfoProjectContainer>
       <LandingInfoProjectSound />
-      <ResponsiveDiv className="text-right text-grey" textSize="sm">
+      <ResponsiveDiv className="text-right text-grey" textSize="xs">
         <p>Name</p>
         <p>Language</p>
         <p>Studies</p>
@@ -19,9 +19,7 @@ export default function LandingInfoProject() {
 function LandingInfoProjectContainer({ children }: { children: ReactNode }) {
   return (
     <div className="ml-auto mt-auto">
-      <div className="gap-gutter-sm desktop:gap-desktop-gutter-sm flex flex-col items-end">
-        {children}
-      </div>
+      <div className="gap-gutter-sm flex flex-col items-end">{children}</div>
     </div>
   );
 }

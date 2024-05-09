@@ -1,5 +1,4 @@
 'use client';
-import { sizeToHeightClassName } from '@/styles/constants';
 import { InfoContentInfoItemProps } from '@/app/info/components/content/info/item/item.client';
 import { cn } from '@/lib/utils';
 import { HtmlProps } from '@/components/html/html';
@@ -18,10 +17,7 @@ export default function InfoContentInfoItemTitle({
 
 function InfoContentInfoItemTitleContainer({ className, children }: HtmlProps) {
   return (
-    <ResponsiveH5
-      className={cn('py-gutter-sm desktop:py-desktop-gutter-sm', className)}
-      textSize="md"
-    >
+    <ResponsiveH5 className={cn('py-gutter-sm', className)} textSize="sm">
       {children}
     </ResponsiveH5>
   );

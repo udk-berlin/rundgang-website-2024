@@ -23,8 +23,8 @@ function LandingFiltersGroupsHeaderContainer({
 }) {
   return (
     <ResponsiveDiv
-      className="px-gutter-xs desktop:px-desktop-gutter-xs py-gutter-xxs desktop:py-desktop-gutter-xxs text-grey"
-      textSize="sm"
+      className="px-gutter-xs py-gutter-xxs text-grey"
+      textSize="xs"
     >
       {children}
     </ResponsiveDiv>

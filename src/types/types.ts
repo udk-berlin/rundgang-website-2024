@@ -1,4 +1,4 @@
-export type ResponsiveSize = 'sm' | 'md' | 'lg' | 'xl';
+export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type LandingFilter = {
   header: LocalizesObject<string>;
   values: LocalizesObject<string>[];
