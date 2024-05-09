@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import BorderContainer from "@/components/containers/border";
 
 export default function LandingWriting() {
   return (
@@ -16,8 +17,12 @@ export default function LandingWriting() {
 }
 function LandingWritingContainer({ children }: { children: ReactNode }) {
   return (
-    <div className="flex h-full items-center justify-center px-[5vw]">
+    <BorderContainer
+      className="h-full"
+      innerClassName="flex h-full items-center justify-center px-[5vw]"
+      borders={['x']}
+    >
       {children}
-    </div>
+    </BorderContainer>
   );
 }
