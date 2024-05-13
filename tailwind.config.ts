@@ -19,8 +19,8 @@ const config: Config = {
     colors: {
       initial: '#000',
       primary: 'rgb(var(--primary))',
-      primarybg: 'rgb(var(--secondary))',
-      secondary: '#00ffa1',
+      secondary: 'rgb(var(--secondary))',
+      highlight: '#00ffa1',
       grey: '#888888',
       black: '#000',
       white: '#fff',
@@ -70,8 +70,8 @@ const config: Config = {
         'desktop-md': '50px',
       },
       borderRadius: {
-        md: '2px',
-        'desktop-md': '2px',
+        md: '4px',
+        'desktop-md': '4px',
       },
       spacing: {
         'gutter-xxs': '4px',
@@ -84,7 +84,11 @@ const config: Config = {
       gridTemplateColumns: {
         footer: 'repeat(3,minmax(200px, 1fr))',
         header: 'repeat(5,minmax(200px, 1fr))',
-        headerinfo: 'minmax(100px, 1fr) 40px 40px 40px',
+        headerinfo: 'minmax(100px, 1fr) 50px 50px 50px',
+      },
+      fontFamily: {
+        jungka: ['var(--font-jungka)', 'sans-serif'],
+        noto: ['var(--font-noto)', 'sans-serif'],
       },
     },
   },

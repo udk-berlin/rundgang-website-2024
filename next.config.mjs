@@ -4,7 +4,6 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['content.udk-berlin.de'],
     remotePatterns: [
       {
         protocol: 'https',
