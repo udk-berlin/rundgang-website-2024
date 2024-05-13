@@ -13,12 +13,12 @@ export default function NavigationMobile() {
     <div className="hidden overflow-hidden md:flex">
       <nav className="grid h-10 w-screen grid-cols-3">
         <NavigationLink href="/">
-          <RundgangLogo logo="test" />
+          <RundgangLogo />
         </NavigationLink>
         <div
           onClick={() => setMenuOpen(!menuOpen)}
           className={cx(
-            'border border-primary bg-primarybg hover:bg-secondary hover:text-black',
+            'border border-primary bg-secondary hover:bg-highlight hover:text-black',
             menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
           )}
         >

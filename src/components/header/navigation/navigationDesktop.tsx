@@ -8,14 +8,14 @@ import LocaleSwitcher from './localeSwitcher';
 export default function NavigationDesktop() {
   const t = useTranslations('Navigation');
   return (
-    <nav className="grid w-screen grid-cols-5 overflow-hidden md:hidden">
+    <nav className="grid  h-md w-screen grid-cols-5 overflow-hidden md:hidden ">
       <NavigationLink href="/">
-        <RundgangLogo logo="/public/media/rng.png" />
+        <RundgangLogo />
       </NavigationLink>
       <NavigationLink href="/program">{t('program')}</NavigationLink>
       <NavigationLink href="/locations">{t('locations')}</NavigationLink>
       <NavigationLink href="/timeline">{t('timeline')}</NavigationLink>
-      <div className="grid-cols-headerinfo grid w-full">
+      <div className="grid w-full grid-cols-headerinfo">
         <NavigationLink href="/info">{t('info')}</NavigationLink>
         <SavedItems />
         <LocaleSwitcher />

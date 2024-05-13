@@ -25,7 +25,7 @@ export default function ImageWrapper({ src, alt }: ImageWrapperProps) {
       height={500}
       alt={alt ?? 'thumbnail of student project'}
       placeholder="blur"
-      className="object-contain text-secondary"
+      className="text-highlight object-contain"
       blurDataURL={rgbDataURL(0, 255, 161)}
     />
   );

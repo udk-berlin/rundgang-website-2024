@@ -1,4 +1,5 @@
 'use client';
+// make this component server side???
 
 import cx from 'classnames';
 import { useTranslations } from 'next-intl';
@@ -30,16 +31,18 @@ export default function Filters() {
   const t = useTranslations('Filtering');
   const pathname = usePathname();
   return (
-    <div
-      className={cx(
-        'h-full bg-primary',
-        pathname == '/program' ? 'col-span-1' : '',
-      )}
-    >
-      <div className="w-full pr-1 text-primarybg">{t('filter')}</div>
-      <FilterGroup title="faculties" list={filterItems} />
-      <FilterGroup title="formats" list={filterItems} />
-      <FilterGroup title="languages" list={filterItems} />
+    <div className="min-h-100 bg-primary">
+      <div
+        className={cx(
+          'top-md z-5 h-100 fixed left-0 col-span-1 w-1/5 overflow-x-hidden',
+          pathname == '/program' ? '' : '',
+        )}
+      >
+        <div className="w-full pr-1 text-secondary">{t('filter')}</div>
+        <FilterGroup title="faculties" list={filterItems} />
+        <FilterGroup title="formats" list={filterItems} />
+        <FilterGroup title="languages" list={filterItems} />
+      </div>
     </div>
   );
 }

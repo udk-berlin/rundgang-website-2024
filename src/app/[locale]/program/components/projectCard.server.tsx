@@ -13,8 +13,8 @@ export default function ProjectCard({ item }: ProjectCardProps) {
   return (
     <Link href={`/project/${item.id}`}>
       <div className="max-h-fit w-full border border-primary bg-primary">
-        <div className="w-full rounded-md bg-primarybg p-2 hover:bg-secondary hover:text-black">
-          <div className="relative w-full overflow-hidden bg-secondary">
+        <div className="w-full rounded-md bg-secondary p-2 hover:bg-highlight hover:text-black">
+          <div className="relative w-full overflow-hidden bg-highlight">
             <ImageWrapper src={item.thumbnail} />
           </div>
           <div className="pt-2 text-md font-bold">{item.name}</div>

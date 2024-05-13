@@ -11,7 +11,7 @@ export default function FilterGroup({ title, list }: FilterGroupProps) {
   const t = useTranslations('Filtering');
   return (
     <div className="w-full pt-4">
-      <div className="pr-1 text-primarybg">{t(title)}</div>
+      <div className="pr-1 text-secondary">{t(title)}</div>
       <div className=" w-full ">
         {list.map((item) => (
           <FilterTag

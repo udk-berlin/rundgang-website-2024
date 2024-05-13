@@ -25,10 +25,10 @@ const filterItems = [
 export default function FilterBar() {
   const t = useTranslations('Filtering');
   return (
-    <div className="flex h-10 rounded-md border border-t-0 bg-primarybg p-2">
+    <div className="flex h-md rounded-md border border-t-0 bg-secondary p-2">
       <div className="pr-1">{t('filter')}</div>
       {filterItems.map((item) => (
-        <div className="pl-1" key={`selected-filter-${item}`}>
+        <div className="pl-1" key={`selected-filter-${item.id}`}>
           <FilterTag filter={item} isSelected />
         </div>
       ))}

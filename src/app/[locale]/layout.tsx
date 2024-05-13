@@ -41,7 +41,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${jungka.variable} ${noto.variable} ${jungka.className}`}
+        className={`${jungka.className} ${jungka.variable} ${noto.variable}`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />

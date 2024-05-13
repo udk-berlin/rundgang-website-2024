@@ -24,11 +24,11 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'w-fit rounded-md border border-black  px-1',
-          isReverse ? 'border-primary bg-primarybg text-primary' : '',
+          'w-fit rounded-md border border-black p-1',
+          isReverse ? 'border-primary bg-secondary text-primary' : '',
           isSelected
-            ? 'bg-secondary text-black hover:border-white hover:bg-black hover:text-white'
-            : 'hover:border-black hover:bg-secondary hover:text-black',
+            ? 'bg-highlight text-black hover:border-white hover:bg-black hover:text-white'
+            : 'hover:bg-highlight hover:border-black hover:text-black',
         )}
       >
         {filter.name}
