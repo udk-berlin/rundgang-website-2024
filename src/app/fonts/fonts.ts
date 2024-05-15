@@ -18,34 +18,19 @@ const noto = Noto_Sans({
 const jungka = localFont({
   src: [
     {
-      path: './JLJungkaTrial/JLJungkaTrial-Regular.otf',
-      weight: '400',
+      path: './JLJungkaBBIM/JLJungka-Book.woff2',
+      weight: 'normal',
       style: 'normal',
     },
     {
-      path: './JLJungkaTrial/JLJungkaTrial-RegularItalic.otf',
-      weight: '400',
+      path: './JLJungkaBBIM/JLJungka-BookItalic.woff2',
+      weight: 'normal',
       style: 'italic',
     },
     {
-      path: './JLJungkaTrial/JLJungkaTrial-Bold.otf',
+      path: './JLJungkaBBIM/JLJungka-Medium.woff2',
       weight: 'bold',
       style: 'normal',
-    },
-    {
-      path: './JLJungkaTrial/JLJungkaTrial-BoldItalic.otf',
-      weight: 'bold',
-      style: 'italic',
-    },
-    {
-      path: './JLJungkaTrial/JLJungkaTrial-Medium.otf',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: './JLJungkaTrial/JLJungkaTrial-MediumItalic.otf',
-      weight: '600',
-      style: 'italic',
     },
   ],
   display: 'swap',

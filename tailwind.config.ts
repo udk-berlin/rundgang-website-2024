@@ -87,7 +87,7 @@ const config: Config = {
         headerinfo: 'minmax(100px, 1fr) 50px 50px 50px',
       },
       fontFamily: {
-        jungka: ['var(--font-jungka)', 'sans-serif'],
+        jungka: ['var(--font-jungka)', 'var(--font-noto)', 'sans-serif'],
         noto: ['var(--font-noto)', 'sans-serif'],
       },
     },
