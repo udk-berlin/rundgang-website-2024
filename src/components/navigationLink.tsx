@@ -16,6 +16,7 @@ export default function NavigationLink({
 }: NavigationLinkProps) {
   const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
+
   const isActive = pathname === href;
   const activeStyle = isFooter ? 'rounded-b-md mt-0' : 'rounded-t-md mb-0';
   return (

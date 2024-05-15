@@ -8,6 +8,9 @@ import { noto, jungka } from '../fonts/fonts';
 import { locales } from '@/config';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import { getGraphQLFilters } from '@/api/graphql/filters';
+import { AppStoreProvider } from '@/lib/useAppContext';
+import { defaultInitState } from '@/lib/appStore';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -38,17 +41,20 @@ export default async function RootLayout({
 }: Readonly<Props>) {
   unstable_setRequestLocale(locale);
   const messages = await getMessages({ locale });
+  const filters = await getGraphQLFilters();
   return (
     <html lang={locale}>
       <body
         className={`${jungka.className} ${jungka.variable} ${noto.variable}`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Header />
-          {children}
-          {modal}
-          <div id="modal-root" />
-          <Footer />
+          <AppStoreProvider initState={{ ...defaultInitState, ...filters }}>
+            <Header />
+            {children}
+            {modal}
+            <div id="modal-root" />
+            <Footer />
+          </AppStoreProvider>
         </NextIntlClientProvider>
       </body>
     </html>

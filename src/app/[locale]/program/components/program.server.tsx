@@ -6,7 +6,7 @@ export type ProgramProps = {
 
 export default function Program({ program }: ProgramProps) {
   return (
-    <div className="col-span-4 gap-0 bg-primary lg:columns-4 md:columns-2 xs:columns-1">
+    <div className="col-span-4 h-full gap-0 bg-primary lg:columns-4 md:columns-2 xs:columns-1">
       {program.map((item) => (
         <ProjectCard key={`project-card-${item.id}`} item={item} />
       ))}

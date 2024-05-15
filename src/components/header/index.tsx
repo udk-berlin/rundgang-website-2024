@@ -1,4 +1,3 @@
-'use client';
 import FilterBar from './filterBar';
 import Navigation from './navigation';
 

@@ -1,3 +1,4 @@
+'use client';
 import NavigationDesktop from './navigationDesktop';
 import NavigationMobile from './navigationMobile';
 

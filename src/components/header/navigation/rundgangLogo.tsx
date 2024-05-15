@@ -7,7 +7,7 @@ export default function RundgangLogo() {
         src="/assets/logo_rng.png"
         fill
         alt="rng"
-        className="object-contain py-2 invert"
+        className="object-contain py-2 dark:invert"
       />
     </div>
   );

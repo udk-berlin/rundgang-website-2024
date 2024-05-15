@@ -10,6 +10,8 @@ export const ColorSchemePreference = ({}: ColorSchemePreferenceProps) => {
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       setIsDark(true);
+      document.querySelector(':root').dataset.theme = 'dark';
+      document.documentElement.classList.add('dark');
     } else {
       setIsDark(false);
     }

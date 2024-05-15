@@ -82,21 +82,15 @@ export type Item = Space & {
   thumbnail_full_size?: string;
   allocation?: Allocation;
   origin: Origin;
-  description?: Description[];
+  description: Description[];
   localDepth?: string;
-};
-
-export type Filter = Pick<Item, 'id' | 'name' | 'template'>;
-
-export type Items = {
-  items: Item[];
 };
 
 export type Context = Space & {
   id: string;
   type?: string;
   template?: string;
-  name?: string;
+  name: string;
   parents?: Entry[];
   item?: Item[];
   context?: Context[];
@@ -107,6 +101,32 @@ export type Context = Space & {
   origin?: Origin;
   description?: Description[];
   localDepth?: string;
+};
+
+export type Filter = Pick<Context, 'id' | 'name'> & {
+  searchParam: 'format' | 'language' | 'faculty';
+  exists?: boolean;
+};
+
+export type GraphQLFilters = {
+  formats: Filter[];
+  faculties: Filter[];
+  centres: Filter[];
+  languages: Pick<Item, 'description'>[];
+};
+
+export type Filters = {
+  formats: Filter[];
+  faculties: Filter[];
+  languages: Filter[];
+};
+export type Items = {
+  items: Item[];
+};
+
+export type ProgramItem = Item & {
+  authors: string;
+  format: Filter;
 };
 
 export type Content = Space & {

@@ -21,11 +21,11 @@ export default function ImageWrapper({ src, alt }: ImageWrapperProps) {
   return (
     <Image
       src={src}
-      width={500}
       height={500}
+      width={500}
       alt={alt ?? 'thumbnail of student project'}
       placeholder="blur"
-      className="text-highlight object-contain"
+      className="w-full object-contain text-highlight"
       blurDataURL={rgbDataURL(0, 255, 161)}
     />
   );
