@@ -4,7 +4,11 @@ import { LandingPageProps } from '@/app/page';
 import LandingWriting from '@/app/(landing)/components/writing';
 import LandingInfo from '@/app/(landing)/components/info/info.server';
 
-export default function Landing({ searchParams }: LandingPageProps) {
+export type LandingProps = {
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function Landing({ searchParams }: LandingProps) {
   console.log(searchParams);
   return (
     <LandingContainer>

@@ -6,6 +6,7 @@ export type LandingPageProps = {
   params: { locale: string };
   searchParams?: { [key: string]: string | string[] | undefined };
 };
+
 export default function LandingPage({
   params: { locale },
   searchParams,
