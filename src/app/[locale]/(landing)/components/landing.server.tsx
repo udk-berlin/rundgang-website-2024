@@ -4,22 +4,26 @@ import { LandingPageProps } from '@/app/page';
 import LandingWriting from '@/app/(landing)/components/writing';
 import LandingInfo from '@/app/(landing)/components/info/info.server';
 
-export default function Landing({ searchParams }: LandingPageProps) {
+export type LandingProps = {
+  searchParams?: { [key: string]: string | string[] | undefined };
+};
+
+export default function Landing({ searchParams }: LandingProps) {
   console.log(searchParams);
   return (
     <LandingContainer>
       <div className="relative grow-[1]">
-        <LandingWriting/>
-        <LandingInfo/>
+        <LandingWriting />
+        <LandingInfo />
       </div>
-      <LandingFilters/>
+      <LandingFilters />
     </LandingContainer>
   );
 }
 
 function LandingContainer({ children }: { children: ReactNode }) {
   return (
-    <main className="flex h-[calc(100vh-2*var(--height-md)-2*var(--border))] max-h-[calc(100vh-2*var(--height-md)-2*var(--border))] min-h-[calc(100vh-2*var(--height-md)-2*var(--border))] flex-col">
+    <main className="flex h-[calc(100vh-var(--header-height)-var(--footer-height))] max-h-[calc(100vh-var(--header-height)-var(--footer-height))] min-h-[calc(100vh-var(--header-height)-var(--footer-height))] flex-col">
       {children}
     </main>
   );

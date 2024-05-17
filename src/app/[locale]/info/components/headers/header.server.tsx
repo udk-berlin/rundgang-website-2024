@@ -18,10 +18,10 @@ function InfoHeaderContainer({ className, children }: HtmlProps) {
   return (
     <ResponsiveH1
       className={cn(
-        'px-gutter-md desktop:px-desktop-gutter-md pb-gutter-xs desktop:pb-desktop-gutter-xs col-span-2 flex items-end text-grey',
+        'px-gutter-md pb-gutter-xs col-span-2 flex items-end text-grey',
         className,
       )}
-      textSize="sm"
+      textSize="xs"
     >
       {children}
     </ResponsiveH1>

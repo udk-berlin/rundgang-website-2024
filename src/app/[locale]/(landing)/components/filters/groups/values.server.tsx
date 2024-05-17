@@ -20,7 +20,7 @@ function LandingFiltersGroupsValuesContainer({
 }) {
   return (
     <ResponsiveDiv className="bg-black p-border">
-      <div className="grid max-h-[calc((100vh-20px)*0.2)] grid-cols-3 overflow-y-scroll ">
+      <div className="grid max-h-[calc((100vh-38px-22px)*0.2)] grid-cols-3 overflow-y-scroll ">
         {children}
       </div>
     </ResponsiveDiv>

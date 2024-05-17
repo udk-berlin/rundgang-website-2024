@@ -10,11 +10,11 @@ const config: Config = {
   darkMode: 'selector',
   theme: {
     screens: {
-      xl: { min: '1921px' },
-      lg: { max: '1920px' },
-      md: { max: '1440px' },
-      sm: { max: '1200px' },
-      xs: { max: '600px' },
+      xl: '1921px',
+      lg: '1920px',
+      md: '1200px',
+      sm: '1000px',
+      xs: '600px',
     },
     colors: {
       initial: '#000',
@@ -27,38 +27,38 @@ const config: Config = {
     },
     fontSize: {
       xl: [
-        '2.7rem',
+        '96px',
         {
-          letterSpacing: '-0.05em',
-          lineHeight: '0.9em',
+          letterSpacing: '1',
+          lineHeight: '1',
         },
       ],
       lg: [
-        '2.7rem',
+        '30px',
         {
-          letterSpacing: '-0.05em',
+          letterSpacing: '1',
           lineHeight: '1',
         },
       ],
       md: [
-        '1.45rem',
+        '24px',
         {
-          letterSpacing: '-0.025em',
-          lineHeight: '1.3',
+          letterSpacing: '1',
+          lineHeight: '1',
         },
       ],
       sm: [
-        '1.15rem',
+        '18px',
         {
-          letterSpacing: '-0.015em',
-          lineHeight: '1.12',
+          letterSpacing: '1',
+          lineHeight: '1',
         },
       ],
       xs: [
-        'max(13px, 0.95rem)',
+        '14px',
         {
-          letterSpacing: '-0.01em',
-          lineHeight: '1.1',
+          letterSpacing: '1',
+          lineHeight: '1',
         },
       ],
     },
