@@ -10,10 +10,11 @@
         "timeline": "Zeitplan"
     },
     "Filtering": {
-        "filter": "Filter:",
-        "formats": "Formate:",
-        "faculties": "Fakultäten/Zentren:",
-        "languages": "Sprachen:"
+        "filter": "Filter",
+        "format": "Format",
+        "formats": "Formate",
+        "faculties": "Fakultäten/Zentren",
+        "languages": "Sprachen"
     },
     "RootLayout": {
         "title": "Rundgang 2024",

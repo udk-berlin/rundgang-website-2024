@@ -1,20 +1,11 @@
-import { cache } from 'react';
-import ProjectPageComponent from './ProjectPage.server';
+import Project from '@/app/project/[id]/components/project.server';
+import { getParsedItem } from '@/api/rest/item';
 
-const getProject = cache(async (id: string) => {
-  const res = await fetch(
-    `https://2023.api.rundgang.udk-berlin.de/api/v2/${id}`,
-  );
-  return res.json();
-});
+export type ProjectsPageProps = {
+  params: { id: string };
+};
 
-export default async function ProjectsPage(props: { params: { id: string } }) {
-  const project = await getProject(props.params.id);
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <ProjectPageComponent {...props} project={project} />
-      </div>
-    </main>
-  );
+export default async function ProjectsPage({ params }: ProjectsPageProps) {
+  const item = await getParsedItem(params.id);
+  return <Project item={item} />;
 }

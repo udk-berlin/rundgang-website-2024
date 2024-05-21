@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useSearchParams, useSelectedLayoutSegment } from 'next/navigation';
-import { Filter } from '@/types/graphql';
+import { Filter } from '@/types/types';
 import cx from 'classnames';
 
 export type FilterTagProps = {
@@ -17,7 +17,7 @@ export default function FilterTag({
   isReverse = false,
   disabled = false,
 }: FilterTagProps) {
-  const selectedLayoutSegment = useSelectedLayoutSegment();
+  const selectedLayoutSegment = useSelectedLayoutSegment(); // todo: why are we using this instead of usePathname() ?
   const searchParams = useSearchParams();
 
   return (
@@ -42,12 +42,10 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'w-fit rounded-md border border-primary p-1',
-          isReverse ? 'border-primary bg-secondary text-primary' : '',
-          isSelected
-            ? 'bg-highlight text-black hover:border-white hover:bg-black hover:text-white'
-            : 'hover:border-black hover:bg-highlight hover:text-black',
-          disabled ? 'opacity-15' : '',
+          'w-fit rounded-md border-sm border-primary bg-secondary px-[13px] py-[8px] text-xxs',
+          isReverse && 'border-primary bg-secondary text-primary',
+          isSelected ? 'bg-highlight' : 'hover:bg-highlight',
+          disabled && 'opacity-15',
         )}
       >
         {filter.name}

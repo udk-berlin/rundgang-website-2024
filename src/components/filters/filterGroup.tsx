@@ -1,7 +1,7 @@
 'use client';
 import FilterTag from '@/components/filterTag';
 import { useAppStore } from '@/lib/useAppContext';
-import { Filter } from '@/types/graphql';
+import { Filter } from '@/types/types';
 import { useTranslations } from 'next-intl';
 
 export type FilterGroupProps = {
@@ -16,7 +16,7 @@ export default function FilterGroup({ title, list }: FilterGroupProps) {
 
   return (
     <div className="w-full pt-4">
-      <div className="pr-1 text-secondary">{t(title)}</div>
+      <div className="pr-1 text-secondary">{t(title)}:</div>
       <div className="w-full">
         {list.map((item) => (
           <FilterTag

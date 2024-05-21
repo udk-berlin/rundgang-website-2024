@@ -48,10 +48,11 @@ const config: Config = {
         },
       ],
       sm: [
-        '18px',
+        '16px',
         {
           letterSpacing: '1',
           lineHeight: '1',
+          fontWeight: '500',
         },
       ],
       xs: [
@@ -59,22 +60,40 @@ const config: Config = {
         {
           letterSpacing: '1',
           lineHeight: '1',
+          fontWeight: '400',
+        },
+      ],
+      xxs: [
+        '12px',
+        {
+          letterSpacing: '1',
+          lineHeight: '1',
+          fontWeight: '400',
+        },
+      ],
+      xxxs: [
+        '10px',
+        {
+          letterSpacing: '1',
+          lineHeight: '1',
+          fontWeight: '400',
         },
       ],
     },
     extend: {
       height: {
         sm: '35px',
-        'desktop-sm': '35px',
         md: '50px',
-        'desktop-md': '50px',
       },
       borderRadius: {
         md: '4px',
-        'desktop-md': '4px',
+      },
+      borderWidth: {
+        sm: '2px',
+        md: '4px',
       },
       spacing: {
-        'gutter-xxs': '4px',
+        'gutter-xxs': '5px',
         'gutter-xs': '8px',
         'gutter-sm': '12px',
         'gutter-md': '20px',
