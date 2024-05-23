@@ -15,7 +15,6 @@ export default function LocaleSwitcher() {
 
   function onChangeLanguage(event: any) {
     const nextLocale = locale == 'en' ? 'de' : 'en';
-    console.log(locale, nextLocale);
 
     startTransition(() => {
       router.replace(

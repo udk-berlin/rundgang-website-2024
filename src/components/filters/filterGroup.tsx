@@ -12,8 +12,6 @@ export type FilterGroupProps = {
 export default function FilterGroup({ title, list }: FilterGroupProps) {
   const t = useTranslations('Filtering');
   const selectedId = useAppStore((state) => state[list[0].searchParam]);
-  console.log(list);
-
   return (
     <div className="w-full pt-4">
       <div className="pr-1 text-secondary">{t(title)}:</div>
