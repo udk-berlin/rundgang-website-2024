@@ -15,12 +15,11 @@ export default function FilterGroup({ title, list }: FilterGroupProps) {
   return (
     <div className="w-full pt-4">
       <div className="pr-1 text-secondary">{t(title)}:</div>
-      <div className="w-full">
+      <div className="flex w-full flex-wrap md:block">
         {list.map((item) => (
           <FilterTag
             key={`filter-${title}-${item.id}`}
             filter={item}
-            isReverse
             isSelected={selectedId == item.id}
             disabled={!item.exists}
           />

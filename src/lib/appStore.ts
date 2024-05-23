@@ -12,6 +12,7 @@ export type AppState = {
   selectedTags: Filter[];
   savedItems: ProgramItem.id[];
   existing: Filters;
+  menuOpen: boolean;
 };
 
 export type AppActions = {
@@ -23,6 +24,7 @@ export type AppActions = {
   removeItem: (data: ProgramItem.id) => void;
   setSelectedTags: (data: Filter[]) => void;
   setExisting: (data: Filters) => void;
+  setMenuOpen: () => void;
 };
 
 export type AppStore = AppState & AppActions;
@@ -34,6 +36,7 @@ export const defaultInitState: AppState = {
   selectedTags: [],
   savedItems: [],
   existing: { faculties: [], formats: [], languages: [] },
+  menuOpen: false,
 };
 
 export const createAppStore = (initState: AppState = defaultInitState) => {
@@ -66,5 +69,6 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
     setSelectedTags: (selectedTags: Filter[]) =>
       set(() => ({ selectedTags: selectedTags })),
     setExisting: (existing: Filters) => set(() => ({ existing: existing })),
+    setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
   }));
 };

@@ -1,49 +1,79 @@
-import { useState } from 'react';
+import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
+import { ColorSchemePreference } from '../colorSchemePreference';
+import SavedItems from '../savedItems';
+import NavigationLink from '@/components/navigationLink';
+import SmoothButton from '@/components/smoothbutton';
 
 export type MenuMobileProps = {};
 export type MobileMenuItemProps = {
-  title: string;
+  title: string | number;
   href: any;
-  isTop: boolean;
-  active: boolean;
+  isTop?: boolean;
+  active?: boolean;
 };
 
 const mobileMenuItems = [
   { title: 'Program', href: '/program', isTop: true, active: false },
+  { title: 'Locations', href: '/locations', isTop: true, active: false },
+  { title: 'Timeline', href: '/timeline', isTop: true, active: false },
+  { title: 'Contact', href: '/contact', isTop: false, active: false },
+  { title: 'Imprint', href: '/imprint', isTop: false, active: false },
+  { title: 'Design', href: '/design', isTop: false, active: false },
 ];
 
-function MobileMenuItem({ title, href, isTop, active }: MobileMenuItemProps) {
+function MobileMenuItem({
+  title,
+  href,
+  isTop = true,
+  active = false,
+}: MobileMenuItemProps) {
   return (
-    <Link
-      href={href}
-      className={cx('w-full', isTop ? 'text-md' : 'text-default')}
-    >
-      {active ? '>' : ''}
-      {title}
+    <Link href={href}>
+      <div
+        className={cx(
+          'w-full py-gutter-sm',
+          isTop ? 'text-md' : 'text-default',
+        )}
+      >
+        {active ? '>' : ''}
+        {title}
+      </div>
     </Link>
   );
 }
 
-function MenuPage() {
-  return mobileMenuItems.map((item) => (
-    <MobileMenuItem key={item.href} {...item} />
-  ));
-}
-
 export default function MenuMobile({}: MenuMobileProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const setMenuOpen = useAppStore((state) => state.setMenuOpen);
+  const menuOpen = useAppStore((state) => state.menuOpen);
+  const numberSaved = useAppStore((state) => state.savedItems.length);
   return (
     <div
-      onClick={() => setMenuOpen(!menuOpen)}
       className={cx(
-        'hover:bg-highlight border border-primary bg-secondary hover:text-black',
+        'fixed left-0 top-[40px] h-screen w-full content-around bg-secondary text-center text-primary',
         menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
       )}
     >
-      <div className="h-9 content-around text-center">
-        {menuOpen ? <MenuPage /> : '='}
+      <SmoothButton onButtonClick={setMenuOpen} color="primary" top>
+        <div
+          className={cx(
+            'rotate-45 text-[30px] text-secondary transition-transform ease-in group-hover:text-secondary',
+          )}
+        >
+          +
+        </div>
+      </SmoothButton>
+      {mobileMenuItems.map((item) => (
+        <MobileMenuItem key={item.href} {...item} />
+      ))}
+      <MobileMenuItem
+        key="/saved"
+        title={`saved: ${numberSaved}`}
+        href="/saved"
+      />
+      <div className="m-auto my-gutter-sm h-10 w-10">
+        <ColorSchemePreference />
       </div>
     </div>
   );

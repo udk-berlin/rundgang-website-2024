@@ -6,9 +6,11 @@ export default async function FilterMenu({ filters }: { filters: Filters }) {
   const t = await getTranslations('Filtering');
 
   return (
-    <div className="sticky bottom-0 left-0 top-0 col-span-1 overflow-y-scroll bg-primary">
+    <div className="relative left-0 top-0 overflow-y-scroll bg-primary xs:sticky xs:bottom-0 xs:col-span-1">
       <div className="w-full">
-        <div className="w-full pr-1 text-secondary">{t('filter')}:</div>
+        <div className="hidden w-full pr-1 text-secondary md:block">
+          {t('filter')}:
+        </div>
         <FilterGroup title="faculties" list={filters.faculties} />
         <FilterGroup title="formats" list={filters.formats} />
         <FilterGroup title="languages" list={filters.languages} />
