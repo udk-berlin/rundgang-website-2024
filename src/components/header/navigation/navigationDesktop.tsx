@@ -8,7 +8,7 @@ import LocaleSwitcher from './localeSwitcher';
 export default function NavigationDesktop() {
   const t = useTranslations('Navigation');
   return (
-    <nav className="grid  h-md w-screen grid-cols-5 overflow-hidden md:hidden ">
+    <nav className="hidden h-md w-screen grid-cols-5 overflow-hidden md:grid ">
       <NavigationLink href="/">
         <RundgangLogo />
       </NavigationLink>

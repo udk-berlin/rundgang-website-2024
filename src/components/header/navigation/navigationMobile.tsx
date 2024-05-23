@@ -10,7 +10,7 @@ export default function NavigationMobile() {
   const [menuOpen, setMenuOpen] = useState(false); // make global state
 
   return (
-    <div className="hidden overflow-hidden md:flex">
+    <div className="flex overflow-hidden md:hidden">
       <nav className="grid h-10 w-screen grid-cols-3">
         <NavigationLink href="/">
           <RundgangLogo />
