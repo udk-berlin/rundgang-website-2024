@@ -11,13 +11,14 @@ import Footer from '@/components/footer';
 import { getGraphQLFilters } from '@/api/graphql/filters';
 import { AppStoreProvider } from '@/lib/useAppContext';
 import { defaultInitState } from '@/lib/appStore';
+import { ReactNode } from 'react';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
-type Props = {
-  children: React.ReactNode;
-  modal: React.ReactNode;
+type RootLayoutProps = {
+  children: ReactNode;
+  modal: ReactNode;
   params: { locale: string };
 };
 
@@ -38,7 +39,7 @@ export default async function RootLayout({
   children,
   modal,
   params: { locale },
-}: Readonly<Props>) {
+}: Readonly<RootLayoutProps>) {
   unstable_setRequestLocale(locale);
   const messages = await getMessages({ locale });
   const filters = await getGraphQLFilters();

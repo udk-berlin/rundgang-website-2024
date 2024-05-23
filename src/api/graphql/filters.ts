@@ -1,14 +1,10 @@
 import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
-import {
-  GraphQLFilters,
-  Filters,
-  Description,
-  ProgramItem,
-  Filter,
-} from '@/types/graphql';
+import { GraphQLFilters, GraphQlItem } from '@/types/graphql';
 import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import ISO6391 from 'iso-639-1';
+import { Filter, Filters } from '@/types/types';
+import { Item } from '@/types/item';
 
 const graphQLFiltersQuery: DocumentNode = gql`
   {
@@ -32,33 +28,6 @@ const graphQLFiltersQuery: DocumentNode = gql`
   }
 `;
 
-function filterExisting(items: ProgramItem[], filter: Filters) {
-  let filteredFormats = filter.formats.map((format: Filter) => ({
-    ...format,
-    exists: items.some((item) =>
-      item.parents.find((parent) => parent.id == format.id),
-    ),
-  }));
-  let filteredFaculties = filter.faculties.map((faculty: Filter) => ({
-    ...faculty,
-    exists: items.some((item) =>
-      item.parents.find((parent) => parent.id == faculty.id),
-    ),
-  }));
-  let filteredLanguages = filter.languages.map((language: Filter) => ({
-    ...language,
-    exists: items.some((item) =>
-      item.description.find((desc) => desc.language == language.id),
-    ),
-  }));
-
-  return {
-    formats: filteredFormats,
-    faculties: filteredFaculties,
-    languages: filteredLanguages,
-  };
-}
-
 async function fetchGraphQLFilters(): Promise<
   ApolloQueryResult<GraphQLFilters>
 > {
@@ -72,34 +41,58 @@ export const getGraphQLFilters = cache(async () => {
   return fetchGraphQLFilters().then(
     (res) =>
       ({
-        formats: res.data.formats.map((a) => ({ ...a, searchParam: 'format' })),
+        formats: res.data.formats.map((a) => ({
+          id: a.id,
+          name: a.name,
+          searchParam: 'format',
+        })),
         faculties: [...res.data.faculties, ...res.data.centres].map((a) => ({
-          ...a,
+          id: a.id,
+          name: a.name,
           searchParam: 'faculty',
         })),
-        languages: Object.keys(
-          res.data.languages.reduce(
-            (
-              langs: { [key: string]: any },
-              item: { description: Description[] },
-            ) => ({
-              ...langs,
-              ...item.description.reduce(
-                (o, l) => ({ [l.language]: l.language }),
-                {},
-              ),
-            }),
-            {},
+        languages: Array.from(
+          new Set(
+            res.data.languages
+              .map((item: Pick<GraphQlItem, 'description'>) =>
+                item.description.map((d) => d.language),
+              )
+              .flat(1),
           ),
-        ).map((lang) => ({
-          id: lang,
-          name: ISO6391.getNativeName(lang.toLowerCase()) ?? lang,
+        ).map((language) => ({
+          id: language,
+          name: ISO6391.getNativeName(language.toLowerCase()) ?? language,
           searchParam: 'language',
         })),
       }) as Filters,
   );
 });
 
-export const getExistingGraphQLFilters = cache(async (items: ProgramItem[]) => {
+export const getExistingGraphQLFilters = cache(async (items: Item[]) => {
   return getGraphQLFilters().then((filters) => filterExisting(items, filters));
 });
+
+function filterExisting(items: Item[], filters: Filters) {
+  let filteredFormats = filters.formats.map((format: Filter) => ({
+    ...format,
+    exists: items.some((item) => item.format.id === format.id),
+  }));
+
+  let filteredFaculties = filters.faculties.map((faculty: Filter) => ({
+    ...faculty,
+    exists: true, // todo: items.some((item) => item.parents.find((parent) => parent.id == faculty.id),),
+  }));
+
+  let filteredLanguages = filters.languages.map((language: Filter) => ({
+    ...language,
+    exists: items.some((item) =>
+      item.languages.find((languageId) => languageId === language.id),
+    ),
+  }));
+
+  return {
+    formats: filteredFormats,
+    faculties: filteredFaculties,
+    languages: filteredLanguages,
+  };
+}

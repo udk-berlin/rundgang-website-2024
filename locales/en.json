@@ -10,10 +10,11 @@
         "timeline": "Timeline"
     },
     "Filtering": {
-        "filter": "Filters:",
-        "formats": "Formats:",
-        "faculties": "Faculties/Centres:",
-        "languages": "Languages:"
+        "filter": "Filters",
+        "format": "Format",
+        "formats": "Formats",
+        "faculties": "Faculties/Centres",
+        "languages": "Languages"
     },
     "RootLayout": {
         "title": "Round Tour 2024",

@@ -1,5 +1,8 @@
 import Image from 'next/image';
+import cx from 'classnames';
+
 export type ImageWrapperProps = {
+  className?: string;
   src: string;
   alt?: string;
 };
@@ -17,7 +20,11 @@ const rgbDataURL = (r: number, g: number, b: number) =>
     triplet(0, r, g) + triplet(b, 255, 255)
   }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
 
-export default function ImageWrapper({ src, alt }: ImageWrapperProps) {
+export default function ImageWrapper({
+  className,
+  src,
+  alt,
+}: ImageWrapperProps) {
   return (
     <Image
       src={src}
@@ -25,7 +32,7 @@ export default function ImageWrapper({ src, alt }: ImageWrapperProps) {
       width={500}
       alt={alt ?? 'thumbnail of student project'}
       placeholder="blur"
-      className="w-full object-contain text-highlight"
+      className={cx('w-full object-contain text-highlight', className)}
       blurDataURL={rgbDataURL(0, 255, 161)}
     />
   );

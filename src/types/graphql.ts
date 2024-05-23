@@ -1,3 +1,5 @@
+import { Filter } from '@/types/types';
+
 export type Space = {
   id: string;
   name?: string;
@@ -61,7 +63,7 @@ export type Entry = Space & {
   name?: string;
   parents?: Entry[];
   content?: Content[];
-  item?: Item[];
+  item?: GraphQlItem[];
   context?: Context[];
   thumbnail?: string;
   thumbnail_full_size?: string;
@@ -71,19 +73,19 @@ export type Entry = Space & {
   localDepth?: string;
 };
 
-export type Item = Space & {
+export type GraphQlItem = Space & {
   id: string;
-  type?: string;
+  type: string;
   template: string;
-  name?: string;
+  name: string;
   parents: Entry[];
-  content?: Content[];
-  thumbnail?: string;
-  thumbnail_full_size?: string;
-  allocation?: Allocation;
+  content: Content[];
+  thumbnail: string;
+  thumbnail_full_size: string;
+  allocation: Allocation;
   origin: Origin;
   description: Description[];
-  localDepth?: string;
+  localDepth: string;
 };
 
 export type Context = Space & {
@@ -92,7 +94,7 @@ export type Context = Space & {
   template?: string;
   name: string;
   parents?: Entry[];
-  item?: Item[];
+  item?: GraphQlItem[];
   context?: Context[];
   content?: Content[];
   thumbnail?: string;
@@ -103,30 +105,15 @@ export type Context = Space & {
   localDepth?: string;
 };
 
-export type Filter = Pick<Context, 'id' | 'name'> & {
-  searchParam: 'format' | 'language' | 'faculty';
-  exists?: boolean;
-};
-
 export type GraphQLFilters = {
   formats: Filter[];
   faculties: Filter[];
   centres: Filter[];
-  languages: Pick<Item, 'description'>[];
+  languages: Pick<GraphQlItem, 'description'>[];
 };
 
-export type Filters = {
-  formats: Filter[];
-  faculties: Filter[];
-  languages: Filter[];
-};
-export type Items = {
-  items: Item[];
-};
-
-export type ProgramItem = Item & {
-  authors: string;
-  format: Filter;
+export type GraphQlItems = {
+  items: GraphQlItem[];
 };
 
 export type Content = Space & {
@@ -150,7 +137,7 @@ export type User = {
   thumbnail?: string;
   thumbnail_full_size?: string;
   context?: Context[];
-  item?: Item[];
+  item?: GraphQlItem[];
   content?: Content[];
 };
 
@@ -158,7 +145,7 @@ export type Server = {
   url: string;
   users?: User[];
   context?: Context[];
-  item?: Item[];
+  item?: GraphQlItem[];
   content?: Content[];
 };
 
@@ -170,8 +157,8 @@ export type Query = {
     pagination?: Boolean,
     offset?: number,
     start?: number,
-  ): Item[];
-  item(id: string): Item;
+  ): GraphQlItem[];
+  item(id: string): GraphQlItem;
   contexts(template?: string): Context[];
   context(id: string): Context;
   contents: Content[];

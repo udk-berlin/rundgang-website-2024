@@ -1,15 +1,25 @@
-import ProjectCard from './projectCard.server';
+import { ReactNodeProps } from '@/types/types';
+import { Item } from '@/types/item';
+import ProjectCard from '@/app/program/components/project/card.server';
 
 export type ProgramProps = {
-  program: any[];
+  items: Item[];
 };
 
-export default function Program({ program }: ProgramProps) {
+export default function Program({ items }: ProgramProps) {
   return (
-    <div className="lg: col-span-4 h-full columns-1 gap-0 bg-primary xs:columns-2 md:columns-4">
-      {program.map((item) => (
-        <ProjectCard key={`project-card-${item.id}`} item={item} />
+    <ProgramContainer>
+      {items.map((item) => (
+        <ProjectCard key={item.id} item={item} />
       ))}
+    </ProgramContainer>
+  );
+}
+
+function ProgramContainer({ children }: ReactNodeProps) {
+  return (
+    <div className="h-full columns-1 gap-0 bg-primary xs:columns-2 md:columns-4 lg:col-span-4">
+      {children}
     </div>
   );
 }
