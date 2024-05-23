@@ -1,9 +1,13 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  NormalizedCacheObject,
+} from '@apollo/client';
 
 export const graphqlApiEndpoint = process.env.GRAPHQL_API_ENDPOINT;
-let client: undefined | any;
+let client: undefined | ApolloClient<NormalizedCacheObject>;
 
-export function useGraphQLClient(): any {
+export function getGraphQLClient(): ApolloClient<NormalizedCacheObject> {
   if (typeof graphqlApiEndpoint !== 'string') {
     throw new Error('graphqlApiEndpoint must be a string');
   }

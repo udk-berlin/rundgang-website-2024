@@ -1,24 +1,19 @@
+import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
+import { GraphQlItems, GraphQlItem, Description } from '@/types/graphql';
+import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
-import { graphqlApiEndpoint } from '@/api/graphql/api';
+import { Item } from '@/types/item';
+import { extractAuthors } from '@/lib/data/utils';
 
-export const getGraphQLProgram = cache(async () => {
-  const headers = {
-    'content-type': 'application/json',
-  };
-  const graphqlQuery = {
-    operationName: 'fetchProgram',
-    query: `query fetchProgram {
+const graphQLItemsQuery: DocumentNode = gql`
+  query Items {
     items {
       id
       name
       thumbnail
-      template
-      type
-      allocation {
-        temporal {
-          start
-          end
-        }
+      thumbnail_full_size
+      description {
+        language
       }
       origin {
         authors {
@@ -28,20 +23,75 @@ export const getGraphQLProgram = cache(async () => {
       parents {
         id
         name
+        template
       }
     }
-  }`,
+  }
+`;
+
+async function fetchGraphQLItems(): Promise<ApolloQueryResult<GraphQlItems>> {
+  return getGraphQLClient().query({
+    query: graphQLItemsQuery,
     variables: {},
-  };
+  });
+}
 
-  const options = {
-    method: 'POST',
-    headers: headers,
-    body: JSON.stringify(graphqlQuery),
-  };
+export const getGraphQLItems = cache(async () => {
+  return fetchGraphQLItems().then((res) =>
+    res.data.items.map((item: GraphQlItem): Item => {
+      const format = item.parents.filter(
+        (p) => p.template === 'format-element',
+      )[0];
 
-  const response = await fetch(graphqlApiEndpoint, options);
-  const data = await response.json();
-
-  return data.data.items;
+      return {
+        id: item.id,
+        name: item.name,
+        thumbnail: item.thumbnail,
+        languages: item.description.map((d: Description) =>
+          d.language.toLowerCase(),
+        ),
+        authors: extractAuthors({ item }),
+        format: {
+          id: format?.id ?? '',
+          name: format?.name ?? '',
+          searchParam: 'format',
+        },
+      };
+    }),
+  );
 });
+
+export const getFilteredGraphQLItems = cache(
+  async (searchParams: { [key: string]: string | string[] | undefined }) => {
+    return getGraphQLItems().then((items) =>
+      filterItemsBySearchParams(items, searchParams),
+    );
+  },
+);
+
+function filterItemsBySearchParams(
+  items: Item[],
+  searchParams: { [key: string]: string | string[] | undefined },
+) {
+  let filteredItems: Item[] = items;
+
+  if (searchParams?.faculty) {
+    filteredItems = filteredItems.filter(
+      (item) => true, // todo: item.parents.find((parent) => parent.id == searchParams?.faculty),
+    );
+  }
+
+  if (searchParams?.format) {
+    filteredItems = filteredItems.filter(
+      (item) => item.format.id == searchParams?.format,
+    );
+  }
+
+  if (searchParams?.language) {
+    filteredItems = filteredItems.filter((item: Item) =>
+      item.languages.find((language) => language == searchParams?.language),
+    );
+  }
+
+  return filteredItems;
+}
