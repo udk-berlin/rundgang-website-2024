@@ -10,9 +10,9 @@ export type AppState = {
   formats: Filter[];
   languages: Filter[];
   selectedTags: Filter[];
-  savedItems: ProgramItem[];
-  numberSaved: number;
+  savedItems: ProgramItem.id[];
   existing: Filters;
+  menuOpen: boolean;
 };
 
 export type AppActions = {
@@ -20,10 +20,11 @@ export type AppActions = {
   setLanguage: (x: string) => void;
   setFormat: (x: string) => void;
   initTags: (data: Filters) => void;
-  saveItem: (data: ProgramItem) => void;
-  removeItem: (data: ProgramItem) => void;
+  saveItem: (data: ProgramItem.id) => void;
+  removeItem: (data: ProgramItem.id) => void;
   setSelectedTags: (data: Filter[]) => void;
   setExisting: (data: Filters) => void;
+  setMenuOpen: () => void;
 };
 
 export type AppStore = AppState & AppActions;
@@ -33,9 +34,9 @@ export const defaultInitState: AppState = {
   formats: [],
   languages: [],
   selectedTags: [],
-  numberSaved: 0,
   savedItems: [],
   existing: { faculties: [], formats: [], languages: [] },
+  menuOpen: false,
 };
 
 export const createAppStore = (initState: AppState = defaultInitState) => {
@@ -53,20 +54,21 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
         languages: data.languages,
       }));
     },
-    saveItem: (data: ProgramItem) => {
+    saveItem: (data: ProgramItem.id) => {
       set((state) => ({
-        savedItems: [...state.savedItems, data],
-        numberSaved: state.numberSaved + 1,
+        savedItems: state.savedItems.includes(data)
+          ? state.savedItems
+          : [...state.savedItems, data],
       }));
     },
-    removeItem: (data: ProgramItem) => {
+    removeItem: (data: ProgramItem.id) => {
       set((state) => ({
-        savedItems: state.savedItems.filter((item) => item.id != data.id),
-        numberSaved: state.numberSaved - 1,
+        savedItems: state.savedItems.filter((item) => item != data),
       }));
     },
     setSelectedTags: (selectedTags: Filter[]) =>
       set(() => ({ selectedTags: selectedTags })),
     setExisting: (existing: Filters) => set(() => ({ existing: existing })),
+    setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
   }));
 };

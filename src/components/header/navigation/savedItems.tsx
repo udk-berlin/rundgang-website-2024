@@ -1,11 +1,10 @@
+import cx from 'classnames';
+import { useAppStore } from '@/lib/useAppContext';
+import NavigationLink from '@/components/navigationLink';
+
 export type SavedItemsProps = {};
 
 export default function SavedItems({}: SavedItemsProps) {
-  return (
-    <div className="h-full bg-primary md:w-1/12">
-      <div className="hover:bg-highlight h-full content-around rounded-md border border-primary bg-secondary text-center hover:text-black">
-        {0}
-      </div>
-    </div>
-  );
+  const numberSaved = useAppStore((state) => state.savedItems.length);
+  return <NavigationLink href="/saved">{numberSaved}</NavigationLink>;
 }

@@ -42,10 +42,12 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'w-fit rounded-md border-sm border-primary bg-secondary px-[13px] py-[8px] text-xxs',
+          'border-sm text-xxs w-fit rounded-md border-primary  px-[13px] py-[8px] text-primary',
           isReverse && 'border-primary bg-secondary text-primary',
-          isSelected ? 'bg-highlight' : 'hover:bg-highlight',
-          disabled && 'opacity-15',
+          isSelected
+            ? 'bg-highlight text-black'
+            : 'bg-secondary hover:bg-highlight',
+          disabled && 'opacity-35',
         )}
       >
         {filter.name}

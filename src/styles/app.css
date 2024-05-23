@@ -1,55 +1,55 @@
 :root {
-    --black: #000;
-    --white: #FFF;
-    --grey: #858585;
-    --highlight: #00FDA0FF;
-    --primary: 0, 0, 0;
-    --secondary: 255, 255, 255;
+  --black: #000;
+  --white: #fff;
+  --grey: #858585;
+  --highlight: #00fda0ff;
+  --primary: 0, 0, 0;
+  --secondary: 255, 255, 255;
 
-    --border: 2px;
-    --height-md: 50px;
-    --header-height: 80px;
-    --footer-height: 38px;
-    --gutter-lg: 50px;
+  --border: 2px;
+  --height-md: 50px;
+  --header-height: 80px;
+  --footer-height: 38px;
+  --gutter-lg: 50px;
+  --bdradius: 4px;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --primary: 255, 255, 255;
-        --secondary: 0, 0, 0;
-    }
+  :root {
+    --primary: 255, 255, 255;
+    --secondary: 0, 0, 0;
+  }
 }
 
 :root[data-theme='dark'] {
-    --primary: 255, 255, 255;
-    --secondary: 0, 0, 0;
+  --primary: 255, 255, 255;
+  --secondary: 0, 0, 0;
 }
 :root[data-theme='light'] {
-    --primary: 0, 0, 0;
-    --secondary: 255, 255, 255;
+  --primary: 0, 0, 0;
+  --secondary: 255, 255, 255;
 }
 
 .dark\:underline:where([data-mode='dark'], [data-mode='dark'] *) {
-    --primary: 255, 255, 255;
-    --secondary: 0, 0, 0;
+  --primary: 255, 255, 255;
+  --secondary: 0, 0, 0;
 }
-
 
 html,
 body {
-    color: rgb(var(--primary));
-    background: rgb(var(--secondary));
-    line-height: 1
+  color: rgb(var(--primary));
+  background: rgb(var(--secondary));
+  line-height: 1;
 }
 
 ::selection {
-    color: rgb(var(--secondary)) !important;
-    background-color: rgb(var(--primary)) !important;
+  color: rgb(var(--secondary)) !important;
+  background-color: rgb(var(--primary)) !important;
 }
 
 ::-moz-selection {
-    color: rgb(var(--secondary)) !important;
-    background-color: rgb(var(--primary)) !important;
+  color: rgb(var(--secondary)) !important;
+  background-color: rgb(var(--primary)) !important;
 }
 
 /*@layer utilities {*/

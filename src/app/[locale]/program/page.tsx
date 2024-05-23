@@ -15,7 +15,7 @@ export default async function ProgramPage({ searchParams }: ProgramPageProps) {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-0">
-      <div className="grid grid-cols-5">
+      <div className="grid grid-cols-1 xs:grid-cols-5">
         <Filters filters={filters} />
         <Program items={items} />
       </div>

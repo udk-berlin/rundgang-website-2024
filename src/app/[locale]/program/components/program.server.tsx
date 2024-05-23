@@ -18,7 +18,7 @@ export default function Program({ items }: ProgramProps) {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="col-span-4 h-full gap-0 bg-primary xs:columns-1 md:columns-2 lg:columns-4">
+    <div className="col-span-1 h-full columns-1 gap-0 bg-primary xs:col-span-4 xs:columns-2 md:columns-4">
       {children}
     </div>
   );
