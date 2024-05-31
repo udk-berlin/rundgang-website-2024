@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import FilterGroup from './filterGroup';
 import { Filters } from '@/types/types';
+import { Suspense } from 'react';
 
 export default async function FilterMenu({ filters }: { filters: Filters }) {
   const t = await getTranslations('Filtering');
@@ -11,9 +12,11 @@ export default async function FilterMenu({ filters }: { filters: Filters }) {
         <div className="hidden w-full pr-1 text-secondary md:block">
           {t('filter')}:
         </div>
-        <FilterGroup title="faculties" list={filters.faculties} />
-        <FilterGroup title="formats" list={filters.formats} />
-        <FilterGroup title="languages" list={filters.languages} />
+        <Suspense>
+          <FilterGroup title="faculties" list={filters.faculties} />
+          <FilterGroup title="formats" list={filters.formats} />
+          <FilterGroup title="languages" list={filters.languages} />
+        </Suspense>
       </div>
     </div>
   );

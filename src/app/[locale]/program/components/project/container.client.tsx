@@ -18,7 +18,7 @@ export default function ProjectCardContainer({
     >
       <div
         className={cx(
-          'w-full rounded-md hover:bg-highlight',
+          'w-full rounded-md hover:bg-highlight hover:text-black',
           isSaved ? 'bg-highlight text-black' : 'bg-secondary',
         )}
       >
