@@ -24,10 +24,10 @@ export default function SmoothButton({
       {bottom && (
         <>
           <div
-            className={`bg-transparent group-hover:bg-transparent absolute -top-4 right-0 h-4 w-2 rounded-br-md shadow-[0_8px_0_0_rgb(var(--${color}))] group-hover:shadow-none`}
+            className={`bg-transparent group-hover:bg-transparent absolute -top-4 right-0 h-4 w-2 rounded-br-md shadow-[0_8px_0_0_rgb(var(--secondary))] group-hover:shadow-none`}
           ></div>
           <div
-            className={`bg-transparent group-hover:bg-transparent absolute -left-4 bottom-0 h-2 w-4 rounded-br-md shadow-[8px_0_0_0_rgb(var(--${color}))] group-hover:shadow-none`}
+            className={`bg-transparent group-hover:bg-transparent absolute -left-4 bottom-0 h-2 w-4 rounded-br-md shadow-[8px_0_0_0_rgb(var(--secondary))] group-hover:shadow-none`}
           ></div>
         </>
       )}

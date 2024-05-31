@@ -1,4 +1,4 @@
-import Project from '@/app/project/[id]/components/project.server';
+import Project from './components/project.server';
 import { getParsedItem } from '@/api/rest/item';
 
 export type ProjectsPageProps = {
