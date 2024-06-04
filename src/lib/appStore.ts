@@ -19,7 +19,6 @@ export type AppActions = {
   setFaculty: (x: string) => void;
   setLanguage: (x: string) => void;
   setFormat: (x: string) => void;
-  initTags: (data: Filters) => void;
   saveItem: (data: ProgramItem.id) => void;
   removeItem: (data: ProgramItem.id) => void;
   setSelectedTags: (data: Filter[]) => void;
@@ -47,13 +46,6 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
     setLanguage: (language: string) => set(() => ({ language: language })),
     setFormat: (format: string) => set(() => ({ format: format })),
 
-    initTags: (data: Filters) => {
-      set(() => ({
-        faculties: data.faculties,
-        formats: data.formats,
-        languages: data.languages,
-      }));
-    },
     saveItem: (data: ProgramItem.id) => {
       set((state) => ({
         savedItems: state.savedItems.includes(data)

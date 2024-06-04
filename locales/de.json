@@ -19,5 +19,10 @@
     "RootLayout": {
         "title": "Rundgang 2024",
         "description": "Rundgang 2024"
+    },
+    "Saved": {
+        "saved_items": "Gemerkte Projekte",
+        "remove": "entfernen",
+        "save": "merken"
     }
 }

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+'use client';
 import { useAppStore } from '@/lib/useAppContext';
 import NavigationLink from '@/components/navigationLink';
 

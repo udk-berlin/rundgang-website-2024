@@ -19,5 +19,10 @@
     "RootLayout": {
         "title": "Round Tour 2024",
         "description": "Round Tour 2024"
+    },
+    "Saved": {
+        "saved_items": "Saved Projects",
+        "remove": "remove",
+        "save": "save"
     }
 }

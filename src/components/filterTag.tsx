@@ -43,10 +43,10 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'relative w-fit rounded-md border-sm border-primary px-[13px]  py-[8px] text-xxs',
+          'relative w-fit rounded-md border-sm border-primary px-[13px]  py-[8px] text-xxs text-primary',
           isSelected
             ? 'bg-highlight text-black'
-            : 'bg-secondary hover:bg-highlight',
+            : 'bg-secondary hover:bg-highlight hover:text-black',
           disabled && 'pointer-events-none opacity-35',
         )}
       >
