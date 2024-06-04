@@ -4,5 +4,9 @@ export default function ProjectDescription({ item }: ProjectProps) {
   if (!item.descriptions) {
     return <></>;
   }
-  return <div>{item.descriptions.default}</div>;
+  return (
+    <div className="w-full max-w-[50vw] p-gutter-xs">
+      {item.descriptions.default}
+    </div>
+  );
 }

@@ -7,6 +7,7 @@ export default function SmoothButton({
   bottom = false,
   top = false,
   color = 'secondary',
+  title = '',
 }: any) {
   return (
     <button
@@ -15,10 +16,11 @@ export default function SmoothButton({
         'group absolute h-10 w-10 hover:bg-primary hover:text-highlight',
         `bg-${color}`,
         bottom
-          ? 'bottom-gutter-xxs right-gutter-xxs rounded-br-md rounded-tl-md'
+          ? 'bottom-gutter-xs right-gutter-xs rounded-br-md rounded-tl-md'
           : '',
         top ? 'right-0 top-0 rounded-bl-md ' : '',
       )}
+      title={title}
     >
       {children}
       {bottom && (
@@ -33,8 +35,8 @@ export default function SmoothButton({
       )}
       {top && (
         <>
-          <div className="bg-transparent absolute -left-4 top-0 h-2 w-4 rounded-tr-lg shadow-[8px_0_0_0_rgb(var(--primary))]"></div>
-          <div className="group-hover:bg-transparent bg-transparent absolute -bottom-4 right-0 h-4 w-2 rounded-tr-lg shadow-[0_-8px_0_0_rgb(var(--primary))] group-hover:shadow-none"></div>
+          <div className="group-hover:bg-transparent bg-transparent absolute -left-4 top-0 h-2 w-4 rounded-tr-lg shadow-[8px_0_0_0_rgb(var(--secondary))]"></div>
+          <div className="group-hover:bg-transparent bg-transparent absolute -bottom-4 right-0 h-4 w-2 rounded-tr-lg shadow-[0_-8px_0_0_rgb(var(--secondary))] group-hover:shadow-none"></div>
         </>
       )}
     </button>
