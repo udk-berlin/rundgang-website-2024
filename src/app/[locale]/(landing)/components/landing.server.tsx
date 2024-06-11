@@ -3,18 +3,31 @@ import LandingFilters from '@/app/(landing)/components/filters/filters.server';
 import { LandingPageProps } from '@/app/page';
 import LandingWriting from '@/app/(landing)/components/writing';
 import LandingInfo from '@/app/(landing)/components/info/info.server';
+import projects, { ProjectLanguages } from '@/projects';
 
 export type LandingProps = {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: {
+    lang: ProjectLanguages;
+    [key: string]: string | string[] | undefined;
+  };
+};
+
+const getLanguage = (searchParams: LandingProps['searchParams']) => {
+  const languages = Object.keys(projects);
+  if (searchParams?.lang) {
+    return searchParams.lang;
+  }
+  const number = Math.floor(Math.random() * languages.length);
+  return languages[number] as ProjectLanguages;
 };
 
 export default function Landing({ searchParams }: LandingProps) {
-  console.log(searchParams);
+  const lang = getLanguage(searchParams);
   return (
     <LandingContainer>
       <div className="relative grow-[1]">
-        <LandingWriting />
-        <LandingInfo />
+        <LandingWriting lang={lang} />
+        <LandingInfo lang={lang} />
       </div>
       <LandingFilters />
     </LandingContainer>
@@ -23,7 +36,7 @@ export default function Landing({ searchParams }: LandingProps) {
 
 function LandingContainer({ children }: { children: ReactNode }) {
   return (
-    <main className="flex h-[calc(100vh-var(--header-height)-var(--footer-height))] max-h-[calc(100vh-var(--header-height)-var(--footer-height))] min-h-[calc(100vh-var(--header-height)-var(--footer-height))] flex-col">
+    <main className="flex h-[calc(100vh-var(--footer-height)-var(--footer-height))] max-h-[calc(100vh-var(--footer-height)-var(--footer-height))] min-h-[calc(100vh-var(--footer-height)-var(--footer-height))] flex-col">
       {children}
     </main>
   );

@@ -1,10 +1,10 @@
 import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
-import Landing from './(landing)/components/landing.server';
+import Landing, { LandingProps } from './(landing)/components/landing.server';
 
 export type LandingPageProps = {
   params: { locale: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: LandingProps['searchParams'];
 };
 
 export default function LandingPage({
