@@ -17,7 +17,7 @@ export default function useSelectedTags() {
     // can change here if we accept multiple tags per category
     const format = searchParams.get('format');
     const faculty = searchParams.get('faculty');
-    const language = searchParams.get('language');
+    const language = searchParams.get('lang');
     const filteredList = [
       ...formats.filter((f) => f.id == format),
       ...faculties.filter((f) => f.id == faculty),

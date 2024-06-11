@@ -59,11 +59,13 @@ export const getGraphQLFilters = cache(async () => {
               )
               .flat(1),
           ),
-        ).map((language) => ({
-          id: language,
-          name: ISO6391.getNativeName(language.toLowerCase()) ?? language,
-          searchParam: 'language',
-        })),
+        )
+          .map((language) => ({
+            id: language.toLowerCase(),
+            name: ISO6391.getNativeName(language.toLowerCase()) ?? language,
+            searchParam: 'lang',
+          }))
+          .filter((l) => l.name != ''),
       }) as Filters,
   );
 });

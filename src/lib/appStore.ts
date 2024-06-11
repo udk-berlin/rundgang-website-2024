@@ -3,7 +3,7 @@ import { createStore } from 'zustand/vanilla';
 
 export type AppState = {
   format?: string;
-  language?: string;
+  lang?: string;
   faculty?: string;
   location?: string;
   faculties: Filter[];
@@ -43,7 +43,7 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
     ...initState,
 
     setFaculty: (faculty: string) => set(() => ({ faculty: faculty })),
-    setLanguage: (language: string) => set(() => ({ language: language })),
+    setLanguage: (language: string) => set(() => ({ lang: language })),
     setFormat: (format: string) => set(() => ({ format: format })),
 
     saveItem: (data: ProgramItem.id) => {

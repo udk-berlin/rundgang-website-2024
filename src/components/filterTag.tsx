@@ -26,8 +26,8 @@ export default function FilterTag({
         pathname: selectedLayoutSegment,
         query: {
           // this should be wrapped nicely in some utility function or so?
-          ...(filter.searchParam != 'language' && searchParams.get('language')
-            ? { language: searchParams.get('language') }
+          ...(filter.searchParam != 'lang' && searchParams.get('lang')
+            ? { lang: searchParams.get('lang') }
             : {}),
           ...(filter.searchParam != 'faculty' && searchParams.get('faculty')
             ? { faculty: searchParams.get('faculty') }
