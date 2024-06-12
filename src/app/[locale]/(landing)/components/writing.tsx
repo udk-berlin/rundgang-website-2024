@@ -19,7 +19,7 @@ function LandingWritingContainer({ children }: { children: ReactNode }) {
   return (
     <BorderContainer
       className="h-full bg-secondary"
-      innerClassName="flex h-full items-center justify-center px-[7vw] bg-secondary"
+      innerClassName="flex h-full items-center justify-center px-[9vw] bg-secondary"
       borders={['x', 't']}
     >
       {children}

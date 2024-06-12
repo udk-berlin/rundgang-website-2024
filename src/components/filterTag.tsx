@@ -39,11 +39,11 @@ export default function FilterTag({
           //[filter.searchParam]: filter?.id,
         },
       }}
-      className={cx(disabled && 'pointer-events-none')}
+      className={cx('pl-1 pt-1', disabled && 'pointer-events-none')}
     >
       <div
         className={cx(
-          'relative w-fit rounded-md border-sm border-primary px-[13px]  py-[8px] text-xxs text-primary',
+          'relative w-fit rounded-md px-[13px]  py-[8px] text-xxs text-primary',
           isSelected
             ? 'bg-highlight text-black'
             : 'bg-secondary hover:bg-highlight hover:text-black',

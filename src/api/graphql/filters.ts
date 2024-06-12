@@ -45,11 +45,13 @@ export const getGraphQLFilters = cache(async () => {
           id: a.id,
           name: a.name,
           searchParam: 'format',
+          exists: true,
         })),
         faculties: [...res.data.faculties, ...res.data.centres].map((a) => ({
           id: a.id,
           name: a.name,
           searchParam: 'faculty',
+          exists: true,
         })),
         languages: Array.from(
           new Set(
@@ -64,6 +66,7 @@ export const getGraphQLFilters = cache(async () => {
             id: language.toLowerCase(),
             name: ISO6391.getNativeName(language.toLowerCase()) ?? language,
             searchParam: 'lang',
+            exists: true,
           }))
           .filter((l) => l.name != ''),
       }) as Filters,
