@@ -4,84 +4,98 @@ const projects = {
     faculty: 'Fakultät Musik',
     language: 'Bulgarian',
     subject: 'Lehramt Musik an Grundschulen',
+    cms_lng: 'BG',
   },
-  deu: {
+  de: {
     artist: 'Aaron Langguth',
     faculty: 'Fakultät Gestaltung',
     language: 'German',
     subject: 'Gesellschafts- und Wirtschaftskommunikation',
+    cms_lng: 'DE',
   },
-  hin: {
+  hi: {
     artist: 'Agneya Chikte',
     faculty: 'Jazz Institut Berlin',
     language: 'Hindi',
     subject: 'Master of Music',
+    cms_lng: 'HI',
   },
-  jpn: {
+  ja: {
     artist: 'Yui Yamagishi',
     faculty: 'Fakultät Gestaltung',
     language: 'Japanese',
     subject: 'Visuelle Kommunikation',
+    cms_lng: 'JA',
   },
-  kat: {
+  ka: {
     artist: 'Liza Bokeria',
     faculty: 'Fakultät Gestaltung',
     language: 'Georgian',
     subject: 'Architektur',
+    cms_lng: 'KA',
   },
-  mar: {
+  mr: {
     artist: 'Agneya Chikte',
     faculty: 'Jazz Institut Berlin',
     language: 'Marathi',
     subject: 'Master of Music',
+    cms_lng: 'MR',
   },
-  por: {
+  pt: {
     artist: 'Kim R. Martins',
     faculty: 'Berlin Career College',
     language: 'Portugese (Brazilian)',
     subject: 'Sound Studies and Sonic Arts',
+    cms_lng: 'PT',
   },
-  rus: {
+  ru: {
     artist: 'Konstantin Maltcev',
     faculty: 'Fakultät Musik',
     language: 'Russian',
     subject: 'Lehramt Musik',
+    cms_lng: 'RU',
   },
-  spa: {
+  es: {
     artist: 'B. Skarlett B. Cisneros',
     faculty: 'Fakultät Gestaltung',
     language: 'Spanish',
     subject: 'Produktdesign',
+    cms_lng: 'ES',
   },
-  srp: {
+  sr: {
     artist: 'Milica Milić',
     faculty: 'Fakultät Darstellende Kunst',
     language: 'Serbian',
     subject: 'Operngesang und Musiktheater',
+    cms_lng: 'SR',
   },
-  ukr: {
+  uk: {
     artist: 'Angelina Cherny',
     faculty: 'Fakultät Gestaltung',
     language: 'Ukrainian',
     subject: 'Visuelle Kommunikation',
+    cms_lng: 'UK',
   },
-  urd: {
+  ur: {
     artist: 'Hira Noor',
     faculty: 'Fakultät Bildende Kunst',
     language: 'Urdu',
     subject: 'Art in Context',
+    cms_lng: 'UR',
   },
   yue: {
     artist: 'Peony Lo',
     faculty: 'Fakultät Bildende Kunst',
     language: 'Cantonese',
     subject: 'Bildende Kunst',
+    cms_lng: 'ZH',
   },
-  zho: {
+  zh: {
     artist: 'Yuxiao Feng',
     faculty: 'Fakultät Gestaltung',
     language: 'Chinese',
     subject: 'Architektur',
+    cms_lng: 'ZH',
   },
 };
 
