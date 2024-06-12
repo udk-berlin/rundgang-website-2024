@@ -11,7 +11,7 @@ export default function LandingInfoProject({
   const project = projects[lang];
   return (
     <LandingInfoProjectContainer>
-      <LandingInfoProjectSound />
+      <LandingInfoProjectSound lang={lang} />
       <ResponsiveDiv className="text-right text-grey" textSize="xs">
         <p>{project.artist}</p>
         <p>{project.language}</p>
