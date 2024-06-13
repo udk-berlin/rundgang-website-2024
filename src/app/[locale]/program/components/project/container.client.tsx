@@ -4,13 +4,15 @@ import cx from 'classnames';
 import { Link, usePathname } from '@/navigation';
 import { ReactNodeProps } from '@/types/types';
 
-import { useAppStore } from '@/lib/useAppContext';
+import usePersistedUIStore from '@/lib/uiStore';
 
 export default function ProjectCardContainer({
   children,
   itemId,
 }: ReactNodeProps & { itemId: string }) {
-  const isSaved = useAppStore((state) => state.savedItems.includes(itemId));
+  const isSaved = usePersistedUIStore((state) =>
+    state.savedItems.includes(itemId),
+  );
   const pathname = usePathname();
   return (
     <Link
