@@ -42,6 +42,10 @@ export const pathnames = {
     en: '/timeline',
     de: '/zeitplan',
   },
+  '/saved': {
+    en: '/saved',
+    de: '/gemerkt',
+  },
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`

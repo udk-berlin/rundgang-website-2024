@@ -2,12 +2,12 @@ import Image from 'next/image';
 import { ReactNode } from 'react';
 import BorderContainer from '@/components/containers/border';
 
-export default function LandingWriting() {
+export default function LandingWriting({ lang }: { lang: string }) {
   return (
     <LandingWritingContainer>
       <Image
-        className="h-auto w-full"
-        src="/assets/projects/zho/writing.png"
+        className="h-auto w-full dark:invert"
+        src={`/assets/projects/${lang}/writing.png`}
         width={1207}
         height={587}
         alt="Hand writing"
@@ -18,8 +18,8 @@ export default function LandingWriting() {
 function LandingWritingContainer({ children }: { children: ReactNode }) {
   return (
     <BorderContainer
-      className="h-full"
-      innerClassName="flex h-full items-center justify-center px-[5vw]"
+      className="h-full bg-secondary"
+      innerClassName="flex h-full items-center justify-center px-[9vw] bg-secondary"
       borders={['x', 't']}
     >
       {children}

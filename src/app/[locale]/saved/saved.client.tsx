@@ -1,4 +1,5 @@
 'use client';
+import { useTranslations } from 'next-intl';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
 import ProjectCard from '@/app/program/components/project/card.server';
@@ -10,14 +11,22 @@ export type SavedProps = {
 
 export default function Saved({ items }: SavedProps) {
   const savedItems = useAppStore((state) => state.savedItems);
+  const t = useTranslations('Saved');
+  console.log({ savedItems, items });
+
   return (
-    <SavedContainer>
-      {items
-        .filter((item) => savedItems.includes(item.id))
-        .map((item) => (
-          <ProjectCard key={item.id} item={item} />
-        ))}
-    </SavedContainer>
+    <div className="w-full">
+      <div className="w-full p-gutter-sm text-left text-lg">
+        {t('saved_items')}
+      </div>
+      <SavedContainer>
+        {items
+          .filter((item) => savedItems.includes(item.id))
+          .map((item) => (
+            <ProjectCard key={item.id} item={item} />
+          ))}
+      </SavedContainer>
+    </div>
   );
 }
 

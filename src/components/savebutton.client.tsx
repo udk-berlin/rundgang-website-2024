@@ -3,8 +3,10 @@ import cx from 'classnames';
 import { useAppStore } from '@/lib/useAppContext';
 import { MouseEvent, useCallback } from 'react';
 import SmoothButton from '@/components/smoothbutton';
+import { useTranslations } from 'next-intl';
 
 export default function SaveButton({ itemId }: any) {
+  const t = useTranslations('Saved');
   const saveItem = useAppStore((state) => state.saveItem);
   const removeItem = useAppStore((state) => state.removeItem);
   const isSaved = useAppStore((state) => state.savedItems.includes(itemId));
@@ -23,7 +25,11 @@ export default function SaveButton({ itemId }: any) {
   );
 
   return (
-    <SmoothButton onButtonClick={onSaveItem} bottom>
+    <SmoothButton
+      onButtonClick={onSaveItem}
+      bottom
+      title={isSaved ? t('remove') : t('save')}
+    >
       <div
         className={cx(
           'text-[30px] transition-transform ease-in group-hover:text-secondary',

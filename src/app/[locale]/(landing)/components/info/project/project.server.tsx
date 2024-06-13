@@ -1,16 +1,22 @@
 import { ReactNode } from 'react';
 import LandingInfoProjectSound from '@/app/(landing)/components/info/project/sound.client';
 import { ResponsiveDiv } from '@/components/html/div';
+import projects, { ProjectLanguages } from '@/projects';
 
-export default function LandingInfoProject() {
+export default function LandingInfoProject({
+  lang,
+}: {
+  lang: ProjectLanguages;
+}) {
+  const project = projects[lang];
   return (
     <LandingInfoProjectContainer>
-      <LandingInfoProjectSound />
+      <LandingInfoProjectSound lang={lang} />
       <ResponsiveDiv className="text-right text-grey" textSize="xs">
-        <p>Name</p>
-        <p>Language</p>
-        <p>Studies</p>
-        <p>Faculty</p>
+        <p>{project.artist}</p>
+        <p>{project.language}</p>
+        <p>{project.subject}</p>
+        <p>{project.faculty}</p>
       </ResponsiveDiv>
     </LandingInfoProjectContainer>
   );
@@ -19,7 +25,7 @@ export default function LandingInfoProject() {
 function LandingInfoProjectContainer({ children }: { children: ReactNode }) {
   return (
     <div className="ml-auto mt-auto">
-      <div className="gap-gutter-sm flex flex-col items-end">{children}</div>
+      <div className="flex flex-col items-end gap-gutter-sm">{children}</div>
     </div>
   );
 }
