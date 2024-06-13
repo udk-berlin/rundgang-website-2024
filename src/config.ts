@@ -34,10 +34,6 @@ export const pathnames = {
     en: '/program',
     de: '/programm',
   },
-  '/project/[id]': {
-    en: '/project/[id]',
-    de: '/project/[id]',
-  },
   '/project': {
     en: '/project',
     de: '/project',
@@ -45,6 +41,10 @@ export const pathnames = {
   '/timeline': {
     en: '/timeline',
     de: '/zeitplan',
+  },
+  '/saved': {
+    en: '/saved',
+    de: '/gemerkt',
   },
 } satisfies Pathnames<typeof locales>;
 

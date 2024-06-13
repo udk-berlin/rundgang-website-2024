@@ -13,9 +13,6 @@ import { AppStoreProvider } from '@/lib/useAppContext';
 import { defaultInitState } from '@/lib/appStore';
 import { ReactNode } from 'react';
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 type RootLayoutProps = {
   children: ReactNode;
   modal: ReactNode;
@@ -37,7 +34,6 @@ export async function generateMetadata({
 
 export default async function RootLayout({
   children,
-  modal,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
   unstable_setRequestLocale(locale);
@@ -52,8 +48,6 @@ export default async function RootLayout({
           <AppStoreProvider initState={{ ...defaultInitState, ...filters }}>
             <Header />
             {children}
-            {modal}
-            <div id="modal-root" />
             <Footer />
           </AppStoreProvider>
         </NextIntlClientProvider>

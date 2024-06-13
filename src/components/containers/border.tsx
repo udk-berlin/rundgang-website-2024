@@ -23,10 +23,10 @@ export default function BorderContainer({
   children: ReactNode;
 }) {
   return (
-    <div className={cn('bg-black', className)}>
+    <div className={cn('bg-primary', className)}>
       <div
         className={cn(
-          'rounded-border h-min-full bg-white',
+          'rounded-border h-min-full bg-secondary',
           borders.map((border) => borderToMarginMapper[border]).join(' '),
           innerClassName,
         )}

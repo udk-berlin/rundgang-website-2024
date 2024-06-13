@@ -39,15 +39,15 @@ export default function FilterTag({
           //[filter.searchParam]: filter?.id,
         },
       }}
+      className={cx('pl-1 pt-1', disabled && 'pointer-events-none')}
     >
       <div
         className={cx(
-          'border-sm text-xxs w-fit rounded-md border-primary  px-[13px] py-[8px] text-primary',
-          isReverse && 'border-primary bg-secondary text-primary',
+          'relative w-fit rounded-md px-[13px]  py-[8px] text-xxs text-primary',
           isSelected
             ? 'bg-highlight text-black'
-            : 'bg-secondary hover:bg-highlight',
-          disabled && 'opacity-35',
+            : 'bg-secondary hover:bg-highlight hover:text-black',
+          disabled && 'pointer-events-none opacity-35',
         )}
       >
         {filter.name}

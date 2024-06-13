@@ -19,5 +19,14 @@
     "RootLayout": {
         "title": "Rundgang 2024",
         "description": "Rundgang 2024"
+    },
+    "Saved": {
+        "saved_items": "Gemerkte Projekte",
+        "remove": "entfernen",
+        "save": "merken"
+    },
+    "Landing": {
+        "udk_berlin": "UdK Berlin",
+        "date": "19. - 21. Juli 2024"
     }
 }

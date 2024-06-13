@@ -1,4 +1,4 @@
-import Project from '@/app/project/[id]/components/project.server';
+import Project from './components/project.server';
 import { getParsedItem } from '@/api/rest/item';
 
 export type ProjectsPageProps = {
@@ -7,5 +7,9 @@ export type ProjectsPageProps = {
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const item = await getParsedItem(params.id);
-  return <Project item={item} />;
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between ">
+      <Project item={item} />
+    </main>
+  );
 }

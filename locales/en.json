@@ -19,5 +19,14 @@
     "RootLayout": {
         "title": "Round Tour 2024",
         "description": "Round Tour 2024"
+    },
+    "Saved": {
+        "saved_items": "Saved Projects",
+        "remove": "remove",
+        "save": "save"
+    },
+    "Landing": {
+        "udk_berlin": "UdK Berlin",
+        "date": "19th - 21st of July 2024"
     }
 }

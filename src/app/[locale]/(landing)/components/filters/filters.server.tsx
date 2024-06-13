@@ -1,14 +1,22 @@
-import { ReactNode } from 'react';
-import LandingFiltersGroups from '@/app/(landing)/components/filters/groups/groups.server';
+import { getTranslations } from 'next-intl/server';
+import FilterGroup from '@/components/filters/filterGroup';
+import { Filters } from '@/types/types';
+import { Suspense } from 'react';
+import { getGraphQLFilters } from '@/api/graphql/filters';
 
-export default function LandingFilters() {
+export default async function FiltersLanding() {
+  const t = await getTranslations('Filtering');
+  const filters = await getGraphQLFilters();
+
   return (
-    <LandingFiltersContainer>
-      <LandingFiltersGroups />
-    </LandingFiltersContainer>
+    <div className="relative">
+      <div className="flex w-full">
+        <Suspense>
+          <FilterGroup title="faculties" list={filters.faculties} />
+          <FilterGroup title="formats" list={filters.formats} />
+          <FilterGroup title="languages" list={filters.languages} />
+        </Suspense>
+      </div>
+    </div>
   );
-}
-
-function LandingFiltersContainer({ children }: { children: ReactNode }) {
-  return <div>{children}</div>;
 }

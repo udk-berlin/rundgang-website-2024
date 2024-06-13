@@ -32,7 +32,10 @@ export default function ImageWrapper({
       width={500}
       alt={alt ?? 'thumbnail of student project'}
       placeholder="blur"
-      className={cx('w-full object-contain text-highlight', className)}
+      className={cx(
+        'w-full max-w-[400px]  object-contain text-highlight md:max-w-[800px]',
+        className,
+      )}
       blurDataURL={rgbDataURL(0, 255, 161)}
     />
   );
