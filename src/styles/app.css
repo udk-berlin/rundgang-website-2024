@@ -8,16 +8,27 @@
 
   --border: 2px;
   --height-md: 50px;
-  --header-height: 98px;
-  --footer-height: 50px;
   --gutter-lg: 50px;
   --bdradius: 4px;
+
+  --height-header: 40px;
+  --height-content-header: 0px;
+  --height-footer: 50px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: 255, 255, 255;
     --secondary: 0, 0, 0;
+  }
+}
+
+
+@media only screen and (min-width: 1200px) {
+  :root {
+    --height-header: 50px;
+    --height-content-header: 50px;
+    --height-footer: 50px;
   }
 }
 
@@ -57,3 +68,10 @@ body {
 /*        text-wrap: balance;*/
 /*    }*/
 /*}*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: 255, 255, 255;
+    --secondary: 0, 0, 0;
+  }
+}

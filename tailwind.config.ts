@@ -59,7 +59,7 @@ const config: Config = {
         '14px',
         {
           letterSpacing: '1',
-          lineHeight: '1',
+          lineHeight: '1.2',
           fontWeight: '400',
         },
       ],
@@ -84,13 +84,21 @@ const config: Config = {
       height: {
         sm: '35px',
         md: '50px',
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
+        content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
+        footer: 'var(--height-footer)',
+        'design-projects':
+          'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
       },
       borderRadius: {
         md: '4px',
+        border: '4px',
       },
       borderWidth: {
         sm: '2px',
         md: '4px',
+        border: '2px',
       },
       spacing: {
         'gutter-xxs': '5px',
