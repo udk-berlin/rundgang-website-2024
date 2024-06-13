@@ -3,16 +3,15 @@ import { useTranslations } from 'next-intl';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
 import ProjectCard from '@/app/program/components/project/card.server';
-import { useAppStore } from '@/lib/useAppContext';
+import usePersistedUIStore from '@/lib/uiStore';
 
 export type SavedProps = {
   items: Item[];
 };
 
 export default function Saved({ items }: SavedProps) {
-  const savedItems = useAppStore((state) => state.savedItems);
+  const savedItems = usePersistedUIStore((state) => state.savedItems);
   const t = useTranslations('Saved');
-  console.log({ savedItems, items });
 
   return (
     <div className="w-full">
