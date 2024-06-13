@@ -1,10 +1,10 @@
 'use client';
-import { useAppStore } from '@/lib/useAppContext';
 import NavigationLink from '@/components/navigationLink';
+import usePersistedUIStore from '@/lib/uiStore';
 
 export type SavedItemsProps = {};
 
 export default function SavedItems({}: SavedItemsProps) {
-  const numberSaved = useAppStore((state) => state.savedItems.length);
+  const numberSaved = usePersistedUIStore((state) => state.savedItems.length);
   return <NavigationLink href="/saved">{numberSaved}</NavigationLink>;
 }

@@ -31,6 +31,6 @@ export type Filters = {
 };
 
 export type Filter = Pick<Context, 'id' | 'name'> & {
-  searchParam: 'format' | 'lang' | 'faculty';
+  searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
 };

@@ -65,7 +65,7 @@ export const getGraphQLFilters = cache(async () => {
           .map((language) => ({
             id: language.toLowerCase(),
             name: ISO6391.getNativeName(language.toLowerCase()) ?? language,
-            searchParam: 'lang',
+            searchParam: 'language',
             exists: true,
           }))
           .filter((l) => l.name != ''),

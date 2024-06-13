@@ -18,7 +18,7 @@ export default function LandingInfoProjectSound({
       <Image
         className="cursor-pointer dark:invert"
         onClick={() => setIsMuted(!isMuted)}
-        src={`/assets/${isMuted ? 'unmute' : 'mute'}.svg`}
+        src={`/assets/svg/${isMuted ? 'unmute' : 'mute'}.svg`}
         width={30}
         height={30}
         alt={isMuted ? 'Unmute' : 'Mute'}
