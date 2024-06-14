@@ -28,7 +28,8 @@ export default function NavigationLink({
     <Link
       aria-current={isActive ? 'page' : undefined}
       className={cx(
-        'm-[1px] mb-border border-0 bg-secondary first:ml-border last:mr-border hover:bg-highlight hover:text-primary',
+        'm-[1px] border-0 bg-secondary first:ml-border last:mr-border hover:bg-highlight hover:text-primary',
+        isFooter ? 'mb-border' : 'mt-border',
         isActive ? activeStyle : 'rounded-border',
       )}
       href={href}
