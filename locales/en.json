@@ -37,5 +37,8 @@
         }
     },
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",
-    "language": "{count, plural, =1 {Language} other {Languages}}"
+    "language": "{count, plural, =1 {Language} other {Languages}}",
+    "errors": {
+        "audiPlayer": "Your browser does not support the audio element."
+    }
 }
