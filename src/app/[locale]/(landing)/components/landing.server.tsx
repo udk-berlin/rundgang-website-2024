@@ -1,33 +1,25 @@
 import { ReactNode } from 'react';
 import LandingFilters from '@/app/(landing)/components/filters/filters.server';
-import { LandingPageProps } from '@/app/page';
-import LandingWriting from '@/app/(landing)/components/writing';
 import LandingInfo from '@/app/(landing)/components/info/info.server';
 import projects, { ProjectLanguages } from '@/projects';
+import LandingProjectWriting from '@/app/(landing)/components/project/writing';
 
 export type LandingProps = {
   searchParams?: {
     lang: ProjectLanguages;
-    [key: string]: string | string[] | undefined;
   };
 };
 
-const getLanguage = (searchParams: LandingProps['searchParams']) => {
-  const languages = Object.keys(projects);
-  if (searchParams?.lang) {
-    return searchParams.lang;
-  }
-  const number = Math.floor(Math.random() * languages.length);
-  return languages[number] as ProjectLanguages;
-};
-
 export default function Landing({ searchParams }: LandingProps) {
-  const lang = getLanguage(searchParams);
+  const projectLanguageSearchParam =
+    extractProjectLanguageSearchParam(searchParams);
   return (
     <LandingContainer>
       <div className="relative grow-[1]">
-        <LandingWriting lang={lang} />
-        <LandingInfo lang={lang} />
+        <LandingProjectWriting
+          languageSearchParam={projectLanguageSearchParam}
+        />
+        <LandingInfo projectLanguageSearchParam={projectLanguageSearchParam} />
       </div>
       <LandingFilters />
     </LandingContainer>
@@ -41,3 +33,14 @@ function LandingContainer({ children }: { children: ReactNode }) {
     </main>
   );
 }
+
+const extractProjectLanguageSearchParam = (
+  searchParams: LandingProps['searchParams'],
+) => {
+  const languages = Object.keys(projects);
+  if (searchParams?.lang) {
+    return searchParams.lang;
+  }
+  const number = Math.floor(Math.random() * languages.length);
+  return languages[number] as ProjectLanguages;
+};

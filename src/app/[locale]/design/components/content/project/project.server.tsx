@@ -2,20 +2,23 @@ import { HtmlProps } from '@/components/html/html';
 import DesignContentProjectWriting from '@/app/design/components/content/project/writing.server';
 import DesignContentProjectName from '@/app/design/components/content/project/name.server';
 import DesignContentProjectFilters from '@/app/design/components/content/project/filters/filters.server';
-import DesignContentProjectAudio from '@/app/design/components/content/project/audio.server';
+import DesignContentProjectAudioPlayer from '@/app/design/components/content/project/audioPlayer.server';
 
-export default function DesignContentProject({ language, project }) {
+export default function DesignContentProject({ project }) {
   return (
     <DesignContentProjectContainer>
       <DesignContentProjectWriting
         key="writing"
-        language={language}
+        languageSearchParam={project.language.searchParam}
         project={project}
       />
-      <DesignContentProjectAudio key="audio" />
+      <DesignContentProjectAudioPlayer
+        key="audio"
+        languageSearchParam={project.language.searchParam}
+      />
       <DesignContentProjectName
         key="name"
-        language={language}
+        languageSearchParam={project.language.searchParam}
         project={project}
       />
       <DesignContentProjectFilters key="filters" project={project} />
@@ -25,7 +28,7 @@ export default function DesignContentProject({ language, project }) {
 
 function DesignContentProjectContainer({ children }: HtmlProps) {
   return (
-    <div className="rounded-border flex w-full flex-col gap-[0.5rem] bg-secondary px-[1rem] py-[1.5rem]">
+    <div className="flex w-full flex-col gap-[0.5rem] rounded-border bg-secondary px-[1rem] py-[1.5rem]">
       {children}
     </div>
   );

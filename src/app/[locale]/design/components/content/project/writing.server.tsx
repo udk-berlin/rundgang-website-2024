@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-export default function DesignContentProjectWriting({ language, project }) {
+export default function DesignContentProjectWriting({ languageSearchParam, project }) {
   return (
     <Image
-      src={`/assets/projects/${language}/writing.png`}
+      src={`/assets/projects/${languageSearchParam}/writing.png`}
       alt={project.name}
       width={1660}
       height={745}

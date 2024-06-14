@@ -1,6 +1,7 @@
 import { HtmlProps } from '@/components/html/html';
 import { useTranslations } from 'next-intl';
 import DesignContentProjectFilter from '@/app/design/components/content/project/filters/filter.server';
+import ISO6391 from 'iso-639-1';
 
 export default function DesignContentProjectFilters({ project }) {
   const t = useTranslations();
@@ -12,7 +13,7 @@ export default function DesignContentProjectFilters({ project }) {
       />
       <DesignContentProjectFilter
         title={t('language', { count: 1 })}
-        value={project.language}
+        value={ISO6391.getNativeName(project.language.iso_639_1_code)}
       />
     </DesignContentProjectFiltersContainer>
   );
