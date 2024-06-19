@@ -1,13 +1,13 @@
+'use client';
 import { useTranslations } from 'next-intl';
 import cx from 'classnames';
-import NavigationLink from '../../navigationLink';
-import MenuMobile from './mobileMenu/menuMobile';
-import RundgangLogo from './rundgangLogo';
 import { useAppStore } from '@/lib/useAppContext';
+import NavigationLink from '@/components/navigationLink';
+import RundgangLogo from '@/components/header/navigation/rundgangLogo';
+import HeaderNavigationMobileMenu from '@/components/header/navigation/mobile/menu';
 
-export default function NavigationMobile() {
+export default function HeaderNavigationMobile() {
   const t = useTranslations('Navigation');
-
   const setMenuOpen = useAppStore((state) => state.setMenuOpen);
   const menuOpen = useAppStore((state) => state.menuOpen);
 
@@ -28,7 +28,7 @@ export default function NavigationMobile() {
         </div>
         <NavigationLink href="/info">{t('info')}</NavigationLink>
       </nav>
-      {menuOpen && <MenuMobile />}
+      {menuOpen && <HeaderNavigationMobileMenu />}
     </div>
   );
 }

@@ -59,7 +59,7 @@ const config: Config = {
         '14px',
         {
           letterSpacing: '1',
-          lineHeight: '1',
+          lineHeight: '1.2',
           fontWeight: '400',
         },
       ],
@@ -84,13 +84,21 @@ const config: Config = {
       height: {
         sm: '35px',
         md: '50px',
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
+        content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
+        footer: 'var(--height-footer)',
+        'design-projects':
+          'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
       },
       borderRadius: {
         md: '4px',
+        border: '4px',
       },
       borderWidth: {
         sm: '2px',
         md: '4px',
+        border: '2px',
       },
       spacing: {
         'gutter-xxs': '5px',
@@ -101,9 +109,8 @@ const config: Config = {
         border: '2px',
       },
       gridTemplateColumns: {
-        footer: 'repeat(3,minmax(200px, 1fr))',
-        header: 'repeat(5,minmax(200px, 1fr))',
-        headerinfo: 'minmax(100px, 1fr) 50px 50px 50px',
+        header: '20vw 20vw 20vw 20vw calc(20vw - 150px) 50px 50px 50px',
+        'header-info': 'minmax(100px, 1fr) 50px 50px 50px',
       },
       fontFamily: {
         jungka: ['var(--font-jungka)', 'var(--font-noto)', 'sans-serif'],
