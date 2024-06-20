@@ -12,7 +12,7 @@ export default async function FilterSideBar({
   searchParams,
 }: FilterSideBarProps) {
   const items = await getFilteredGraphQLItems(searchParams);
-  const filters = await getExistingGraphQLFilters(items);
+  const filters = await getExistingGraphQLFilters(items, searchParams);
 
   return <Filters filters={filters} />;
 }

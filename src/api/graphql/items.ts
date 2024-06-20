@@ -48,6 +48,7 @@ export const getGraphQLItems = cache(async () => {
         id: item.id,
         name: item.name,
         thumbnail: item.thumbnail,
+        parents: item.parents,
         languages: item.description.map((d: Description) =>
           d.language.toLowerCase(),
         ),

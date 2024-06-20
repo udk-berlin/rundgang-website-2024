@@ -11,10 +11,10 @@ export default function FilterBar() {
   //const selectedTags = useAppStore((state) => state.selectedTags);
 
   return (
-    <div className="sticky left-0 right-0 top-[var(--height-footer)] z-10 flex h-md w-full rounded-md border border-t-0 bg-primary bg-secondary p-2">
+    <div className="sticky left-0 right-0 top-[var(--height-footer)] z-10 flex h-md w-full flex-wrap justify-start rounded-md border border-t-0 bg-secondary">
       <div className="pr-1">{t('filter')}</div>
       {filterItems.map((item) => (
-        <div className="pl-1" key={`selected-filter-${item.id}`}>
+        <div className="flex pl-1" key={`selected-filter-${item.id}`}>
           <FilterTag filter={item} isSelected />
         </div>
       ))}
