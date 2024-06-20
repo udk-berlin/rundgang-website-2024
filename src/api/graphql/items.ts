@@ -72,8 +72,11 @@ export const getFilteredGraphQLItems = cache(
 );
 
 export const getFilteredGraphQLLocationItems = cache(
-  async (searchParams: { [key: string]: string | undefined }) => {
-    const locationItems = await getLocationItems(searchParams?.loc);
+  async (
+    searchParams: { [key: string]: string | undefined },
+    place: string,
+  ) => {
+    const locationItems = await getLocationItems(place);
     return getGraphQLItems()
       .then((items) => items.filter((item) => locationItems.includes(item.id)))
       .then((items) => filterItemsBySearchParams(items, searchParams));

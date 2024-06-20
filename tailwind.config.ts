@@ -27,7 +27,7 @@ const config: Config = {
     },
     fontSize: {
       xl: [
-        '96px',
+        '70px',
         {
           letterSpacing: '1',
           lineHeight: '1',
@@ -87,6 +87,9 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
+        filter: 'var(--height-filter)',
+        locations:
+          'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-filter))',
         footer: 'var(--height-footer)',
         'design-projects':
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',

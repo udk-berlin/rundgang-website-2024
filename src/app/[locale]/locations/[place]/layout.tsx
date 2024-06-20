@@ -10,10 +10,10 @@ export default function LocationsLayout({
   program: React.ReactNode;
 }) {
   return (
-    <main className="p-0">
+    <main className="h-content p-0">
       <FilterBar />
-      <div className="grid grid-cols-1 xs:grid-cols-5">
-        <div className="col-span-3">{children}</div>
+      <div className="h-locations grid grid-cols-1 xs:grid-cols-5">
+        {children}
         {program}
         {selected}
       </div>

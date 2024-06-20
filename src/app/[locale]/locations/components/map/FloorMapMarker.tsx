@@ -20,7 +20,12 @@ export default function FloorMapMarker({
       anchor="center"
       className="group w-fit"
     >
-      <Link href={`/locations/${building.id}`} shallow={false}>
+      <Link
+        href={{
+          pathname: `/locations/[place]`,
+          params: { place: building.properties.id },
+        }}
+      >
         <div
           className={cx(
             'absolute bottom-8 left-9 w-fit text-nowrap',
@@ -42,8 +47,8 @@ export default function FloorMapMarker({
           src={`/assets/svg/map/ground_plan/marker/${building.properties.image}.svg`}
         />
         <Image
-          height={40}
-          width={40}
+          height={30}
+          width={30}
           alt={building.properties.name}
           className="sm:hidden"
           src="/assets/svg/map/ground_plan/marker/simple.svg"

@@ -5,7 +5,6 @@ import ContentElement from './contentelement';
 // TODO: format content properly
 export default function ProjectContent({ item }: ProjectProps) {
   const locale = useLocale();
-  console.log(locale);
 
   if (!item.content || !(locale.toUpperCase() in item.content)) {
     return <></>;
