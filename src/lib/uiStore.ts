@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { useState, useEffect } from 'react';
 import { Item } from '@/types/item';
 
 export type UIStore = {
@@ -11,9 +10,9 @@ export type UIStore = {
   setMenuOpen: () => void;
 };
 
-const useUIStore = create<UIStore>()(
+export const useUIStore = create<UIStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       savedItems: [],
       menuOpen: false,
       setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
@@ -32,19 +31,7 @@ const useUIStore = create<UIStore>()(
     }),
     {
       name: 'UIStore',
+      getStorage: () => localStorage,
     },
   ),
 );
-
-const usePersistedUIStore = <F>(callback: (state: UIStore) => F) => {
-  const result = useUIStore(callback) as F;
-  const [data, setData] = useState<F>();
-
-  useEffect(() => {
-    setData(result);
-  }, [result]);
-
-  return data;
-};
-
-export default usePersistedUIStore;

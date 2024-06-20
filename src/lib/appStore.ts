@@ -17,6 +17,7 @@ export type AppActions = {
   setFaculty: (x: string) => void;
   setLanguage: (x: string) => void;
   setFormat: (x: string) => void;
+  setLocation: (x: string) => void;
   setSelectedTags: (data: Filter[]) => void;
   setExisting: (data: Filters) => void;
 };
@@ -38,6 +39,7 @@ export const createAppStore = (initState: AppState = defaultInitState) => {
     setFaculty: (faculty: string) => set(() => ({ faculty: faculty })),
     setLanguage: (language: string) => set(() => ({ language: language })),
     setFormat: (format: string) => set(() => ({ format: format })),
+    setLocation: (location: string) => set(() => ({ location: location })),
     setSelectedTags: (selectedTags: Filter[]) =>
       set(() => ({ selectedTags: selectedTags })),
     setExisting: (existing: Filters) => set(() => ({ existing: existing })),

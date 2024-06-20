@@ -1,4 +1,4 @@
-import { ProjectCardProps } from '@/app/program/components/project/card.server';
+import { ProjectCardProps } from '@/components/project/card.server';
 import { ReactNodeProps } from '@/types/types';
 import { Link } from '@/navigation';
 

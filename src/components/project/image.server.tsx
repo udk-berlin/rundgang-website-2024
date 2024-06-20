@@ -1,6 +1,6 @@
 import ImageWrapper from '@/components/image';
-import { ProjectCardProps } from '@/app/program/components/project/card.server';
-import SaveButton from '../../../../../components/savebutton.client';
+import { ProjectCardProps } from '@/components/project/card.server';
+import SaveButton from '@/components/savebutton.client';
 
 export default function ProjectCardImage({ item }: ProjectCardProps) {
   return (

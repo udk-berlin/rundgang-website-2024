@@ -24,7 +24,7 @@ export default function Project({ item }: ProjectProps) {
 
 function ProjectContainer({ children }: ReactNodeProps) {
   return (
-    <div className="inline-block w-full">
+    <div className="inline-block h-fit min-h-full w-full">
       <div className="flex w-full flex-wrap rounded-md border border-primary bg-secondary p-gutter-xs">
         {children}
       </div>

@@ -10,7 +10,7 @@ export default function ProgramLayout({
   sidebar: React.ReactNode;
 }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-0">
+    <main className="flex h-[calc(100vh-var(--footer-height)-var(--footer-height))] flex-col items-center justify-between p-0">
       <FilterBar />
       <div className="grid grid-cols-1 xs:grid-cols-5">
         {sidebar}
