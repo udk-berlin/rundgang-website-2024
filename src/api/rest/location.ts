@@ -2,24 +2,7 @@ import { cache } from 'react';
 import { getRestApiQuery } from '@/api/rest/api';
 import { Item } from '@/types/item';
 import { Context } from '@/types/graphql';
-
-const LOCATION_ROOT = '!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de';
-
-export const FLOORPLANS = {
-  '!PsyURUpKAbSPistHpQ:content.udk-berlin.de': 7,
-  '!RuJBwEwOQcFrQabJnn:content.udk-berlin.de': 3,
-  '!YIwQSiHDpoiNHDMWmC:content.udk-berlin.de': 4,
-  '!XGSFQYZUnFtQNzOBnD:content.udk-berlin.de': 5,
-  '!GFauydmVRlpqvDETXH:content.udk-berlin.de': 6,
-  '!eVjUBtkIgDQkQSKVxm:content.udk-berlin.de': 8,
-  '!OkEblSLtaWAObRcCHm:content.udk-berlin.de': 10,
-  '!fPuAzLpetwUYPJZwCF:content.udk-berlin.de': 11,
-  '!HXlOLrPXYbIQdkqryj:content.udk-berlin.de': 9,
-  '!RpTarLRqYYIdDCBLyV:content.udk-berlin.de': 13,
-  '!YOMEVNrNhhIBxSAhNQ:content.udk-berlin.de': 12,
-  '!CmGOTOZlDoWMcJFHkZ:content.udk-berlin.de': 2,
-  '!IKWVNtgTydTHMgpUwQ:content.udk-berlin.de': 1,
-};
+import { LOCATION_ROOT, FLOORPLANS } from '../constants';
 
 export const getContextTree = cache(async (id: string) => {
   const res = await fetch(getRestApiQuery(`${id}/tree`));

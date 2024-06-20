@@ -34,13 +34,9 @@ export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
 };
-
-export type Building = GeoJSON.Feature<GeoJSON.Point> & {
+export type Building = {
   id: string;
-  properties: {
-    id: string;
-    name: string;
-    image: number;
-    maxZoom: number;
-  };
+  name: string;
+  image: number;
+  maxZoom: number;
 };

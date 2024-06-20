@@ -43,6 +43,7 @@ export default function FloorMapMarker({
           height={marker?.size ?? 40}
           width={marker?.size ?? 40}
           alt={building.properties.name}
+          priority={true}
           className="hidden sm:block"
           src={`/assets/svg/map/ground_plan/marker/${building.properties.image}.svg`}
         />
