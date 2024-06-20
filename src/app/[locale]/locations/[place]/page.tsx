@@ -1,7 +1,7 @@
-import Locations from './components/locations.server';
+import Locations from '../components/locations.server';
 
 type LocationsPageProps = {
-  params: { place: string[] };
+  place: string[];
   searchParams?: {
     [key: string]: string | string[] | undefined;
   };
@@ -10,7 +10,8 @@ type LocationsPageProps = {
 export default async function LocationsPage(props: LocationsPageProps) {
   return (
     <div className="h-full w-full">
-      <Locations mapCut={0} />
+      <Locations mapCut={500} />
+      <div className="h-fit bg-black text-white">{props.place}</div>
     </div>
   );
 }

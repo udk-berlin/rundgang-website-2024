@@ -34,3 +34,13 @@ export type Filter = Pick<Context, 'id' | 'name'> & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
 };
+
+export type Building = GeoJSON.Feature<GeoJSON.Point> & {
+  id: string;
+  properties: {
+    id: string;
+    name: string;
+    image: number;
+    maxZoom: number;
+  };
+};
