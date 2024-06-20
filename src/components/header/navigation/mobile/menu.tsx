@@ -1,9 +1,7 @@
 import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
-import { ColorSchemePreference } from '../colorSchemePreference';
-import SavedItems from '../savedItems';
-import NavigationLink from '@/components/navigationLink';
+import ColorSchemeSwitcher from '../colorSchemeSwitcher';
 import SmoothButton from '@/components/smoothbutton';
 
 export type MenuMobileProps = {};
@@ -23,28 +21,7 @@ const mobileMenuItems = [
   { title: 'Design', href: '/design', isTop: false, active: false },
 ];
 
-function MobileMenuItem({
-  title,
-  href,
-  isTop = true,
-  active = false,
-}: MobileMenuItemProps) {
-  return (
-    <Link href={href}>
-      <div
-        className={cx(
-          'w-full py-gutter-sm',
-          isTop ? 'text-md' : 'text-default',
-        )}
-      >
-        {active ? '>' : ''}
-        {title}
-      </div>
-    </Link>
-  );
-}
-
-export default function MenuMobile({}: MenuMobileProps) {
+export default function HeaderNavigationMobileMenu({}: MenuMobileProps) {
   const setMenuOpen = useAppStore((state) => state.setMenuOpen);
   const menuOpen = useAppStore((state) => state.menuOpen);
   const numberSaved = useAppStore((state) => state.savedItems.length);
@@ -73,8 +50,29 @@ export default function MenuMobile({}: MenuMobileProps) {
         href="/saved"
       />
       <div className="m-auto my-gutter-sm h-10 w-10">
-        <ColorSchemePreference />
+        <ColorSchemeSwitcher />
       </div>
     </div>
+  );
+}
+
+function MobileMenuItem({
+  title,
+  href,
+  isTop = true,
+  active = false,
+}: MobileMenuItemProps) {
+  return (
+    <Link href={href}>
+      <div
+        className={cx(
+          'w-full py-gutter-sm',
+          isTop ? 'text-md' : 'text-default',
+        )}
+      >
+        {active ? '>' : ''}
+        {title}
+      </div>
+    </Link>
   );
 }

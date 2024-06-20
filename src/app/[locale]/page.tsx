@@ -1,4 +1,3 @@
-import { useTranslations } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import Landing, { LandingProps } from './(landing)/components/landing.server';
 
@@ -12,6 +11,5 @@ export default function LandingPage({
   searchParams,
 }: LandingPageProps) {
   unstable_setRequestLocale(locale);
-  // const t = useTranslations('IndexPage');
   return <Landing searchParams={searchParams} />;
 }

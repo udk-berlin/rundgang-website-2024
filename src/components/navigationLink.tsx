@@ -18,13 +18,19 @@ export default function NavigationLink({
   const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
 
   const isActive = pathname === href;
-  const activeStyle = isFooter ? 'rounded-b-md mt-0' : 'rounded-t-md mb-0';
+  const activeStyle = isFooter
+    ? href === '/design'
+      ? 'rounded-border'
+      : 'rounded-b-border mt-0'
+    : 'rounded-t-border mb-0';
+
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
       className={cx(
-        'm-[1px] border-0 bg-secondary hover:bg-highlight hover:text-black',
-        isActive ? activeStyle : 'rounded-md',
+        'm-[1px] border-0 bg-secondary first:ml-border last:mr-border hover:bg-highlight hover:text-primary',
+        isFooter ? 'mb-border' : 'mt-border',
+        isActive ? activeStyle : 'rounded-border',
       )}
       href={href}
     >

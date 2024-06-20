@@ -28,7 +28,7 @@ jobs:
           VERBOSE: true
           USER: root
           PORT: 22
-          ARGS: --recursive --update --delete --compress --exclude=/.git/ --exclude=/public/fonts/
+          ARGS: --recursive --update --delete --compress --exclude=/.env --exclude=/.git/ --exclude=/public/fonts/
           SSH_ARGS: '-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
           SOURCE: .
 

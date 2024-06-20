@@ -2,20 +2,24 @@ import Image from 'next/image';
 import { ReactNode } from 'react';
 import BorderContainer from '@/components/containers/border';
 
-export default function LandingWriting({ lang }: { lang: string }) {
+export default function LandingProjectWriting({
+  languageSearchParam,
+}: {
+  languageSearchParam: string;
+}) {
   return (
-    <LandingWritingContainer>
+    <LandingProjectWritingContainer>
       <Image
         className="h-auto w-full dark:invert"
-        src={`/assets/projects/${lang}/writing.png`}
+        src={`/assets/projects/${languageSearchParam}/writing.png`}
         width={1207}
         height={587}
-        alt="Hand writing"
+        alt="Writing"
       />
-    </LandingWritingContainer>
+    </LandingProjectWritingContainer>
   );
 }
-function LandingWritingContainer({ children }: { children: ReactNode }) {
+function LandingProjectWritingContainer({ children }: { children: ReactNode }) {
   return (
     <BorderContainer
       className="h-full bg-secondary"

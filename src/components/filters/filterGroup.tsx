@@ -3,6 +3,7 @@ import FilterTag from '@/components/filterTag';
 import { useAppStore } from '@/lib/useAppContext';
 import { Filter } from '@/types/types';
 import { useTranslations } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 
 export type FilterGroupProps = {
   title: 'faculties' | 'formats' | 'languages';
@@ -11,7 +12,8 @@ export type FilterGroupProps = {
 
 export default function FilterGroup({ title, list }: FilterGroupProps) {
   const t = useTranslations('Filtering');
-  const selectedId = useAppStore((state) => state[list[0]?.searchParam ?? '']);
+  const searchParams = useSearchParams();
+  const selectedId = searchParams.get(list[0]?.searchParam ?? '');
   return (
     <div className="w-full">
       <div className="px-1 pt-1 text-grey">{t(title)}:</div>

@@ -1,20 +1,22 @@
 import { ReactNode } from 'react';
-import LandingInfoProjectSound from '@/app/(landing)/components/info/project/sound.client';
 import { ResponsiveDiv } from '@/components/html/div';
 import projects, { ProjectLanguages } from '@/projects';
+import LandingInfoProjectAudioPlayer from '@/app/(landing)/components/info/project/audioPlayer.client';
 
 export default function LandingInfoProject({
-  lang,
+  languageSearchParam,
 }: {
-  lang: ProjectLanguages;
+  languageSearchParam: ProjectLanguages;
 }) {
-  const project = projects[lang];
+  const project = projects[languageSearchParam];
   return (
     <LandingInfoProjectContainer>
-      <LandingInfoProjectSound lang={lang} />
+      <LandingInfoProjectAudioPlayer
+        languageSearchParam={languageSearchParam}
+      />
       <ResponsiveDiv className="text-right text-grey" textSize="xs">
         <p>{project.artist}</p>
-        <p>{project.language}</p>
+        <p>{project.language.name}</p>
         <p>{project.subject}</p>
         <p>{project.faculty}</p>
       </ResponsiveDiv>
