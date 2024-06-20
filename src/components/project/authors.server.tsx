@@ -8,23 +8,8 @@ export default function ProjectCardAuthors({ item }: ProjectCardProps) {
   }
 
   return (
-    <Link
-      href={{
-        pathname: `/project/[id]`,
-        params: { id: item.id },
-      }}
-    >
-      <ProjectCardAuthorsContainer>
-        {item.authors.join(' ')}
-      </ProjectCardAuthorsContainer>
-    </Link>
-  );
-}
-
-function ProjectCardAuthorsContainer({ children }: ReactNodeProps) {
-  return (
     <div className="px-gutter-md pb-gutter-md text-right text-xs">
-      {children}
+      {item.authors.join(' ')}
     </div>
   );
 }

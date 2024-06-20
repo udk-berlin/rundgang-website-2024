@@ -9,7 +9,7 @@ export type ItemContent = {
 export type Item = {
   id: string;
   name: string;
-  thumbnail?: string;
+  thumbnail: string;
   thumbnail_full_size?: string;
   descriptions?: ItemDescription;
   languages?: string[];

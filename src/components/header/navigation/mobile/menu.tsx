@@ -1,7 +1,7 @@
 import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
-import { ColorSchemeSwitcher } from '../colorSchemeSwitcher';
+import ColorSchemeSwitcher from '../colorSchemeSwitcher';
 import SmoothButton from '@/components/smoothbutton';
 
 export type MenuMobileProps = {};
