@@ -4,13 +4,14 @@ import cx from 'classnames';
 import { Link, usePathname } from '@/navigation';
 import { ReactNodeProps } from '@/types/types';
 
-import usePersistedUIStore from '@/lib/uiStore';
+import { useUIStore } from '@/lib/uiStore';
+import { useStore } from 'zustand';
 
 export default function ProjectCardContainer({
   children,
   itemId,
 }: ReactNodeProps & { itemId: string }) {
-  const isSaved = usePersistedUIStore((state) =>
+  const isSaved = useStore(useUIStore, (state) =>
     state.savedItems.includes(itemId),
   );
   const pathname = usePathname();
@@ -24,7 +25,7 @@ export default function ProjectCardContainer({
     >
       <div
         className={cx(
-          'inline-block w-full border border-primary',
+          'col-span-1 inline-block w-full border border-primary',
           isSaved ? 'bg-primary' : '',
         )}
       >

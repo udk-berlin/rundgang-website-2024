@@ -1,20 +1,20 @@
 import FilterBar from '@/components/filterBar';
 
-export default function ProgramLayout({
+export default function LocationsLayout({
   children,
   selected,
-  sidebar,
+  program,
 }: {
   children: React.ReactNode;
   selected: React.ReactNode;
-  sidebar: React.ReactNode;
+  program: React.ReactNode;
 }) {
   return (
-    <main className="flex h-[calc(100vh-var(--footer-height)-var(--footer-height))] flex-col items-center justify-between p-0">
+    <main className="p-0">
       <FilterBar />
       <div className="grid grid-cols-1 xs:grid-cols-5">
-        {sidebar}
-        {children}
+        <div className="col-span-3">{children}</div>
+        {program}
         {selected}
       </div>
     </main>

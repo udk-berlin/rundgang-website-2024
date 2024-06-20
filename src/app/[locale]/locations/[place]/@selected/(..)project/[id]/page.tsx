@@ -1,6 +1,5 @@
 import Project from '@/app/project/[id]/components/project.server';
 import { getParsedItem } from '@/api/rest/item';
-import { Link } from '@/navigation';
 
 export type ProjectsPageProps = {
   params: { id: string };

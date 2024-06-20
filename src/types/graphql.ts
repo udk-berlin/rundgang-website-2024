@@ -105,6 +105,10 @@ export type Context = Space & {
   localDepth?: string;
 };
 
+export type GraphQlContexts = {
+  contexts: Context[];
+};
+
 export type GraphQLFilters = {
   formats: Filter[];
   faculties: Filter[];
