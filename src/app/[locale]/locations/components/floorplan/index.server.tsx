@@ -1,51 +1,17 @@
-import React from "react";
-import styled from 'styled-components'
+import Image from 'next/image';
+import Rooms from './rooms';
 
-import { useFilter } from "@/providers/filter";
-import LocationsFloorPlan from "@/components/pages/locations/floor_plan/floor_plan";
-
-export default function LocationsFloorPlanPopup() {
-  const filter = useFilter()
-
-  if (!(filter.floor)) {
-    return <></>
-  }
-
+export default function Floorplan({ location }: any) {
   return (
-    <LocationsFloorPlanPopupContainer>
-      <LocationsFloorPlanColumn>
-        <LocationsFloorPlan />
-      </LocationsFloorPlanColumn>
-      <LocationsFloorPlanEmptyColumn />
-      <LocationsFloorPlanEmptyColumn />
-    </LocationsFloorPlanPopupContainer>
-  )
+    <div className="relative h-1/2 w-1/2 p-1">
+      <Image
+        fill
+        alt="building background"
+        className="h-fit w-full object-contain"
+        placeholder="empty"
+        src={`/assets/svg/map/ground_plan/popup/${location.image}.svg`}
+      />
+      <Rooms location={location} />
+    </div>
+  );
 }
-
-const LocationsFloorPlanEmptyColumn = styled.div`
-  pointer-events: none;
-`
-
-const LocationsFloorPlanPopupContainer = styled.div`
-  position: absolute;
-  top: 0;
-  z-index: 4;
-
-  display: grid;
-  grid-template-columns: ${({ theme }) => theme.footer.gridTemplateColumn1} ${({ theme }) => theme.footer.gridTemplateColumn2} ${({ theme }) => theme.footer.gridTemplateColumn3};
-
-  width: 100vw;
-  min-width: 100vw;
-  max-width: 100vw;
-
-  cursor: default;
-  pointer-events: none;
-
-  font-size: 16px;
-`
-
-const LocationsFloorPlanColumn = styled.div`
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-`

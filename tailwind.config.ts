@@ -88,7 +88,7 @@ const config: Config = {
         'content-header': 'var(--height-content-header)',
         content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
         filter: 'var(--height-filter)',
-        locations:
+        contentpages:
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-filter))',
         footer: 'var(--height-footer)',
         'design-projects':

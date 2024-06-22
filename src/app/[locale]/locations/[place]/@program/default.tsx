@@ -32,8 +32,8 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="h-locations col-span-1 overflow-scroll xs:col-span-2">
-      <div className="grid h-fit columns-1 grid-cols-2 items-start justify-around gap-0 bg-primary xs:columns-2">
+    <div className="h-contentpages overflow-y-scroll xs:col-span-2">
+      <div className="min-h-contentpages col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-2 md:columns-2">
         {children}
       </div>
     </div>

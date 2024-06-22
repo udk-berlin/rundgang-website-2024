@@ -40,3 +40,7 @@ export type Building = {
   image: number;
   maxZoom: number;
 };
+
+export type ContextTree = Context & {
+  children: { [key: string]: ContextTree };
+};

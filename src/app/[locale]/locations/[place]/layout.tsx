@@ -12,7 +12,7 @@ export default function LocationsLayout({
   return (
     <main className="h-content p-0">
       <FilterBar />
-      <div className="h-locations grid grid-cols-1 xs:grid-cols-5">
+      <div className="h-contentpages grid grid-cols-1 xs:grid-cols-5">
         {children}
         {program}
         {selected}

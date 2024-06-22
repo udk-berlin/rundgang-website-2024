@@ -2,12 +2,15 @@ import { cache } from 'react';
 import { getRestApiQuery } from '@/api/rest/api';
 import { Item } from '@/types/item';
 import { Context } from '@/types/graphql';
-import { LOCATION_ROOT, FLOORPLANS } from '../constants';
+import { LOCATION_ROOT, FLOORPLANS, FLOORPLAN_MARGINS } from '../constants';
+import { ContextTree } from '@/types/types';
 
-export const getContextTree = cache(async (id: string) => {
-  const res = await fetch(getRestApiQuery(`${id}/tree`));
-  return res.json();
-});
+export const getContextTree = cache(
+  async (id: string): Promise<ContextTree> => {
+    const res = await fetch(getRestApiQuery(`${id}/tree`));
+    return res.json();
+  },
+);
 
 export const getLocationList = cache(async (id: string) => {
   const res = await fetch(getRestApiQuery(`${id}/list/filter/type/item`));
@@ -38,12 +41,36 @@ export const getLocation = cache(async (id: string): Promise<any> => {
   const path = await getLocationPathList(id);
   const item = await getLocationContext(id);
   const building = await getContextTree(path[2].id);
+  const selectedLevel =
+    item.template != 'location-building'
+      ? Object.values(building.children).find((item) => item.id == path[3].id)
+      : null;
+  const levels = Object.values(building.children).filter(
+    (item) =>
+      item.template == 'location-level' &&
+      Object.values(item.children).some(
+        (r) => Object.keys(r.children).length !== 0,
+      ),
+  );
+  const rooms = selectedLevel
+    ? Object.values(selectedLevel.children).filter(
+        (item) =>
+          item.template == 'location-room' &&
+          Object.keys(item.children).length !== 0,
+      )
+    : null;
   return {
-    id: item.id,
-    name: item.name,
-    template: item.template,
+    id: building.id,
+    name: building.name,
+    image: FLOORPLANS[building.id],
     room: item.template == 'location-room' ? path[4] : null,
-    level: item.template != 'location-building' ? path[3] : null,
-    building: building,
+    level: selectedLevel,
+    levels: levels,
+    floorplan: item.thumbnail_full_size,
+    margin:
+      selectedLevel?.id in FLOORPLAN_MARGINS
+        ? FLOORPLAN_MARGINS[selectedLevel?.id]
+        : '0',
+    rooms: rooms,
   };
 });

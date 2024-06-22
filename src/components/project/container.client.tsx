@@ -22,6 +22,7 @@ export default function ProjectCardContainer({
         params: { id: itemId },
       }}
       replace={pathname.includes('project')}
+      className="inline-block "
     >
       <div
         className={cx(

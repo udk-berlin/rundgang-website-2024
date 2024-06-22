@@ -166,4 +166,12 @@ export const FLOORPLANS = {
   '!CTmDtbjUTOOsurMDPc:content.udk-berlin.de': 12,
 };
 
+export const FLOORPLAN_MARGINS = {
+  '!fLNyHnyRGdzhkWqPoh:content.udk-berlin.de': '-mx-6 -my-3',
+  '!gsHiiGVkvzPFPnBUxx:content.udk-berlin.de': '-mx-6 -my-3',
+  '!ghPgTOgphCnxcDzavP:content.udk-berlin.de': 'mx-2 -my-3',
+  '!oAfaLsDQNrXWlaBFRD:content.udk-berlin.de': '-mx-6 -my-3',
+  '!FJItFjLiHmMxyoAdnf:content.udk-berlin.de': '-mx-2 -my-3',
+};
+
 export const LOCATION_ROOT = '!ZEZxbNWFYYsDgpkhCL:content.udk-berlin.de';
