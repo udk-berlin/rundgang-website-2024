@@ -11,9 +11,9 @@ export default async function LocationsPage(props: LocationsPageProps) {
   const location = await getLocation(props.params.place);
 
   return (
-    <div className="col-span-3 h-contentpages w-full overflow-y-scroll overscroll-contain bg-primary p-border">
+    <div className="col-span-3 h-contentpages w-full bg-primary p-border sm:overflow-y-scroll sm:overscroll-contain">
       <LocationsMap mapCut={600} />
-      <div className="mt-border flex h-full items-start rounded-md bg-secondary p-border">
+      <div className="mt-border h-full items-start rounded-md bg-secondary p-border sm:flex">
         <Subnavigation location={location} />
         <Floorplan location={location} />
       </div>
