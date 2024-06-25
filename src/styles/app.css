@@ -63,6 +63,15 @@ body {
   background-color: rgb(var(--primary)) !important;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {
