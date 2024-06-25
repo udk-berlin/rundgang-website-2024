@@ -24,7 +24,7 @@ function InfoHeadersContainer({ children }: HtmlProps) {
   return (
     <div
       className={cn(
-        'mx-border mb-border grid grid-cols-5 rounded-md bg-white',
+        'mx-border mb-border grid grid-cols-5 rounded-md bg-secondary text-primary',
         sizeToHeightClassName['md'],
       )}
     >
