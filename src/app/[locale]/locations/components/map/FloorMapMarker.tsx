@@ -25,16 +25,18 @@ export default function FloorMapMarker({
           pathname: `/locations/[place]`,
           params: { place: building.properties.id },
         }}
+        scroll={false}
       >
         <div
           className={cx(
-            'absolute bottom-8 left-9 w-fit text-nowrap',
+            'absolute w-fit text-nowrap',
             'rounded-md border-sm  p-1',
             'group-hover:border-primary group-hover:text-primary',
             'group-hover:bg-highlight dark:group-hover:bg-[--highlight-invert]',
             selected
               ? 'border-primary bg-highlight text-primary dark:bg-[--highlight-invert]'
               : 'border-secondary bg-primary text-secondary',
+            building.properties.labelPosition,
           )}
         >
           {building.properties.name}

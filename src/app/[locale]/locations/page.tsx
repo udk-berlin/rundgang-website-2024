@@ -10,7 +10,7 @@ type LocationsPageProps = {
 export default async function LocationsPage(props: LocationsPageProps) {
   return (
     <div className="h-full w-full">
-      <LocationsMap mapCut={0} />
+      <LocationsMap mapCut={108} />
     </div>
   );
 }

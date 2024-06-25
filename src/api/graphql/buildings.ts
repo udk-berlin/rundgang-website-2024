@@ -58,6 +58,10 @@ export const getBuildings: () => Promise<
               loc.id in LOCATION_INFO ? LOCATION_INFO[loc.id].image : index + 1,
             maxZoom:
               loc.id in LOCATION_INFO ? LOCATION_INFO[loc.id].maxZoom : 17,
+            labelPosition:
+              loc.id in LOCATION_INFO
+                ? LOCATION_INFO[loc.id].labelPosition
+                : 'bottom-8 right-8',
           },
           geometry: {
             type: 'Point',

@@ -5,7 +5,7 @@ import BuildingTitle from './title.server';
 export default async function Subnavigation({ location }: any) {
   const t = await getTranslations('Locations');
   return (
-    <div className="p-gutter-sm sm:w-1/2">
+    <div className="w-full p-gutter-sm ">
       <BuildingTitle location={location} />
       <SubLocation
         title={t('levels')}
@@ -18,7 +18,7 @@ export default async function Subnavigation({ location }: any) {
         <SubLocation
           title={t('rooms')}
           sublocations={location.rooms}
-          prefix={t('room')}
+          prefix=""
           selected={location.room?.id}
           backToAll={location.level?.id}
         />

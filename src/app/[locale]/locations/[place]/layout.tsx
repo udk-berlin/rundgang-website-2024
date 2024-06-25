@@ -1,5 +1,3 @@
-import FilterBar from '@/components/filterBar';
-
 export default function LocationsLayout({
   children,
   selected,
@@ -10,13 +8,10 @@ export default function LocationsLayout({
   program: React.ReactNode;
 }) {
   return (
-    <main className="h-content p-0">
-      <FilterBar />
-      <div className="h-contentpages grid grid-cols-1 xs:grid-cols-5">
-        {children}
-        {program}
-        {selected}
-      </div>
+    <main className="grid h-content grid-cols-1 p-0 xs:grid-cols-5">
+      {children}
+      {program}
+      {selected}
     </main>
   );
 }

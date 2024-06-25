@@ -57,10 +57,12 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
           style={{
             zIndex: 100,
             width: '100%',
-            height: size.height - mapCut,
+            height: isMobile
+              ? size.height - 0.7 * mapCut
+              : size.height - mapCut,
           }}
           initialViewState={{
-            zoom: 11,
+            zoom: 12.2,
             longitude: MAP_CONFIGURATION.center.longitude,
             latitude: MAP_CONFIGURATION.center.latitude,
           }}

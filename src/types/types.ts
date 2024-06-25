@@ -39,6 +39,7 @@ export type Building = {
   name: string;
   image: number;
   maxZoom: number;
+  labelPosition: string;
 };
 
 export type ContextTree = Context & {

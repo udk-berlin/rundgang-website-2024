@@ -19,6 +19,7 @@ export default function SubLocationTag({
         params: { place: sublocation.id },
       }}
       className="cursor-pointer pl-1 pt-1"
+      scroll={false}
     >
       <div
         className={cx(

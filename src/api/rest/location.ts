@@ -73,7 +73,9 @@ export const getLocation = cache(async (id: string): Promise<any> => {
     room: item.template == 'location-room' ? path[4] : null,
     level: level,
     levels: levels,
-    margin: level?.id in FLOORPLAN_MARGINS ? FLOORPLAN_MARGINS[level?.id] : '0',
+    margin:
+      level?.id in FLOORPLAN_MARGINS ? FLOORPLAN_MARGINS[level?.id] : 'm-0',
+    //level?.id in FLOORPLAN_MARGINS ? FLOORPLAN_MARGINS[level?.id] :
     rooms: rooms,
   };
 });

@@ -2,6 +2,7 @@ import { getFilteredGraphQLLocationItems } from '@/api/graphql/items';
 import ProjectCard from '@/components/project/card.server';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
+import JumpToTop from '@/components/jumpToTop';
 
 export type ProgramPageProps = {
   params: { place: string };
@@ -32,10 +33,11 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="h-full xs:col-span-2 sm:h-contentpages sm:overflow-y-scroll">
-      <div className="min-h-contentpages col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-2 md:columns-2">
+    <div className="h-full xs:col-span-2 sm:h-content sm:overflow-y-scroll">
+      <div className="min-h-content col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-2 md:columns-2">
         {children}
       </div>
+      <JumpToTop />
     </div>
   );
 }
