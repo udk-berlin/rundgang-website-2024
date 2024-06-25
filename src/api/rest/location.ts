@@ -41,7 +41,13 @@ export const getLocation = cache(async (id: string): Promise<any> => {
   const path = await getLocationPathList(id);
   const item = await getLocationContext(id);
   const building = await getContextTree(path[2].id);
-  const selectedLevel =
+  let level = null;
+  if (item.template == 'location-room') {
+    level = await getLocationContext(path[3].id);
+  } else if (item.template == 'location-level') {
+    level = item;
+  }
+  const levelWithChildren =
     item.template != 'location-building'
       ? Object.values(building.children).find((item) => item.id == path[3].id)
       : null;
@@ -52,25 +58,22 @@ export const getLocation = cache(async (id: string): Promise<any> => {
         (r) => Object.keys(r.children).length !== 0,
       ),
   );
-  const rooms = selectedLevel
-    ? Object.values(selectedLevel.children).filter(
+  const rooms = levelWithChildren
+    ? Object.values(levelWithChildren.children).filter(
         (item) =>
           item.template == 'location-room' &&
           Object.keys(item.children).length !== 0,
       )
     : null;
+
   return {
     id: building.id,
     name: building.name,
     image: FLOORPLANS[building.id],
     room: item.template == 'location-room' ? path[4] : null,
-    level: selectedLevel,
+    level: level,
     levels: levels,
-    floorplan: item.thumbnail_full_size,
-    margin:
-      selectedLevel?.id in FLOORPLAN_MARGINS
-        ? FLOORPLAN_MARGINS[selectedLevel?.id]
-        : '0',
+    margin: level?.id in FLOORPLAN_MARGINS ? FLOORPLAN_MARGINS[level?.id] : '0',
     rooms: rooms,
   };
 });

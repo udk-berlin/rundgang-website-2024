@@ -1,45 +1,48 @@
 'use client';
+import { useRouter } from '@/navigation';
 import cx from 'classnames';
 import { useCallback, useEffect } from 'react';
 import { ReactSVG } from 'react-svg';
 
 export default function Rooms({ location }: any) {
-  console.log(
-    cx(
-      'absolute left-0 top-0 h-fit w-full fill-highlight',
-      location.margin,
-      ...location.rooms.map(
-        (room) => `[&_[data-name="${room.name}"]]:fill-white`,
-      ),
-    ),
-  );
-
-  useEffect(() => {
-    let roomRect = document.querySelectorAll(`[data-id="${location.room}"]`)[0];
-    if (roomRect) {
-      roomRect.style.fill = '#fff';
-    }
-  }, [location.room]);
-
+  const router = useRouter();
   const handleSelectRoom = useCallback(
-    (e) => {
-      console.log(e.target);
+    (e: MouseEvent<HTMLWrapperType, MouseEvent>) => {
+      let room = location.rooms.find((r) => r.name == e?.target?.dataset?.name);
+      router.push(`/locations/${room?.id}`);
     },
-    [location.room, location.rooms],
+    [location.rooms],
   );
   return (
-    location.floorplan && (
+    location.level && (
       <ReactSVG
-        src={location.floorplan}
-        className={cx(
-          'absolute left-0 top-0 h-fit w-full fill-highlight',
-          location.margin,
-          location.rooms
-            .map((room) => `[&_[data-name="${room.name}"]]:fill-white`)
-            .join(' '),
-          `[&_[data-name="${location.room.name}"]]:fill-black`,
-        )}
+        src={location.level?.thumbnail_full_size}
+        className={cx('absolute left-0 top-0 h-fit w-full', location.margin)}
         onClick={handleSelectRoom}
+        afterInjection={(svg) => {
+          location.level.context.map((room) => {
+            let roomRect = svg.querySelectorAll(
+              `[data-name="${room.name}"]`,
+            )[0];
+            if (roomRect) {
+              console.log('here');
+              if (room?.id == location.room?.id) {
+                roomRect.classList.add('fill-white');
+              } else if (location.rooms?.find((r) => r.id == room.id)) {
+                roomRect.classList.add(
+                  'fill-black',
+                  'cursor-pointer',
+                  'hover:fill-white',
+                  'stroke-white',
+                  'stroke-[10px]',
+                );
+                roomRect.title = room.name;
+              } else {
+                roomRect.classList.add('fill-highlight', 'pointer-events-none');
+              }
+            }
+          });
+        }}
       />
     )
   );

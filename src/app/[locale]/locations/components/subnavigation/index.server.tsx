@@ -14,13 +14,15 @@ export default async function Subnavigation({ location }: any) {
         selected={location.level?.id}
         backToAll={location.id}
       />
-      <SubLocation
-        title={t('rooms')}
-        sublocations={location.rooms}
-        prefix={t('room')}
-        selected={location.room?.id}
-        backToAll={location.level?.id}
-      />
+      {location.rooms && (
+        <SubLocation
+          title={t('rooms')}
+          sublocations={location.rooms}
+          prefix={t('room')}
+          selected={location.room?.id}
+          backToAll={location.level?.id}
+        />
+      )}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function Floorplan({ location }: any) {
         placeholder="empty"
         src={`/assets/svg/map/ground_plan/popup/${location.image}.svg`}
       />
-      <Rooms location={location} />
+      {location.rooms && <Rooms location={location} />}
     </div>
   );
 }

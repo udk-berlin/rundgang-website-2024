@@ -19,7 +19,7 @@ export default function ImageWrapper({
       width={500}
       alt={alt ?? 'thumbnail of student project'}
       className={cx(
-        'w-full max-w-[400px] object-contain md:max-w-[800px]',
+        'w-full max-w-[500px] object-contain md:max-w-[800px]',
         className,
       )}
       placeholder="empty"
