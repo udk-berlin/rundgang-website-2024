@@ -39,7 +39,7 @@ export default function FilterTag({
           //[filter.searchParam]: filter?.id,
         },
       }}
-      className={cx('pl-1 pt-1', disabled && 'pointer-events-none')}
+      className={cx(disabled && 'pointer-events-none')}
     >
       <div
         className={cx(
