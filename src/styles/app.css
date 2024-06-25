@@ -63,11 +63,6 @@ body {
   background-color: rgb(var(--primary)) !important;
 }
 
-/*@layer utilities {*/
-/*    .text-balance {*/
-/*        text-wrap: balance;*/
-/*    }*/
-/*}*/
 
 @media (prefers-color-scheme: dark) {
   :root {
