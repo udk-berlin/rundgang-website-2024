@@ -1,15 +1,16 @@
 'use client';
 import cx from 'classnames';
-import usePersistedUIStore from '@/lib/uiStore';
+import { useUIStore } from '@/lib/uiStore';
 import { MouseEvent, useCallback } from 'react';
 import SmoothButton from '@/components/smoothbutton';
 import { useTranslations } from 'next-intl';
+import { useStore } from 'zustand';
 
 export default function SaveButton({ itemId }: any) {
   const t = useTranslations('Saved');
-  const saveItem = usePersistedUIStore((state) => state.saveItem);
-  const removeItem = usePersistedUIStore((state) => state.removeItem);
-  const isSaved = usePersistedUIStore((state) =>
+  const saveItem = useStore(useUIStore, (state) => state.saveItem);
+  const removeItem = useStore(useUIStore, (state) => state.removeItem);
+  const isSaved = useStore(useUIStore, (state) =>
     state.savedItems.includes(itemId),
   );
 

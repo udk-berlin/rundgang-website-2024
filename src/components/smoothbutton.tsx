@@ -15,9 +15,7 @@ export default function SmoothButton({
       className={cx(
         'group absolute h-10 w-10 hover:bg-primary hover:text-highlight',
         `bg-${color}`,
-        bottom
-          ? 'bottom-gutter-xs right-gutter-xs rounded-br-md rounded-tl-md'
-          : '',
+        bottom ? 'bottom-0 right-0 rounded-br-md rounded-tl-md' : '',
         top ? 'right-0 top-0 rounded-bl-md ' : '',
       )}
       title={title}

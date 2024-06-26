@@ -52,7 +52,7 @@ function InfoContentInfoItemContainer({
   return (
     <ClientResponsiveDiv
       className={cn(
-        'px-gutter-md md:hover:bg-highlight cursor-pointer rounded-md bg-white',
+        'cursor-pointer rounded-md bg-secondary px-gutter-md md:hover:bg-highlight',
       )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

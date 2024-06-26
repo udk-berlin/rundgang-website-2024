@@ -30,7 +30,24 @@ export type Filters = {
   languages: Filter[];
 };
 
-export type Filter = Pick<Context, 'id' | 'name'> & {
+export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
+};
+
+export type FilterHeader = {
+    id: number,
+    title: 'faculties' | 'formats' | 'languages';
+};
+
+export type Building = {
+  id: string;
+  name: string;
+  image: number;
+  maxZoom: number;
+  labelPosition: string;
+};
+
+export type ContextTree = Context & {
+  children: { [key: string]: ContextTree };
 };

@@ -8,9 +8,8 @@ export type ProjectsPageProps = {
 
 export default async function ProjectSide({ params }: ProjectsPageProps) {
   const item = await getParsedItem(params.id);
-  // [calc(100vh-var(--header-height)-var(--footer-height))]
   return (
-    <div className="absolute right-0 top-[var(--header-height)]  w-2/5 scroll-auto bg-secondary text-primary">
+    <div className="absolute right-0 top-[var(--header-height)] h-[calc(100vh-var(--header-height)-var(--footer-height))] w-2/5 overflow-y-scroll bg-secondary text-primary">
       <Project item={item} />
     </div>
   );
