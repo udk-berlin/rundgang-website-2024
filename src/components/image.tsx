@@ -15,11 +15,11 @@ export default function ImageWrapper({
   return (
     <Image
       src={src}
-      height={100}
+      height={500}
       width={500}
       alt={alt ?? 'thumbnail of student project'}
       className={cx(
-        'w-full max-w-[500px] object-contain md:max-w-[800px]',
+        'aspect-square w-full max-w-[500px] object-cover md:max-w-[800px]',
         className,
       )}
       placeholder="empty"
