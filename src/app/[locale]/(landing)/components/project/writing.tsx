@@ -14,19 +14,15 @@ export default function LandingProjectWriting({
         src={`/assets/projects/${languageSearchParam}/writing.png`}
         width={1207}
         height={587}
-        alt="Writing"
+        alt="Handwriting"
       />
     </LandingProjectWritingContainer>
   );
 }
 function LandingProjectWritingContainer({ children }: { children: ReactNode }) {
   return (
-    <BorderContainer
-      className="h-full bg-secondary"
-      innerClassName="flex h-full items-center justify-center px-[9vw] bg-secondary"
-      borders={['x', 't']}
-    >
+    <div className="h-full flex items-center justify-center px-[9vw] bg-secondary">
       {children}
-    </BorderContainer>
+    </div>
   );
 }

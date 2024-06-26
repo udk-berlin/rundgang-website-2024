@@ -34,6 +34,12 @@ export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
 };
+
+export type FilterHeader = {
+    id: number,
+    title: 'faculties' | 'formats' | 'languages';
+};
+
 export type Building = {
   id: string;
   name: string;

@@ -1,7 +1,5 @@
 'use client';
 import { useCallback } from 'react';
-import Link from 'next/link';
-import { useSearchParams, useSelectedLayoutSegment } from 'next/navigation';
 import { Filter } from '@/types/types';
 import cx from 'classnames';
 import useQuery from '@/lib/useQuery';
@@ -29,7 +27,7 @@ export default function FilterTag({
     <div
       onClick={handleClickFilter}
       className={cx(
-        'cursor-pointer pl-1 pt-1',
+        'cursor-pointer',
         disabled && 'pointer-events-none',
       )}
     >

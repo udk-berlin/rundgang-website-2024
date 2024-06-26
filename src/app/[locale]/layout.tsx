@@ -5,7 +5,6 @@ import {
 } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
 import { noto, jungka } from '../fonts/fonts';
-import { locales } from '@/config';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import { getGraphQLFilters } from '@/api/graphql/filters';

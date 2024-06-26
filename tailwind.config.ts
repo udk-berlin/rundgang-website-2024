@@ -113,7 +113,6 @@ const config: Config = {
         border: '2px',
       },
       gridTemplateColumns: {
-        header: '20vw 20vw 20vw 20vw calc(20vw - 150px) 50px 50px 50px',
         'header-info': 'minmax(100px, 1fr) 50px 50px 50px',
       },
       fontFamily: {
