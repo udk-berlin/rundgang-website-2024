@@ -86,11 +86,11 @@ const config: Config = {
         md: '50px',
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
-        content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
-        halfcontent: '50vh',
-        filter: 'var(--height-filter)',
-        contentpages:
-          'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-filter))',
+        content: 'var(--height-content)',
+        'content-height':
+            'var(--height-content-height)',
+        'content-body':
+          'var(--height-content-body)',
         footer: 'var(--height-footer)',
         'design-projects':
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
