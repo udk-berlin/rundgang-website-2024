@@ -30,6 +30,10 @@ export const pathnames = {
     en: '/locations',
     de: '/orte',
   },
+  '/locations/[place]': {
+    en: '/locations/[place]',
+    de: '/orte/[place]',
+  },
   '/program': {
     en: '/program',
     de: '/programm',

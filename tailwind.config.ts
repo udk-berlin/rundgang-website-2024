@@ -87,10 +87,8 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-          'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
         'design-projects':
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',

@@ -1,17 +1,18 @@
 import { Marker } from 'react-map-gl/maplibre';
 import cx from 'classnames';
 import Image from 'next/image';
-import { Link } from '@/navigation';
 import { Building } from '@/types/types';
 
 export default function FloorMapMarker({
   building,
   marker,
   selected,
+  handleClick,
 }: {
   building: GeoJSON.Feature<GeoJSON.Point, Building>;
   marker: any;
   selected: boolean;
+  handleClick: (e: any) => void;
 }) {
   return (
     <Marker
@@ -19,14 +20,9 @@ export default function FloorMapMarker({
       latitude={building.geometry.coordinates[1]}
       anchor="center"
       className="group w-fit"
+      onClick={(e) => handleClick({ ...e, features: [building] })}
     >
-      <Link
-        href={{
-          pathname: `/locations/[place]`,
-          params: { place: building.properties.id },
-        }}
-        scroll={false}
-      >
+      <div>
         <div
           className={cx(
             'absolute w-fit text-nowrap',
@@ -56,7 +52,7 @@ export default function FloorMapMarker({
           className="sm:hidden"
           src="/assets/svg/map/ground_plan/marker/simple.svg"
         />
-      </Link>
+      </div>
     </Marker>
   );
 }

@@ -55,7 +55,7 @@ export const getBuildings: () => Promise<
             id: loc.id,
             name: loc.name,
             image:
-              loc.id in LOCATION_INFO ? LOCATION_INFO[loc.id].image : index + 1,
+              loc.id in LOCATION_INFO ? LOCATION_INFO[loc.id].image : 'simple',
             maxZoom:
               loc.id in LOCATION_INFO ? LOCATION_INFO[loc.id].maxZoom : 17,
             labelPosition:
