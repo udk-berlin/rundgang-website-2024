@@ -12,9 +12,10 @@
   --gutter-lg: 50px;
   --bdradius: 4px;
 
-  --height-header: 40px;
-  --height-filter: 50px;
+  --height-header: 50px;
+  --height-content: calc(100dvh - var(--height-header) - var(--height-footer));
   --height-content-header: 0px;
+  --height-content-body: calc(var(--height-content) - var(--height-content-header));
   --height-footer: 50px;
 }
 
@@ -27,9 +28,7 @@
 
 @media only screen and (min-width: 1200px) {
   :root {
-    --height-header: 50px;
     --height-content-header: 50px;
-    --height-footer: 50px;
   }
 }
 
