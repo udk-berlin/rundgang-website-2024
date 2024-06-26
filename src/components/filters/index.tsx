@@ -13,9 +13,9 @@ export default async function FilterMenu({ filters }: { filters: Filters }) {
           {t('filter')}:
         </div>
         <Suspense>
-          <FilterGroup title="faculties" list={filters.faculties} />
-          <FilterGroup title="formats" list={filters.formats} />
-          <FilterGroup title="languages" list={filters.languages} />
+          <FilterGroup title="faculties" filters={filters.faculties} />
+          <FilterGroup title="formats" filters={filters.formats} />
+          <FilterGroup title="languages" filters={filters.languages} />
         </Suspense>
       </div>
     </div>
