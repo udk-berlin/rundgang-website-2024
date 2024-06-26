@@ -22,7 +22,7 @@ export default function NavigationLink({
     ? href === '/design'
       ? 'rounded-border'
       : 'rounded-b-border mt-0'
-    : 'rounded-t-border mb-0';
+    : 'rounded-t-border -mb-1';
 
   return (
     <Link
