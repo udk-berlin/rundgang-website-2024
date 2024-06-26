@@ -4,6 +4,7 @@ import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import { Item } from '@/types/item';
 import { extractAuthors } from '@/lib/data/utils';
+import { getLocationItems } from '../rest/location';
 
 const graphQLItemsQuery: DocumentNode = gql`
   query Items {
@@ -47,6 +48,7 @@ export const getGraphQLItems = cache(async () => {
         id: item.id,
         name: item.name,
         thumbnail: item.thumbnail,
+        parents: item.parents,
         languages: item.description.map((d: Description) =>
           d.language.toLowerCase(),
         ),
@@ -69,6 +71,18 @@ export const getFilteredGraphQLItems = cache(
   },
 );
 
+export const getFilteredGraphQLLocationItems = cache(
+  async (
+    searchParams: { [key: string]: string | undefined },
+    place: string,
+  ) => {
+    const locationItems = await getLocationItems(place);
+    return getGraphQLItems()
+      .then((items) => items.filter((item) => locationItems.includes(item.id)))
+      .then((items) => filterItemsBySearchParams(items, searchParams));
+  },
+);
+
 function filterItemsBySearchParams(
   items: Item[],
   searchParams: { [key: string]: string | string[] | undefined },
@@ -76,8 +90,8 @@ function filterItemsBySearchParams(
   let filteredItems: Item[] = items;
 
   if (searchParams?.faculty) {
-    filteredItems = filteredItems.filter(
-      (item) => true, // todo: item.parents.find((parent) => parent.id == searchParams?.faculty),
+    filteredItems = filteredItems.filter((item) =>
+      item.parents.find((parent) => parent.id == searchParams?.faculty),
     );
   }
 

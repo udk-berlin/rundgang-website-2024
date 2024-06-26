@@ -27,7 +27,7 @@ const config: Config = {
     },
     fontSize: {
       xl: [
-        '96px',
+        '70px',
         {
           letterSpacing: '1',
           lineHeight: '1',
@@ -87,6 +87,10 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'calc(100dvh - var(--height-header) - var(--height-footer))',
+        halfcontent: '50vh',
+        filter: 'var(--height-filter)',
+        contentpages:
+          'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-filter))',
         footer: 'var(--height-footer)',
         'design-projects':
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
@@ -109,7 +113,6 @@ const config: Config = {
         border: '2px',
       },
       gridTemplateColumns: {
-        header: '20vw 20vw 20vw 20vw calc(20vw - 150px) 50px 50px 50px',
         'header-info': 'minmax(100px, 1fr) 50px 50px 50px',
       },
       fontFamily: {

@@ -2,15 +2,20 @@ import { getFilteredGraphQLLocationItems } from '@/api/graphql/items';
 import ProjectCard from '@/components/project/card.server';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
+import JumpToTop from '@/components/jumpToTop';
 
 export type ProgramPageProps = {
+  params: { place: string };
   searchParams: { [key: string]: string | undefined };
 };
 
 export const revalidate = 0;
 
-export default async function ProgramPage({ searchParams }: ProgramPageProps) {
-  const items = await getFilteredGraphQLLocationItems(searchParams);
+export default async function ProgramPage({
+  searchParams,
+  params: { place },
+}: ProgramPageProps) {
+  const items = await getFilteredGraphQLLocationItems(searchParams, place);
 
   return (
     items && (
@@ -28,10 +33,11 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="col-span-1 h-[calc(100vh-var(--header-height)-var(--footer-height))] overflow-y-scroll xs:col-span-2">
-      <div className="grid h-fit columns-1 grid-cols-2 items-start justify-start gap-0 bg-primary xs:columns-2">
+    <div className="h-full xs:col-span-2 sm:h-content sm:overflow-y-scroll">
+      <div className="min-h-content col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-2 md:columns-2">
         {children}
       </div>
+      <JumpToTop />
     </div>
   );
 }

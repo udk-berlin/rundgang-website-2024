@@ -19,7 +19,7 @@ export default function LandingInfo({
 
 function LandingInfoContainer({ children }: { children: ReactNode }) {
   return (
-    <div className="absolute bottom-gutter-lg grid w-screen grid-cols-[1fr_8fr_1fr] px-[calc(var(--border)+0.5*var(--gutter-lg))]">
+    <div className="absolute bottom-gutter-lg grid w-full grid-cols-[1fr_8fr_1fr] px-[calc(var(--border)+0.5*var(--gutter-lg))]">
       {children}
     </div>
   );

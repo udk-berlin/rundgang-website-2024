@@ -6,13 +6,13 @@ export default function Footer() {
   const t = useTranslations('Navigation');
   return (
     <FooterContainer>
-      <NavigationLink href="/contact" isFooter>
+      <NavigationLink href="/contact" isFooter isFirst>
         {t('contact')}
       </NavigationLink>
       <NavigationLink href="/imprint" isFooter>
         {t('imprint')}
       </NavigationLink>
-      <NavigationLink href="/design" isFooter>
+      <NavigationLink href="/design" isFooter isLast>
         {t('design')}
       </NavigationLink>
     </FooterContainer>

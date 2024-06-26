@@ -14,7 +14,12 @@ const useQuery = (param: string) => {
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
+      const oldValue = params.get(name) ?? '';
+      if (decodeURIComponent(oldValue) == value) {
+        params.delete(name);
+      } else {
+        params.set(name, value);
+      }
 
       return params.toString();
     },

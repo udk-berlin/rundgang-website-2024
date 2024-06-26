@@ -43,7 +43,7 @@ export default function ColorSchemeSwitcher() {
       <button
         onClick={toggleDarkMode}
         aria-label="dark mode"
-        className="flex h-full w-full items-center justify-center rounded-border border-[1px] border-r-border border-t-border  border-primary bg-primary hover:bg-highlight"
+        className="flex h-full w-full items-center justify-center rounded-border border-[1px] border-r-border border-y-border border-primary bg-primary hover:bg-highlight"
       >
         <Light height={33} width={33} />
       </button>

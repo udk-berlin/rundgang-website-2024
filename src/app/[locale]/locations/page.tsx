@@ -1,4 +1,4 @@
-import Locations from './components/locations.server';
+import LocationsMap from './components/map/index.server';
 
 type LocationsPageProps = {
   params: { place: string[] };
@@ -10,7 +10,7 @@ type LocationsPageProps = {
 export default async function LocationsPage(props: LocationsPageProps) {
   return (
     <div className="h-full w-full">
-      <Locations mapCut={0} />
+      <LocationsMap mapCut={108} />
     </div>
   );
 }

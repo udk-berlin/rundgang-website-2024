@@ -16,6 +16,13 @@
         "faculties": "Fakultäten/Zentren",
         "languages": "Sprachen"
     },
+    "Locations": {
+        "levels": "Etagen",
+        "rooms": "Räume",
+        "level": "Etage",
+        "room": "Raum",
+        "all": "alle"
+    },
     "RootLayout": {
         "title": "Rundgang 2024",
         "description": "Rundgang 2024"

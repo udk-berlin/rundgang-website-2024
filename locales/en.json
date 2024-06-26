@@ -16,6 +16,13 @@
         "faculties": "Faculties/Centres",
         "languages": "Languages"
     },
+    "Locations": {
+        "levels": "Levels",
+        "rooms": "Rooms",
+        "level": "level",
+        "room": "room",
+        "all": "all"
+    },
     "RootLayout": {
         "title": "Round Tour 2024",
         "description": "Round Tour 2024"
@@ -30,7 +37,7 @@
         "date": "19th - 21st of July 2024"
     },
     "design": {
-       "title": "Participants",
+        "title": "Participants",
         "description": {
             "title": "Project description",
             "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien lorem, placerat a ultricies quis, eleifend sed quam. Integer quis rhoncus ipsum. Phasellus vitae mauris et dolor blandit tempor. Duis a vestibulum eros. Suspendisse quis mattis diam, ac venenatis tellus. Duis lobortis quam nulla, placerat vehicula odio accumsan vitae. Etiam eros nisl, bibendum a mauris vel, mollis suscipit tortor. Sed fermentum ut lorem ac gravida. In accumsan sagittis scelerisque."

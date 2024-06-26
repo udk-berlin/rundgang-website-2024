@@ -20,16 +20,23 @@ export default function FloorMapMarker({
       anchor="center"
       className="group w-fit"
     >
-      <Link href={`/locations/${building.id}`} shallow={false}>
+      <Link
+        href={{
+          pathname: `/locations/[place]`,
+          params: { place: building.properties.id },
+        }}
+        scroll={false}
+      >
         <div
           className={cx(
-            'absolute bottom-8 left-9 w-fit text-nowrap',
+            'absolute w-fit text-nowrap',
             'rounded-md border-sm  p-1',
             'group-hover:border-primary group-hover:text-primary',
             'group-hover:bg-highlight dark:group-hover:bg-[--highlight-invert]',
             selected
               ? 'border-primary bg-highlight text-primary dark:bg-[--highlight-invert]'
               : 'border-secondary bg-primary text-secondary',
+            building.properties.labelPosition,
           )}
         >
           {building.properties.name}
@@ -38,12 +45,13 @@ export default function FloorMapMarker({
           height={marker?.size ?? 40}
           width={marker?.size ?? 40}
           alt={building.properties.name}
+          priority={true}
           className="hidden sm:block"
           src={`/assets/svg/map/ground_plan/marker/${building.properties.image}.svg`}
         />
         <Image
-          height={40}
-          width={40}
+          height={30}
+          width={30}
           alt={building.properties.name}
           className="sm:hidden"
           src="/assets/svg/map/ground_plan/marker/simple.svg"

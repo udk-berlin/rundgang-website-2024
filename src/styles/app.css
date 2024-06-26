@@ -13,6 +13,7 @@
   --bdradius: 4px;
 
   --height-header: 40px;
+  --height-filter: 50px;
   --height-content-header: 0px;
   --height-footer: 50px;
 }
@@ -23,7 +24,6 @@
     --secondary: 0, 0, 0;
   }
 }
-
 
 @media only screen and (min-width: 1200px) {
   :root {
@@ -64,11 +64,15 @@ body {
   background-color: rgb(var(--primary)) !important;
 }
 
-/*@layer utilities {*/
-/*    .text-balance {*/
-/*        text-wrap: balance;*/
-/*    }*/
-/*}*/
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {

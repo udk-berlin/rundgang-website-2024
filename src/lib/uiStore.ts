@@ -31,7 +31,6 @@ export const useUIStore = create<UIStore>()(
     }),
     {
       name: 'UIStore',
-      getStorage: () => localStorage,
     },
   ),
 );

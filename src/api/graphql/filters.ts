@@ -11,14 +11,23 @@ const graphQLFiltersQuery: DocumentNode = gql`
     formats: contexts(template: "format-element") {
       id
       name
+      item {
+        id
+      }
     }
     faculties: contexts(template: "faculty") {
       id
       name
+      item {
+        id
+      }
     }
     centres: contexts(template: "centre") {
       id
       name
+      item {
+        id
+      }
     }
     languages: items {
       description {
@@ -41,18 +50,22 @@ export const getGraphQLFilters = cache(async () => {
   return fetchGraphQLFilters().then(
     (res) =>
       ({
-        formats: res.data.formats.map((a) => ({
-          id: a.id,
-          name: a.name,
-          searchParam: 'format',
-          exists: true,
-        })),
-        faculties: [...res.data.faculties, ...res.data.centres].map((a) => ({
-          id: a.id,
-          name: a.name,
-          searchParam: 'faculty',
-          exists: true,
-        })),
+        formats: res.data.formats
+          .filter((a) => a.item && a.item.length > 0)
+          .map((a) => ({
+            id: a.id,
+            name: a.name,
+            searchParam: 'format',
+            exists: true,
+          })),
+        faculties: [...res.data.faculties, ...res.data.centres]
+          .filter((a) => a.item && a.item.length > 0)
+          .map((a) => ({
+            id: a.id,
+            name: a.name,
+            searchParam: 'faculty',
+            exists: true,
+          })),
         languages: Array.from(
           new Set(
             res.data.languages
@@ -73,26 +86,44 @@ export const getGraphQLFilters = cache(async () => {
   );
 });
 
-export const getExistingGraphQLFilters = cache(async (items: Item[]) => {
-  return getGraphQLFilters().then((filters) => filterExisting(items, filters));
-});
+export const getExistingGraphQLFilters = cache(
+  async (
+    items: Item[],
+    searchParams: { [key: string]: string | string[] | undefined },
+  ) => {
+    return getGraphQLFilters().then((filters) =>
+      filterExisting(items, filters, searchParams),
+    );
+  },
+);
 
-function filterExisting(items: Item[], filters: Filters) {
+function filterExisting(
+  items: Item[],
+  filters: Filters,
+  searchParams: { [key: string]: string | string[] | undefined },
+) {
   let filteredFormats = filters.formats.map((format: Filter) => ({
     ...format,
-    exists: items.some((item) => item.format.id === format.id),
+    exists: searchParams.format
+      ? true
+      : items.some((item) => item.format.id === format.id),
   }));
-
   let filteredFaculties = filters.faculties.map((faculty: Filter) => ({
     ...faculty,
-    exists: true, // todo: items.some((item) => item.parents.find((parent) => parent.id == faculty.id),),
+    exists: searchParams.faculty
+      ? true
+      : items.some((item) =>
+          item.parents.find((parent) => parent.id == faculty.id),
+        ),
   }));
 
   let filteredLanguages = filters.languages.map((language: Filter) => ({
     ...language,
-    exists: items.some((item) =>
-      item.languages.find((languageId) => languageId === language.id),
-    ),
+    exists: searchParams.language
+      ? true
+      : items.some((item) =>
+          item.languages.find((languageId) => languageId === language.id),
+        ),
   }));
 
   return {

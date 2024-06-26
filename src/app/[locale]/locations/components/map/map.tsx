@@ -31,17 +31,15 @@ const MAP_CONFIGURATION = {
   },
 };
 
-const COLOR = 'rgb(0,253,160)';
-const ICONSIZE = 32;
-
 const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
   const mapRef = useRef<MapRef>(null);
   const params = useParams();
+  const selectedBuilding = useMemo(
+    () => (params.place ? decodeURIComponent(params.place) : ''),
+    [params],
+  );
 
   const isMobile = useMedia('(max-width: 600px)');
-
-  const selectedItem = useMemo(() => params.loc, [params]);
-  console.log(params);
 
   const size = useWindowSize();
 
@@ -59,10 +57,12 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
           style={{
             zIndex: 100,
             width: '100%',
-            height: size.height - mapCut,
+            height: isMobile
+              ? size.height - 0.7 * mapCut
+              : size.height - mapCut,
           }}
           initialViewState={{
-            zoom: 11,
+            zoom: 12.2,
             longitude: MAP_CONFIGURATION.center.longitude,
             latitude: MAP_CONFIGURATION.center.latitude,
           }}
@@ -92,7 +92,7 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
                 buildings.features.map((building) => (
                   <FloorMapMarker
                     key={building.id}
-                    selected={selectedItem == building.id}
+                    selected={selectedBuilding == building.id}
                     building={building}
                     marker={markers[building.id]}
                   />
