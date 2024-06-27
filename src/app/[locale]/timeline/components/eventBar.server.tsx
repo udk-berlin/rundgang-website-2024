@@ -1,9 +1,12 @@
-import { GraphQlItem } from '@/types/graphql';
+import { EventItem } from '@/types/types';
+import cx from 'classnames';
 
 type EventBarProps = {
-  event: GraphQlItem;
+  event: EventItem;
 };
 
 export default async function EventBar({ event }: EventBarProps) {
-  return <div>{event.name}</div>;
+  return (
+    <div className={cx('absolute', event.left, event.width)}>{event.name}</div>
+  );
 }

@@ -9,7 +9,9 @@ export default function InfoContentInfoItemTitle({
   isHovered,
 }: InfoContentInfoItemProps & { isHovered: boolean }) {
   return (
-    <InfoContentInfoItemTitleContainer className={isHovered ? 'font-bold' : ''}>
+    <InfoContentInfoItemTitleContainer
+      className={isHovered ? 'font-bold text-black' : ''}
+    >
       {item.title}
     </InfoContentInfoItemTitleContainer>
   );

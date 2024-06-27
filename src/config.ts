@@ -42,6 +42,10 @@ export const pathnames = {
     en: '/project',
     de: '/project',
   },
+  '/project/[id]': {
+    en: '/project/[id]',
+    de: '/project/[id]',
+  },
   '/timeline': {
     en: '/timeline',
     de: '/zeitplan',

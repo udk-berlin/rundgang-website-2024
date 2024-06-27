@@ -171,7 +171,7 @@ const useMapFunctions = (
         setHovered(null);
       }
     },
-    [mapRef],
+    [mapRef?.current],
   );
 
   const onZoom = (e) => {

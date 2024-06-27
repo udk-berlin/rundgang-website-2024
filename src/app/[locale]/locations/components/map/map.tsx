@@ -24,7 +24,9 @@ type MapComponentProps = {
 };
 
 const MAP_CONFIGURATION = {
-  style: 'https://osm.udk-berlin.de/styles/udk-rundgang-2022/style.json',
+  style:
+    'https://api.maptiler.com/maps/42d1e221-fdff-4dbc-a695-609009c660c7/style.json?key=Zn4TzWj4KtRhJ9I5TDxf',
+  //'https://osm.udk-berlin.de/styles/udk-rundgang-2022/style.json',
   center: {
     longitude: 13.45,
     latitude: 52.5,
@@ -38,8 +40,6 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
     () => (params.place ? decodeURIComponent(params.place) : ''),
     [params],
   );
-
-  const isMobile = useMedia('(max-width: 600px)');
 
   const size = useWindowSize();
 
@@ -97,7 +97,7 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
                   generateId={true}
                   cluster={true}
                   clusterMaxZoom={17.0}
-                  clusterRadius={50}
+                  clusterRadius={30}
                   clusterProperties={{
                     itemids: ['concat', ['concat', ['get', 'id'], ',']],
                   }}

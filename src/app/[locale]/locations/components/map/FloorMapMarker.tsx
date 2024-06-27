@@ -25,7 +25,7 @@ export default function FloorMapMarker({
       <div>
         <div
           className={cx(
-            'absolute w-fit text-nowrap',
+            'absolute w-fit text-nowrap bg-black text-white',
             'rounded-md border-sm  p-1',
             'group-hover:border-primary group-hover:text-primary',
             'group-hover:bg-highlight dark:group-hover:bg-[--highlight-invert]',

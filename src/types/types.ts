@@ -1,4 +1,4 @@
-import { Context } from '@/types/graphql';
+import { Context, GraphQlItem } from '@/types/graphql';
 import { ReactNode } from 'react';
 
 export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -9,9 +9,9 @@ export type LocalizesObject<T> = {
 };
 
 export type InfoItem = {
-  id: number;
+  id: string;
   title: string;
-  content: string;
+  text: string;
 };
 
 export type ReactNodeProps = {
@@ -36,8 +36,8 @@ export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
 };
 
 export type FilterHeader = {
-    id: number,
-    title: 'faculties' | 'formats' | 'languages';
+  id: number;
+  title: 'faculties' | 'formats' | 'languages';
 };
 
 export type Building = {
@@ -50,4 +50,9 @@ export type Building = {
 
 export type ContextTree = Context & {
   children: { [key: string]: ContextTree };
+};
+
+export type EventItem = GraphQlItem & {
+  left: string;
+  width: string;
 };

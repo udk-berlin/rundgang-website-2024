@@ -1,10 +1,10 @@
 import Content from '@/components/modal/content.server';
 import Modal from '@/components/modal/modal';
 
-export default async function Page(props: any) {
+export default function Page(props: any) {
   return (
     <Modal>
-      <Content title="Contact" />
+      <Content title="Imprint" />
     </Modal>
   );
 }

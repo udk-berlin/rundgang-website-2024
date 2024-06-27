@@ -32,8 +32,8 @@ export default function InfoContentInfoItem({
       <InfoContentInfoItemTitle item={item} isHovered={isHovered} />
       {isHovered && (
         <ResponsiveMultiLineText
-          className="pb-gutter-sm"
-          text={item.content}
+          className="pb-gutter-sm text-black [&>a]:underline"
+          text={item.text}
           textSize="sm"
         />
       )}

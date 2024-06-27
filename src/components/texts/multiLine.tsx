@@ -15,7 +15,7 @@ export function ResponsiveMultiLineText({
       className={className}
       textSize={textSize}
       dangerouslySetInnerHTML={{
-        __html: text.replace(/[\r\n]/g, '<br />'),
+        __html: text,
       }}
     />
   );

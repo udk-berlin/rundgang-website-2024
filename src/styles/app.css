@@ -14,8 +14,11 @@
 
   --height-header: 50px;
   --height-content: calc(100dvh - var(--height-header) - var(--height-footer));
+  --height-modal: calc(100dvh - var(--height-footer));
   --height-content-header: 0px;
-  --height-content-body: calc(var(--height-content) - var(--height-content-header));
+  --height-content-body: calc(
+    var(--height-content) - var(--height-content-header)
+  );
   --height-footer: 50px;
 }
 
@@ -71,7 +74,6 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
