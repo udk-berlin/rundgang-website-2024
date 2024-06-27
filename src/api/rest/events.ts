@@ -5,7 +5,8 @@ import { Context } from '@/types/graphql';
 import { scaleTime } from 'd3-scale';
 import { EventItem } from '@/types/types';
 
-const toDate = (stamp, s) => s(new Date(parseInt(stamp) * 1000));
+const toPixel = (stamp, s) => s(new Date(parseInt(stamp * 1000)));
+const toDate = (stamp) => new Date(parseInt(stamp * 1000));
 
 export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
   const res = await fetch(
@@ -16,7 +17,7 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
     .range([TIME_PADDING, TIME_WIDTH]);
 
   return res.json().then((r) =>
-    r.map((ev) => {
+    r.map((ev, i) => {
       const start =
         ev.allocation.temporal?.length > 0
           ? ev.allocation.temporal[0].start
@@ -28,8 +29,10 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
 
       return {
         ...ev,
-        left: `left-[${toDate(start, scaleX)}px]`,
-        width: `width-[${toDate(end, scaleX) - toDate(start, scaleX)}px]`,
+        start: toDate(start),
+        end: toDate(end),
+        left: toPixel(start, scaleX),
+        width: toPixel(end, scaleX) - toPixel(start, scaleX),
       };
     }),
   );

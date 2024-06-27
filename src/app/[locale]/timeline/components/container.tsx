@@ -21,22 +21,22 @@ export default function EventContainer({
   }, [isOpen]);
 
   return (
-    <div
-      onClick={handleClick}
-      className="relative mb-border flex w-full flex-wrap justify-start rounded-md ring-2 ring-primary"
-    >
-      <div className="w-full cursor-pointer p-border text-lg hover:font-bold">
+    <div className="relative mb-border flex w-full flex-wrap justify-start overflow-x-scroll rounded-md ring-2 ring-primary">
+      <div
+        className="sticky left-0 flex w-full cursor-pointer p-border text-lg hover:font-bold"
+        onClick={handleClick}
+      >
         {location.name}
+        <div
+          className={cx(
+            'absolute right-2 text-md font-bold transition-transform',
+            isOpen ? 'rotate-0' : 'rotate-180',
+          )}
+        >
+          {'^'}
+        </div>
       </div>
       {isOpen && <Suspense fallback={''}>{children}</Suspense>}
-      <div
-        className={cx(
-          'absolute right-2 text-md font-bold transition-transform',
-          isOpen ? 'rotate-0' : 'rotate-180',
-        )}
-      >
-        {'^'}
-      </div>
     </div>
   );
 }

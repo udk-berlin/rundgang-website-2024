@@ -53,6 +53,6 @@ export type ContextTree = Context & {
 };
 
 export type EventItem = GraphQlItem & {
-  left: string;
+  before: string;
   width: string;
 };

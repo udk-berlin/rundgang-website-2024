@@ -1,19 +1,13 @@
-import cx from 'classnames';
-
-export default function TimeScale({ ticks }) {
+export default function TimeTick({ tick }) {
   return (
-    <div className="relative left-0 top-10 h-full w-screen">
-      {ticks.map(([pos, str]) => (
-        <div
-          className={cx(
-            'absolute bottom-0 z-50 h-full border-l-[1px] border-highlight',
-            pos,
-          )}
-          key={`timeline-${pos}-${str}`}
-        >
-          {str}
-        </div>
-      ))}
+    <div
+      className="pointer-events-none absolute bottom-0 h-full border-l-[1px] border-highlight pl-7"
+      key={`timeline-${tick[0]}-${tick[1]}`}
+      style={{
+        left: tick[0],
+      }}
+    >
+      {tick[1]}
     </div>
   );
 }

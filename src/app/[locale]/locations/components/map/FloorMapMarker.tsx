@@ -25,13 +25,13 @@ export default function FloorMapMarker({
       <div>
         <div
           className={cx(
-            'absolute w-fit text-nowrap bg-black text-white',
+            'absolute w-fit text-nowrap',
             'rounded-md border-sm  p-1',
             'group-hover:border-primary group-hover:text-primary',
             'group-hover:bg-highlight dark:group-hover:bg-[--highlight-invert]',
             selected
               ? 'border-primary bg-highlight text-primary dark:bg-[--highlight-invert]'
-              : 'border-secondary bg-primary text-secondary',
+              : 'border-black bg-black text-white',
             building.properties.labelPosition,
           )}
         >
