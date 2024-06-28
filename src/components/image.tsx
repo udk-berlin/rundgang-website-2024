@@ -3,7 +3,7 @@ import cx from 'classnames';
 
 export type ImageProps = {
   className?: string;
-  src: string;
+  src: string | undefined;
   alt?: string;
 };
 
@@ -14,12 +14,12 @@ export default function Image({
 }: ImageProps) {
   return (
     <NextImage
-      src={src}
+      src={src ?? '/assets/placeholder.png'}
       height={500}
       width={500}
-      alt={alt ?? 'thumbnail of student project'}
+      alt={alt ?? 'Thumbnail of student project'}
       className={cx(
-        'aspect-square w-full object-cover',
+        'aspect-square w-full object-cover rounded-md',
         className,
       )}
       placeholder="empty"

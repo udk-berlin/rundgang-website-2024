@@ -1,6 +1,6 @@
 import Image from '@/components/image';
 import { ProjectCardProps } from '@/components/project/card.server';
-import SaveButton from '@/components/savebutton.client';
+import SaveButton from '@/components/saveButton.client';
 import {Link} from "@/navigation";
 
 export default function ProjectCardImage({ item }: ProjectCardProps) {

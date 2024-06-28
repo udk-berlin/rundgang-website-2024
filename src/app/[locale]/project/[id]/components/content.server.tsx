@@ -3,7 +3,7 @@ import { useLocale } from 'next-intl';
 
 import ContentElement from './contentelement';
 // TODO: format content properly
-export default function ProjectContent({ item }: ProjectProps) {
+export default function ProjectContent({ item }: Pick<ProjectProps, 'item'>) {
   const locale = useLocale();
 
   if (!item.content || !(locale.toUpperCase() in item.content)) {

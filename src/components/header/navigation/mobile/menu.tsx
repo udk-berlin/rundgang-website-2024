@@ -2,7 +2,7 @@ import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
 import ColorSchemeSwitcher from '../colorSchemeSwitcher';
-import SmoothButton from '@/components/smoothbutton';
+import SmoothButton from '@/components/smoothButton';
 
 export type MenuMobileProps = {};
 export type MobileMenuItemProps = {
@@ -32,7 +32,7 @@ export default function HeaderNavigationMobileMenu({}: MenuMobileProps) {
         menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
       )}
     >
-      <SmoothButton onButtonClick={setMenuOpen} color="primary" top>
+      <SmoothButton onClick={setMenuOpen} color="primary" top>
         <div
           className={cx(
             'rotate-45 text-[30px] text-secondary transition-transform ease-in group-hover:text-secondary',

@@ -22,11 +22,11 @@ export default async function SidebarFilterGroups({ filters }: { filters: Filter
 
 function SidebarFilterGroupsContainer({ children }: ReactNodeProps) {
     return (
-        <>
+        <div className="col-span-1">
             <div className="max-h-content-header min-h-content-header h-content-header" />
             <div className="bg-primary min-h-content-body border-r-border border-l-0 md:border-l-border md:brder-r-[1px] w-full">
                 {children}
             </div>
-        </>
+        </div>
     );
 }

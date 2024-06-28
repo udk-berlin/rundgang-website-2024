@@ -4,7 +4,7 @@ import { type ElementRef, useEffect, useRef, useCallback } from 'react';
 import { usePathname, useRouter } from '@/navigation';
 import cx from 'classnames';
 import { createPortal } from 'react-dom';
-import SmoothButton from '../smoothbutton';
+import SmoothButton from "@/components/smoothButton";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -30,7 +30,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         onClose={onDismiss}
       >
         <div className="absolute right-0 top-0 p-8 text-primary">
-          <SmoothButton onButtonClick={onDismiss} top>
+          <SmoothButton onClick={onDismiss} top>
             <div className="rotate-45 text-lg text-primary hover:text-black">
               +
             </div>

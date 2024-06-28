@@ -23,7 +23,7 @@ export default async function Project({ item }: ProjectsPageProps) {
 
   return (
       <ProjectContainer>
-          <ProjectServer item={item} />
+          <ProjectServer item={item} withCloseOption />
       </ProjectContainer>
   );
 }
@@ -31,8 +31,8 @@ export default async function Project({ item }: ProjectsPageProps) {
 function ProjectContainer({ children }: ReactNodeProps) {
     return (
         <div className="col-span-2 md:col-span-1 order-3 w-full">
-            <div className="fixed max-h-content min-h-content h-content overflow-y-scroll w-[40vw] md:w-[40vw]">
-                {children}
+            <div className="fixed mt-content-header max-h-content-body min-h-content-body h-content-body overflow-y-scroll w-[40vw] md:w-[40vw] bg-primary">
+               {children}
             </div>
         </div>
     );

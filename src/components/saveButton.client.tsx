@@ -2,9 +2,10 @@
 import cx from 'classnames';
 import { useUIStore } from '@/lib/uiStore';
 import { MouseEvent, useCallback } from 'react';
-import SmoothButton from '@/components/smoothbutton';
+import SmoothButton from '@/components/smoothButton';
 import { useTranslations } from 'next-intl';
 import { useStore } from 'zustand';
+import Plus from "@/components/icons/add";
 
 export default function SaveButton({ itemId }: any) {
   const t = useTranslations('Saved');
@@ -29,18 +30,12 @@ export default function SaveButton({ itemId }: any) {
 
   return (
     <SmoothButton
-      onButtonClick={onSaveItem}
+      onClick={onSaveItem}
       bottom
       title={isSaved ? t('remove') : t('save')}
+      color={isSaved ? 'highlight' : 'secondary'}
     >
-      <div
-        className={cx(
-          'text-[30px] transition-transform ease-in group-hover:text-secondary',
-          isSaved ? 'rotate-45 text-primary' : 'rotate-0 text-primary',
-        )}
-      >
-        +
-      </div>
+        <Plus className={cx("absolute z-50 top-0 w-content-header h-content-header p-gutter-sm transition-transform ease-in", isSaved ? 'rotate-45' : 'rotate-0')}/>
     </SmoothButton>
   );
 }

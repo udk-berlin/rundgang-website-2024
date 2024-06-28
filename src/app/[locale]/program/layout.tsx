@@ -8,13 +8,13 @@ export type ProgramLayoutProps = {
     sidebar: ReactNode;
 }
 
-export default function ProgramLayout({
+export default function Layout({
   children,
   selected,
   sidebar,
 }: ProgramLayoutProps) {
   return (
-    <ProgramLayoutContainer>
+    <LayoutContainer>
         <FilterBar />
         <div id="movable-content"
              className="fixed left-[0vw] max-h-content min-h-content h-content w-screen overflow-hidden transition-[left] duration-700 md:left-0">
@@ -24,11 +24,11 @@ export default function ProgramLayout({
                 {selected}
             </div>
         </div>
-    </ProgramLayoutContainer>
+    </LayoutContainer>
   );
 }
 
-function ProgramLayoutContainer({ children }: ReactNodeProps) {
+function LayoutContainer({ children }: ReactNodeProps) {
     return (
         <main className="relative h-content max-h-content min-h-content flex flex-col">
             {children}

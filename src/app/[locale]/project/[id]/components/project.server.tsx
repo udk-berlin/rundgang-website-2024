@@ -1,19 +1,25 @@
 import { ReactNodeProps } from '@/types/types';
-import cx from 'classnames';
 import { Item } from '@/types/item';
 import ProjectDescription from '@/app/project/[id]/components/description.server';
-import ProjectImage from '@/app/project/[id]/components/image.server';
 import ProjectContent from './content.server';
+import Image from "@/components/image";
+import CloseButton from "@/app/project/[id]/components/closeButton";
+import SaveButton from "@/components/saveButton.client";
 
 export type ProjectProps = {
   item: Item;
+  withCloseOption?: boolean
 };
 
-export default function Project({ item }: ProjectProps) {
+export default function Project({ item, withCloseOption = false }: ProjectProps) {
   return (
     <ProjectContainer>
-      <ProjectImage item={item} />
-      <div className="h-fit pl-gutter-md text-[40px] font-bold">
+        <div className="relative w-full md:max-w-[800px]">
+            <Image src={item.thumbnail_full_size} />
+            {withCloseOption && <CloseButton/>}
+            <SaveButton itemId={item.id} />
+        </div>
+      <div className="text-lg font-bold pt-gutter-sm">
         {item.name}
       </div>
       <ProjectDescription item={item} />
@@ -24,10 +30,8 @@ export default function Project({ item }: ProjectProps) {
 
 function ProjectContainer({ children }: ReactNodeProps) {
   return (
-    <div className="inline-block h-fit min-h-full w-full">
-      <div className="flex w-full flex-wrap rounded-md border border-primary bg-secondary p-gutter-xs">
+    <div className="min-h-full w-full bg-secondary rounded-md p-gutter-xs border-r-primary border-r-border">
         {children}
-      </div>
     </div>
   );
 }
