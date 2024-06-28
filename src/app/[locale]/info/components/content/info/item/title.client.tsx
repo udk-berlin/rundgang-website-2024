@@ -3,14 +3,10 @@ import { InfoContentInfoItemProps } from '@/app/info/components/content/info/ite
 import { cn } from '@/lib/utils';
 import { HtmlProps } from '@/components/html/html';
 import { ResponsiveH5 } from '@/components/html/h5';
-import cx from "classnames";
 
-export default function InfoContentInfoItemTitle({
-  item,
-                                                   isOpen,
-}: InfoContentInfoItemProps & { isOpen: boolean }) {
+export default function InfoContentInfoItemTitle({item}: InfoContentInfoItemProps) {
   return (
-    <InfoContentInfoItemTitleContainer className={cx('transition-[font-weight] delay-700 duration-0', isOpen ? 'font-bold' : 'font-normal')}>
+    <InfoContentInfoItemTitleContainer>
       {item.title}
     </InfoContentInfoItemTitleContainer>
   );
@@ -18,7 +14,7 @@ export default function InfoContentInfoItemTitle({
 
 function InfoContentInfoItemTitleContainer({ className, children }: HtmlProps) {
   return (
-    <ResponsiveH5 className={cn('h-content-header flex items-center', className)} textSize="sm">
+    <ResponsiveH5 className={cn('h-content-header flex items-center', className)} textSize="m">
       {children}
     </ResponsiveH5>
   );

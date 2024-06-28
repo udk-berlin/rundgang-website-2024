@@ -1,6 +1,7 @@
 export const sizeToTextClassName: { [key: string]: string } = {
   xs: 'text-xs',
   sm: 'text-sm',
+  m: 'text-m',
   md: 'text-md',
   lg: 'text-lg',
   xl: 'text-xl',

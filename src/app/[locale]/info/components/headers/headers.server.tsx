@@ -1,19 +1,19 @@
 import InfoHeader from '@/app/info/components/headers/header.server';
 import { sizeToHeightClassName } from '@/styles/constants';
 import { cn } from '@/lib/utils';
-import { infoHeaders } from '@/data';
 import { HtmlProps } from '@/components/html/html';
 
-const indexToColSpanClassName: string[] = ['col-span-3', 'col-span-2'];
+const indexToColSpanClassName: string[] = ['col-span-2', 'col-span-3'];
+const translations: ('about' | 'information')[] = ['about', 'information']
 
 export default function InfoHeaders() {
   return (
     <InfoHeadersContainer>
-      {infoHeaders.map((header, index) => (
+      {translations.map((translation, index) => (
         <InfoHeader
-          key={header.en}
+          key={translation}
           className={indexToColSpanClassName[index]}
-          header={header}
+          translation={translation}
         />
       ))}
     </InfoHeadersContainer>
@@ -24,7 +24,7 @@ function InfoHeadersContainer({ children }: HtmlProps) {
   return (
     <div
       className={cn(
-        'h-content-header max-h-content-header border-x-border border-b-border rounded-border min-h-content-header grid grid-cols-5 bg-secondary text-primary',
+        'hidden md:grid h-content-header max-h-content-header border-x-border border-b-border rounded-border min-h-content-header grid-cols-5 bg-secondary text-primary',
         sizeToHeightClassName['md'],
       )}
     >

@@ -1,7 +1,7 @@
 import { Context, GraphQlItem } from '@/types/graphql';
 import { ReactNode } from 'react';
 
-export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'm' | 'lg' | 'xl';
 
 export type LocalizesObject<T> = {
   de: T;

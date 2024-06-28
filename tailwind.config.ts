@@ -47,12 +47,19 @@ const config: Config = {
           lineHeight: '1',
         },
       ],
+      m: [
+        '18px',
+        {
+          letterSpacing: '1',
+          lineHeight: '1.5',
+        },
+      ],
       sm: [
         '16px',
         {
           letterSpacing: '1',
-          lineHeight: '1',
-          fontWeight: '500',
+          lineHeight: '1.4',
+          fontWeight: '400',
         },
       ],
       xs: [
@@ -135,6 +142,7 @@ const config: Config = {
         'gutter-xs': '8px',
         'gutter-sm': '12px',
         'gutter-md': '20px',
+        'gutter-m': '30px',
         'gutter-lg': '50px',
         border: '2px',
         header: 'var(--height-header)',

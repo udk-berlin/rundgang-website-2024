@@ -1,16 +1,17 @@
 import { ResponsiveH1 } from '@/components/html/h1';
-import { LocalizesObject } from '@/types/types';
 import { HtmlProps } from '@/components/html/html';
 import { cn } from '@/lib/utils';
+import {useTranslations} from "next-intl";
 
 export type InfoHeaderProps = {
   className?: string;
-  header: LocalizesObject<string>;
+  translation: 'about' | 'information';
 };
 
-export default function InfoHeader({ className, header }: InfoHeaderProps) {
+export default function InfoHeader({ className, translation }: InfoHeaderProps) {
+  const t = useTranslations('Info');
   return (
-    <InfoHeaderContainer className={className}>{header.en}</InfoHeaderContainer>
+    <InfoHeaderContainer className={className}>{t(translation)}</InfoHeaderContainer>
   );
 }
 
@@ -18,7 +19,7 @@ function InfoHeaderContainer({ className, children }: HtmlProps) {
   return (
     <ResponsiveH1
       className={cn(
-        'px-gutter-md pb-gutter-xs col-span-2 flex items-end text-grey',
+        'px-gutter-m pb-gutter-xs col-span-2 flex items-end text-grey',
         className,
       )}
       textSize="xs"

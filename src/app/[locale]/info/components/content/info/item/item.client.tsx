@@ -6,9 +6,6 @@ import { cn } from '@/lib/utils';
 import InfoContentInfoItemTitle from '@/app/info/components/content/info/item/title.client';
 import { ResponsiveMultiLineText } from '@/components/texts/multiLine';
 import { HtmlProps } from '@/components/html/html';
-import cx from "classnames";
-import { Rect, useRect } from 'react-use-rect';
-import {is} from "unist-util-is";
 
 export type InfoContentInfoItemProps = {
   item: InfoItem;
@@ -18,8 +15,6 @@ export default function InfoContentInfoItem({
   item,
 }: InfoContentInfoItemProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [rect, setRect] = useState<Rect | null>(null);
-  const [rectRef] = useRect(setRect);
 
   const onClick = (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setIsOpen(!isOpen);
@@ -27,17 +22,14 @@ export default function InfoContentInfoItem({
 
   return (
     <InfoContentInfoItemContainer onClick={onClick}>
-      <InfoContentInfoItemTitle item={item} isOpen={isOpen} />
-        {rect?.height}
-      <div ref={rectRef} className={cx("invisible")}>
-          <div className={cx("transition-[height] duration-700")} style={{height: isOpen ? (rect?.height ?? 0) : '0px'}}>
-              <ResponsiveMultiLineText
-                  className="pb-gutter-md text-black [&>a]:underline"
-                  text={item.text}
-                  textSize="sm"
-              />
-          </div>
-      </div>
+      <InfoContentInfoItemTitle item={item}/>
+        {isOpen && (
+            <ResponsiveMultiLineText
+                className="pb-[40px] pt-[14px] text-black [&>a]:underline"
+                text={item.text}
+                textSize="sm"
+            />
+        )}
     </InfoContentInfoItemContainer>
   );
 }
@@ -51,7 +43,7 @@ function InfoContentInfoItemContainer({
   return (
     <ClientResponsiveDiv
       className={cn(
-        'cursor-pointer rounded-md bg-secondary px-gutter-md md:hover:bg-highlight',
+        'cursor-pointer rounded-md bg-secondary px-gutter-m md:hover:bg-highlight',
       )}
       onClick={onClick}
     >
