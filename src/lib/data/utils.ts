@@ -1,4 +1,5 @@
 import { ItemContent } from '@/types/item';
+
 export function extractAuthors({
   item,
 }: {
@@ -6,9 +7,10 @@ export function extractAuthors({
 }) {
   return (
     item.origin?.authors
-      ?.map((a: { name: string }) => a?.name ?? '')
+      ?.map((a: { name: string }) => a?.name)
+      .filter((n: string) => n && n !== '')
       .slice(0, 5) ?? []
-  ); // todo: why do we slice here?
+  );
 }
 
 export function extractRenderedContent({

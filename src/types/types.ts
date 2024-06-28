@@ -68,3 +68,8 @@ export type EventItem = GraphQlItem & {
   room: string;
   level: string;
 };
+
+export type Language = {
+  iso: string;
+  name: string;
+};

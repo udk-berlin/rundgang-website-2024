@@ -22,7 +22,6 @@ export const getParsedItem = cache(async (id: string): Promise<Item> => {
     name: item.name,
     thumbnail: item.thumbnail,
     thumbnail_full_size: item.thumbnail_full_size,
-    descriptions: item.description,
     languages: Object.keys(item.description),
     authors: extractAuthors({ item }),
     content: extractRenderedContent({
