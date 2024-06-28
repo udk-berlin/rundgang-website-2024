@@ -5,7 +5,7 @@ import BuildingTitle from './title.server';
 export default async function Subnavigation({ location }: any) {
   const t = await getTranslations('Locations');
   return (
-    <div className="relative z-50 w-full p-gutter-sm ">
+    <div className="relative z-50 w-full p-gutter-sm">
       <BuildingTitle location={location} />
       <SubLocation
         title={t('levels')}

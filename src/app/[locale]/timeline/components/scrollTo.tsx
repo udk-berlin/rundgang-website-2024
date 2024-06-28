@@ -1,8 +1,9 @@
 'use client';
 
+import ArrowRight from '@/components/icons/arrowRight';
 import { useRef } from 'react';
 
-export default function ScrollTo() {
+export function ScrollForwardButton() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scrollForward = () => {
@@ -13,6 +14,22 @@ export default function ScrollTo() {
       }
     }
   };
+  return (
+    <div
+      ref={scrollRef}
+      className="fixed bottom-[50%] right-0 z-50 pr-2"
+      onClick={() => scrollForward()}
+    >
+      <div className="h-10 w-10 cursor-pointer rounded-md bg-primary p-2 text-lg text-secondary">
+        <ArrowRight />
+      </div>
+    </div>
+  );
+}
+
+export function ScrollBackwardButton() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const scrollBackward = () => {
     if (scrollRef?.current) {
       const parent = scrollRef?.current?.parentElement;
@@ -22,25 +39,14 @@ export default function ScrollTo() {
     }
   };
   return (
-    <>
-      <div
-        ref={scrollRef}
-        className="sticky bottom-[40%] left-[98vw]"
-        onClick={() => scrollForward()}
-      >
-        <div className="w-full cursor-pointer bg-primary text-lg text-secondary">
-          {'>'}
-        </div>
+    <div
+      ref={scrollRef}
+      className="fixed bottom-[50%] left-0 z-50 pl-2"
+      onClick={() => scrollBackward()}
+    >
+      <div className="h-10 w-10 rotate-180 cursor-pointer rounded-md bg-primary p-2 text-lg text-secondary">
+        <ArrowRight />
       </div>
-      <div
-        ref={scrollRef}
-        className="sticky bottom-[40%] left-[1vw]"
-        onClick={() => scrollBackward()}
-      >
-        <div className="cursor-pointer bg-primary text-lg text-secondary">
-          {'<'}
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

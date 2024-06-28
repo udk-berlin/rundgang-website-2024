@@ -15,8 +15,11 @@
   --height-header: 50px;
   --height-content: calc(100dvh - var(--height-header) - var(--height-footer));
   --height-content-header: 50px;
-  --height-content-body: calc(var(--height-content) - var(--height-content-header));
+  --height-content-body: calc(
+    var(--height-content) - var(--height-content-header)
+  );
   --height-footer: 50px;
+  --height-modal: calc(100dvh - var(--height-header));
 }
 
 @media (prefers-color-scheme: dark) {

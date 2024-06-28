@@ -7,7 +7,7 @@ export default function LocationsLayout({
 }) {
   return (
     <div className="h-full w-full bg-primary">
-      <LocationsMap mapCut={0} />
+      <LocationsMap />
       {children}
     </div>
   );

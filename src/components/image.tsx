@@ -7,11 +7,7 @@ export type ImageProps = {
   alt?: string;
 };
 
-export default function Image({
-  className,
-  src,
-  alt,
-}: ImageProps) {
+export default function Image({ className, src, alt }: ImageProps) {
   return (
     <NextImage
       src={src ?? '/assets/placeholder.png'}

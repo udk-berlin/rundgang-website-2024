@@ -92,10 +92,8 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-            'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       height: {
@@ -103,19 +101,17 @@ const config: Config = {
         md: '50px',
         header: 'var(--height-header)',
         content: 'var(--height-content)',
+        modal: 'var(--height-modal)',
         'content-header': 'var(--height-content-header)',
-        'content-body':
-          'var(--height-content-body)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       maxHeight: {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-          'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       width: {

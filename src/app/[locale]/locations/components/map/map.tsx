@@ -13,14 +13,13 @@ import Map, {
   Source,
 } from 'react-map-gl/maplibre';
 
-import useMedia, { useWindowSize } from '@/lib/useMedia';
+import { useWindowSize } from '@/lib/useMedia';
 import FloorMapMarker from './FloorMapMarker';
 import useMapFunctions from './useMapFunctions';
 import { Building } from '@/types/types';
 
 type MapComponentProps = {
   buildings: GeoJSON.FeatureCollection<GeoJSON.Point, Building>;
-  mapCut: number;
 };
 
 const MAP_CONFIGURATION = {
@@ -33,7 +32,7 @@ const MAP_CONFIGURATION = {
   },
 };
 
-const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
+const MapComponent = ({ buildings }: MapComponentProps) => {
   const mapRef = useRef<MapRef>(null);
   const params = useParams();
   const selectedBuilding = useMemo(
@@ -47,7 +46,7 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
     useMapFunctions(mapRef, buildings, size);
   return (
     <div className="h-full px-border">
-      <div className="sm:top-header pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-2 sm:fixed sm:h-content dark:invert">
+      <div className="sm:top-header pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-2 border-t-0 sm:fixed sm:h-content dark:invert">
         <MapProvider>
           <Map
             id="rundgangMap"

@@ -130,5 +130,10 @@
                 "text": "Bar operating classes can use the delivery entrance for individual beverage delivery. In consultation with event management, the vendor entrance may be used for individual beverage deliveries for individual classes. Beverage deliveries via the main entrance are excluded.<br />We welcome suggestions, tips and questions for the Rundgang 2024 at <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a><br />"
             }
         }
+    },
+    "Timeline": {
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
     }
 }
