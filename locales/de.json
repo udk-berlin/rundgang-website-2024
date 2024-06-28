@@ -130,5 +130,10 @@
                 "text": "Barbetreibende Klassen können den Liefereingang für die individuelle Getränkelieferung nutzen. In Absprache mit der Veranstaltungsleitung kann der Lieferanteneingang für die individuelle Getränkelieferung einzelner Klassen genutzt werden. Getränkelieferungen über den Haupteingang sind ausgeschlossen.<br />Über Anregungen, Tipps und Fragen für den Rundgang 2024 freuen wir uns unter <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a>."
             }
         }
+    },
+    "Timeline": {
+        "friday": "Freitag",
+        "saturday": "Samstag",
+        "sunday": "Sonntag"
     }
 }

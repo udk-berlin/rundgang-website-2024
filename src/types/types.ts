@@ -1,4 +1,4 @@
-import { Context, GraphQlItem } from '@/types/graphql';
+import { Physical, Temporal, Context, GraphQlItem } from '@/types/graphql';
 import { ReactNode } from 'react';
 
 export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -53,6 +53,18 @@ export type ContextTree = Context & {
 };
 
 export type EventItem = GraphQlItem & {
-  before: string;
-  width: string;
+  left: number;
+  width: number;
+  start: Date;
+  end: Date;
+  allocation: {
+    physical?: Physical[];
+    temporal: {
+      start: number;
+      end: number;
+    }[];
+  };
+  building: string;
+  room: string;
+  level: string;
 };

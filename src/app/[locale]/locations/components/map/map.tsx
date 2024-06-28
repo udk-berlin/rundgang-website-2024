@@ -47,7 +47,7 @@ const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
     useMapFunctions(mapRef, buildings, size);
   return (
     <div className="h-full px-border">
-      <div className="sm:top-header pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-2 sm:fixed sm:h-content dark:invert">
+      <div className="sm:top-header pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-2 border-t-0 sm:fixed sm:h-content dark:invert">
         <MapProvider>
           <Map
             id="rundgangMap"

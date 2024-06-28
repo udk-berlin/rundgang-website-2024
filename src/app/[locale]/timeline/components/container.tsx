@@ -21,9 +21,9 @@ export default function EventContainer({
   }, [isOpen]);
 
   return (
-    <div className="relative mb-border flex w-full flex-wrap justify-start overflow-x-scroll rounded-md ring-2 ring-primary">
+    <div className="relative mb-border flex w-[6000px] flex-wrap justify-start">
       <div
-        className="sticky left-0 flex w-full cursor-pointer p-border text-lg hover:font-bold"
+        className="sticky left-0 top-0 z-30 mx-[1px] flex w-screen cursor-pointer rounded-md bg-secondary p-border text-lg ring-2 ring-primary hover:font-bold"
         onClick={handleClick}
       >
         {location.name}

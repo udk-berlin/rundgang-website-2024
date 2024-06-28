@@ -34,6 +34,7 @@ export default function NavigationLink({
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
+      scroll={true}
       className={cx(
         'm-[1px] border-0 bg-secondary hover:bg-highlight hover:text-primary',
         isFooter ? 'my-border' : 'my-border',

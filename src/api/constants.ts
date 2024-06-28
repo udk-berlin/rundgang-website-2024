@@ -291,8 +291,13 @@ export const TIMES = [
   [5700, '07 PM'],
   [5800, '08 PM'],
   [5900, '09 PM'],
-  [6000, '10 PM'],
 ];
+
+export const DAYS = {
+  friday: 0,
+  saturday: 2000,
+  sunday: 4200,
+} as const;
 
 export const TIME_PADDING = 0;
 export const LOCATION_PADDING = 60;
