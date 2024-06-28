@@ -13,14 +13,13 @@ import Map, {
   Source,
 } from 'react-map-gl/maplibre';
 
-import useMedia, { useWindowSize } from '@/lib/useMedia';
+import { useWindowSize } from '@/lib/useMedia';
 import FloorMapMarker from './FloorMapMarker';
 import useMapFunctions from './useMapFunctions';
 import { Building } from '@/types/types';
 
 type MapComponentProps = {
   buildings: GeoJSON.FeatureCollection<GeoJSON.Point, Building>;
-  mapCut: number;
 };
 
 const MAP_CONFIGURATION = {
@@ -33,7 +32,7 @@ const MAP_CONFIGURATION = {
   },
 };
 
-const MapComponent = ({ buildings, mapCut }: MapComponentProps) => {
+const MapComponent = ({ buildings }: MapComponentProps) => {
   const mapRef = useRef<MapRef>(null);
   const params = useParams();
   const selectedBuilding = useMemo(

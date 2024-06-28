@@ -33,7 +33,7 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="z-50 h-full bg-primary xs:col-span-2 sm:h-content sm:overflow-y-scroll">
+    <div className="z-50 -ml-[1px] h-full bg-primary xs:col-span-2 sm:h-content sm:overflow-y-scroll">
       <div className="min-h-content col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-2 md:columns-2">
         {children}
       </div>
