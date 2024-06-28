@@ -7,19 +7,20 @@ import ProjectCardContainer from '@/components/project/container.client';
 
 export type ProjectCardProps = {
   item: Item;
+  linkPathname?: string;
 };
 
-export default function ProjectCard({ item }: ProjectCardProps) {
+export default function ProjectCard({ item, linkPathname }: ProjectCardProps) {
   return (
     <ProjectCardContainer item={item}>
-        <div>
-            <ProjectCardImage item={item} />
-            <ProjectCardName item={item} />
-        </div>
-        <div className="grow flex flex-col">
-            <ProjectCardAuthors item={item} />
-            <ProjectCardFilters item={item} />
-        </div>
+      <div>
+        <ProjectCardImage item={item} linkPathname={linkPathname} />
+        <ProjectCardName item={item} linkPathname={linkPathname} />
+      </div>
+      <div className="flex grow flex-col">
+        <ProjectCardAuthors item={item} linkPathname={linkPathname} />
+        <ProjectCardFilters item={item} />
+      </div>
     </ProjectCardContainer>
   );
 }

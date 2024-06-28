@@ -5,7 +5,7 @@ import { useStore } from 'zustand';
 
 import { ReactNodeProps } from '@/types/types';
 import { useUIStore } from '@/lib/uiStore';
-import {ProjectCardProps} from "@/components/project/card.server";
+import { ProjectCardProps } from '@/components/project/card.server';
 
 export default function ProjectCardContainer({
   children,
@@ -16,11 +16,13 @@ export default function ProjectCardContainer({
   );
 
   return (
-      <div className={cx(
-          'rounded-border p-gutter-xs hover:bg-highlight text-primary flex-col flex',
-          isSaved ? 'bg-highlight' : 'bg-secondary',
-      )}>
-          {children}
-      </div>
+    <div
+      className={cx(
+        'flex flex-col rounded-border p-gutter-xs text-primary hover:bg-highlight',
+        isSaved ? 'bg-highlight' : 'bg-secondary',
+      )}
+    >
+      {children}
+    </div>
   );
 }

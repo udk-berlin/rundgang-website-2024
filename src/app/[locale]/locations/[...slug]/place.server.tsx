@@ -3,12 +3,12 @@ import { Link } from '@/navigation';
 import Floorplan from '../components/floorplan/index.server';
 import Subnavigation from '../components/subnavigation/index.server';
 
-type LocationsPageProps = {
-  params: { place: string };
+type PlaceProps = {
+  place: string;
 };
 
-export default async function LocationsPage(props: LocationsPageProps) {
-  const location = await getLocation(props.params.place);
+export default async function Place(props: PlaceProps) {
+  const location = await getLocation(props.place);
 
   return (
     <div className="relative z-50 col-span-3 h-full w-full bg-primary p-border pr-0 sm:top-[50dvh] sm:overflow-y-scroll sm:overscroll-contain">

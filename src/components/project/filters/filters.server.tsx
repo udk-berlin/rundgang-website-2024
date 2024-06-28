@@ -7,32 +7,41 @@ export type ProjectCardProps = {
 };
 
 const filterFetchers: {
-    translation: 'format' | 'faculty' | 'language' ,
-    data: 'formats' | 'faculties' | 'languages',
+  translation: 'format' | 'faculty' | 'language';
+  data: 'formats' | 'faculties' | 'languages';
 }[] = [
-    {translation: 'format', data: 'formats'},
-    {translation: 'faculty', data: 'faculties'},
-    {translation: 'language', data: 'languages'}
-]
+  { translation: 'format', data: 'formats' },
+  { translation: 'faculty', data: 'faculties' },
+  { translation: 'language', data: 'languages' },
+];
 
 export default function ProjectCardFilters({ item }: ProjectCardProps) {
-    const t = useTranslations();
-    return (
-      <div className="max-w-full w-full flex flex-wrap gap-gutter-sm">
-          {filterFetchers.map((fetcher) => {
-              const filters = item[fetcher.data].filter((f) => f.name);
+  const t = useTranslations();
+  return (
+    <div className="flex w-full max-w-full flex-wrap gap-gutter-sm">
+      {filterFetchers.map((fetcher) => {
+        const filters = item[fetcher.data].filter((f) => f.name);
 
-              if (filters.length === 0) {
-                  return <></>;
-              }
+        if (filters.length === 0) {
+          return <></>;
+        }
 
-              return (
-                  <div key={fetcher.translation}>
-                      <div className="pb-gutter-xs text-xxxs text-grey">{t(fetcher.translation, { count: 2 })}</div>
-                      <div className="flex wrap gap-gutter-sm">{filters.map((filter) => <FilterTag filter={filter} />)}</div>
-                  </div>
-              )
-          })}
-      </div>
+        return (
+          <div key={fetcher.translation}>
+            <div className="pb-gutter-xs text-xxxs text-grey">
+              {t(fetcher.translation, { count: 2 })}
+            </div>
+            <div className="wrap flex gap-gutter-sm">
+              {filters.map((filter) => (
+                <FilterTag
+                  key={`item-tag-${item.id}-${filter.id}`}
+                  filter={filter}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
