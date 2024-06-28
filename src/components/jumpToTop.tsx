@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, RefObject } from 'react';
+import ArrowRight from "@/components/icons/arrowRight";
 
 const useIsScrolled = (scrollRef: RefObject<HTMLDivElement>) => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,6 +26,7 @@ const useIsScrolled = (scrollRef: RefObject<HTMLDivElement>) => {
       windowHeight > 20 ? setScrolled(true) : setScrolled(false);
     }
   };
+
   return scrolled;
 };
 
@@ -40,15 +42,18 @@ export default function JumpToTop() {
       }
     }
   };
+
   return (
     <div
       ref={scrollRef}
-      className="fixed right-1 top-[90vh] z-50 h-9 w-9"
+      className="fixed right-[12px] bottom-[calc(var(--height-footer)+12px)] z-50"
       onClick={() => handleClick()}
     >
       {isScrolled && (
-        <div className="cursor-pointer bg-primary text-xl text-secondary">
-          ^
+        <div className="cursor-pointer bg-primary h-content-header aspect-square rounded-border flex justify-center items-center">
+          <div className="rotate-[-90deg] w-fit h-fit">
+            <ArrowRight width={11} height={18} />
+          </div>
         </div>
       )}
     </div>

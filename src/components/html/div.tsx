@@ -20,16 +20,19 @@ export function ClientResponsiveDiv({
   textSize = 'md',
   onMouseEnter = (_) => {},
   onMouseLeave = (_) => {},
+  onClick = (_) => {},
   children,
 }: ResponsiveHtmlProps & {
   onMouseEnter?: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
   onMouseLeave?: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick?: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }) {
   return (
     <div
       className={cn(sizeToTextClassName[textSize], className)}
       onMouseEnter={(e) => onMouseEnter(e)}
       onMouseLeave={(e) => onMouseLeave(e)}
+      onClick={(e) => onClick(e)}
     >
       {children}
     </div>

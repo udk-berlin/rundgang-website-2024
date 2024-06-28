@@ -6,6 +6,9 @@ import { cn } from '@/lib/utils';
 import InfoContentInfoItemTitle from '@/app/info/components/content/info/item/title.client';
 import { ResponsiveMultiLineText } from '@/components/texts/multiLine';
 import { HtmlProps } from '@/components/html/html';
+import cx from "classnames";
+import { Rect, useRect } from 'react-use-rect';
+import {is} from "unist-util-is";
 
 export type InfoContentInfoItemProps = {
   item: InfoItem;
@@ -14,48 +17,43 @@ export type InfoContentInfoItemProps = {
 export default function InfoContentInfoItem({
   item,
 }: InfoContentInfoItemProps) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [rect, setRect] = useState<Rect | null>(null);
+  const [rectRef] = useRect(setRect);
 
-  const onMouseEnter = (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setIsHovered(true);
-  };
-
-  const onMouseLeave = (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    setIsHovered(false);
+  const onClick = (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <InfoContentInfoItemContainer
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
-      <InfoContentInfoItemTitle item={item} isHovered={isHovered} />
-      {isHovered && (
-        <ResponsiveMultiLineText
-          className="pb-gutter-sm"
-          text={item.content}
-          textSize="sm"
-        />
-      )}
+    <InfoContentInfoItemContainer onClick={onClick}>
+      <InfoContentInfoItemTitle item={item} isOpen={isOpen} />
+        {rect?.height}
+      <div ref={rectRef} className={cx("invisible")}>
+          <div className={cx("transition-[height] duration-700")} style={{height: isOpen ? (rect?.height ?? 0) : '0px'}}>
+              <ResponsiveMultiLineText
+                  className="pb-gutter-md"
+                  text={item.content}
+                  textSize="sm"
+              />
+          </div>
+      </div>
     </InfoContentInfoItemContainer>
   );
 }
 
 function InfoContentInfoItemContainer({
-  onMouseEnter,
-  onMouseLeave,
+                                        onClick,
   children,
 }: HtmlProps & {
-  onMouseEnter: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  onMouseLeave: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onClick: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }) {
   return (
     <ClientResponsiveDiv
       className={cn(
         'cursor-pointer rounded-md bg-secondary px-gutter-md md:hover:bg-highlight',
       )}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
       {children}
     </ClientResponsiveDiv>

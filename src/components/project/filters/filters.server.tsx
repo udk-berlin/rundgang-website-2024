@@ -6,18 +6,33 @@ export type ProjectCardProps = {
   item: Item;
 };
 
-export default function ProjectCardFilters({ item }: ProjectCardProps) {
-  const t = useTranslations('Filtering');
-  if (!item.format) {
-    return <></>;
-  }
+const filterFetchers: {
+    translation: 'format' | 'faculty' | 'language' ,
+    data: 'formats' | 'faculties' | 'languages',
+}[] = [
+    {translation: 'format', data: 'formats'},
+    {translation: 'faculty', data: 'faculties'},
+    {translation: 'language', data: 'languages'}
+]
 
-  return (
-    <div className="px-gutter-md pb-gutter-md">
-      <div>
-        <div className="pb-[10px] text-xxxs text-grey">{t('format')}</div>
-        <FilterTag filter={item.format} />
+export default function ProjectCardFilters({ item }: ProjectCardProps) {
+    const t = useTranslations();
+    return (
+      <div className="max-w-full w-full flex flex-wrap gap-gutter-sm">
+          {filterFetchers.map((fetcher) => {
+              const filters = item[fetcher.data].filter((f) => f.name);
+
+              if (filters.length === 0) {
+                  return <></>;
+              }
+
+              return (
+                  <div key={fetcher.translation}>
+                      <div className="pb-gutter-xs text-xxxs text-grey">{t(fetcher.translation, { count: 2 })}</div>
+                      <div className="flex wrap gap-gutter-sm">{filters.map((filter) => <FilterTag filter={filter} />)}</div>
+                  </div>
+              )
+          })}
       </div>
-    </div>
   );
 }

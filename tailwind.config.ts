@@ -81,19 +81,41 @@ const config: Config = {
       ],
     },
     extend: {
-      height: {
-        sm: '35px',
-        md: '50px',
+      minHeight: {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
         'content-height':
             'var(--height-content-height)',
         'content-body':
+            'var(--height-content-body)',
+        footer: 'var(--height-footer)',
+        'design-projects':
+            'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
+      },
+      height: {
+        sm: '35px',
+        md: '50px',
+        header: 'var(--height-header)',
+        content: 'var(--height-content)',
+        'content-header': 'var(--height-content-header)',
+        'content-body':
           'var(--height-content-body)',
         footer: 'var(--height-footer)',
         'design-projects':
           'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
+      },
+      maxHeight: {
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
+        content: 'var(--height-content)',
+        'content-height':
+            'var(--height-content-height)',
+        'content-body':
+            'var(--height-content-body)',
+        footer: 'var(--height-footer)',
+        'design-projects':
+            'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
       },
       borderRadius: {
         md: '4px',

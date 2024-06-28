@@ -5,6 +5,7 @@ import { cache } from 'react';
 import { Item } from '@/types/item';
 import { extractAuthors } from '@/lib/data/utils';
 import { getLocationItems } from '../rest/location';
+import ISO6391 from "iso-639-1";
 
 const graphQLItemsQuery: DocumentNode = gql`
   query Items {
@@ -40,24 +41,44 @@ async function fetchGraphQLItems(): Promise<ApolloQueryResult<GraphQlItems>> {
 export const getGraphQLItems = cache(async () => {
   return fetchGraphQLItems().then((res) =>
     res.data.items.map((item: GraphQlItem): Item => {
-      const format = item.parents.filter(
+      const formats = item.parents.filter(
         (p) => p.template === 'format-element',
-      )[0];
+      );
+
+      const faculties = item.parents.filter(
+          (p) => p.template === 'faculty' || p.template === 'centre',
+      );
 
       return {
         id: item.id,
         name: item.name,
         thumbnail: item.thumbnail,
         parents: item.parents,
-        languages: item.description.map((d: Description) =>
-          d.language.toLowerCase(),
-        ),
+        languages: item.description
+            .filter((description: Description) => description.language.toLowerCase() !== 'default')
+            .map((description: Description) => {
+              return {
+                id: description.language.toLowerCase(),
+                name: ISO6391.getNativeName(description.language.toLowerCase()),
+                searchParam: 'language',
+                content: description.content
+              }
+            }),
         authors: extractAuthors({ item }),
-        format: {
-          id: format?.id ?? '',
-          name: format?.name ?? '',
-          searchParam: 'format',
-        },
+        formats: formats.map((format) => {
+          return  {
+            id: format?.id ?? '',
+            name: format?.name ?? '',
+            searchParam: 'format',
+          }
+        }),
+        faculties: faculties.map((faculty) => {
+          return {
+            id: faculty?.id ?? '',
+            name: faculty?.name ?? '',
+            searchParam: 'faculty',
+          }
+        })
       };
     }),
   );
@@ -91,19 +112,19 @@ function filterItemsBySearchParams(
 
   if (searchParams?.faculty) {
     filteredItems = filteredItems.filter((item) =>
-      item.parents.find((parent) => parent.id == searchParams?.faculty),
+      item.faculties.find((faculty) => faculty.id == searchParams?.faculty),
     );
   }
 
   if (searchParams?.format) {
     filteredItems = filteredItems.filter(
-      (item) => item.format.id == searchParams?.format,
+      (item) => item.formats.find((format) => format.id == searchParams?.format),
     );
   }
 
   if (searchParams?.language) {
     filteredItems = filteredItems.filter((item: Item) =>
-      item.languages.find((language) => language == searchParams?.language),
+      item.languages.find((language) => language.id == searchParams?.language),
     );
   }
 

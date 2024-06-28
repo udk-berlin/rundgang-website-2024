@@ -1,8 +1,6 @@
 import { getFilteredGraphQLItems } from '@/api/graphql/items';
-import ProjectCard from '@/components/project/card.server';
-import { ReactNodeProps } from '@/types/types';
-import { Item } from '@/types/item';
-import JumpToTop from '@/components/jumpToTop';
+import Program from "@/app/program/components/program.server";
+import ProgramContainer from "@/app/program/components/container.client";
 
 export type ProgramPageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -10,28 +8,11 @@ export type ProgramPageProps = {
 
 export const revalidate = 0;
 
-export default async function ProgramPage({ searchParams }: ProgramPageProps) {
+export default async function Page({ searchParams }: ProgramPageProps) {
   const items = await getFilteredGraphQLItems(searchParams);
-
   return (
-    <ProgramContainer>
-      {items.map((item) => (
-        <ProjectCard key={item.id} item={item} />
-      ))}
-    </ProgramContainer>
-  );
-}
-export type ProgramProps = {
-  items: Item[];
-};
-
-function ProgramContainer({ children }: ReactNodeProps) {
-  return (
-    <div className="relative h-contentpages overflow-y-scroll xs:col-span-4">
-      <div className="min-h-contentpages col-span-1 max-h-fit columns-1 items-start justify-start gap-0 bg-primary xs:col-span-4 xs:columns-2 md:columns-4">
-        {children}
-      </div>
-      <JumpToTop />
-    </div>
+      <ProgramContainer>
+        <Program items={items} />
+      </ProgramContainer>
   );
 }

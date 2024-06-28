@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import '@/styles/app.css';
 import '@/styles/tailwind.css';
+import 'modern-normalize/modern-normalize.css';
 
 type Props = {
   children: ReactNode;

@@ -7,17 +7,19 @@ export type ItemContent = {
   formatted_content: string;
 };
 
+export type ItemDescription = { default: string } & { [key: string]: string };
+
 export type Item = {
   id: string;
   name: string;
   thumbnail: string;
   thumbnail_full_size?: string;
   descriptions?: ItemDescription;
-  languages: string[];
   authors: string[];
-  format: Filter;
+  languages: Filter[];
+  formats: Filter[];
+  faculties: Filter[];
   parents: Entry[];
   content?: { [key: string]: ItemContent[] };
 };
 
-export type ItemDescription = { default: string } & { [key: string]: string };

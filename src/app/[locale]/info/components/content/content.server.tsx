@@ -13,7 +13,7 @@ export default function InfoContent() {
 
 function InfoContentContainer({ children }: HtmlProps) {
   return (
-    <div className="mx-border grid grow-[1] grid-cols-5 gap-border">
+    <div className="h-content-body max-h-content-body min-h-content-body border-x-border grid grid-cols-5 gap-border">
       {children}
     </div>
   );

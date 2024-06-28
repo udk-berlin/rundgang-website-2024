@@ -13,7 +13,7 @@ export type FilterGroupProps = {
 };
 
 export default function FilterGroup({ title, filters, hasLeftBorder = false, hasRightBorder = false }: FilterGroupProps) {
-  const t = useTranslations('Filtering');
+  const t = useTranslations();
   const searchParams = useSearchParams();
   const selectedId = searchParams.get(filters[0]?.searchParam ?? '');
   return (

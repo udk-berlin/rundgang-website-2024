@@ -12,7 +12,7 @@ export default function InfoContentAbout() {
 
 function InfoContentAboutContainer({ children }: HtmlProps) {
   return (
-    <div className="col-span-3 h-[calc(100vh-3*var(--height-md)-3*var(--border))] max-h-[calc(100vh-3*var(--height-md)-3*var(--border))] min-h-[calc(100vh-3*var(--height-md)-3*var(--border))] overflow-y-scroll rounded-md bg-secondary p-gutter-lg">
+    <div className="col-span-2 h-content-body max-h-content-body min-h-content-body overflow-y-scroll rounded-md bg-secondary p-gutter-lg">
       {children}
     </div>
   );

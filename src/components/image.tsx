@@ -1,25 +1,25 @@
-import Image from 'next/image';
+import NextImage from 'next/image';
 import cx from 'classnames';
 
-export type ImageWrapperProps = {
+export type ImageProps = {
   className?: string;
   src: string;
   alt?: string;
 };
 
-export default function ImageWrapper({
+export default function Image({
   className,
   src,
   alt,
-}: ImageWrapperProps) {
+}: ImageProps) {
   return (
-    <Image
+    <NextImage
       src={src}
       height={500}
       width={500}
       alt={alt ?? 'thumbnail of student project'}
       className={cx(
-        'aspect-square w-full max-w-[500px] object-cover md:max-w-[800px]',
+        'aspect-square w-full object-cover',
         className,
       )}
       placeholder="empty"

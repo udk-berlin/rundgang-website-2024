@@ -14,7 +14,7 @@
 
   --height-header: 50px;
   --height-content: calc(100dvh - var(--height-header) - var(--height-footer));
-  --height-content-header: 0px;
+  --height-content-header: 50px;
   --height-content-body: calc(var(--height-content) - var(--height-content-header));
   --height-footer: 50px;
 }
@@ -23,12 +23,6 @@
   :root {
     --primary: 255, 255, 255;
     --secondary: 0, 0, 0;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  :root {
-    --height-content-header: 50px;
   }
 }
 

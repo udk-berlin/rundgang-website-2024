@@ -11,11 +11,15 @@ export type ProjectCardProps = {
 
 export default function ProjectCard({ item }: ProjectCardProps) {
   return (
-    <ProjectCardContainer itemId={item.id}>
-      <ProjectCardImage item={item} />
-      <ProjectCardName item={item} />
-      <ProjectCardAuthors item={item} />
-      <ProjectCardFilters item={item} />
+    <ProjectCardContainer item={item}>
+        <div>
+            <ProjectCardImage item={item} />
+            <ProjectCardName item={item} />
+        </div>
+        <div className="grow flex flex-col">
+            <ProjectCardAuthors item={item} />
+            <ProjectCardFilters item={item} />
+        </div>
     </ProjectCardContainer>
   );
 }

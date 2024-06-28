@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { infoHeaders } from '@/data';
 import { HtmlProps } from '@/components/html/html';
 
-const indexToColSpanClassName: string[] = ['col-span-2', 'col-span-3'];
+const indexToColSpanClassName: string[] = ['col-span-3', 'col-span-2'];
 
 export default function InfoHeaders() {
   return (
@@ -24,7 +24,7 @@ function InfoHeadersContainer({ children }: HtmlProps) {
   return (
     <div
       className={cn(
-        'mx-border mb-border grid grid-cols-5 rounded-md bg-secondary text-primary',
+        'h-content-header max-h-content-header border-x-border border-b-border rounded-border min-h-content-header grid grid-cols-5 bg-secondary text-primary',
         sizeToHeightClassName['md'],
       )}
     >

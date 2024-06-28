@@ -7,7 +7,7 @@ export default async function FilterMenu({ filters }: { filters: Filters }) {
   const t = await getTranslations('Filtering');
 
   return (
-    <div className="col-span-1 h-[calc(100vh-var(--header-height)-var(--footer-height))] overflow-y-scroll bg-primary">
+    <div className="col-span-1 h-content-body overflow-y-scroll bg-primary">
       <div className="h-fit w-full">
         <div className="hidden w-full pr-1 text-secondary md:block">
           {t('filter')}:

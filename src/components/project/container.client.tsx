@@ -1,44 +1,26 @@
 'use client';
+
 import cx from 'classnames';
-
-import { Link, usePathname } from '@/navigation';
-import { ReactNodeProps } from '@/types/types';
-
-import { useUIStore } from '@/lib/uiStore';
 import { useStore } from 'zustand';
+
+import { ReactNodeProps } from '@/types/types';
+import { useUIStore } from '@/lib/uiStore';
+import {ProjectCardProps} from "@/components/project/card.server";
 
 export default function ProjectCardContainer({
   children,
-  itemId,
-}: ReactNodeProps & { itemId: string }) {
+  item,
+}: ReactNodeProps & ProjectCardProps) {
   const isSaved = useStore(useUIStore, (state) =>
-    state.savedItems.includes(itemId),
+    state.savedItems.includes(item.id),
   );
-  const pathname = usePathname();
+
   return (
-    <Link
-      href={{
-        pathname: `/project/[id]`,
-        params: { id: itemId },
-      }}
-      replace={pathname.includes('project')}
-      className="inline-block w-full"
-    >
-      <div
-        className={cx(
-          'col-span-1 inline-block w-full border border-primary',
-          isSaved ? 'bg-primary' : '',
-        )}
-      >
-        <div
-          className={cx(
-            'w-full rounded-md  p-gutter-xs hover:bg-highlight hover:text-black',
-            isSaved ? 'bg-highlight text-black' : 'bg-secondary',
-          )}
-        >
+      <div className={cx(
+          'rounded-border p-gutter-xs hover:bg-highlight text-primary flex-col flex',
+          isSaved ? 'bg-highlight' : 'bg-secondary',
+      )}>
           {children}
-        </div>
       </div>
-    </Link>
   );
 }

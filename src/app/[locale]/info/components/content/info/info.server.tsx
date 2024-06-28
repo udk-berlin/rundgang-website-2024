@@ -15,7 +15,7 @@ export default function InfoContentInfo() {
 
 function InfoContentInfoContainer({ children }: HtmlProps) {
   return (
-    <div className="col-span-2 flex h-[calc(100vh-3*var(--height-md)-3*var(--border))] max-h-[calc(100vh-3*var(--height-md)-3*var(--border))] min-h-[calc(100vh-3*var(--height-md)-3*var(--border))] flex-col gap-border overflow-y-scroll">
+    <div className="col-span-3 flex h-content-body max-h-content-body min-h-content-body flex-col gap-border overflow-y-scroll">
       {children}
     </div>
   );

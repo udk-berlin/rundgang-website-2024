@@ -12,7 +12,7 @@ export type UIStore = {
 
 export const useUIStore = create<UIStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       savedItems: [],
       menuOpen: false,
       setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
@@ -31,6 +31,7 @@ export const useUIStore = create<UIStore>()(
     }),
     {
       name: 'UIStore',
+        partialize: (state) => ({ savedItems: state.savedItems }),
     },
   ),
 );

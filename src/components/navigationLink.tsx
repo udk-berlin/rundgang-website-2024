@@ -16,8 +16,8 @@ export type NavigationLinkProps = {
 export default function NavigationLink({
   href,
   isFooter = false,
-    isFirst = false,
-    isLast = false,
+  isFirst = false,
+  isLast = false,
   children,
 }: NavigationLinkProps) {
   const selectedLayoutSegment = useSelectedLayoutSegment();

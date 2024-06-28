@@ -1,6 +1,5 @@
 import { ProjectCardProps } from '@/components/project/card.server';
-import { ReactNodeProps } from '@/types/types';
-import { Link } from '@/navigation';
+import {Link} from "@/navigation";
 
 export default function ProjectCardAuthors({ item }: ProjectCardProps) {
   if (item.authors.length === 0) {
@@ -8,8 +7,16 @@ export default function ProjectCardAuthors({ item }: ProjectCardProps) {
   }
 
   return (
-    <div className="px-gutter-md pb-gutter-md text-right text-xs">
-      {item.authors.join(' ')}
-    </div>
+      <Link
+          href={{
+            pathname: `/project/[id]`,
+            params: { id: item.id },
+          }}
+          className="w-full max-w-full"
+      >
+        <div className="pb-gutter-md text-right text-xs">
+          {item.authors?.join(' ')}
+        </div>
+      </Link>
   );
 }

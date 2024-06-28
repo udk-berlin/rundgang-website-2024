@@ -13,20 +13,20 @@ export default function HeaderNavigationMobile() {
 
   return (
     <div className="flex overflow-hidden md:hidden">
-      <nav className="grid h-10 w-screen grid-cols-3">
-        <NavigationLink href="/">
+      <nav className="grid grid-cols-3 h-header w-screen">
+        <NavigationLink href="/" isFirst>
           <RundgangLogo />
         </NavigationLink>
         <div
           onClick={setMenuOpen}
           className={cx(
-            'border border-primary bg-secondary hover:bg-highlight hover:text-black',
-            menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
+            'bg-secondary hover:bg-highlight hover:text-black mx-[1px] my-border content-around',
+            menuOpen ? 'rounded-t-border mb-0' : 'rounded-border',
           )}
         >
-          <div className="h-9 content-around text-center">{'='}</div>
+          <div className="content-around text-center">=</div>
         </div>
-        <NavigationLink href="/info">{t('info')}</NavigationLink>
+        <NavigationLink href="/info" isLast>{t('info')}</NavigationLink>
       </nav>
       {menuOpen && <HeaderNavigationMobileMenu />}
     </div>
