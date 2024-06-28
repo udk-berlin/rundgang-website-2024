@@ -26,6 +26,12 @@
   }
 }
 
+@media only screen and (min-width: 1200px) {
+  :root {
+    --height-content-header: 50px;
+  }
+}
+
 :root[data-theme='dark'] {
   --primary: 255, 255, 255;
   --secondary: 0, 0, 0;
@@ -65,7 +71,6 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {

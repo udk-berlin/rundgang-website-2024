@@ -13,12 +13,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return `${host}/${locale}${pathname === '/' ? '' : pathname}`;
   }
 
-  return keys.map((key) => ({
-    url: getUrl(key, defaultLocale),
-    alternates: {
-      languages: Object.fromEntries(
-        locales.map((locale) => [locale, getUrl(key, locale)]),
-      ),
-    },
-  }));
+  return keys
+    .filter((k) => !k.includes('['))
+    .map((key) => ({
+      url: getUrl(key, defaultLocale),
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((locale) => [locale, getUrl(key, locale)]),
+        ),
+      },
+    }));
 }

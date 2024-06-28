@@ -2,7 +2,7 @@
 
 import cx from 'classnames';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { Link } from '@/navigation';
+import { Link, usePathname } from '@/navigation';
 
 export type NavigationLinkProps = {
   href: any;
@@ -21,9 +21,10 @@ export default function NavigationLink({
   children,
 }: NavigationLinkProps) {
   const selectedLayoutSegment = useSelectedLayoutSegment();
-  const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
+  const pathname = usePathname();
+  const selPathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
 
-  const isActive = pathname === href;
+  const isActive = pathname === href || selPathname == href;
   const activeStyle = isFooter
     ? href === '/design'
       ? 'rounded-border'
@@ -37,14 +38,16 @@ export default function NavigationLink({
         'm-[1px] border-0 bg-secondary hover:bg-highlight hover:text-primary',
         isFooter ? 'my-border' : 'my-border',
         isActive ? activeStyle : 'rounded-border',
-          isFirst && 'ml-border',
-          isLast && 'mr-border'
+        isFirst && 'ml-border',
+        isLast && 'mr-border',
       )}
+      replace={
+        (pathname == '/imprint' && href == '/contact') ||
+        (pathname == '/contact' && href == '/imprint')
+      }
       href={href}
     >
-      <div className="h-full text-center content-around">
-        {children}
-      </div>
+      <div className="h-full content-around text-center">{children}</div>
     </Link>
   );
 }

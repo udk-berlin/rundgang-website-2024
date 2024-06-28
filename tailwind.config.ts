@@ -112,10 +112,14 @@ const config: Config = {
         'content-height':
             'var(--height-content-height)',
         'content-body':
-            'var(--height-content-body)',
+          'var(--height-content-body)',
         footer: 'var(--height-footer)',
         'design-projects':
             'calc(100dvh - var(--height-header) - var(--height-footer) - var(--height-content-header))',
+      },
+      top: {
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
       },
       borderRadius: {
         md: '4px',
@@ -133,6 +137,15 @@ const config: Config = {
         'gutter-md': '20px',
         'gutter-lg': '50px',
         border: '2px',
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
+        footer: 'var(--height-footer)',
+      },
+      inset: {
+        border: '2px',
+        header: 'var(--height-header)',
+        'content-header': 'var(--height-content-header)',
+        footer: 'var(--height-footer)',
       },
       gridTemplateColumns: {
         'header-info': 'minmax(100px, 1fr) 50px 50px 50px',

@@ -32,8 +32,8 @@ export default function InfoContentInfoItem({
       <div ref={rectRef} className={cx("invisible")}>
           <div className={cx("transition-[height] duration-700")} style={{height: isOpen ? (rect?.height ?? 0) : '0px'}}>
               <ResponsiveMultiLineText
-                  className="pb-gutter-md"
-                  text={item.content}
+                  className="pb-gutter-md text-black [&>a]:underline"
+                  text={item.text}
                   textSize="sm"
               />
           </div>

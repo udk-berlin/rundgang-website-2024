@@ -1,9 +1,23 @@
-import { GraphQlItem } from '@/types/graphql';
+'use client';
+import { EventItem } from '@/types/types';
 
 type EventBarProps = {
-  event: GraphQlItem;
+  event: EventItem;
 };
 
-export default async function EventBar({ event }: EventBarProps) {
-  return <div>{event.name}</div>;
+export default function EventBar({ event }: EventBarProps) {
+  return (
+    <div className="relative flex h-fit flex-wrap justify-start">
+      <div
+        className="h-10 cursor-pointer truncate text-ellipsis rounded-md border-2 bg-secondary leading-10"
+        title={event.name}
+        style={{
+          width: event.width,
+          marginLeft: event.left,
+        }}
+      >
+        {event.name}
+      </div>
+    </div>
+  );
 }
