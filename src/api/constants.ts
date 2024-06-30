@@ -218,7 +218,7 @@ export const FLOORPLANS = {
   '!oVBzAqSwRRNhoaUgMg:content.udk-berlin.de': 11,
   '!MvJOJtvpfocMzxUHrQ:content.udk-berlin.de': 9,
   '!CTmDtbjUTOOsurMDPc:content.udk-berlin.de': 12,
-};
+} as const;
 
 export const FLOORPLAN_MARGINS = {
   '!fLNyHnyRGdzhkWqPoh:content.udk-berlin.de': 'mt-3',
@@ -226,7 +226,7 @@ export const FLOORPLAN_MARGINS = {
   '!ghPgTOgphCnxcDzavP:content.udk-berlin.de': 'mt-3',
   '!oAfaLsDQNrXWlaBFRD:content.udk-berlin.de': 'ml-0 mt-3',
   '!FJItFjLiHmMxyoAdnf:content.udk-berlin.de': 'ml-2 mt-3',
-};
+} as const;
 
 export const REST_API_LOCATIONS_ROOT = process.env.REST_API_LOCATIONS_ROOT;
 
@@ -320,13 +320,18 @@ export const TIMES = [
   [5700, '07 PM'],
   [5800, '08 PM'],
   [5900, '09 PM'],
-];
+] as const;
 
 export const DAYS = {
   friday: 0,
   saturday: 2000,
   sunday: 4200,
 } as const;
+
+export const TIME_INTERVAL = [
+  new Date(2024, 6, 19, 12),
+  new Date(2024, 6, 22, 0),
+] as const;
 
 export const TIME_PADDING = 0;
 export const LOCATION_PADDING = 60;

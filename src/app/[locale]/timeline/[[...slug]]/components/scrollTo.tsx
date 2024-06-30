@@ -20,7 +20,7 @@ export function ScrollForwardButton() {
       className="fixed bottom-[50%] right-0 z-50 pr-2"
       onClick={() => scrollForward()}
     >
-      <div className="h-10 w-10 cursor-pointer rounded-md bg-primary p-2 text-lg text-secondary">
+      <div className="motion-safe:animate-bounceRight h-gridcell w-10 cursor-pointer rounded-md bg-primary fill-secondary p-2 text-lg">
         <ArrowRight />
       </div>
     </div>
@@ -44,7 +44,7 @@ export function ScrollBackwardButton() {
       className="fixed bottom-[50%] left-0 z-50 pl-2"
       onClick={() => scrollBackward()}
     >
-      <div className="h-10 w-10 rotate-180 cursor-pointer rounded-md bg-primary p-2 text-lg text-secondary">
+      <div className="motion-safe:animate-bounceLeft h-gridcell w-10 cursor-pointer rounded-md bg-primary fill-secondary p-2 text-lg">
         <ArrowRight />
       </div>
     </div>

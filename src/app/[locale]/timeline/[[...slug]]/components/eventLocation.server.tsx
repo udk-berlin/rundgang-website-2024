@@ -13,8 +13,8 @@ export default async function EventLocation({ location }: EventLocationProps) {
   if (events?.length == 0) return;
   return (
     <EventContainer location={location}>
-      <div className="border-t-1 relative z-30 w-[6000px] scale-y-100 transition-transform">
-        <div className="py-10 ">
+      <div className="border-t-1 w-timeline relative z-30 scale-y-100">
+        <div className="py-10">
           {events.map((event) => (
             <EventBar key={event.id} event={event} />
           ))}

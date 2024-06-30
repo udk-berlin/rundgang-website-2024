@@ -95,6 +95,7 @@ const config: Config = {
         'content-height': 'var(--height-content-height)',
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
+        place: 'calc(50dvh - var(--height-header) - var(--height-footer))',
       },
       height: {
         sm: '35px',
@@ -105,6 +106,9 @@ const config: Config = {
         'content-header': 'var(--height-content-header)',
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
+        gridcell: 'var(--height-gridcell)',
+        timeline:
+          'calc(100dvh - var(--height-header) - var(--height-footer) - 2 * var(--height-gridcell))',
       },
       maxHeight: {
         header: 'var(--height-header)',
@@ -118,11 +122,10 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-            'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
+        timeline: '6000px',
       },
       top: {
         header: 'var(--height-header)',
@@ -148,10 +151,8 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-            'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       inset: {
@@ -166,6 +167,41 @@ const config: Config = {
       fontFamily: {
         jungka: ['var(--font-jungka)', 'var(--font-noto)', 'sans-serif'],
         noto: ['var(--font-noto)', 'sans-serif'],
+      },
+      animation: {
+        bounceLeft: `bounceLeft 1s infinite`,
+        bounceRight: `bounceRight 1s infinite`,
+        height: `max-height 0.25s ease-in`,
+      },
+      keyframes: {
+        bounceLeft: {
+          '0%': {
+            transform: 'translateX(10%) rotate(180deg)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+          '50%': {
+            transform: 'rotate(180deg)',
+            animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+          },
+          '100%': {
+            transform: 'translateX(10%) rotate(180deg)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+        },
+        bounceRight: {
+          '0%': {
+            transform: 'translateX(-10%)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+          '50%': {
+            transform: 'none',
+            animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+          },
+          '100%': {
+            transform: 'translateX(-10%)',
+            animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+        },
       },
     },
   },

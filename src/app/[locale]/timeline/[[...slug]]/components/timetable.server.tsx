@@ -2,7 +2,7 @@ import { getEventLocations } from '@/api/rest/events';
 import EventLocation from './eventLocation.server';
 import TimeScale from './scale';
 import { ScrollBackwardButton, ScrollForwardButton } from './scrollTo';
-import Days from './days.server';
+import Days from './days';
 import TimeGrid from './grid';
 
 export const revalidate = 0;

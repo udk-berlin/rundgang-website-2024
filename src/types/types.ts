@@ -1,5 +1,6 @@
 import { Physical, Temporal, Context, GraphQlItem } from '@/types/graphql';
 import { ReactNode } from 'react';
+import { RestApiContext } from './restApi';
 
 export type ResponsiveSize = 'xs' | 'sm' | 'md' | 'm' | 'lg' | 'xl';
 
@@ -67,4 +68,15 @@ export type EventItem = GraphQlItem & {
 export type Language = {
   iso: string;
   name: string;
+};
+
+export type LocationItem = {
+  id: string;
+  name: string;
+  image: string;
+  room: RestApiContext | null;
+  level: RestApiContext | null;
+  levels: ContextTree[];
+  margin: string;
+  rooms: ContextTree[] | null;
 };

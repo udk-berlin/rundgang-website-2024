@@ -1,6 +1,11 @@
 import { cache } from 'react';
 import { baseUrl } from '@/api/rest/api';
-import { restApiLocationsRoot, TIME_PADDING, TIME_WIDTH } from '../constants';
+import {
+  restApiLocationsRoot,
+  TIME_PADDING,
+  TIME_WIDTH,
+  TIME_INTERVAL,
+} from '../constants';
 import { Context } from '@/types/graphql';
 import { scaleTime } from 'd3-scale';
 import { ContextTree, EventItem } from '@/types/types';
@@ -52,7 +57,7 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
     baseUrl({ query: `${id}/list/filter/allocation/temporal` }),
   );
   const scaleX = scaleTime()
-    .domain([new Date(2024, 6, 19, 12), new Date(2024, 6, 22, 0)])
+    .domain(TIME_INTERVAL)
     .range([TIME_PADDING, TIME_WIDTH]);
 
   return eventList.json().then((r) =>

@@ -34,7 +34,7 @@ export type ProgramProps = {
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
     <div className="max-h-content min-h-content z-50 -ml-[1px] h-content bg-primary md:col-span-2 md:overflow-y-scroll">
-      <div className="min-h-content col-span-1 grid max-h-full w-full columns-1 items-start justify-start gap-border bg-primary px-border md:grid-cols-2">
+      <div className="min-h-content col-span-1 grid max-h-fit w-full columns-1 items-start justify-start gap-border bg-primary px-border md:grid-cols-2">
         {children}
       </div>
       <JumpToTop />
