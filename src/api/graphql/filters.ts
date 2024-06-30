@@ -106,7 +106,9 @@ function filterExisting(
     ...format,
     exists: searchParams.format
       ? true
-      : items.some((item) => item.formats.some((format) => format.id === format.id)),
+      : items.some((item) =>
+          item.formats.some((format) => format.id === format.id),
+        ),
   }));
   let filteredFaculties = filters.faculties.map((faculty: Filter) => ({
     ...faculty,

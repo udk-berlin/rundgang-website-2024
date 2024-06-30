@@ -2,7 +2,7 @@
 import SmoothButton from '@/components/smoothButton';
 import { useRouter } from '@/navigation';
 import { useCallback } from 'react';
-import Plus from "@/components/icons/add";
+import Cross from '@/components/icons/cross';
 
 export default function CloseButton() {
   const router = useRouter();
@@ -12,8 +12,11 @@ export default function CloseButton() {
   }, [router]);
 
   return (
-      <SmoothButton onClick={onCloseProject} color="primary" top>
-        <Plus className="rotate-45 absolute z-50 top-0 w-content-header h-content-header p-gutter-sm" color="secondary"/>
-      </SmoothButton>
+    <SmoothButton onClick={onCloseProject} color="primary" top>
+      <Cross
+        className="absolute top-0 z-50 h-content-header w-content-header rotate-45 p-gutter-sm"
+        color="secondary"
+      />
+    </SmoothButton>
   );
 }

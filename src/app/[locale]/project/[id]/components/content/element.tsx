@@ -1,11 +1,11 @@
 import ReactMarkdown from 'react-markdown';
-import ImageWrapper from '@/components/image';
+import Image from '@/components/image';
 import { ItemContent } from '@/types/item';
-import AudioPlayer from './audioplayer';
+import AudioPlayer from '@/app/project/[id]/components/audioPlayer';
 
 const ContentElement = ({ item }: { item: ItemContent }) => {
   if (item.template == 'image') {
-    return <ImageWrapper src={item.content} />;
+    return <Image src={item.content} />;
   } else if (item.template == 'audio') {
     return <AudioPlayer item={item} />;
   } else if (item.template == 'video') {

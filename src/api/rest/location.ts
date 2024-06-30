@@ -1,49 +1,32 @@
 import { cache } from 'react';
-import { getRestApiQuery } from '@/api/rest/api';
+import { baseUrl, getById } from '@/api/rest/api';
 import { Item } from '@/types/item';
-import { Context } from '@/types/graphql';
-import { LOCATION_ROOT, FLOORPLANS, FLOORPLAN_MARGINS } from '../constants';
-import { ContextTree } from '@/types/types';
-
-export const getContextTree = cache(
-  async (id: string): Promise<ContextTree> => {
-    const res = await fetch(getRestApiQuery(`${id}/tree`));
-    return res.json();
-  },
-);
+import {
+  restApiLocationsRoot,
+  FLOORPLANS,
+  FLOORPLAN_MARGINS,
+} from '../constants';
+import { getTreeById } from '@/api/rest/tree';
+import { getPathListById } from '@/api/rest/pathlist';
 
 export const getLocationList = cache(async (id: string) => {
-  const res = await fetch(getRestApiQuery(`${id}/list/filter/type/item`));
+  const res = await fetch(baseUrl({ query: `${id}/list/filter/type/item` }));
   return res.json();
 });
 
 export const getLocationItems = cache(async (id?: string) => {
-  id = id ?? LOCATION_ROOT;
+  id = id ?? restApiLocationsRoot();
   const res = await getLocationList(id);
   return res.map((item: Item) => item.id);
 });
 
-export const getLocationPathList = cache(
-  async (id: string): Promise<Context[]> => {
-    const res = await fetch(getRestApiQuery(`${id}/pathlist`));
-    return res.json();
-  },
-);
-
-export const getLocationContext = cache(
-  async (id: string): Promise<Context> => {
-    const res = await fetch(getRestApiQuery(id));
-    return res.json();
-  },
-);
-
 export const getLocation = cache(async (id: string): Promise<any> => {
-  const path = await getLocationPathList(id);
-  const item = await getLocationContext(id);
-  const building = await getContextTree(path[2].id);
+  const path = await getPathListById(id);
+  const item = await getById(id);
+  const building = await getTreeById(path[2].id);
   let level = null;
   if (item.template == 'location-room') {
-    level = await getLocationContext(path[3].id);
+    level = await getById(path[3].id);
   } else if (item.template == 'location-level') {
     level = item;
   }

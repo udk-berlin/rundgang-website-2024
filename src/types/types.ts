@@ -35,11 +35,6 @@ export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
   exists?: boolean;
 };
 
-export type FilterHeader = {
-  id: number;
-  title: 'faculties' | 'formats' | 'languages';
-};
-
 export type Building = {
   id: string;
   name: string;
@@ -67,4 +62,9 @@ export type EventItem = GraphQlItem & {
   building: string;
   room: string;
   level: string;
+};
+
+export type Language = {
+  iso: string;
+  name: string;
 };

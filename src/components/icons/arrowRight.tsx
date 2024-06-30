@@ -9,7 +9,7 @@ export default function ArrowRight({
 }: ArrowRightProps) {
   return (
     <svg
-        className="dark:invert"
+      className="dark:invert"
       width={width}
       height={height}
       viewBox="0 0 11 18"

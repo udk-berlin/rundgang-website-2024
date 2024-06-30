@@ -1,19 +1,19 @@
 import { cache } from 'react';
-import { getRestApiQuery } from '@/api/rest/api';
-import { LOCATION_ROOT, TIME_PADDING, TIME_WIDTH } from '../constants';
+import { baseUrl } from '@/api/rest/api';
+import { restApiLocationsRoot, TIME_PADDING, TIME_WIDTH } from '../constants';
 import { Context } from '@/types/graphql';
 import { scaleTime } from 'd3-scale';
 import { ContextTree, EventItem } from '@/types/types';
 import { Item } from '@/types/item';
+import { getTreeById, treeUrl } from '@/api/rest/tree';
 
 const toPixel = (stamp: number, s: (d: Date) => number) =>
   s(new Date(stamp * 1000));
 const toDate = (stamp: number) => new Date(stamp * 1000);
 
 export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
-  const building: ContextTree = await fetch(getRestApiQuery(`${id}/tree`)).then(
-    (r) => r.json(),
-  );
+  const building = await getTreeById(id);
+
   let events: {
     [key: string]: Partial<EventItem>;
   } = {};
@@ -32,7 +32,7 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
   );
 
   const thumbnailList = await fetch(
-    getRestApiQuery(`${id}/fullList/filter/type/item`),
+    baseUrl({ query: `${id}/fullList/filter/type/item` }),
   )
     .then((r) => r.json())
     .then((r) =>
@@ -49,7 +49,7 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
     );
 
   const eventList = await fetch(
-    getRestApiQuery(`${id}/list/filter/allocation/temporal`),
+    baseUrl({ query: `${id}/list/filter/allocation/temporal` }),
   );
   const scaleX = scaleTime()
     .domain([new Date(2024, 6, 19, 12), new Date(2024, 6, 22, 0)])
@@ -90,6 +90,7 @@ export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
 });
 
 export const getEventLocations = cache(async (): Promise<Context[]> => {
-  const res = await fetch(getRestApiQuery(`${LOCATION_ROOT}/tree`));
-  return res.json().then((r) => Object.values(r.children));
+  return getTreeById(restApiLocationsRoot()).then((res) =>
+    Object.values(res.children),
+  );
 });
