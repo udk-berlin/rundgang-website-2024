@@ -95,6 +95,7 @@ const config: Config = {
         'content-height': 'var(--height-content-height)',
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
+        place: 'calc(50dvh - var(--height-header) - var(--height-footer))',
       },
       height: {
         sm: '35px',
@@ -118,10 +119,8 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-            'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       top: {
@@ -148,10 +147,8 @@ const config: Config = {
         header: 'var(--height-header)',
         'content-header': 'var(--height-content-header)',
         content: 'var(--height-content)',
-        'content-height':
-            'var(--height-content-height)',
-        'content-body':
-            'var(--height-content-body)',
+        'content-height': 'var(--height-content-height)',
+        'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
       },
       inset: {

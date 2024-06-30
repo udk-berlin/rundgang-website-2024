@@ -68,3 +68,14 @@ export type EventItem = GraphQlItem & {
   room: string;
   level: string;
 };
+
+export type LocationItem = {
+  id: string;
+  name: string;
+  image: string;
+  room: Context | null;
+  level: Context | null;
+  levels: ContextTree[];
+  margin: string;
+  rooms: ContextTree[] | null;
+};

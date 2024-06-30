@@ -1,34 +1,26 @@
-import {
-  useCallback,
-  useMemo,
-  useEffect,
-  useState,
-  useTransition,
-} from 'react';
-import type { MapRef } from 'react-map-gl/maplibre';
+import { useCallback, useMemo, useEffect, useState, RefObject } from 'react';
+import { useMap } from 'react-map-gl/maplibre';
 import { Context } from '@/types/graphql';
 import { MapLayerMouseEvent } from 'maplibre-gl';
 import { useDebounce } from '@/lib/useDebounce';
 import { useRouter } from '@/navigation';
-import { useParams } from 'next/navigation';
 import bbox from '@turf/bbox';
+
+const MOBILE_WIDTH = 1000;
 
 type MarkerType = { [index: string]: { scale: number; size: number } };
 
 const useMapFunctions = (
-  mapRef: MapRef,
+  place: string | null,
   locations: GeoJSON.FeatureCollection,
   size: { width: any; height?: number },
 ) => {
+  const { rundgangMap } = useMap();
+
   const router = useRouter();
-  const params = useParams();
-  const [isPending, startTransition] = useTransition();
-  const place = decodeURIComponent(params.place);
   const [hovered, setHovered] = useState<Context | null>(null);
   const [zoom, setZoom] = useState<number>(0);
   const [markers, setMarkers] = useState<MarkerType>({});
-  const debouncedZoom = useDebounce(zoom, 500);
-
   const boundingBoxFeature = useMemo(() => {
     return (
       locations?.features?.find(
@@ -36,10 +28,11 @@ const useMapFunctions = (
       ) || null
     );
   }, [locations, place]);
+  const debouncedZoom = useDebounce(zoom, 400);
 
   useEffect(() => {
-    if (mapRef?.current) {
-      let visibles = mapRef?.current.querySourceFeatures('buildings');
+    if (rundgangMap) {
+      let visibles = rundgangMap.querySourceFeatures('buildings');
       const existingIds = visibles.filter((v) => !v.properties.cluster);
       const newMarkers = existingIds.reduce((newM, el) => {
         const scale = debouncedZoom - el.properties.maxZoom;
@@ -57,13 +50,13 @@ const useMapFunctions = (
       }, {});
       setMarkers(newMarkers);
     }
-  }, [locations, debouncedZoom, mapRef?.current]);
+  }, [locations, debouncedZoom, rundgangMap]);
 
   const focusMap = useCallback(
     (targetBoundingBox) => {
-      if (mapRef?.current) {
+      if (rundgangMap) {
         let padding = {
-          right: size?.width <= 700 ? 0 : 1,
+          right: size?.width <= MOBILE_WIDTH ? 0 : 1,
           top: 0,
           left: 0,
           bottom: 0,
@@ -73,59 +66,54 @@ const useMapFunctions = (
 
         if (targetBoundingBox) {
           padding.right =
-            size?.width <= 700 ? 0 : padding.right * size.width * 0.4;
+            size?.width <= MOBILE_WIDTH ? 0 : padding.right * size.width * 0.4;
           padding.left = 0;
-          padding.bottom = size?.width <= 700 ? 0 : 400;
+          padding.bottom = size?.width <= MOBILE_WIDTH ? 0 : 400;
           padding.top = 0;
           maxZoom = targetBoundingBox.properties.maxZoom;
           coords = bbox(targetBoundingBox);
         }
-        mapRef.current.fitBounds(coords, {
+        rundgangMap.fitBounds(coords, {
           padding: padding,
           maxZoom: maxZoom,
           linear: true,
         });
       }
     },
-    [size?.width, mapRef?.current],
+    [size?.width, rundgangMap],
   );
 
   useEffect(() => {
-    if (mapRef?.current) {
-      focusMap(boundingBoxFeature);
-      if (!boundingBoxFeature) {
-        setHovered(null);
-      }
+    focusMap(boundingBoxFeature);
+    if (!boundingBoxFeature) {
+      setHovered(null);
     }
-  }, [boundingBoxFeature, mapRef?.current, place, focusMap]);
+  }, [boundingBoxFeature, size?.width, rundgangMap]);
 
   const onMouseMove = useCallback(
     (e: MapLayerMouseEvent) => {
       if (e.features && e.features.length > 0) {
         const feature = e?.features?.[0];
         if (hovered && hovered.id !== feature.id) {
-          mapRef?.current?.setFeatureState(
+          rundgangMap?.setFeatureState(
             { source: hovered.source, id: hovered.id },
             { hover: false },
           );
+          setHovered(null);
         }
         if (feature) {
-          mapRef?.current?.setFeatureState(
+          rundgangMap?.setFeatureState(
             { source: feature.source, id: feature.id },
             { hover: true },
           );
-          if (!feature?.properties?.cluster) {
-            setHovered({
-              source: feature.source,
-              id: feature.id,
-              props: feature.properties,
-              coords: feature.geometry.coordinates,
-            });
-          }
+          setHovered({
+            source: feature.source,
+            id: feature.id,
+          });
         }
       }
     },
-    [mapRef, hovered],
+    [hovered, rundgangMap],
   );
 
   const onClick = useCallback(
@@ -138,16 +126,12 @@ const useMapFunctions = (
             pathname: '/locations/[place]',
             params: { place: id },
           });
-          mapRef?.current?.easeTo({
-            center: feature.geometry.coordinates,
-            zoom: feature.properties.maxZoom - 1,
-          });
         } else {
-          mapRef?.current
+          rundgangMap
             ?.getSource('buildings')
             .getClusterExpansionZoom(feature.properties.cluster_id)
             .then((zoom) => {
-              mapRef?.current?.easeTo({
+              rundgangMap?.easeTo({
                 center: feature.geometry.coordinates,
                 zoom,
               });
@@ -155,7 +139,7 @@ const useMapFunctions = (
         }
       }
     },
-    [mapRef, router],
+    [router, rundgangMap],
   );
 
   const onMouseLeave = useCallback(
@@ -163,29 +147,29 @@ const useMapFunctions = (
       if (e.features && e.features.length > 0) {
         const feature = e?.features?.[0];
         if (feature) {
-          mapRef?.current?.setFeatureState(
+          rundgangMap?.setFeatureState(
             { source: feature.source, id: feature.id },
             { hover: false },
           );
+          setHovered(null);
         }
-        setHovered(null);
       }
     },
-    [mapRef?.current],
+    [rundgangMap],
   );
 
   const onZoom = (e) => {
-    let zoom = mapRef?.current.getZoom();
+    let zoom = rundgangMap.getZoom();
     setZoom(zoom);
   };
 
   return {
-    hovered,
     markers,
     onMouseMove,
     onMouseLeave,
     onClick,
     onZoom,
+    focusMap,
   };
 };
 

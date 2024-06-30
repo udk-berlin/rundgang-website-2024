@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import Rooms from './rooms';
-import cx from 'classnames';
+import { LocationItem } from '@/types/types';
 
-export default function Floorplan({ location }: any) {
+export default function Floorplan({ location }: { location: LocationItem }) {
   return (
-    <div className="relative -mt-8 aspect-square w-full p-1 sm:-mt-16">
+    <div className="relative aspect-square w-full p-1">
       <Image
         fill
         alt="building background"
