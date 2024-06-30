@@ -7,6 +7,7 @@ export type UIStore = {
   menuOpen: boolean;
   saveItem: (data: Item['id']) => void;
   removeItem: (data: Item['id']) => void;
+  removeAll: () => void;
   setMenuOpen: () => void;
 };
 
@@ -28,10 +29,15 @@ export const useUIStore = create<UIStore>()(
           savedItems: state.savedItems.filter((item) => item != data),
         }));
       },
+      removeAll: () => {
+        set(() => ({
+          savedItems: [],
+        }));
+      },
     }),
     {
       name: 'UIStore',
-        partialize: (state) => ({ savedItems: state.savedItems }),
+      partialize: (state) => ({ savedItems: state.savedItems }),
     },
   ),
 );

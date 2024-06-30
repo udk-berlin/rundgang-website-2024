@@ -37,7 +37,7 @@ const config: Config = {
         '30px',
         {
           letterSpacing: '1',
-          lineHeight: '1',
+          lineHeight: '1.33',
         },
       ],
       md: [
@@ -171,7 +171,8 @@ const config: Config = {
       animation: {
         bounceLeft: `bounceLeft 1s infinite`,
         bounceRight: `bounceRight 1s infinite`,
-        height: `max-height 0.25s ease-in`,
+        showModal: `showModal 1s ease normal`,
+        hideModal: `hideModal 1s ease normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -200,6 +201,19 @@ const config: Config = {
           '100%': {
             transform: 'translateX(-10%)',
             animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+        },
+        showModal: {
+          from: {
+            transform: 'translateY(200%)',
+          },
+          to: {
+            transform: 'translateY(0%)',
+          },
+        },
+        hideModal: {
+          to: {
+            transform: 'translateY(100%)',
           },
         },
       },

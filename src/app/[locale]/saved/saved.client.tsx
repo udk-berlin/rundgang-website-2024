@@ -5,6 +5,8 @@ import { Item } from '@/types/item';
 import ProjectCard from '@/components/project/card.server';
 import { useUIStore } from '@/lib/uiStore';
 import { useStore } from 'zustand';
+import JumpToTop from '@/components/jumpToTop';
+import SavedHeader from './savedheader';
 
 export type SavedProps = {
   items: Item[];
@@ -13,12 +15,8 @@ export type SavedProps = {
 export default function Saved({ items }: SavedProps) {
   const savedItems = useStore(useUIStore, (state) => state.savedItems);
   const t = useTranslations('Saved');
-
   return (
     <div className="w-full">
-      <div className="w-full p-gutter-sm text-left text-lg">
-        {t('saved_items')}
-      </div>
       <SavedContainer>
         {items
           .filter((item) => savedItems.includes(item.id))
@@ -32,8 +30,12 @@ export default function Saved({ items }: SavedProps) {
 
 function SavedContainer({ children }: ReactNodeProps) {
   return (
-    <div className="col-span-1 h-full columns-1 gap-0 bg-secondary xs:col-span-2 xs:columns-2 md:col-span-5 md:columns-5">
-      {children}
+    <div className="z-50 -ml-[1px] h-content max-h-content min-h-content overflow-y-scroll bg-primary">
+      <SavedHeader />
+      <div className="grid max-h-fit min-h-content w-full columns-5 items-start justify-start gap-border bg-primary px-border md:grid-cols-4">
+        {children}
+      </div>
+      <JumpToTop />
     </div>
   );
 }

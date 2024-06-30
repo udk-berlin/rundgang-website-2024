@@ -26,7 +26,8 @@
     "Saved": {
         "saved_items": "Saved Projects",
         "remove": "remove",
-        "save": "save"
+        "save": "save",
+        "remove_all": "Remove All"
     },
     "Landing": {
         "udk_berlin": "UdK Berlin",
