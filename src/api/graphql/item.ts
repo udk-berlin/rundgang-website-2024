@@ -4,7 +4,7 @@ import { getGraphQLClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import ISO6391 from 'iso-639-1';
 import { extractAuthors } from '@/lib/data/utils';
-import { Item } from '@/types/item';
+import { Item, ItemDescription } from '@/types/item';
 
 const graphQLItemQuery: DocumentNode = gql`
   query Item($id: String!) {
@@ -15,6 +15,11 @@ const graphQLItemQuery: DocumentNode = gql`
       description {
         language
         content
+      }
+      parents {
+        id
+        name
+        template
       }
     }
   }
@@ -36,25 +41,46 @@ export const getGraphQLItem = cache(
     return fetchGraphQLItem({ id }).then((res) => {
       const item = res.data.item;
 
+      const descriptions: ItemDescription[] = item.description
+        .filter(
+          (description: Description) =>
+            description.language.toLowerCase() !== 'default',
+        )
+        .map((description: Description) => {
+          return {
+            language: {
+              iso: description.language.toLowerCase(),
+              name: ISO6391.getNativeName(description.language.toLowerCase()),
+            },
+            content: description.content,
+          };
+        });
+
+      const formats = item.parents.filter(
+        (p) => p.template === 'format-element',
+      );
+
       return {
         id: item.id,
         name: item.name,
         thumbnail_full_size: item.thumbnail_full_size,
-        descriptions: item.description
-          .filter(
-            (description: Description) =>
-              description.language.toLowerCase() !== 'default',
-          )
-          .map((description: Description) => {
-            return {
-              language: {
-                iso: description.language.toLowerCase(),
-                name: ISO6391.getNativeName(description.language.toLowerCase()),
-              },
-              content: description.content,
-            };
-          }),
+        descriptions: descriptions,
+        languages: descriptions.map((description: ItemDescription) => {
+          return {
+            id: description.language.iso,
+            name: description.language.name,
+            searchParam: 'language',
+            content: description.content,
+          };
+        }),
         authors: extractAuthors({ item }),
+        formats: formats.map((format) => {
+          return {
+            id: format?.id ?? '',
+            name: format?.name ?? '',
+            searchParam: 'format',
+          };
+        }),
       };
     });
   },

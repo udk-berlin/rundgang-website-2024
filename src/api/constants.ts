@@ -228,7 +228,36 @@ export const FLOORPLAN_MARGINS = {
   '!FJItFjLiHmMxyoAdnf:content.udk-berlin.de': 'ml-2 mt-3',
 };
 
-export const LOCATION_ROOT = process.env.REST_API_LOCATIONS_ROOT;
+export const REST_API_LOCATIONS_ROOT = process.env.REST_API_LOCATIONS_ROOT;
+
+export function restApiLocationsRoot(): string {
+  if (typeof REST_API_LOCATIONS_ROOT !== 'string') {
+    throw new Error('REST_API_LOCATIONS_ROOT must be a string');
+  }
+
+  return REST_API_LOCATIONS_ROOT;
+}
+
+export const REST_API_STRUCTURE_ROOT_ID =
+  process.env.REST_API_STRUCTURE_ROOT_ID;
+
+export function restApiStructureRootId(): string {
+  if (typeof REST_API_STRUCTURE_ROOT_ID !== 'string') {
+    throw new Error('REST_API_STRUCTURE_ROOT_ID must be a string');
+  }
+
+  return REST_API_STRUCTURE_ROOT_ID;
+}
+
+export const REST_API_FORMATS_ROOT_ID = process.env.REST_API_FORMATS_ROOT_ID;
+
+export function restApiFormatsRoot(): string {
+  if (typeof REST_API_FORMATS_ROOT_ID !== 'string') {
+    throw new Error('REST_API_FORMATS_ROOT_ID must be a string');
+  }
+
+  return REST_API_FORMATS_ROOT_ID;
+}
 
 export const TIMES = [
   [0, '10 AM'],

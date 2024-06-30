@@ -1,6 +1,7 @@
 import { getParsedItem } from '@/api/rest/item';
-import Project from '@/app/program/@selected/(..)project/[id]/components/project.client';
 import { getGraphQLItem } from '@/api/graphql/item';
+import ProgramSelectedProject from '@/app/program/@selected/(..)project/[id]/components/project.server';
+import ProgramSelectedProjectEffect from '@/app/program/@selected/(..)project/[id]/components/effect.client';
 
 export type PageProps = {
   params: { id: string };
@@ -11,6 +12,12 @@ export default async function Page({ params }: PageProps) {
   const item = await getParsedItem(id);
   const graphQlItem = await getGraphQLItem({ id });
   item.descriptions = graphQlItem.descriptions;
+  item.languages = graphQlItem.languages;
 
-  return <Project item={item} />;
+  return (
+    <>
+      <ProgramSelectedProjectEffect />
+      <ProgramSelectedProject item={item} />
+    </>
+  );
 }

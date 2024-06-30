@@ -42,6 +42,7 @@
     "format": "{count, plural, =1 {Format} other {Formate}}",
     "faculty": "{count, plural, =1 {Fakultät/Zentrum} other {Fakultäten/Zentren}}",
     "language": "{count, plural, =1 {Sprache} other {Sprachen}}",
+    "location": "{count, plural, =1 {Ort} other {Orte}}",
     "errors": {
         "audiPlayer": "Dein Browser unterstützt dieses Audioelement nicht."
     },

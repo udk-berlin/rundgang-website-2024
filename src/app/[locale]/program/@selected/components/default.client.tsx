@@ -1,20 +1,12 @@
 'use client';
 import { useEffect } from 'react';
-import { useStore } from 'zustand';
-import { useSelectedStore } from '@/lib/selectedStore';
 
 export default function DefaultClient() {
-  const setIsSelected = useStore(
-    useSelectedStore(),
-    (state) => state.setIsSelected,
-  );
-
   useEffect(() => {
     const contentEl = window.document.getElementById('movable-content');
     if (contentEl) {
       contentEl.style.left = '0vw';
     }
-    setIsSelected(false);
   }, []);
 
   return (
