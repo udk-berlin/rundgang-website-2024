@@ -11,8 +11,8 @@ export default function EventBar({ event }: EventBarProps) {
   return (
     <div className="relative flex h-fit flex-wrap justify-start overflow-visible">
       <Link
-        href={`project/${event.id}`}
-        className="peer -mt-[2px] h-10 cursor-pointer truncate rounded-md border-2 bg-secondary px-1 leading-10"
+        href={`timeline/${event.id}`}
+        className="peer -mt-[2px] h-gridcell cursor-pointer truncate rounded-md border-2 bg-secondary px-1 leading-10"
         title={event.name}
         style={{
           width: event.width + 2,
@@ -22,7 +22,7 @@ export default function EventBar({ event }: EventBarProps) {
         {event.name}
       </Link>
       <div
-        className="pointer-events-none absolute bottom-0 left-0 hidden h-10 cursor-pointer rounded-md border-2 bg-secondary px-1 leading-10 peer-hover:block peer-hover:bg-highlight peer-hover:text-black"
+        className="pointer-events-none absolute bottom-0 left-0 hidden h-gridcell cursor-pointer rounded-md border-2 bg-secondary px-1 leading-10 peer-hover:block peer-hover:bg-highlight peer-hover:text-black"
         style={{
           marginLeft: event.left,
           minWidth: event.width + 2,

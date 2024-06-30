@@ -299,6 +299,11 @@ export const DAYS = {
   sunday: 4200,
 } as const;
 
+export const TIME_INTERVAL = [
+  new Date(2024, 6, 19, 12),
+  new Date(2024, 6, 22, 0),
+] as const;
+
 export const TIME_PADDING = 0;
 export const LOCATION_PADDING = 60;
 export const LOCATION_HEIGHT = 1000;
