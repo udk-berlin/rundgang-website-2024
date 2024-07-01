@@ -1,4 +1,3 @@
-'use server';
 import { Filters, ReactNodeProps } from '@/types/types';
 import ProgramFiltersGroup from '@/app/program/components/filters/groups/group/group';
 
@@ -11,7 +10,7 @@ const filterGroupFetchers: {
   { translation: 'language', data: 'languages' },
 ];
 
-export default async function ProgramFiltersGroups({
+export default function ProgramFiltersGroups({
   filters,
 }: {
   filters: Filters;

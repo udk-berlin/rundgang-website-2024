@@ -52,7 +52,7 @@
     "errors": {
         "page": {
             "messsage": "Something went wrong.",
-            "action": "PLease try it again."
+            "action": "Please try it again."
         },
         "audiPlayer": "Your browser does not support the audio element."
     },

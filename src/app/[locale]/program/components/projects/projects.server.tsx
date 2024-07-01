@@ -1,4 +1,3 @@
-'use server';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
 import ProjectCard from '@/components/project/card/card.server';
@@ -7,9 +6,7 @@ export type ProgramProjectsProps = {
   projects: Item[];
 };
 
-export default async function ProgramProjects({
-  projects,
-}: ProgramProjectsProps) {
+export default function ProgramProjects({ projects }: ProgramProjectsProps) {
   return (
     <ProgramProjectsContainer>
       {projects.map((item) => (

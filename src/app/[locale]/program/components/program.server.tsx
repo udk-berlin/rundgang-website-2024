@@ -1,4 +1,3 @@
-'use server';
 import { ReactNodeProps } from '@/types/types';
 import JumpToTop from '@/components/jumpToTop';
 import { Item } from '@/types/item';
@@ -11,7 +10,7 @@ export type ProgramProps = {
   items: Item[];
 };
 
-export default async function Program({ items }: ProgramProps) {
+export default function Program({ items }: ProgramProps) {
   return (
     <ProgramContainer>
       <SidebarToggle />
