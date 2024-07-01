@@ -25,14 +25,21 @@ export type Item = {
   locations: ItemContext[];
   parents: Entry[];
   content?: { [key: string]: ItemContent[] };
+  times: ItemTime[];
 };
 
 export type ItemContext = {
   id: string;
+  template?: string;
   name: string;
 };
 
 export type ItemFilterableContext = ItemContext & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
+};
+
+export type ItemTime = {
+  start: Date;
+  end: Date;
 };

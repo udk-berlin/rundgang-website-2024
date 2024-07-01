@@ -21,3 +21,9 @@ export type RestApiOrigin = {
   authors: any[];
   created: number;
 };
+
+export type RestApiTemporal = {
+  app: string;
+  start: number;
+  end: number;
+};
