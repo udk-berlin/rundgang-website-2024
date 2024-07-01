@@ -55,6 +55,7 @@ export const getLocation = cache(
     return {
       id: building.id,
       name: building.name,
+      template: item.template,
       image: building.id in FLOORPLANS ? FLOORPLANS[building.id] : 'simple',
       room: item.template == 'location-room' ? path[4] : null,
       level: level,

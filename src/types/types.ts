@@ -74,6 +74,7 @@ export type LocationItem = {
   id: string;
   name: string;
   image: string;
+  template: string;
   room: RestApiContext | null;
   level: RestApiContext | null;
   levels: ContextTree[];

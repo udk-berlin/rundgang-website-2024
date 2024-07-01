@@ -37,7 +37,7 @@ const config: Config = {
         '30px',
         {
           letterSpacing: '1',
-          lineHeight: '1.33',
+          lineHeight: '1',
         },
       ],
       md: [
