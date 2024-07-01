@@ -30,9 +30,9 @@ export const pathnames = {
     en: '/locations',
     de: '/orte',
   },
-  '/locations/[place]': {
-    en: '/locations/[place]',
-    de: '/orte/[place]',
+  '/locations/[[...slug]]': {
+    en: '/locations/[[...slug]]',
+    de: '/orte/[[...slug]]',
   },
   '/program': {
     en: '/program',
@@ -46,13 +46,13 @@ export const pathnames = {
     en: '/project/[id]',
     de: '/projekt/[id]',
   },
-  '/project/[id]': {
-    en: '/project/[id]',
-    de: '/project/[id]',
-  },
   '/timeline': {
     en: '/timeline',
     de: '/zeitplan',
+  },
+  '/timeline/[[...slug]]': {
+    en: '/timeline/[[...slug]]',
+    de: '/zeitplan/[[...slug]]',
   },
   '/saved': {
     en: '/saved',

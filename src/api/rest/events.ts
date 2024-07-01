@@ -135,20 +135,19 @@ const buildingEvents = (building: ContextTree) => {
   });
   return events;
 };
+type EventLocation = Context & { events: number };
 
-export const getEventLocations = cache(
-  async (): Promise<Context & { events: number }[]> => {
-    return getTreeById(restApiLocationsRoot()).then((res) =>
-      Object.values(res.children)
-        .map((b: ContextTree) => {
-          const events = buildingEvents(b);
-          if (Object.values(events).length > 0) {
-            return { ...b, events: Object.values(events).length };
-          }
-          return null;
-        })
-        .filter((b) => b)
-        .sort((a, b) => a.events - b.events),
-    );
-  },
-);
+export const getEventLocations = cache(async (): Promise<EventLocation[]> => {
+  return getTreeById(restApiLocationsRoot()).then((res) =>
+    Object.values(res.children)
+      .map((b: ContextTree) => {
+        const events = buildingEvents(b);
+        if (Object.values(events).length > 0) {
+          return { ...b, events: Object.values(events).length };
+        }
+        return null;
+      })
+      .filter((b) => b)
+      .sort((a, b) => a?.events - b?.events),
+  );
+});

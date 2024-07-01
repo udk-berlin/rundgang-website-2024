@@ -11,7 +11,7 @@ export default function EventBar({ event }: EventBarProps) {
   return (
     <div className="relative flex h-fit flex-wrap justify-start overflow-visible">
       <Link
-        href={`timeline/${event.id}`}
+        href={`/timeline/${event.id}`}
         className="peer -mt-[2px] h-gridcell cursor-pointer truncate rounded-md border-2 bg-secondary px-1 leading-10"
         title={event.name}
         style={{
