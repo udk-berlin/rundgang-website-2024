@@ -136,11 +136,13 @@ const config: Config = {
         border: '4px',
       },
       borderWidth: {
+        xs: '1px',
         sm: '2px',
         md: '4px',
         border: '2px',
       },
       spacing: {
+        xs: '1px',
         'gutter-xxs': '5px',
         'gutter-xs': '8px',
         'gutter-sm': '12px',

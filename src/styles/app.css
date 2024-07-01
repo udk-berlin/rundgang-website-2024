@@ -54,6 +54,7 @@ html,
 body {
   color: rgb(var(--primary));
   background: rgb(var(--secondary));
+  fill: rgb(var(--primary));
   line-height: 1;
 }
 

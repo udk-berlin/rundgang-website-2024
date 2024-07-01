@@ -16,8 +16,8 @@ export default function DesignContentProjects() {
 function DesignContentProjectsContainer({ children }: HtmlProps) {
   return (
     <div>
-      <div className="max-h-content-header min-h-content-header hidden h-content-header md:block" />
-      <div className="max-h-content md:max-h-content-body min-h-content md:min-h-content-body col-span-4 grid h-content md:h-content-body grid-cols-1 gap-border overflow-y-auto border-border border-y-0 md:border-t-[1px] md:border-r-[1px] bg-primary md:grid-cols-4">
+      <div className="hidden h-content-header max-h-content-header min-h-content-header md:block" />
+      <div className="md:border-t-xs md:border-r-xs col-span-4 grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-auto border-border border-y-0 bg-primary md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-4">
         {children}
       </div>
     </div>

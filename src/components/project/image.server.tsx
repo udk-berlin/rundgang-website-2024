@@ -1,7 +1,7 @@
 import Image from '@/components/image';
 import { ProjectCardProps } from '@/components/project/card.server';
 import SaveButton from '@/components/saveButton.client';
-import { Link } from '@/navigation';
+import ProjectLink from './link';
 
 export default function ProjectCardImage({
   item,
@@ -9,7 +9,7 @@ export default function ProjectCardImage({
 }: ProjectCardProps) {
   return (
     <div className="relative w-full overflow-hidden">
-      <Link href={`${linkPathname}/${item.id}`}>
+      <ProjectLink href={`${linkPathname}/${item.id}`}>
         <Image
           className="rounded-md bg-primary"
           src={
@@ -17,7 +17,7 @@ export default function ProjectCardImage({
           }
           alt="thumbnail"
         />
-      </Link>
+      </ProjectLink>
       <SaveButton itemId={item.id} />
     </div>
   );

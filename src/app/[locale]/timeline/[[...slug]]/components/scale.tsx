@@ -13,7 +13,7 @@ export default function TimeScale() {
 function TimeTick({ tick }: { tick: (typeof TIMES)[number] }) {
   return (
     <div
-      className="pointer-events-none absolute top-0 flex h-gridcell w-[100px] items-center justify-center rounded-md border-x-[1px] border-b-border border-t-0 border-primary bg-secondary"
+      className="border-x-xs pointer-events-none absolute top-0 flex h-gridcell w-[100px] items-center justify-center rounded-md border-b-border border-t-0 border-primary bg-secondary"
       key={`scale-hour-${tick[0]}-${tick[1]}`}
       style={{
         left: tick[0],

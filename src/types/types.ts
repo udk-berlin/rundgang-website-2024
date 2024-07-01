@@ -1,4 +1,4 @@
-import { Physical, Temporal, Context, GraphQlItem } from '@/types/graphql';
+import { Physical, Temporal, Context, Space } from '@/types/graphql';
 import { ReactNode } from 'react';
 import { RestApiContext } from './restApi';
 
@@ -48,7 +48,7 @@ export type ContextTree = Context & {
   children: { [key: string]: ContextTree };
 };
 
-export type EventItem = GraphQlItem & {
+export type EventItem = Space & {
   left: number;
   width: number;
   start: Date;

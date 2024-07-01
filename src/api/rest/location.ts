@@ -40,8 +40,8 @@ export const getLocation = cache(
     const levels = Object.values(building.children).filter(
       (l) =>
         l.template == 'location-level' &&
-        Object.values(l.children).some(
-          (r) => Object.keys(r.children).length !== 0,
+        Object.values(l.children).some((r) =>
+          Object.values(r.children).some((item) => item.type == 'item'),
         ),
     );
     const rooms = levelWithChildren

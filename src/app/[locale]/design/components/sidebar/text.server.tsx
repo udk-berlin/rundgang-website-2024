@@ -2,7 +2,7 @@ import { HtmlProps } from '@/components/html/html';
 import { useTranslations } from 'next-intl';
 
 export default function DesignSidebarText() {
-  const t = useTranslations('design.description');
+  const t = useTranslations('Design.description');
   return <DesignSidebarTextContainer>{t('text')}</DesignSidebarTextContainer>;
 }
 

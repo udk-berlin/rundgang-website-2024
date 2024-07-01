@@ -12,10 +12,8 @@ type PlaceProps = {
 export default async function Place({ location }: PlaceProps) {
   return (
     <div className="pointer-events-none relative z-50 col-span-3 h-fit w-full p-border pr-0 sm:h-content sm:overflow-y-scroll sm:overscroll-contain">
-      <div className="bg-transparent pointer-events-none hidden h-[50dvh] sm:block">
-        .
-      </div>
-      <div className="pointer-events-auto relative max-h-fit min-h-[400px] w-full items-start rounded-md border-t-2  border-primary bg-secondary sm:grid sm:min-h-place sm:grid-cols-2">
+      <div className="bg-transparent pointer-events-none hidden h-[50dvh] sm:block"></div>
+      <div className="pointer-events-auto relative max-h-fit min-h-[400px] w-full items-start rounded-md border-t-border border-primary bg-secondary sm:grid sm:min-h-place sm:grid-cols-2">
         <Subnavigation location={location} />
         {location.levels?.length > 0 && <Floorplan location={location} />}
         <Link href="/locations" scroll={true}>

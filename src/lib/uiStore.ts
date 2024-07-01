@@ -5,6 +5,8 @@ import { Item } from '@/types/item';
 export type UIStore = {
   savedItems: Item['id'][];
   menuOpen: boolean;
+  allMuted: string;
+  toggleMute: (mute: string) => void;
   saveItem: (data: Item['id']) => void;
   removeItem: (data: Item['id']) => void;
   removeAll: () => void;
@@ -16,6 +18,8 @@ export const useUIStore = create<UIStore>()(
     (set) => ({
       savedItems: [],
       menuOpen: false,
+      allMuted: 'none',
+      toggleMute: (mute: string) => set(() => ({ allMuted: mute })),
       setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
       saveItem: (data: Item['id']) => {
         set((state) => ({
