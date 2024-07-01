@@ -5,11 +5,11 @@ import { Context } from '@/types/graphql';
 import { scaleTime } from 'd3-scale';
 import { ContextTree, EventItem } from '@/types/types';
 import { Item } from '@/types/item';
-import { getTreeById, treeUrl } from '@/api/rest/tree';
+import { getTreeById } from '@/api/rest/tree';
 
 const toPixel = (stamp: number, s: (d: Date) => number) =>
   s(new Date(stamp * 1000));
-const toDate = (stamp: number) => new Date(stamp * 1000);
+export const toDate = (stamp: number) => new Date(stamp * 1000);
 
 export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
   const building = await getTreeById(id);

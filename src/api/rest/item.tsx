@@ -9,6 +9,8 @@ import {
   restApiLocationsRoot,
   restApiStructureRootId,
 } from '@/api/constants';
+import { toDate } from '@/api/rest/events';
+import { RestApiTemporal } from '@/types/restApi';
 
 export const getParsedItem = cache(async (id: string): Promise<Item> => {
   const item = await getById(id);
@@ -36,6 +38,7 @@ export const getParsedItem = cache(async (id: string): Promise<Item> => {
               if (dataKey) {
                 const itemContext: ItemContext | ItemFilterableContext = {
                   id: context.id,
+                  template: context.template,
                   name: context.name,
                 };
 
@@ -87,5 +90,9 @@ export const getParsedItem = cache(async (id: string): Promise<Item> => {
       .filter((d) => d.dataKey === 'format')
       .map((d) => d.data)
       .flat(1) as ItemFilterableContext[],
+    times:
+      item.allocation?.temporal?.map((t: RestApiTemporal) => {
+        return { start: toDate(t.start), end: toDate(t.end) };
+      }) ?? [],
   };
 });

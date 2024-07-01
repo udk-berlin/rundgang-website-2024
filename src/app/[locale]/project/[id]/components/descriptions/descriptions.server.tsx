@@ -22,5 +22,9 @@ export default function ProjectDescriptions({
 }
 
 function ProjectDescriptionsContainer({ children }: ReactNodeProps) {
-  return <div className="w-full pt-gutter-sm flex flex-col gap-gutter-sm">{children}</div>;
+  return (
+    <div className="flex w-full flex-col gap-gutter-sm pt-gutter-md">
+      {children}
+    </div>
+  );
 }

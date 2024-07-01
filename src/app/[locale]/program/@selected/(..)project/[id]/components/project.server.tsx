@@ -16,8 +16,8 @@ export default function ProgramSelectedProject({ item }: ProjectsPageProps) {
 
 function ProgramSelectedProjectContainer({ children }: ReactNodeProps) {
   return (
-    <div className="order-3 col-span-2 w-full md:col-span-1">
-      <div className="fixed mt-content-header h-content-body max-h-content-body min-h-content-body w-[40vw] overflow-y-scroll bg-primary md:w-[40vw]">
+    <div className="order-1 col-span-3 w-full md:order-3 md:col-span-1">
+      <div className="fixed mt-content-header h-content-body max-h-content-body min-h-content-body w-[100vw] overflow-y-scroll bg-primary md:w-[40vw]">
         {children}
       </div>
     </div>
