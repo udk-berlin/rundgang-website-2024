@@ -142,6 +142,7 @@ const config: Config = {
         border: '2px',
       },
       spacing: {
+        xs: '1px',
         'gutter-xxs': '5px',
         'gutter-xs': '8px',
         'gutter-sm': '12px',

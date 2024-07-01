@@ -33,12 +33,14 @@
         "udk_berlin": "UdK Berlin",
         "date": "19. - 21. Juli 2024"
     },
-    "design": {
+    "Design": {
         "title": "Teilnehmer*innen",
         "description": {
             "title": "Projektbeschreibung",
             "text": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sapien lorem, placerat a ultricies quis, eleifend sed quam. Integer quis rhoncus ipsum. Phasellus vitae mauris et dolor blandit tempor. Duis a vestibulum eros. Suspendisse quis mattis diam, ac venenatis tellus. Duis lobortis quam nulla, placerat vehicula odio accumsan vitae. Etiam eros nisl, bibendum a mauris vel, mollis suscipit tortor. Sed fermentum ut lorem ac gravida. In accumsan sagittis scelerisque."
-        }
+        },
+        "mute_all": "Alle stummschalten",
+        "unmute_all": "Alle wiedergeben"
     },
     "format": "{count, plural, =1 {Format} other {Formate}}",
     "faculty": "{count, plural, =1 {Fakultät/Zentrum} other {Fakultäten/Zentren}}",
