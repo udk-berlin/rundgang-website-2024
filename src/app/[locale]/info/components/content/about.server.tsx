@@ -24,7 +24,7 @@ export default function InfoContentAbout() {
 
 function InfoContentAboutContainer({ children }: HtmlProps) {
   return (
-    <div className="h-fit rounded-b-border rounded-tl-border bg-secondary px-gutter-m pt-gutter-lg md:col-span-2 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-scroll md:rounded-border md:px-gutter-m md:py-gutter-lg">
+    <div className="h-fit rounded-b-border rounded-tl-border border-r-border border-r-primary bg-secondary px-gutter-m pt-gutter-lg md:col-span-2 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-auto md:rounded-border md:border-r-0 md:px-gutter-m md:py-gutter-lg">
       {children}
     </div>
   );

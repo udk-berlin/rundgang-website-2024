@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Project from './components/project.server';
 import { getParsedItem } from '@/api/rest/item';
-import { getGraphQLItem } from '@/api/graphql/item';
 import { getById } from '@/api/rest/api';
+import { ReactNodeProps } from '@/types/types';
 
 export type ProjectsPageProps = {
   params: { id: string };
@@ -24,16 +24,19 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectsPage({ params }: ProjectsPageProps) {
-  const id = decodeURIComponent(params.id);
-  const item = await getParsedItem(id);
-  const graphQlItem = await getGraphQLItem({ id });
-  item.descriptions = graphQlItem.descriptions;
-  item.languages = graphQlItem.languages;
+export default async function Page({ params }: ProjectsPageProps) {
+  const item = await getParsedItem(decodeURIComponent(params.id));
+  return (
+    <PageContainer>
+      <Project item={item} />
+    </PageContainer>
+  );
+}
 
+function PageContainer({ children }: ReactNodeProps) {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Project item={item} />
+      {children}
     </main>
   );
 }

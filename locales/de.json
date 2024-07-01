@@ -57,6 +57,10 @@
     "level": "Etage",
     "room": "Raum",
     "errors": {
+        "page": {
+            "messsage": "Etwas ist schief gegangen.",
+            "action": "Bitte versuche es noch einmal."
+        },
         "audiPlayer": "Dein Browser unterstützt dieses Audioelement nicht."
     },
     "Imprint": {
