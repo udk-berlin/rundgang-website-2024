@@ -1,4 +1,4 @@
-import { ItemContent } from '@/types/item';
+import { ItemContentElement } from '@/types/item';
 
 export function extractAuthors({
   item,
@@ -19,7 +19,7 @@ export function extractRenderedContent({
 }: {
   renderedItem: any & {
     languages: {
-      [lang: string]: { content: { [key: string]: ItemContent[] } };
+      [lang: string]: { content: { [key: string]: ItemContentElement[] } };
     };
   };
   langs: string[];

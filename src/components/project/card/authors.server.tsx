@@ -1,5 +1,5 @@
-import { ProjectCardProps } from '@/components/project/card.server';
-import ProjectLink from './link';
+import ProjectLink from '@/components/project/link';
+import { ProjectCardProps } from '@/components/project/card/card.server';
 
 export default function ProjectCardAuthors({
   item,

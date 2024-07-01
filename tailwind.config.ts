@@ -148,6 +148,7 @@ const config: Config = {
         'gutter-sm': '12px',
         'gutter-md': '20px',
         'gutter-m': '30px',
+        'gutter-l': '40px',
         'gutter-lg': '50px',
         border: '2px',
         header: 'var(--height-header)',

@@ -46,6 +46,7 @@
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",
     "language": "{count, plural, =1 {Language} other {Languages}}",
     "location": "{count, plural, =1 {Location} other {Locations}}",
+    "time": "{count, plural, =1 {Time} other {Times}}",
     "level": "Level",
     "room": "Room",
     "errors": {

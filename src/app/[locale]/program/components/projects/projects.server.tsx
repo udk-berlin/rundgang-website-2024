@@ -1,7 +1,7 @@
 'use server';
-import ProjectCard from '@/components/project/card.server';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
+import ProjectCard from '@/components/project/card/card.server';
 
 export type ProgramProjectsProps = {
   projects: Item[];
