@@ -7,7 +7,7 @@ export default function DesignContentProjectWriting({
   return (
     <Image
       src={`/assets/projects/${languageSearchParam}/writing.png`}
-      alt={project.name}
+      alt={project.language.name}
       width={1660}
       height={745}
       className="dark:invert"

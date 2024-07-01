@@ -136,6 +136,7 @@ const config: Config = {
         border: '4px',
       },
       borderWidth: {
+        xs: '1px',
         sm: '2px',
         md: '4px',
         border: '2px',
