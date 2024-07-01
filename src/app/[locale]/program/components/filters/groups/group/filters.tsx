@@ -6,21 +6,21 @@ export type SidebarFilterGroupFiltersProps = {
   filters: Filter[];
 };
 
-export default async function SidebarFilterGroupFilters({
+export default async function ProgramFiltersGroupFilters({
   filters,
 }: SidebarFilterGroupFiltersProps) {
   return (
-    <SidebarFilterGroupFiltersContainer>
+    <ProgramFiltersGroupFiltersContainer>
       {filters.map((item) => (
         <FilterTag key={item.id} filter={item} disabled={!item.exists} />
       ))}
-    </SidebarFilterGroupFiltersContainer>
+    </ProgramFiltersGroupFiltersContainer>
   );
 }
 
-function SidebarFilterGroupFiltersContainer({ children }: ReactNodeProps) {
+function ProgramFiltersGroupFiltersContainer({ children }: ReactNodeProps) {
   return (
-    <div className="w-full border-l-xs border-r-xs border-t-border bg-primary">
+    <div className="w-full border-r-border border-t-border border-primary bg-primary">
       <div className="flex w-full flex-col gap-border">{children}</div>
     </div>
   );

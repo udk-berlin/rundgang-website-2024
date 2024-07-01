@@ -10,7 +10,7 @@ export default function SidebarToggle() {
   const onClick = (_: any) => {
     const contentEl = window.document.getElementById('movable-content');
     if (contentEl) {
-      contentEl.style.left = sidebarIsOpen ? '0vw' : '-66.666666vw';
+      contentEl.style.left = sidebarIsOpen ? '-100vw' : '-166.666666vw';
       setSidebarIsOpen(!sidebarIsOpen);
     }
   };
@@ -19,7 +19,7 @@ export default function SidebarToggle() {
     <SidebarToggleContainer onClick={onClick}>
       <div
         className={cn(
-          'transition-transform duration-700',
+          'transition-transform duration-700 fill-secondary',
           sidebarIsOpen ? 'rotate-0' : 'rotate-180',
         )}
       >

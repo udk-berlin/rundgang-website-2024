@@ -13,7 +13,7 @@ export default function InfoContent() {
 
 function InfoContentContainer({ children }: HtmlProps) {
   return (
-    <div className="wrap grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-scroll border-x-border md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-5 md:overflow-hidden">
+    <div className="wrap grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-auto border-x-border md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-5 md:overflow-hidden">
       {children}
     </div>
   );

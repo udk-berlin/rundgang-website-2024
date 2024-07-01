@@ -11,6 +11,7 @@ import {
 } from '@/api/constants';
 import { toDate } from '@/api/rest/events';
 import { RestApiTemporal } from '@/types/restApi';
+import ISO6391 from 'iso-639-1';
 
 export const getParsedItem = cache(async (id: string): Promise<Item> => {
   const item = await getById(id);
@@ -78,6 +79,26 @@ export const getParsedItem = cache(async (id: string): Promise<Item> => {
       renderedItem,
       langs: Object.keys(item.description).filter((k) => k != 'default'),
     }),
+    descriptions: Object.entries(item.description)
+      .filter(([language, _]) => language.toLowerCase() !== 'default')
+      .map(([language, description]) => {
+        return {
+          language: {
+            iso: language.toLowerCase(),
+            name: ISO6391.getNativeName(language.toLowerCase()),
+          },
+          content: description,
+        };
+      }),
+    languages: Object.keys(item.description)
+      .filter((language) => language.toLowerCase() !== 'default')
+      .map((language) => {
+        return {
+          id: language.toLowerCase(),
+          name: ISO6391.getNativeName(language.toLowerCase()),
+          searchParam: 'language',
+        };
+      }),
     locations: parentsData
       .filter((d) => d.dataKey === 'location')
       .map((d) => d.data)

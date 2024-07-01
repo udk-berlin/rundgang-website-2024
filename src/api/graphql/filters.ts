@@ -104,28 +104,29 @@ function filterExisting(
 ) {
   let filteredFormats = filters.formats.map((format: Filter) => ({
     ...format,
-    exists: searchParams.format
-      ? true
-      : items.some((item) =>
-          item.formats.some((format) => format.id === format.id),
-        ),
+    exists:
+      searchParams.format === format.id ||
+      items.some((item) =>
+        item.formats.some((itemFormat) => itemFormat.id === format.id),
+      ),
   }));
+
   let filteredFaculties = filters.faculties.map((faculty: Filter) => ({
     ...faculty,
-    exists: searchParams.faculty
-      ? true
-      : items.some((item) =>
-          item.parents.find((parent) => parent.id == faculty.id),
-        ),
+    exists:
+      searchParams.faculty === faculty.id ||
+      items.some((item) =>
+        item.faculties.find((itemFaculty) => itemFaculty.id == faculty.id),
+      ),
   }));
 
   let filteredLanguages = filters.languages.map((language: Filter) => ({
     ...language,
-    exists: searchParams.language
-      ? true
-      : items.some((item) =>
-          item.languages.find((language) => language.id === language.id),
-        ),
+    exists:
+      searchParams.language === language.id ||
+      items.some((item) =>
+        item.languages.find((itemLanguage) => itemLanguage.id === language.id),
+      ),
   }));
 
   return {
