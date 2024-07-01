@@ -2,9 +2,8 @@
 import { useLocale } from 'next-intl';
 import cx from 'classnames';
 import { useParams } from 'next/navigation';
-import { ChangeEvent, ReactNode, useState, useTransition } from 'react';
+import { useTransition } from 'react';
 import { useRouter, usePathname } from '@/navigation';
-import { locales } from '@/config';
 
 export default function LocaleSwitcher() {
   const locale = useLocale();
@@ -14,9 +13,7 @@ export default function LocaleSwitcher() {
   const pathname = usePathname();
   const params = useParams();
 
-  function onChangeLanguage(event: any) {
-    const nextLocale = locale == 'en' ? 'de' : 'en';
-
+  function onChangeLanguage(nextLocale: 'de' | 'en') {
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -27,14 +24,20 @@ export default function LocaleSwitcher() {
       );
     });
   }
-
   return (
-    <div className="z-100 group h-full bg-primary">
+    <div className="flex-grow-2 text-lg">
       <button
-        className="p-auto peer h-full w-full content-around rounded-border border-xs border-y-border border-primary bg-secondary text-center uppercase group-hover:bg-highlight group-hover:text-black group-focus:text-lg"
-        onClick={onChangeLanguage}
+        className={cx(locale == 'en' ? 'font-bold' : '')}
+        onClick={() => onChangeLanguage('en')}
       >
-        <span>{locale}</span>
+        <span>EN</span>
+      </button>
+      {' / '}
+      <button
+        className={cx(locale == 'de' ? 'font-bold' : '')}
+        onClick={() => onChangeLanguage('de')}
+      >
+        <span>DE</span>
       </button>
     </div>
   );

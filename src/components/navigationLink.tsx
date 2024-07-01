@@ -1,8 +1,8 @@
 'use client';
 
 import cx from 'classnames';
-import { useSelectedLayoutSegment } from 'next/navigation';
 import { Link, usePathname } from '@/navigation';
+import { useIsActive } from '@/lib/useLinkActive';
 
 export type NavigationLinkProps = {
   href: any;
@@ -20,14 +20,11 @@ export default function NavigationLink({
   isLast = false,
   children,
 }: NavigationLinkProps) {
-  const selectedLayoutSegment = useSelectedLayoutSegment();
   const pathname = usePathname();
-  const selPathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : '/';
-
-  const isActive = pathname === href || selPathname == href;
+  const isActive = useIsActive(href);
   const activeStyle = isFooter
     ? 'rounded-b-border mt-0'
-    : 'rounded-t-border -mb-xs';
+    : 'sm:rounded-t-border sm:-mb-xs';
 
   return (
     <Link

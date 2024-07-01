@@ -16,6 +16,7 @@ export function getGraphQLClient(): ApolloClient<NormalizedCacheObject> {
     client = new ApolloClient({
       uri: graphqlApiEndpoint,
       cache: new InMemoryCache(),
+      queryDeduplication: true,
     });
   }
 
