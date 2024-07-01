@@ -39,8 +39,8 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
   const { markers, onClick, onMouseMove, onMouseLeave, onZoom } =
     useMapFunctions(place, buildings, size);
   return (
-    <div className="h-full px-border">
-      <div className="sm:top-header pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-2 border-t-0 sm:fixed sm:h-content dark:invert">
+    <div className="h-full w-full ">
+      <div className="pointer-events-auto z-0 h-[60dvh] w-full rounded-md px-border sm:fixed sm:top-header sm:h-content dark:invert">
         <Map
           id="rundgangMap"
           reuseMaps
