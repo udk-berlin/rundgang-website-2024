@@ -22,7 +22,7 @@ export default function EventBar({ event }: EventBarProps) {
         {event.name}
       </Link>
       <div
-        className="pointer-events-none absolute bottom-0 left-0 hidden h-gridcell cursor-pointer rounded-md border-2 bg-secondary px-1 leading-10 peer-hover:block peer-hover:bg-highlight peer-hover:text-black"
+        className="pointer-events-none absolute bottom-0 left-0 hidden h-gridcell cursor-pointer rounded-md border-2 border-primary bg-secondary px-1 leading-10 peer-hover:block peer-hover:bg-highlight peer-hover:text-black"
         style={{
           marginLeft: event.left,
           minWidth: event.width + 2,

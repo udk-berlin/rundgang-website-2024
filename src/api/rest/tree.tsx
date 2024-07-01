@@ -7,6 +7,6 @@ export function treeUrl(id: string): string {
 }
 
 export const getTreeById = cache(async (id: string): Promise<ContextTree> => {
-  const res = await fetch(treeUrl(id));
-  return res.json();
+  const res = await fetch(treeUrl(id)).then((r) => r.json());
+  return res;
 });
