@@ -1,6 +1,7 @@
 import InfoContentInfoItem from '@/app/info/components/content/info/item/item.client';
 import { HtmlProps } from '@/components/html/html';
 import { getTranslations } from 'next-intl/server';
+
 const keys = [
   'arrival',
   'awareness',
@@ -33,15 +34,17 @@ export default async function InfoContentInfo() {
       {infoItems.map((item) => (
         <InfoContentInfoItem key={item.id} item={item} />
       ))}
-      <div className="hidden grow-[1] rounded-md bg-white md:block"></div>
+      <div className="hidden grow-[1] rounded-md bg-secondary md:block"></div>
     </InfoContentInfoContainer>
   );
 }
 
 function InfoContentInfoContainer({ children }: HtmlProps) {
   return (
-    <div className="flex flex-col gap-border md:col-span-3 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-scroll">
-      {children}
+    <div className="md:col-span-3 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-auto">
+      <div className="flex w-full flex-col gap-border border-r-border border-r-primary md:h-content-body md:min-h-content-body">
+        {children}
+      </div>
     </div>
   );
 }

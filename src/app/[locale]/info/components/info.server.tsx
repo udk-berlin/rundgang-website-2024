@@ -1,6 +1,6 @@
 import InfoHeaders from '@/app/info/components/headers/headers.server';
 import InfoContent from '@/app/info/components/content/content.server';
-import { HtmlProps } from '@/components/html/html';
+import { ReactNodeProps } from '@/types/types';
 
 export default function Info() {
   return (
@@ -11,7 +11,7 @@ export default function Info() {
   );
 }
 
-function InfoContainer({ children }: HtmlProps) {
+function InfoContainer({ children }: ReactNodeProps) {
   return (
     <main className="flex h-content max-h-content min-h-content flex-col overflow-hidden bg-primary">
       {children}

@@ -20,7 +20,7 @@ export default async function Project({
 }: ProjectProps) {
   return (
     <ProjectContainer>
-      <div className="relative w-full md:max-w-[800px]">
+      <div className="relative w-full">
         <Image src={item.thumbnail_full_size} alt="thumbnail" />
         {withCloseOption && <CloseButton />}
         <SaveButton itemId={item.id} />

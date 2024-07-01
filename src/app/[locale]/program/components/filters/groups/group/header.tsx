@@ -6,19 +6,19 @@ export type SidebarFilterGroupHeaderProps = {
   translation: 'faculty' | 'format' | 'language';
 };
 
-export default async function SidebarFilterGroupHeader({
+export default async function ProgramFiltersGroupHeader({
   translation,
 }: SidebarFilterGroupHeaderProps) {
   const t = useTranslations();
 
   return (
-    <SidebarFilterGroupHeaderContainer>
+    <ProgramFiltersGroupHeaderContainer>
       {t(translation, { count: 2 })}:
-    </SidebarFilterGroupHeaderContainer>
+    </ProgramFiltersGroupHeaderContainer>
   );
 }
 
-function SidebarFilterGroupHeaderContainer({ children }: ReactNodeProps) {
+function ProgramFiltersGroupHeaderContainer({ children }: ReactNodeProps) {
   return (
     <div className="flex min-h-content-header items-center bg-primary px-gutter-sm text-xs text-secondary">
       {children}

@@ -30,7 +30,7 @@ export default function ToggleMute() {
 export function MuteButton({ handleClick, children }) {
   return (
     <button
-      className="flex h-full w-full items-center justify-around rounded-md border-xs border-t-0 border-primary bg-secondary hover:bg-highlight hover:fill-black hover:text-black"
+      className="border-xs flex h-full w-full items-center justify-around rounded-md border-t-0 border-primary bg-secondary hover:bg-highlight hover:fill-black hover:text-black"
       onClick={handleClick}
     >
       {children}
