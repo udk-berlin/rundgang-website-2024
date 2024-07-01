@@ -23,9 +23,7 @@ export type MapComponentProps = {
 };
 
 const MAP_CONFIGURATION = {
-  style:
-    'https://api.maptiler.com/maps/42d1e221-fdff-4dbc-a695-609009c660c7/style.json?key=Zn4TzWj4KtRhJ9I5TDxf',
-  //'https://osm.udk-berlin.de/styles/udk-rundgang-2022/style.json',
+  style: 'https://osm.udk-berlin.de/styles/udk-rundgang-2024/style.json',
   center: {
     longitude: 13.45,
     latitude: 52.5,
