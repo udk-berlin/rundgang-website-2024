@@ -22,20 +22,20 @@ export default function InfoContentInfoItem({
 
   return (
     <InfoContentInfoItemContainer onClick={onClick}>
-      <InfoContentInfoItemTitle item={item}/>
-        {isOpen && (
-            <ResponsiveMultiLineText
-                className="pb-[40px] pt-[14px] text-black [&>a]:underline"
-                text={item.text}
-                textSize="sm"
-            />
-        )}
+      <InfoContentInfoItemTitle item={item} />
+      {isOpen && (
+        <ResponsiveMultiLineText
+          className="pb-[40px] pt-[14px] text-black [&>a]:underline"
+          text={item.text}
+          textSize="sm"
+        />
+      )}
     </InfoContentInfoItemContainer>
   );
 }
 
 function InfoContentInfoItemContainer({
-                                        onClick,
+  onClick,
   children,
 }: HtmlProps & {
   onClick: (_: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;

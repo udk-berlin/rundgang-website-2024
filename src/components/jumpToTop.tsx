@@ -1,9 +1,9 @@
 'use client';
 
 import { useState, useEffect, useRef, RefObject } from 'react';
-import ArrowRight from "@/components/icons/arrowRight";
+import ArrowRight from '@/components/icons/arrowRight';
 
-const useIsScrolled = (scrollRef: RefObject<HTMLDivElement>) => {
+const useIsScrolled = (scrollRef: RefObject<HTMLButtonElement>) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const useIsScrolled = (scrollRef: RefObject<HTMLDivElement>) => {
 };
 
 export default function JumpToTop() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLButtonElement>(null);
   const isScrolled = useIsScrolled(scrollRef);
 
   const handleClick = () => {
@@ -44,18 +44,18 @@ export default function JumpToTop() {
   };
 
   return (
-    <div
+    <button
       ref={scrollRef}
-      className="fixed right-[12px] bottom-[calc(var(--height-footer)+12px)] z-50"
+      className="fixed bottom-[calc(var(--height-footer)+12px)] right-[12px] z-50 fill-secondary hover:fill-highlight"
       onClick={() => handleClick()}
     >
       {isScrolled && (
-        <div className="cursor-pointer bg-primary h-content-header aspect-square rounded-border flex justify-center items-center">
-          <div className="rotate-[-90deg] w-fit h-fit">
+        <div className="flex aspect-square h-content-header cursor-pointer items-center justify-center rounded-border bg-primary">
+          <div className="h-fit w-fit rotate-[-90deg] ">
             <ArrowRight width={11} height={18} />
           </div>
         </div>
       )}
-    </div>
+    </button>
   );
 }

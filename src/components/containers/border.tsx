@@ -26,7 +26,7 @@ export default function BorderContainer({
     <div className={cn('bg-primary', className)}>
       <div
         className={cn(
-          'rounded-border h-min-full bg-secondary',
+          'h-min-full rounded-border bg-secondary',
           borders.map((border) => borderToMarginMapper[border]).join(' '),
           innerClassName,
         )}

@@ -33,14 +33,14 @@ export default async function InfoContentInfo() {
       {infoItems.map((item) => (
         <InfoContentInfoItem key={item.id} item={item} />
       ))}
-      <div className="hidden md:block grow-[1] rounded-md bg-white"></div>
+      <div className="hidden grow-[1] rounded-md bg-white md:block"></div>
     </InfoContentInfoContainer>
   );
 }
 
 function InfoContentInfoContainer({ children }: HtmlProps) {
   return (
-    <div className="md:col-span-3 flex md:h-content-body md:max-h-content-body md:min-h-content-body flex-col gap-border md:overflow-y-scroll">
+    <div className="flex flex-col gap-border md:col-span-3 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-scroll">
       {children}
     </div>
   );

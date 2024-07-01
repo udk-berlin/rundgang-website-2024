@@ -4,7 +4,9 @@ import { cn } from '@/lib/utils';
 import { HtmlProps } from '@/components/html/html';
 import { ResponsiveH5 } from '@/components/html/h5';
 
-export default function InfoContentInfoItemTitle({item}: InfoContentInfoItemProps) {
+export default function InfoContentInfoItemTitle({
+  item,
+}: InfoContentInfoItemProps) {
   return (
     <InfoContentInfoItemTitleContainer>
       {item.title}
@@ -14,7 +16,10 @@ export default function InfoContentInfoItemTitle({item}: InfoContentInfoItemProp
 
 function InfoContentInfoItemTitleContainer({ className, children }: HtmlProps) {
   return (
-    <ResponsiveH5 className={cn('h-content-header flex items-center', className)} textSize="m">
+    <ResponsiveH5
+      className={cn('flex h-content-header items-center', className)}
+      textSize="m"
+    >
       {children}
     </ResponsiveH5>
   );

@@ -14,7 +14,7 @@ export default function DesignSidebar() {
 function DesignSidebarContainer({ children }: HtmlProps) {
   return (
     <div className="col-span-2 bg-primary md:col-span-1">
-      <div className="border-l-xs fixed h-content max-h-content min-h-content w-[66.666666%] overflow-y-scroll border-r-border bg-primary md:w-[20vw] md:rounded-border md:bg-secondary">
+      <div className="fixed h-content max-h-content min-h-content w-2/3 overflow-y-scroll border-l-xs border-r-border bg-primary md:w-[20vw] md:rounded-t-border md:bg-secondary">
         {children}
       </div>
     </div>

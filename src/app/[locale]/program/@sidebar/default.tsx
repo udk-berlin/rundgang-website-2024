@@ -7,7 +7,7 @@ export type FilterSideBarProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export const revalidate = 0;
+export const revalidate = 100;
 
 export default async function Sidebar({ searchParams }: FilterSideBarProps) {
   const items = await getFilteredGraphQLItems(searchParams);

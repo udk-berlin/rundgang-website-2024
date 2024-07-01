@@ -6,7 +6,7 @@ import TimeGrid from './grid';
 import EventLocation from './eventLocation.server';
 import EventContainer from './container';
 
-export const revalidate = 0;
+export const revalidate = 100;
 export default async function TimeTable() {
   const items = await getEventLocations();
 

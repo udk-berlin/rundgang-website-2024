@@ -5,15 +5,15 @@ import InfoContentAbout from '@/app/info/components/content/about.server';
 export default function InfoContent() {
   return (
     <InfoContentContainer>
-        <InfoContentAbout />
-        <InfoContentInfo />
+      <InfoContentAbout />
+      <InfoContentInfo />
     </InfoContentContainer>
   );
 }
 
 function InfoContentContainer({ children }: HtmlProps) {
   return (
-    <div className="h-content md:h-content-body max-h-content md:max-h-content-body min-h-content md:min-h-content-body border-x-border grid grid-cols-1 wrap md:grid-cols-5 gap-border overflow-y-scroll md:overflow-hidden">
+    <div className="wrap grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-scroll border-x-border md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-5 md:overflow-hidden">
       {children}
     </div>
   );

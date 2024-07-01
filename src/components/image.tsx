@@ -14,10 +14,7 @@ export default function Image({ className, src, alt }: ImageProps) {
       height={500}
       width={500}
       alt={alt ?? 'Thumbnail of student project'}
-      className={cx(
-        'aspect-square w-full object-cover rounded-md',
-        className,
-      )}
+      className={cx('aspect-square w-full rounded-md object-cover', className)}
       placeholder="empty"
     />
   );

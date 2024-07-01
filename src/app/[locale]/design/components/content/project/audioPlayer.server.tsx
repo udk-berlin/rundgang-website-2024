@@ -1,7 +1,9 @@
 import { HtmlProps } from '@/components/html/html';
 import AudioPlayer from '@/components/audioPlayer';
 
-export default function DesignContentProjectAudioPlayer({ languageSearchParam }) {
+export default function DesignContentProjectAudioPlayer({
+  languageSearchParam,
+}) {
   return (
     <DesignContentProjectAudioContainer>
       <AudioPlayer

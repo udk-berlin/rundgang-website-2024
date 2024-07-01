@@ -5,7 +5,7 @@ import { MouseEvent, useCallback } from 'react';
 import SmoothButton from '@/components/smoothButton';
 import { useTranslations } from 'next-intl';
 import { useStore } from 'zustand';
-import Cross from "@/components/icons/cross";
+import Cross from '@/components/icons/cross';
 
 export default function SaveButton({ itemId }: any) {
   const t = useTranslations('Saved');
@@ -35,7 +35,12 @@ export default function SaveButton({ itemId }: any) {
       title={isSaved ? t('remove') : t('save')}
       color={isSaved ? 'highlight' : 'secondary'}
     >
-        <Cross className={cx("absolute z-50 top-0 w-content-header h-content-header p-gutter-sm transition-transform ease-in", isSaved ? 'rotate-45' : 'rotate-0')}/>
+      <Cross
+        className={cx(
+          'absolute top-0 z-50 h-content-header w-content-header p-gutter-sm transition-transform ease-in',
+          isSaved ? 'rotate-45' : 'rotate-0',
+        )}
+      />
     </SmoothButton>
   );
 }

@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { MouseEventHandler, useCallback, useRef, useState } from 'react';
+import { MouseEvent, useCallback, useRef, useState } from 'react';
 import { ItemContent } from '@/types/item';
 
 const padTime = (i: number) => (i < 10 ? `0${i}` : `${i}`);
@@ -16,7 +17,7 @@ export const minsToHHMMSS = (secs: number) => {
 };
 
 const AudioPlayer = ({ item }: { item: ItemContent }) => {
-  const audioRef = useRef();
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -45,7 +46,7 @@ const AudioPlayer = ({ item }: { item: ItemContent }) => {
   );
 
   const handleChangeTime = useCallback(
-    (e: MouseEventHandler<HTMLButtonElement>) => {
+    (e: MouseEvent<HTMLInputElement>) => {
       if (audioRef?.current) {
         audioRef?.current?.pause();
         audioRef.current.currentTime = e.target.value;

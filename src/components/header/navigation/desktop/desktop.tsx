@@ -11,28 +11,24 @@ export default function HeaderNavigationDesktop() {
   const t = useTranslations('Navigation');
   return (
     <NavigationDesktopContainer>
-        <NavigationLink href="/" isFirst noContentAround>
-            <div className="h-[calc(var(--height-header)-4px)]">
-                <RundgangLogo />
-            </div>
-        </NavigationLink>
-        <NavigationLink href="/program">{t('program')}</NavigationLink>
-        <NavigationLink href="/locations">{t('locations')}</NavigationLink>
-        <NavigationLink href="/timeline">{t('timeline')}</NavigationLink>
-        <div className="grid grid-cols-[1fr_50px_50px_50px]">
-            <NavigationLink href="/info">{t('info')}</NavigationLink>
-            <SavedItems />
-            <LocaleSwitcher />
-            <ColorSchemeSwitcher />
+      <NavigationLink href="/" isFirst noContentAround>
+        <div className="h-[calc(var(--height-header)-4px)]">
+          <RundgangLogo />
         </div>
+      </NavigationLink>
+      <NavigationLink href="/program">{t('program')}</NavigationLink>
+      <NavigationLink href="/locations">{t('locations')}</NavigationLink>
+      <NavigationLink href="/timeline">{t('timeline')}</NavigationLink>
+      <div className="grid grid-cols-[1fr_50px_50px_50px]">
+        <NavigationLink href="/info">{t('info')}</NavigationLink>
+        <SavedItems />
+        <LocaleSwitcher />
+        <ColorSchemeSwitcher />
+      </div>
     </NavigationDesktopContainer>
   );
 }
 
 function NavigationDesktopContainer({ children }: HtmlProps) {
-  return (
-    <nav className="hidden h-header grid-cols-5 md:grid">
-      {children}
-    </nav>
-  );
+  return <nav className="hidden h-header grid-cols-5 md:grid">{children}</nav>;
 }

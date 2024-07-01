@@ -31,7 +31,7 @@ export default function LocaleSwitcher() {
   return (
     <div className="z-100 group h-full bg-primary">
       <button
-        className="p-auto border-xs peer h-full w-full content-around rounded-border border-y-border border-primary bg-secondary text-center uppercase group-hover:bg-highlight group-hover:text-black group-focus:text-lg"
+        className="p-auto peer h-full w-full content-around rounded-border border-xs border-y-border border-primary bg-secondary text-center uppercase group-hover:bg-highlight group-hover:text-black group-focus:text-lg"
         onClick={onChangeLanguage}
       >
         <span>{locale}</span>

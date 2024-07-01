@@ -21,7 +21,7 @@ export default function LandingProjectWriting({
 }
 function LandingProjectWritingContainer({ children }: { children: ReactNode }) {
   return (
-    <div className="h-full flex items-center justify-center px-[9vw] bg-secondary">
+    <div className="flex h-full items-center justify-center bg-secondary px-[9vw]">
       {children}
     </div>
   );

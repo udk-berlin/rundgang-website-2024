@@ -20,7 +20,7 @@ export default async function SidebarFilterGroupFilters({
 
 function SidebarFilterGroupFiltersContainer({ children }: ReactNodeProps) {
   return (
-    <div className="border-l-xs border-r-xs w-full border-t-border bg-primary">
+    <div className="w-full border-l-xs border-r-xs border-t-border bg-primary">
       <div className="flex w-full flex-col gap-border">{children}</div>
     </div>
   );

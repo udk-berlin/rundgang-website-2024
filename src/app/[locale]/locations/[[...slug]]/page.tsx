@@ -9,10 +9,12 @@ type LocationsPageProps = {
 };
 
 export default async function LocationsPage(props: LocationsPageProps) {
-  const place = props.params.slug ? props.params.slug[0] : null;
+  const place = props.params.slug
+    ? decodeURIComponent(props.params.slug[0])
+    : null;
   const projectId =
     props.params.slug && props.params.slug?.length > 1
-      ? props.params.slug[1]
+      ? decodeURIComponent(props.params.slug[1])
       : null;
   const location = await getLocation(place);
 

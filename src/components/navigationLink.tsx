@@ -26,10 +26,8 @@ export default function NavigationLink({
 
   const isActive = pathname === href || selPathname == href;
   const activeStyle = isFooter
-    ? href === '/design'
-      ? 'rounded-border'
-      : 'rounded-b-border mt-0'
-    : 'rounded-t-border -mb-1';
+    ? 'rounded-b-border mt-0'
+    : 'rounded-t-border -mb-xs';
 
   return (
     <Link

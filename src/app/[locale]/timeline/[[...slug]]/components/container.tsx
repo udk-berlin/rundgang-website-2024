@@ -24,7 +24,7 @@ export default function EventContainer({
   return (
     <div className="animate-height relative mb-border flex w-timeline flex-wrap justify-start">
       <div
-        className="mx-xs sticky left-0 top-0 z-30 flex w-screen cursor-pointer rounded-md bg-secondary p-border text-lg ring-2 ring-primary hover:font-bold"
+        className="sticky left-0 top-0 z-30 mx-xs flex w-screen cursor-pointer rounded-md bg-secondary p-border text-lg ring-2 ring-primary hover:font-bold"
         onClick={handleClick}
       >
         {location.name}

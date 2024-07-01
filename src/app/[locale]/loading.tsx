@@ -1,9 +1,9 @@
 export default function Loading() {
   return (
-    <main className="bg-primary min-h-content h-content w-screen">
-        <div className="bg-secondary mx-border rounded h-full flex justify-center items-center">
-            <p>Loading...</p>
-        </div>
+    <main className="h-content min-h-content w-screen bg-primary">
+      <div className="mx-border flex h-full items-center justify-center rounded bg-secondary">
+        <p>Loading...</p>
+      </div>
     </main>
   );
 }

@@ -5,7 +5,7 @@ export type SavedPageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export const revalidate = 0; // revalidate the data at most every hour
+export const revalidate = 100; // revalidate the data at most every hour
 
 export default async function SavedPage() {
   const items = await getGraphQLItems();

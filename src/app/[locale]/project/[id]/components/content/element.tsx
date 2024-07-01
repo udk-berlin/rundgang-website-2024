@@ -5,7 +5,7 @@ import AudioPlayer from '@/app/project/[id]/components/audioplayer';
 
 const ContentElement = ({ item }: { item: ItemContent }) => {
   if (item.template == 'image') {
-    return <Image src={item.content} />;
+    return <Image src={item.content} alt="project image" />;
   } else if (item.template == 'audio') {
     return <AudioPlayer item={item} />;
   } else if (item.template == 'video') {

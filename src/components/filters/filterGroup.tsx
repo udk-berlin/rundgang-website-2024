@@ -37,7 +37,7 @@ export default function FilterGroup({
       <div
         key="filters"
         className={cx(
-          'border-l-xs border-r-xs h-full w-full border-t-border bg-primary',
+          'h-full w-full border-l-xs border-r-xs border-t-border bg-primary',
           hasLeftBorder && 'border-l-border',
           hasRightBorder && 'border-r-border',
         )}

@@ -28,7 +28,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       <dialog
         ref={dialogRef}
         className={cx(
-          'animate-showModal fixed bottom-0 left-0 z-50 h-modal w-1/3',
+          'fixed bottom-0 left-0 z-50 h-modal w-1/3 animate-showModal',
           margin,
         )}
         onClose={onDismiss}

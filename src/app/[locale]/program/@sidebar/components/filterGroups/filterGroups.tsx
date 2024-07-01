@@ -20,6 +20,7 @@ export default async function SidebarFilterGroups({
     <SidebarFilterGroupsContainer>
       {filterGroupFetchers.map((fetcher) => (
         <SidebarFilterGroup
+          key={fetcher.translation}
           translation={fetcher.translation}
           filters={filters[fetcher.data]}
         />
@@ -32,7 +33,7 @@ function SidebarFilterGroupsContainer({ children }: ReactNodeProps) {
   return (
     <div className="col-span-1">
       <div className="h-content-header max-h-content-header min-h-content-header" />
-      <div className="md:border-r-xs min-h-content-body w-full border-l-0 border-r-border bg-primary md:border-l-border">
+      <div className="min-h-content-body w-full border-l-0 border-r-border bg-primary md:border-l-border md:border-r-xs">
         {children}
       </div>
     </div>

@@ -15,7 +15,7 @@ export default function Landing({ searchParams }: LandingProps) {
     extractProjectLanguageSearchParam(searchParams);
   return (
     <LandingContainer>
-      <div className="relative grow-[1] h-full border-x-border rounded-border">
+      <div className="relative h-full grow-[1] rounded-border border-x-border">
         <LandingProjectWriting
           languageSearchParam={projectLanguageSearchParam}
         />
@@ -28,7 +28,7 @@ export default function Landing({ searchParams }: LandingProps) {
 
 function LandingContainer({ children }: { children: ReactNode }) {
   return (
-    <main className="flex flex-col max-h-content min-h-content h-content bg-primary overflow-hidden">
+    <main className="flex h-content max-h-content min-h-content flex-col overflow-hidden bg-primary">
       {children}
     </main>
   );

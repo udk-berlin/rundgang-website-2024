@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useMemo, useEffect, useState, RefObject } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 import { Context } from '@/types/graphql';
 import { MapLayerMouseEvent } from 'maplibre-gl';
 import { useDebounce } from '@/lib/useDebounce';
 import { useRouter } from '@/navigation';
-import bbox from '@turf/bbox';
+import { bbox } from '@turf/bbox';
+import { Building } from '@/types/types';
 
 const MOBILE_WIDTH = 1000;
 
@@ -12,7 +14,7 @@ type MarkerType = { [index: string]: { scale: number; size: number } };
 
 const useMapFunctions = (
   place: string | null,
-  locations: GeoJSON.FeatureCollection,
+  locations: GeoJSON.FeatureCollection<GeoJSON.Point, Building>,
   size: { width: any; height?: number },
 ) => {
   const { rundgangMap } = useMap();
@@ -53,7 +55,7 @@ const useMapFunctions = (
   }, [locations, debouncedZoom, rundgangMap]);
 
   const focusMap = useCallback(
-    (targetBoundingBox) => {
+    (targetBoundingBox: GeoJSON.Feature<GeoJSON.Point, Building>) => {
       if (rundgangMap) {
         let padding = {
           right: size?.width <= MOBILE_WIDTH ? 0 : 1,
@@ -62,7 +64,10 @@ const useMapFunctions = (
           bottom: 0,
         };
         let maxZoom = 11.4;
-        let coords = [13.45, 52.5, 13.45, 52.5];
+        let coords = bbox({
+          type: 'Point',
+          coordinates: [13.45, 52.5],
+        });
 
         if (targetBoundingBox) {
           padding.right =

@@ -4,7 +4,7 @@ import MapProviderContainer from './container';
 import { Suspense } from 'react';
 import { LocationItem } from '@/types/types';
 
-export const revalidate = 0;
+export const revalidate = 100;
 export default async function LocationsMap({
   location,
 }: {
