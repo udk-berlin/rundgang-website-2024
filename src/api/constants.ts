@@ -6,6 +6,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.25,
     labelPosition: 'bottom-0 right-16',
     name: 'Fasanenstraße 1B',
+    popupMargin: '-mt-20',
   },
   '!RuJBwEwOQcFrQabJnn:content.udk-berlin.de': {
     lng: 13.3299,
@@ -14,6 +15,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.1,
     labelPosition: 'bottom-0 right-8',
     name: 'Bundesallee 1-12',
+    popupMargin: '-mt-32',
   },
   '!YIwQSiHDpoiNHDMWmC:content.udk-berlin.de': {
     lng: 13.32215,
@@ -22,6 +24,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.7,
     labelPosition: 'bottom-8 right-8',
     name: 'Einsteinufer 43',
+    popupMargin: '-mt-20',
   },
   '!XGSFQYZUnFtQNzOBnD:content.udk-berlin.de': {
     lng: 13.327300406397331,
@@ -30,6 +33,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.7,
     labelPosition: 'bottom-8 right-8',
     name: 'Hardenbergstraße 33',
+    popupMargin: '-mt-10',
   },
   '!GFauydmVRlpqvDETXH:content.udk-berlin.de': {
     lng: 13.3588243,
@@ -38,6 +42,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.66,
     labelPosition: 'bottom-8 left-8',
     name: 'Grunewaldstraße 2-5',
+    popupMargin: '-mt-20',
   },
   '!eVjUBtkIgDQkQSKVxm:content.udk-berlin.de': {
     lng: 13.329011660461106,
@@ -46,6 +51,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.45,
     labelPosition: 'bottom-8 left-8',
     name: 'Straße des 17. Juni 118',
+    popupMargin: '-mt-20',
   },
   '!OkEblSLtaWAObRcCHm:content.udk-berlin.de': {
     lng: 13.332849698118526,
@@ -54,6 +60,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.6,
     labelPosition: 'bottom-8 left-8',
     name: 'Lietzenburger Straße 45',
+    popupMargin: '-mt-32',
   },
   '!fPuAzLpetwUYPJZwCF:content.udk-berlin.de': {
     lng: 13.30389,
@@ -62,6 +69,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.89,
     labelPosition: 'bottom-8 left-8',
     name: 'Mierendorffstraße 28-30',
+    popupMargin: '-mt-20',
   },
   '!HXlOLrPXYbIQdkqryj:content.udk-berlin.de': {
     lng: 13.32345,
@@ -70,6 +78,7 @@ export const LOCATION_INFO = {
     maxZoom: 16.8,
     labelPosition: 'top-8 right-8',
     name: 'Hardenbergstraße 41',
+    popupMargin: '-mt-40',
   },
   '!RpTarLRqYYIdDCBLyV:content.udk-berlin.de': {
     lng: 13.3281,
@@ -78,6 +87,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.2,
     labelPosition: 'top-[40px] left-8',
     name: 'UNI.T - Theater der UdK Berlin',
+    popupMargin: '-mt-20',
   },
   '!YOMEVNrNhhIBxSAhNQ:content.udk-berlin.de': {
     lng: 13.374843,
@@ -86,6 +96,7 @@ export const LOCATION_INFO = {
     maxZoom: 16.1,
     labelPosition: 'bottom-8 left-8',
     name: 'Campus Uferstudios',
+    popupMargin: '-mb-20',
   },
   '!CmGOTOZlDoWMcJFHkZ:content.udk-berlin.de': {
     lng: 13.321916506276636,
@@ -94,6 +105,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.2,
     labelPosition: 'bottom-8 right-8',
     name: 'Ernst Reuter-Platz ',
+    popupMargin: '-mt-20',
   },
   '!IKWVNtgTydTHMgpUwQ:content.udk-berlin.de': {
     lng: 13.36031847972046,
@@ -102,6 +114,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.2,
     labelPosition: 'bottom-8 left-8',
     name: 'Kurfürstenstr. 145',
+    popupMargin: '-mt-20',
   },
   '!KzIsljbqAmULTkxsCU:content.udk-berlin.de': {
     lng: 13.3286,
@@ -110,6 +123,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.8,
     labelPosition: 'bottom-8 left-8',
     name: 'Fasanenstraße 1B',
+    popupMargin: '-mt-20',
   },
   '!BwOubkPoQLppzIHegK:content.udk-berlin.de': {
     lng: 13.3299,
@@ -118,6 +132,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.5,
     labelPosition: 'bottom-0 right-8',
     name: 'Bundesallee 1-12',
+    popupMargin: '-mt-32',
   },
   '!sJUtqUiNvdoxXDNxCG:content.udk-berlin.de': {
     lng: 13.32215,
@@ -126,6 +141,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.1,
     labelPosition: 'bottom-8 right-8',
     name: 'Einsteinufer 43',
+    popupMargin: '-mt-20',
   },
   '!GdQiRUtkgoGlNOxTLD:content.udk-berlin.de': {
     lng: 13.32731,
@@ -134,6 +150,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.2,
     labelPosition: 'bottom-8 right-8',
     name: 'Hardenbergstraße 33',
+    popupMargin: '-mt-10',
   },
   '!nfZcJbplQdHUXtATXR:content.udk-berlin.de': {
     lng: 13.35885,
@@ -142,6 +159,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.2,
     labelPosition: 'bottom-8 left-8',
     name: 'Grunewaldstraße 2-5',
+    popupMargin: '-mt-20',
   },
   '!HILXSleVJzHEpzINsZ:content.udk-berlin.de': {
     lng: 13.329011660461106,
@@ -150,6 +168,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.8,
     labelPosition: 'bottom-8 left-8',
     name: 'Straße des 17. Juni 118',
+    popupMargin: '-mt-20',
   },
   '!CSXYmlMoZpDBByZfqj:content.udk-berlin.de': {
     lng: 13.33283,
@@ -158,6 +177,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.0,
     labelPosition: 'bottom-8 left-8',
     name: 'Lietzenburger Straße 45',
+    popupMargin: '-mt-32',
   },
   '!oVBzAqSwRRNhoaUgMg:content.udk-berlin.de': {
     lng: 13.30389,
@@ -166,6 +186,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.3,
     labelPosition: 'bottom-8 left-8',
     name: 'Mierendorffstraße 28-30',
+    popupMargin: '-mt-20',
   },
   '!MvJOJtvpfocMzxUHrQ:content.udk-berlin.de': {
     lng: 13.32345,
@@ -174,6 +195,7 @@ export const LOCATION_INFO = {
     maxZoom: 16.4,
     labelPosition: 'top-8 right-8',
     name: 'Hardenbergstraße 41',
+    popupMargin: '-mt-40',
   },
   '!CTmDtbjUTOOsurMDPc:content.udk-berlin.de': {
     lng: 13.374843,
@@ -182,6 +204,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.6,
     labelPosition: 'bottom-8 left-8',
     name: 'Uferstraße 23',
+    popupMargin: 'mt-20',
   },
   '!YRPlAmtcyMajlqsecM:content.udk-berlin.de': {
     lat: 52.43893183717061,
@@ -190,8 +213,9 @@ export const LOCATION_INFO = {
     image: 'simple',
     name: 'Galerie Alte Schule Adlershof',
     labelPosition: 'bottom-8 left-8',
+    popupMargin: '-mt-20',
   },
-};
+} as const;
 
 export const FLOORPLANS = {
   '!PsyURUpKAbSPistHpQ:content.udk-berlin.de': 7,

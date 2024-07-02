@@ -5,6 +5,7 @@ import {
   restApiLocationsRoot,
   FLOORPLANS,
   FLOORPLAN_MARGINS,
+  LOCATION_INFO,
 } from '../constants';
 import { getTreeById } from '@/api/rest/tree';
 import { getPathListById } from '@/api/rest/pathlist';
@@ -76,9 +77,9 @@ export const getLocation = cache(async (id: string): Promise<LocationItem> => {
     level: level,
     levels: levels,
     margin:
-      level && level?.id in FLOORPLAN_MARGINS
-        ? FLOORPLAN_MARGINS[level?.id]
-        : 'm-0',
+      building && building.id in LOCATION_INFO
+        ? LOCATION_INFO[building.id].popupMargin
+        : '-mt-20',
     rooms: rooms,
   };
 });

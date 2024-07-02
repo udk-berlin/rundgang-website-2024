@@ -31,7 +31,9 @@
         "description": "Die Universität der Künste Berlin lädt vom 19. bis 21. Juli zum Rundgang – Tage der offenen Tür. Werkstätten, Ateliers, Studios und Probenräume der Fakultäten Bildende Kunst, Architektur, Gestaltung, Musik und Darstellende Kunst sowie das Hochschulübergreifende Zentrum Tanz Berlin, das Jazz-Institut Berlin und das Berlin Career College öffnen zum Ende des akademischen Jahres ihre Türen. Von Malerei, Skulptur und Performance über Designentwürfe, Modenschau und Filmscreenings bis hin zu Konzerten, Tanz und Soundinstallationen zeigen Studierende Ergebnisse und Prozesse ihrer künstlerischen Arbeit."
     },
     "Saved": {
+        "title": "Gemerkte Projekte",
         "saved_items": "Gemerkte Projekte",
+        "description": "Hier können Projekte oder Veranstaltung gespeichert werden",
         "remove": "entfernen",
         "save": "merken",
         "remove_all": "Alle entfernen"
@@ -55,7 +57,7 @@
         "title": "UdK Rundgang 2024",
         "studentproject": "Projekt",
         "event": "Veranstaltung",
-        "meta_description": "{type}: {name}"
+        "meta_description": "{template, select, studentproject {Projekt zum UdK Rundgang 2024 - Autor*innen: {name}} event {Veranstaltung zum UdK Rundgang 2024 - Autor*innen: {name}} other {Autor*innen: {name}}}"
     },
     "format": "{count, plural, =1 {Format} other {Formate}}",
     "faculty": "{count, plural, =1 {Fakultät/Zentrum} other {Fakultäten/Zentren}}",

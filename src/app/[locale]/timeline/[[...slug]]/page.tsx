@@ -2,6 +2,7 @@ import TimeTable from './components/timetable.server';
 import Project from './components/project.server';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
+import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
 
 type TimelinesPageProps = {
   params: { slug: string[] };
@@ -12,6 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      images: ['/assets/projects/uk/writing.png'],
+    },
   };
 }
 
