@@ -6,6 +6,7 @@ import RundgangLogo from '@/components/header/navigation/rundgangLogo';
 import HeaderNavigationMobileMenu from '@/components/header/navigation/mobile/menu';
 import { useCallback, useEffect, useState } from 'react';
 import { usePathname } from '@/navigation';
+import MenuBurger from '@/components/icons/menu';
 export default function HeaderNavigationMobile() {
   const t = useTranslations('Navigation');
   const pathname = usePathname();
@@ -28,11 +29,13 @@ export default function HeaderNavigationMobile() {
         <button
           onClick={toggleMenuOpen}
           className={cx(
-            'mx-xs my-border justify-center bg-secondary hover:bg-highlight hover:text-black',
-            menuOpen ? 'mb-0 rounded-t-border' : 'rounded-border',
+            'border-x-xs border-y-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
+            menuOpen ? 'rounded-t-md border-b-secondary' : 'rounded-border',
           )}
         >
-          <div className="justify-center text-center">=</div>
+          <div className="h-4 justify-center text-center">
+            <MenuBurger />
+          </div>
         </button>
         <NavigationLink href="/info" isLast>
           {t('info')}

@@ -22,7 +22,7 @@ export default function EventContainer({
   }, [isOpen]);
 
   return (
-    <div className="animate-height relative flex  w-timeline flex-wrap justify-start">
+    <div className="relative flex  w-timeline flex-wrap justify-start">
       <div className="bg-primary">
         <div
           className="sticky left-0 top-0 z-20 mx-xs flex h-gridcell w-screen cursor-pointer items-center justify-start rounded-md border-x-border border-b-border border-primary bg-secondary text-lg hover:font-bold"
