@@ -54,7 +54,7 @@ export default function HeaderNavigationMobileMenu({
     <dialog
       open={menuOpen}
       className={cx(
-        'fixed left-0 top-header h-content w-full rounded-md border-x-border border-b-0 bg-secondary pt-header text-center',
+        'fixed left-0 top-header h-content w-full rounded-md border-x-border border-b-0 bg-secondary pt-header text-center text-primary',
         isClosed ? 'animate-closeMenu' : 'animate-showMenu',
       )}
       onClick={onDismiss}
