@@ -55,25 +55,13 @@ export default async function LocationsPage(props: LocationsPageProps) {
 
   return (
     <>
-      <Suspense fallback="Loading...">
-        <LocationsMap location={locationSummary} />
-      </Suspense>
-      <div className="grid h-content grid-cols-1 p-0 xs:grid-cols-5">
-        {place && (
-          <Suspense fallback="Loading...">
-            <Place place={place} />
-          </Suspense>
-        )}
+      <LocationsMap location={locationSummary} />
+      <div className="grid h-content grid-cols-1 xs:grid-cols-5">
+        {place && <Place place={place} />}
         {projectId ? (
-          <Suspense fallback="Loading...">
-            <Project projectId={projectId} />
-          </Suspense>
+          <Project projectId={projectId} />
         ) : (
-          place && (
-            <Suspense fallback="Loading...">
-              <ProgramPage place={place} />
-            </Suspense>
-          )
+          place && <ProgramPage place={place} />
         )}
       </div>
     </>

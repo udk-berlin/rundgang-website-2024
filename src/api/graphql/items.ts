@@ -98,10 +98,6 @@ export const getFilteredGraphQLItems = cache(
 export const getFilteredGraphQLLocationItems = cache(async (place: string) => {
   const locationItems = await getLocationItems(place);
   const allItems = await getGraphQLItems();
-  console.log(
-    allItems.map((i) => i.id),
-    locationItems,
-  );
 
   return allItems.filter((item) => locationItems.includes(item.id));
 });
