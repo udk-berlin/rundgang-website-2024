@@ -8,7 +8,7 @@ export function pathListUrl(id: string): string {
 
 export const getPathListById = cache(
   async (id: string): Promise<RestApiContext[]> => {
-    const res = await fetch(pathListUrl(id));
+    const res = await fetch(pathListUrl(id), { next: { revalidate: 3600 } });
     return res.json();
   },
 );

@@ -81,3 +81,10 @@ export type LocationItem = {
   margin: string;
   rooms: ContextTree[] | null;
 };
+
+export type LocationSummary = RestApiContext & {
+  building: RestApiContext;
+  image: string;
+  level: string;
+  room: string;
+};

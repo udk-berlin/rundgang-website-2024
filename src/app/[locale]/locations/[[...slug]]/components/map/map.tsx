@@ -15,27 +15,26 @@ import Map, {
 import { useWindowSize } from '@/lib/useMedia';
 import FloorMapMarker from './FloorMapMarker';
 import useMapFunctions from './useMapFunctions';
-import { Building, LocationItem } from '@/types/types';
+import { Building, LocationSummary } from '@/types/types';
 
 export type MapComponentProps = {
   buildings: GeoJSON.FeatureCollection<GeoJSON.Point, Building>;
-  location: LocationItem | null;
+  location: LocationSummary | null;
 };
 
-const MAP_CONFIGURATION = {
-  style: 'https://osm.udk-berlin.de/styles/udk-rundgang-2024/style.json',
-  center: {
-    longitude: 13.45,
-    latitude: 52.5,
-  },
-};
+const MAP_STYLE =
+  'https://osm.udk-berlin.de/styles/udk-rundgang-2024/style.json';
 
 const MapComponent = ({ buildings, location }: MapComponentProps) => {
-  const place = useMemo(() => (location ? location?.id : null), [location]);
+  const selectedBuilding = useMemo(
+    () => (location ? decodeURIComponent(location?.building?.id) : null),
+    [location],
+  );
+
   const size = useWindowSize();
 
   const { markers, onClick, onMouseMove, onMouseLeave, onZoom } =
-    useMapFunctions(place, buildings, size);
+    useMapFunctions(selectedBuilding, buildings, size);
   return (
     <div className="h-full w-full ">
       <div className="pointer-events-auto z-0 h-[60dvh] w-full rounded-md px-border sm:fixed sm:top-header sm:h-content dark:invert">
@@ -57,7 +56,7 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
             zIndex: 100,
             width: '100%',
           }}
-          mapStyle={MAP_CONFIGURATION.style}
+          mapStyle={MAP_STYLE}
           onMouseMove={onMouseMove}
           onMouseLeave={onMouseLeave}
           onZoom={onZoom}
@@ -125,7 +124,7 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
                   building?.id in markers && (
                     <FloorMapMarker
                       key={building.id}
-                      selected={place == building.id}
+                      selected={selectedBuilding == building.id}
                       building={building}
                       marker={markers[building.id]}
                       handleClick={onClick}

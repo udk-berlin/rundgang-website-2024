@@ -18,6 +18,7 @@
     },
     "Locations": {
         "title": "Locations UdK Rundgang 2024",
+        "place_title": "{template, select, room {Location:  {b}, Level {l}, Room {r}} level {Location:  {b}, Level {l}} building {Location: {b}} other {Locations UdK Rundgang 2024}}",
         "description": "Map of the locations for the UdK Rundgang 2024",
         "levels": "Levels",
         "rooms": "Rooms",

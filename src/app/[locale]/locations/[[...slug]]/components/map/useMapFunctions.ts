@@ -2,7 +2,7 @@
 import { useCallback, useMemo, useEffect, useState, RefObject } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 import { Context } from '@/types/graphql';
-import { MapLayerMouseEvent } from 'maplibre-gl';
+import { MapLayerMouseEvent, MapLibreZoomEvent } from 'maplibre-gl';
 import { useDebounce } from '@/lib/useDebounce';
 import { useRouter } from '@/navigation';
 import { bbox } from '@turf/bbox';
@@ -13,7 +13,7 @@ const MOBILE_WIDTH = 1000;
 type MarkerType = { [index: string]: { scale: number; size: number } };
 
 const useMapFunctions = (
-  place: string | null,
+  selectedBuilding: string | null,
   locations: GeoJSON.FeatureCollection<GeoJSON.Point, Building>,
   size: { width: any; height?: number },
 ) => {
@@ -26,10 +26,10 @@ const useMapFunctions = (
   const boundingBoxFeature = useMemo(() => {
     return (
       locations?.features?.find(
-        (f: GeoJSON.Feature) => place == f?.properties?.id,
+        (f: GeoJSON.Feature) => selectedBuilding == f?.properties?.id,
       ) || null
     );
-  }, [locations, place]);
+  }, [locations, selectedBuilding]);
   const debouncedZoom = useDebounce(zoom, 400);
 
   useEffect(() => {
@@ -58,12 +58,12 @@ const useMapFunctions = (
     (targetBoundingBox: GeoJSON.Feature<GeoJSON.Point, Building>) => {
       if (rundgangMap) {
         let padding = {
-          right: size?.width <= MOBILE_WIDTH ? 0 : 1,
+          right: 0,
           top: 0,
           left: 0,
           bottom: 0,
         };
-        let maxZoom = 11.4;
+        let maxZoom = size?.width > MOBILE_WIDTH ? 11.4 : 9.1;
         let coords = bbox({
           type: 'Point',
           coordinates: [13.45, 52.5],
@@ -163,9 +163,8 @@ const useMapFunctions = (
     [rundgangMap],
   );
 
-  const onZoom = (e) => {
-    let zoom = rundgangMap.getZoom();
-    setZoom(zoom);
+  const onZoom = (e: MapLibreZoomEvent & { viewState: { zoom: number } }) => {
+    setZoom(e.viewState.zoom);
   };
 
   return {

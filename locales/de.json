@@ -18,6 +18,7 @@
     },
     "Locations": {
         "title": "Orte UdK Rundgang 2024",
+        "place_title": "{template, select, room {Ort:  {b}, Etage {l}, Raum {r}} level {Ort:  {b}, Etage {l}} building {Ort: {b}} other {Orte UdK Rundgang 2024}}",
         "description": "Karte der Austragungsorte für den UdK Rundgang 2024",
         "levels": "Etagen",
         "rooms": "Räume",
