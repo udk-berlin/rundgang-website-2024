@@ -61,12 +61,13 @@
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",
     "language": "{count, plural, =1 {Language} other {Languages}}",
     "location": "{count, plural, =1 {Location} other {Locations}}",
+    "time": "{count, plural, =1 {Time} other {Times}}",
     "level": "Level",
     "room": "Room",
     "errors": {
         "page": {
             "messsage": "Something went wrong.",
-            "action": "PLease try it again."
+            "action": "Please try it again."
         },
         "audiPlayer": "Your browser does not support the audio element."
     },

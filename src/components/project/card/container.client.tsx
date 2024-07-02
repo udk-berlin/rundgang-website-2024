@@ -2,10 +2,9 @@
 
 import cx from 'classnames';
 import { useStore } from 'zustand';
-
 import { ReactNodeProps } from '@/types/types';
 import { useUIStore } from '@/lib/uiStore';
-import { ProjectCardProps } from '@/components/project/card.server';
+import { ProjectCardProps } from '@/components/project/card/card.server';
 
 export default function ProjectCardContainer({
   children,

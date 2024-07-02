@@ -1,4 +1,3 @@
-'use server';
 import FilterTag from '@/components/filterTag';
 import { Filter, ReactNodeProps } from '@/types/types';
 
@@ -6,7 +5,7 @@ export type SidebarFilterGroupFiltersProps = {
   filters: Filter[];
 };
 
-export default async function ProgramFiltersGroupFilters({
+export default function ProgramFiltersGroupFilters({
   filters,
 }: SidebarFilterGroupFiltersProps) {
   return (

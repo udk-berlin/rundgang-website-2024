@@ -1,45 +1,47 @@
-'use server';
-
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
-import Image from '@/components/image';
-import CloseButton from '@/app/project/[id]/components/closeButton';
-import SaveButton from '@/components/saveButton.client';
-import ProjectDescriptions from '@/app/project/[id]/components/descriptions/descriptions.server';
-import ProjectContent from '@/app/project/[id]/components/content/content.server';
-import ProjectContextGroups from '@/app/project/[id]/components/contextGroups/contextGroups.server';
+import ProjectDetailName from '@/components/project/detail/name.server';
+import ProjectDetailAuthors from '@/components/project/detail/authors.server';
+import ProjectDetailDescriptions from '@/components/project/detail/descriptions/descriptions.server';
+import ProjectDetailContent from '@/components/project/detail/content/content.server';
+import ProjectDetailContextGroups from '@/components/project/detail/contextGroups/contextGroups.server';
+import ProjectDetailImage from '@/components/project/detail/image/image';
 
 export type ProjectProps = {
   item: Item;
   withCloseOption?: boolean;
 };
 
-export default async function Project({
+export default function Project({
   item,
   withCloseOption = false,
 }: ProjectProps) {
   return (
     <ProjectContainer>
       <div className="relative w-full">
-        <Image src={item.thumbnail_full_size} alt="thumbnail" />
-        {withCloseOption && <CloseButton />}
-        <SaveButton itemId={item.id} />
+        <div className="p-gutter-md md:fixed md:h-content md:max-h-content md:min-h-content md:w-[50vw] md:overflow-y-auto">
+          <ProjectDetailImage item={item} withCloseOption={withCloseOption} />
+        </div>
       </div>
-      <div className="pt-gutter-md text-lg font-bold">{item.name}</div>
-      <div className="flex w-full justify-end pt-gutter-md">
-        {item.authors.join(' ')}
+      <div className="relative w-full">
+        <div className="p-gutter-md md:fixed md:h-content md:max-h-content md:min-h-content md:w-[50vw] md:overflow-y-auto">
+          <ProjectDetailName item={item} />
+          <ProjectDetailAuthors item={item} />
+          <ProjectDetailContextGroups item={item} />
+          <ProjectDetailDescriptions item={item} />
+          <ProjectDetailContent item={item} />
+        </div>
       </div>
-      <ProjectContextGroups item={item} />
-      <ProjectDescriptions item={item} />
-      <ProjectContent item={item} />
     </ProjectContainer>
   );
 }
 
 function ProjectContainer({ children }: ReactNodeProps) {
   return (
-    <div className="min-h-full w-full rounded-md border-r-border border-r-primary bg-secondary p-gutter-xs">
-      {children}
-    </div>
+    <main className="bg-primary">
+      <div className="grid h-content max-h-content min-h-content w-screen grid-cols-1 overflow-y-auto rounded-border border-x-border bg-secondary md:grid-cols-2">
+        {children}
+      </div>
+    </main>
   );
 }

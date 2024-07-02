@@ -1,6 +1,5 @@
-import { ProjectCardProps } from '@/components/project/card.server';
-import { Link } from '@/navigation';
-import ProjectLink from './link';
+import ProjectLink from '@/components/project/link';
+import { ProjectCardProps } from '@/components/project/card/card.server';
 
 export default function ProjectCardName({
   item,
@@ -9,7 +8,7 @@ export default function ProjectCardName({
   return (
     <ProjectLink
       href={`${linkPathname}/${item.id}`}
-      className="w-full max-w-full"
+      className="w-full max-w-full py-gutter-md text-sm"
     >
       <div className="py-gutter-md text-sm">{item.name}</div>
     </ProjectLink>

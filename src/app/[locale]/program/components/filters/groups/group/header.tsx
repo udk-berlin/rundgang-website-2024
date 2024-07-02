@@ -1,4 +1,3 @@
-'use server';
 import { useTranslations } from 'next-intl';
 import { ReactNodeProps } from '@/types/types';
 
@@ -6,7 +5,7 @@ export type SidebarFilterGroupHeaderProps = {
   translation: 'faculty' | 'format' | 'language';
 };
 
-export default async function ProgramFiltersGroupHeader({
+export default function ProgramFiltersGroupHeader({
   translation,
 }: SidebarFilterGroupHeaderProps) {
   const t = useTranslations();

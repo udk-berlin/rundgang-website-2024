@@ -1,21 +1,23 @@
 import { ReactNodeProps } from '@/types/types';
 import { ItemDescription } from '@/types/item';
 
-export default function ProjectDescription({
-  description,
-}: {
+export type ProjectDescriptionProps = {
   description: ItemDescription;
-}) {
+};
+
+export default function ProjectDetailDescription({
+  description,
+}: ProjectDescriptionProps) {
   return (
-    <ProjectDescriptionContainer>
+    <ProjectDetailDescriptionContainer>
       <div className="pb-gutter-xs text-sm font-bold">
         {description.language.name}
       </div>
       <div className="text-sm">{description.content}</div>
-    </ProjectDescriptionContainer>
+    </ProjectDetailDescriptionContainer>
   );
 }
 
-function ProjectDescriptionContainer({ children }: ReactNodeProps) {
+function ProjectDetailDescriptionContainer({ children }: ReactNodeProps) {
   return <div>{children}</div>;
 }

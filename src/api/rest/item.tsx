@@ -111,7 +111,7 @@ export const getParsedItem = cache(async (id: string): Promise<Item> => {
       .filter((d) => d.dataKey === 'format')
       .map((d) => d.data)
       .flat(1) as ItemFilterableContext[],
-    times:
+    temporals:
       item.allocation?.temporal?.map((t: RestApiTemporal) => {
         return { start: toDate(t.start), end: toDate(t.end) };
       }) ?? [],

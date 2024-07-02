@@ -60,6 +60,7 @@
     "faculty": "{count, plural, =1 {Fakultät/Zentrum} other {Fakultäten/Zentren}}",
     "language": "{count, plural, =1 {Sprache} other {Sprachen}}",
     "location": "{count, plural, =1 {Ort} other {Orte}}",
+    "time": "{count, plural, =1 {Zeit} other {Zeiten}}",
     "level": "Etage",
     "room": "Raum",
     "errors": {

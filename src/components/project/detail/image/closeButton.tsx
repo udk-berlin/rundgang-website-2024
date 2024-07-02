@@ -4,7 +4,7 @@ import { useRouter } from '@/navigation';
 import { useCallback } from 'react';
 import Cross from '@/components/icons/cross';
 
-export default function CloseButton() {
+export default function ProjectDetailImageCloseButton() {
   const router = useRouter();
 
   const onCloseProject = useCallback(() => {

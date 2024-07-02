@@ -1,4 +1,3 @@
-'use server';
 import { Filter } from '@/types/types';
 import ProgramFiltersGroupHeader from '@/app/program/components/filters/groups/group/header';
 import ProgramFiltersGroupFilters from '@/app/program/components/filters/groups/group/filters';
@@ -8,7 +7,7 @@ export type FilterGroupProps = {
   filters: Filter[];
 };
 
-export default async function ProgramFiltersGroup({
+export default function ProgramFiltersGroup({
   translation,
   filters,
 }: FilterGroupProps) {
@@ -18,7 +17,10 @@ export default async function ProgramFiltersGroup({
         key="filter-group-title"
         translation={translation}
       />
-      <ProgramFiltersGroupFilters key="filter-group-filters" filters={filters} />
+      <ProgramFiltersGroupFilters
+        key="filter-group-filters"
+        filters={filters}
+      />
     </div>
   );
 }

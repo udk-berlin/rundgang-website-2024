@@ -1,6 +1,6 @@
 import { getParsedItem } from '@/api/rest/item';
 import { ReactNodeProps } from '@/types/types';
-import Project from '@/app/project/[id]/components/project.server';
+import SelectedProject from '@/components/project/detail/selectedProject';
 
 export type PageProps = {
   params: { id: string };
@@ -10,7 +10,7 @@ export default async function Page({ params }: PageProps) {
   const item = await getParsedItem(decodeURIComponent(params.id));
   return (
     <PageContainer>
-      <Project item={item} withCloseOption />
+      <SelectedProject item={item} />
     </PageContainer>
   );
 }

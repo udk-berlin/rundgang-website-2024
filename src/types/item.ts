@@ -1,11 +1,13 @@
 import { Language } from '@/types/types';
 import { Entry } from '@/types/graphql';
 
-export type ItemContent = {
+export type ItemContentElement = {
   template: string;
   content: string;
   formatted_content: string;
 };
+
+export type ItemContent = { [key: string]: ItemContentElement[] };
 
 export type ItemDescription = {
   language: Language;
@@ -24,8 +26,9 @@ export type Item = {
   faculties: ItemFilterableContext[];
   locations: ItemContext[];
   parents: Entry[];
-  content?: { [key: string]: ItemContent[] };
-  times: ItemTime[];
+  content?: ItemContent;
+  times: ItemContext[];
+  temporals: ItemTemporals[];
 };
 
 export type ItemContext = {
@@ -39,7 +42,7 @@ export type ItemFilterableContext = ItemContext & {
   exists?: boolean;
 };
 
-export type ItemTime = {
+export type ItemTemporals = {
   start: Date;
   end: Date;
 };

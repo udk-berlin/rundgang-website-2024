@@ -1,8 +1,8 @@
 import { getFilteredGraphQLLocationItems } from '@/api/graphql/items';
-import ProjectCard from '@/components/project/card.server';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
 import JumpToTop from '@/components/jumpToTop';
+import ProjectCard from '@/components/project/card/card.server';
 
 export type ProgramPageProps = {
   place: string;
@@ -33,7 +33,7 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="z-50 -ml-xs h-content max-h-content min-h-content bg-primary md:col-span-2 md:overflow-y-scroll">
+    <div className="-ml-xs z-50 h-content max-h-content min-h-content bg-primary md:col-span-2 md:overflow-y-scroll">
       <div className="col-span-1 grid max-h-fit min-h-content w-full columns-1 items-start justify-start gap-border bg-primary px-border md:grid-cols-2">
         {children}
       </div>
