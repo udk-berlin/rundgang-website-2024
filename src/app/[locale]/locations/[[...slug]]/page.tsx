@@ -30,9 +30,7 @@ export async function generateMetadata({
       }),
       description: t('description'),
       openGraph: {
-        images: [
-          `/assets/svg/map/ground_plan/popup/${location?.image ?? 'simple'}.svg`,
-        ],
+        images: [`/assets/ogimages/image-${location?.image ?? '9'}.png`],
       },
     };
   }

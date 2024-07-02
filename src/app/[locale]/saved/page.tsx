@@ -8,6 +8,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      images: ['/assets/projects/ru/writing.png'],
+    },
   };
 }
 export type SavedPageProps = {

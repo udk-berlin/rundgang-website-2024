@@ -7,6 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      images: ['/assets/projects/de/writing.png'],
+    },
   };
 }
 export default function InfoPage() {
