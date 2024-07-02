@@ -51,6 +51,12 @@
         "mute_all": "Mute All",
         "unmute_all": "Unmute All"
     },
+    "Project": {
+        "title": "UdK Rundgang 2024",
+        "studentproject": "Project",
+        "event": "Event",
+        "meta_description": "{type}: {name}"
+    },
     "format": "{count, plural, =1 {Format} other {Formats}}",
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",
     "language": "{count, plural, =1 {Language} other {Languages}}",
