@@ -32,10 +32,9 @@
     },
     "Saved": {
         "title": "Saved Projects",
-        "saved_items": "Saved Projects",
         "remove": "remove",
-        "save": "save",
-        "remove_all": "Remove All"
+        "remove-all": "Remove All",
+        "save": "save"
     },
     "Landing": {
         "title": "UdK Berlin",

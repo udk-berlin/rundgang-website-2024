@@ -1,11 +1,16 @@
 import { ItemContext } from '@/types/item';
 import { useTranslations } from 'next-intl';
+import cx from 'classnames';
 
 export type ContextTagProps = {
   context: ItemContext;
+  withBorder?: boolean;
 };
 
-export default function ContextTag({ context }: ContextTagProps) {
+export default function ContextTag({
+  context,
+  withBorder = false,
+}: ContextTagProps) {
   const t = useTranslations();
   let nameDescription;
 
@@ -16,9 +21,18 @@ export default function ContextTag({ context }: ContextTagProps) {
   }
 
   return (
-    <div className="w-fit max-w-full">
-      <div className="h-tag flex w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight">
-        {nameDescription ? `${nameDescription}: ` : ''} {context.name}
+    <div
+      className={cx(
+        'h-tag flex w-fit min-w-0 max-w-full items-center rounded-border bg-secondary hover:bg-highlight',
+        withBorder && 'border-border border-primary',
+      )}
+    >
+      <div
+        className={cx(
+          'w-fit min-w-0 max-w-full truncate px-gutter-sm text-xxs',
+        )}
+      >
+        {nameDescription ? `${nameDescription}: ${context.name}` : context.name}
       </div>
     </div>
   );
