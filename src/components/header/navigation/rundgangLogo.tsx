@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function RundgangLogo() {
   return (
-    <div className="relative h-header w-full justify-around overflow-hidden text-center">
+    <div className="relative m-2 h-full w-full justify-around overflow-hidden text-center">
       <Image
         src="/assets/RNG.svg"
         fill

@@ -23,7 +23,7 @@ export default function NavigationLink({
   const pathname = usePathname();
   const isActive = useIsActive(href);
   const activeStyle = isFooter
-    ? 'rounded-b-md border-t-secondary '
+    ? 'rounded-b-md border-t-secondary'
     : 'rounded-t-md border-b-secondary';
 
   return (
@@ -33,8 +33,8 @@ export default function NavigationLink({
       className={cx(
         'border-x-xs border-y-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
         isActive ? activeStyle : 'rounded-md',
-        isFirst && 'ml-border',
-        isLast && 'mr-border',
+        isFirst && 'ml-xs',
+        isLast && 'mr-xs',
       )}
       replace={
         (pathname == '/imprint' && href == '/contact') ||

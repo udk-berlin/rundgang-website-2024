@@ -177,6 +177,8 @@ const config: Config = {
         showModal: `showModal 1s linear normal`,
         hideModal: `hideModal 1s linear normal`,
         showMenu: `showMenu 1s linear normal`,
+        closeMenu: `closeMenu 1s linear normal`,
+        openTimeline: `openTimeline 1s linear normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -228,13 +230,44 @@ const config: Config = {
           },
         },
         showMenu: {
-          from: {
-            transform: 'translateY(-200%)',
-            borderTop: '2px solid white',
+          '0%': {
+            transform: 'translateY(-200%) scaleX(33%)',
+            borderWidth: '0px 6px',
+            color: 'var(--secondary)',
           },
-          to: {
-            transform: 'translateY(0%)',
-            borderTop: '0px solid white',
+          '50%': {
+            transform: 'translateY(0%) scaleX(33%)',
+            borderWidth: '0px 6px',
+            color: 'var(--secondary)',
+          },
+          '100%': {
+            transform: 'translateX(0%) scaleX(100%)',
+            borderWidth: '0px 2px',
+            color: 'var(--primary)',
+          },
+        },
+        closeMenu: {
+          '0%': {
+            transform: 'translateX(0%) scaleX(100%)',
+            borderWidth: '0px 2px',
+          },
+          '50%': {
+            transform: 'translateY(0%) scaleX(33%)',
+            borderWidth: '0px 6px',
+          },
+          '100%': {
+            transform: 'translateY(-200%) scaleX(33%)',
+            borderWidth: '0px 6px',
+          },
+        },
+        openTimeline: {
+          '0%': {
+            transform: 'scaleY(0%)',
+            borderWidth: '2px 2px',
+          },
+          '100%': {
+            transform: 'scaleY(100%)',
+            borderWidth: '6px 2px',
           },
         },
       },

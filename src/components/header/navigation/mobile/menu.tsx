@@ -6,6 +6,7 @@ import { useStore } from 'zustand';
 import { useUIStore } from '@/lib/uiStore';
 import LocaleSwitcher from './localeSwitcher';
 import { useIsActive } from '@/lib/useLinkActive';
+import { useCallback, useEffect, useState } from 'react';
 
 export type MenuMobileProps = {
   menuOpen: boolean;
@@ -34,38 +35,61 @@ export default function HeaderNavigationMobileMenu({
   toggleMenuOpen,
 }: MenuMobileProps) {
   const numberSaved = useStore(useUIStore, (state) => state.savedItems.length);
+  const [showContent, setShowContent] = useState(false);
+  const [isClosed, setIsClosed] = useState(false);
+
+  useEffect(() => {
+    if (menuOpen) {
+      setTimeout(() => setShowContent(true), 800);
+    }
+  }, [menuOpen]);
+
+  const onDismiss = useCallback(() => {
+    setShowContent(false);
+    setIsClosed(true);
+    setTimeout(() => toggleMenuOpen(), 800);
+  }, [toggleMenuOpen]);
+
   return (
     <dialog
       open={menuOpen}
       className={cx(
-        'animate-showMenu fixed left-0 top-header flex h-content w-full flex-col justify-between rounded-md border-b-0 bg-secondary pt-header text-center text-primary',
+        'fixed left-0 top-header h-content w-full rounded-md border-x-border border-b-0 bg-secondary pt-header text-center',
+        isClosed ? 'animate-closeMenu' : 'animate-showMenu',
       )}
-      onClick={toggleMenuOpen}
+      onClick={onDismiss}
     >
-      <SmoothButton onClick={toggleMenuOpen} color="primary" top>
-        <div className={cx('rotate-45 text-[30px] text-secondary')}>+</div>
-      </SmoothButton>
-      <div className="flex-grow-2">
-        {headerItems.map((item) => (
-          <MobileMenuItem key={item.href} {...item} isTop />
-        ))}
-      </div>
-      <div className="flex-grow-2">
-        {footerItems.map((item) => (
-          <MobileMenuItem key={item.href} {...item} />
-        ))}
-      </div>
-      <LocaleSwitcher />
-      <div className="flex w-full flex-shrink items-center justify-center">
-        <Link href="/saved">
-          <div className="flex h-header w-header items-center justify-center rounded-md bg-highlight pt-[3px] text-lg font-bold text-black">
-            {numberSaved}
+      <div
+        className={cx(
+          'flex h-full flex-col justify-between transition-opacity',
+          showContent ? 'opacity-100' : 'opacity-0',
+        )}
+      >
+        <SmoothButton onClick={onDismiss} color="primary" top>
+          <div className="rotate-45 text-[30px] text-secondary">+</div>
+        </SmoothButton>
+        <div className="flex-grow-2">
+          {headerItems.map((item) => (
+            <MobileMenuItem key={item.href} {...item} isTop />
+          ))}
+        </div>
+        <div className="flex-grow-2">
+          {footerItems.map((item) => (
+            <MobileMenuItem key={item.href} {...item} />
+          ))}
+        </div>
+        <LocaleSwitcher />
+        <div className="flex w-full flex-shrink items-center justify-center">
+          <Link href="/saved">
+            <div className="flex h-header w-header items-center justify-center rounded-md bg-highlight pt-[3px] text-lg font-bold text-black">
+              {numberSaved}
+            </div>
+          </Link>
+        </div>
+        <div className="flex w-full justify-center">
+          <div className="h-header w-header rounded-t-md border-border border-primary">
+            <ColorSchemeSwitcher />
           </div>
-        </Link>
-      </div>
-      <div className="flex w-full justify-center">
-        <div className="h-header w-header rounded-t-md border-border border-primary">
-          <ColorSchemeSwitcher />
         </div>
       </div>
     </dialog>
