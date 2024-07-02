@@ -6,11 +6,11 @@ import { ReactSVG } from 'react-svg';
 export default function Rooms({ location }: any) {
   const router = useRouter();
   const handleSelectRoom = useCallback(
-    (e: MouseEvent<HTMLWrapperType, MouseEvent>) => {
+    (e: MouseEvent) => {
       let room = location.rooms.find((r) => r.name == e?.target?.dataset?.name);
       router.push(`/locations/${room?.id}`, { scroll: false });
     },
-    [location.rooms],
+    [location.rooms, router],
   );
   return (
     location.level && (

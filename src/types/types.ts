@@ -74,9 +74,17 @@ export type LocationItem = {
   id: string;
   name: string;
   image: string;
+  template: string;
   room: RestApiContext | null;
   level: RestApiContext | null;
   levels: ContextTree[];
   margin: string;
   rooms: ContextTree[] | null;
+};
+
+export type LocationSummary = RestApiContext & {
+  building: RestApiContext;
+  image: string;
+  level: string;
+  room: string;
 };

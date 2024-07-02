@@ -15,7 +15,7 @@ export default function FilterBar() {
         <FilterTag
           key={`selected-filter-${item.id}`}
           filter={item}
-          isSelected
+          withBorder
         />
       ))}
     </FilterBarContainer>

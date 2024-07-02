@@ -11,7 +11,7 @@ export default function InfoContentAbout() {
       <ResponsiveH1 className="mb-gutter-xs text-grey md:hidden" textSize="xs">
         {t('about')}
       </ResponsiveH1>
-      <ResponsiveMultiLineText text={infoAbout.en} textSize="m" />
+      <ResponsiveMultiLineText text={t.raw('abouttext')} textSize="m" />
       <ResponsiveH1
         className="mt-auto pb-gutter-xs pt-gutter-lg text-grey md:hidden"
         textSize="xs"

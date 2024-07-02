@@ -37,7 +37,7 @@ export default function SaveButton({ itemId }: any) {
     >
       <Cross
         className={cx(
-          'absolute top-0 z-50 h-content-header w-content-header p-gutter-sm transition-transform ease-in',
+          'absolute top-0 z-40 h-content-header w-content-header p-gutter-sm transition-transform ease-in',
           isSaved ? 'rotate-45' : 'rotate-0',
         )}
       />

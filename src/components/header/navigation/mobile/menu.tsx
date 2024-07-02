@@ -1,10 +1,16 @@
-import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
 import ColorSchemeSwitcher from '../colorSchemeSwitcher';
 import SmoothButton from '@/components/smoothButton';
+import { useStore } from 'zustand';
+import { useUIStore } from '@/lib/uiStore';
+import LocaleSwitcher from './localeSwitcher';
+import { useIsActive } from '@/lib/useLinkActive';
 
-export type MenuMobileProps = {};
+export type MenuMobileProps = {
+  menuOpen: boolean;
+  toggleMenuOpen: () => void;
+};
 export type MobileMenuItemProps = {
   title: string | number;
   href: any;
@@ -12,65 +18,71 @@ export type MobileMenuItemProps = {
   active?: boolean;
 };
 
-const mobileMenuItems = [
-  { title: 'Program', href: '/program', isTop: true, active: false },
-  { title: 'Locations', href: '/locations', isTop: true, active: false },
-  { title: 'Timeline', href: '/timeline', isTop: true, active: false },
-  { title: 'Contact', href: '/contact', isTop: false, active: false },
-  { title: 'Imprint', href: '/imprint', isTop: false, active: false },
-  { title: 'Design', href: '/design', isTop: false, active: false },
+const headerItems = [
+  { title: 'Program', href: '/program' },
+  { title: 'Locations', href: '/locations' },
+  { title: 'Timeline', href: '/timeline' },
+];
+const footerItems = [
+  { title: 'Contact', href: '/contact' },
+  { title: 'Imprint', href: '/imprint' },
+  { title: 'Design', href: '/design' },
 ];
 
-export default function HeaderNavigationMobileMenu({}: MenuMobileProps) {
-  const setMenuOpen = useAppStore((state) => state.setMenuOpen);
-  const menuOpen = useAppStore((state) => state.menuOpen);
-  const numberSaved = useAppStore((state) => state.savedItems.length);
+export default function HeaderNavigationMobileMenu({
+  menuOpen,
+  toggleMenuOpen,
+}: MenuMobileProps) {
+  const numberSaved = useStore(useUIStore, (state) => state.savedItems.length);
   return (
-    <div
+    <dialog
+      open={menuOpen}
       className={cx(
-        'fixed left-0 top-[40px] h-screen w-full content-around bg-secondary text-center text-primary',
-        menuOpen ? 'rounded-t-md border-b-0' : 'rounded-md',
+        'animate-showMenu fixed left-0 top-header flex h-content w-full flex-col justify-between rounded-md border-b-0 bg-secondary pt-header text-center text-primary',
       )}
+      onClick={toggleMenuOpen}
     >
-      <SmoothButton onClick={setMenuOpen} color="primary" top>
-        <div
-          className={cx(
-            'rotate-45 text-[30px] text-secondary transition-transform ease-in group-hover:text-secondary',
-          )}
-        >
-          +
-        </div>
+      <SmoothButton onClick={toggleMenuOpen} color="primary" top>
+        <div className={cx('rotate-45 text-[30px] text-secondary')}>+</div>
       </SmoothButton>
-      {mobileMenuItems.map((item) => (
-        <MobileMenuItem key={item.href} {...item} />
-      ))}
-      <MobileMenuItem
-        key="/saved"
-        title={`saved: ${numberSaved}`}
-        href="/saved"
-      />
-      <div className="m-auto my-gutter-sm h-10 w-10">
-        <ColorSchemeSwitcher />
+      <div className="flex-grow-2">
+        {headerItems.map((item) => (
+          <MobileMenuItem key={item.href} {...item} isTop />
+        ))}
       </div>
-    </div>
+      <div className="flex-grow-2">
+        {footerItems.map((item) => (
+          <MobileMenuItem key={item.href} {...item} />
+        ))}
+      </div>
+      <LocaleSwitcher />
+      <div className="flex w-full flex-shrink items-center justify-center">
+        <Link href="/saved">
+          <div className="flex h-header w-header items-center justify-center rounded-md bg-highlight pt-[3px] text-lg font-bold text-black">
+            {numberSaved}
+          </div>
+        </Link>
+      </div>
+      <div className="flex w-full justify-center">
+        <div className="h-header w-header rounded-t-md border-border border-primary">
+          <ColorSchemeSwitcher />
+        </div>
+      </div>
+    </dialog>
   );
 }
 
-function MobileMenuItem({
-  title,
-  href,
-  isTop = true,
-  active = false,
-}: MobileMenuItemProps) {
+function MobileMenuItem({ title, href, isTop = false }: MobileMenuItemProps) {
+  const isActive = useIsActive(href);
   return (
     <Link href={href}>
       <div
         className={cx(
           'w-full py-gutter-sm',
-          isTop ? 'text-md' : 'text-default',
+          isTop ? 'text-lg font-bold' : 'text-md',
         )}
       >
-        {active ? '>' : ''}
+        {isActive ? '>' : ''}
         {title}
       </div>
     </Link>

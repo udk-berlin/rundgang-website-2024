@@ -21,9 +21,9 @@ const config: Config = {
       primary: 'rgb(var(--primary))',
       secondary: 'rgb(var(--secondary))',
       highlight: '#00ffa1',
-      grey: '#888888',
-      black: '#000',
-      white: '#fff',
+      grey: '#888888ff',
+      black: '#000000ff',
+      white: '#ffffffff',
     },
     fontSize: {
       xl: [
@@ -33,11 +33,18 @@ const config: Config = {
           lineHeight: '1',
         },
       ],
+      l: [
+        '45px',
+        {
+          letterSpacing: '1',
+          lineHeight: '1',
+        },
+      ],
       lg: [
         '30px',
         {
           letterSpacing: '1',
-          lineHeight: '1.33',
+          lineHeight: '1',
         },
       ],
       md: [
@@ -96,6 +103,7 @@ const config: Config = {
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
         place: 'calc(50dvh - var(--height-header) - var(--height-footer))',
+        tag: 'var(--height-tag)',
       },
       height: {
         sm: '35px',
@@ -109,6 +117,7 @@ const config: Config = {
         gridcell: 'var(--height-gridcell)',
         timeline:
           'calc(100dvh - var(--height-header) - var(--height-footer) - 2 * var(--height-gridcell))',
+        tag: 'var(--height-tag)',
       },
       maxHeight: {
         header: 'var(--height-header)',
@@ -126,6 +135,7 @@ const config: Config = {
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
         timeline: '6000px',
+        tag: 'var(--height-tag)',
       },
       top: {
         header: 'var(--height-header)',
@@ -166,6 +176,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'header-info': 'minmax(100px, 1fr) 50px 50px 50px',
+        'landing-writing-info': '2fr 1fr',
       },
       fontFamily: {
         jungka: ['var(--font-jungka)', 'var(--font-noto)', 'sans-serif'],
@@ -174,8 +185,9 @@ const config: Config = {
       animation: {
         bounceLeft: `bounceLeft 1s infinite`,
         bounceRight: `bounceRight 1s infinite`,
-        showModal: `showModal 1s ease normal`,
-        hideModal: `hideModal 1s ease normal`,
+        showModal: `showModal 1s linear normal`,
+        hideModal: `hideModal 1s linear normal`,
+        showMenu: `showMenu 1s linear normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -209,14 +221,31 @@ const config: Config = {
         showModal: {
           from: {
             transform: 'translateY(200%)',
+            borderTop: '2px solid white',
           },
           to: {
             transform: 'translateY(0%)',
+            borderTop: '0px solid white',
           },
         },
         hideModal: {
+          from: {
+            transform: 'translateY(0%)',
+            borderTop: '2px solid white',
+          },
           to: {
-            transform: 'translateY(100%)',
+            transform: 'translateY(200%)',
+            borderTop: '0px solid white',
+          },
+        },
+        showMenu: {
+          from: {
+            transform: 'translateY(-200%)',
+            borderTop: '2px solid white',
+          },
+          to: {
+            transform: 'translateY(0%)',
+            borderTop: '0px solid white',
           },
         },
       },

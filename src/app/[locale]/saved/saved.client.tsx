@@ -30,7 +30,7 @@ export default function Saved({ items }: SavedProps) {
 
 function SavedContainer({ children }: ReactNodeProps) {
   return (
-    <div className="-ml-xs z-50 h-content max-h-content min-h-content overflow-y-scroll bg-primary">
+    <div className="-ml-xs h-content max-h-content min-h-content overflow-y-scroll bg-primary">
       <SavedHeader />
       <div className="grid max-h-fit min-h-content w-full columns-5 items-start justify-start gap-border bg-primary px-border md:grid-cols-4">
         {children}

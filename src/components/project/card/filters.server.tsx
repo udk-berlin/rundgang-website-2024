@@ -33,10 +33,7 @@ export default function ProjectCardFilters({ item }: ProjectCardProps) {
             </div>
             <div className="wrap flex gap-gutter-sm">
               {filters.map((filter) => (
-                <FilterTag
-                  key={`item-tag-${item.id}-${filter.id}`}
-                  filter={filter}
-                />
+                <FilterTag key={filter.id} filter={filter} withBorder />
               ))}
             </div>
           </div>
