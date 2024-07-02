@@ -5,11 +5,14 @@ import { getTranslations } from 'next-intl/server';
 import ProgramFilters from '@/app/program/components/filters/filters';
 
 export type ProgramPageProps = {
+  params: { locale: string };
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('Program');
+export async function generateMetadata({
+  params: { locale },
+}: ProgramPageProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Program' });
   return {
     title: t('title'),
     description: t('description'),

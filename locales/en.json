@@ -57,7 +57,7 @@
         "title": "UdK Rundgang 2024",
         "studentproject": "Project",
         "event": "Event",
-        "meta_description": "{template, select, studentproject {Project: {name}} event {Event: {name}} other {{name}}}"
+        "meta_description": "{template, select, studentproject {Project at the UdK Rundgang 2024 - Authors: {name}} event {Event at the UdK Rundgang 2024 - Authors: {name}} other {Authors: {name}}}"
     },
     "format": "{count, plural, =1 {Format} other {Formats}}",
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",

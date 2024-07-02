@@ -5,17 +5,15 @@ import { getById } from '@/api/rest/api';
 import { getTranslations } from 'next-intl/server';
 
 export type ProjectsPageProps = {
-  params: { id: string };
+  params: { id: string; locale: 'en' | 'de' };
 };
 
 export async function generateMetadata({
-  params,
+  params: { id, locale },
 }: ProjectsPageProps): Promise<Metadata> {
   // read route params
-  console.log(params);
-
-  const item = await getById(decodeURIComponent(params.id));
-  const t = await getTranslations('Project');
+  const item = await getById(decodeURIComponent(id));
+  const t = await getTranslations({ locale, namespace: 'Project' });
 
   return {
     title: item.name,
