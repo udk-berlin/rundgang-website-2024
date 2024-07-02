@@ -1,4 +1,3 @@
-import { useAppStore } from '@/lib/useAppContext';
 import cx from 'classnames';
 import { Link } from '@/navigation';
 import ColorSchemeSwitcher from '../colorSchemeSwitcher';
