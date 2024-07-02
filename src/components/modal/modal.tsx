@@ -17,6 +17,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const dialogRef = useRef<ElementRef<'dialog'>>(null);
   const path = usePathname();
+  const isActive = ['/imprint', '/contact'].includes(path);
   const margin = path == '/imprint' ? '' : 'm-0';
   const [isClosed, setIsClosed] = useState(false);
   const animation = isClosed ? 'animate-hideModal' : 'animate-showModal';
@@ -29,28 +30,35 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   const onDismiss = useCallback(() => {
     setIsClosed(true);
-    setTimeout(() => router.back(), 1000);
+    setTimeout(() => router.back(), 800);
   }, [router]);
 
-  return createPortal(
-    <div className="fixed bottom-footer left-0 z-50 h-content w-full backdrop-blur-sm">
-      <dialog
-        ref={dialogRef}
-        className={cx(
-          'fixed bottom-0 left-0 z-50 overflow-y-scroll overscroll-contain rounded-md border-x-border border-primary sm:w-1/3',
-          margin,
-          animation,
-        )}
-        onClose={onDismiss}
+  return (
+    isActive &&
+    createPortal(
+      <div
+        className="fixed bottom-footer left-0 z-50 h-content w-full backdrop-blur-sm"
+        onClick={onDismiss}
       >
-        <div className="absolute right-0 top-0 p-8 text-primary">
-          <SmoothButton onClick={onDismiss} top>
-            <Cross className="w-gridcell h-gridcell rotate-45 p-2" />
-          </SmoothButton>
-        </div>
-        {children}
-      </dialog>
-    </div>,
-    document.getElementById('modal-root')!,
+        <dialog
+          ref={dialogRef}
+          className={cx(
+            'fixed bottom-0 left-0 z-50 overflow-y-scroll overscroll-contain rounded-md border-x-border border-primary sm:w-1/3',
+            margin,
+            animation,
+          )}
+          onClose={onDismiss}
+        >
+          <div className="absolute right-0 top-0 p-8 text-primary">
+            <SmoothButton onClick={onDismiss} top>
+              <Cross className="w-gridcell h-gridcell rotate-45 p-2" />
+            </SmoothButton>
+          </div>
+          {children}
+        </dialog>
+      </div>,
+      document.getElementById('modal-root')!,
+      path,
+    )
   );
 }

@@ -3,6 +3,8 @@
 import cx from 'classnames';
 import { Link, usePathname } from '@/navigation';
 import { useIsActive } from '@/lib/useLinkActive';
+import { useCallback } from 'react';
+import { createPortal } from 'react-dom';
 
 export type NavigationLinkProps = {
   href: any;
