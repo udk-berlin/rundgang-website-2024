@@ -48,8 +48,8 @@
             "title": "Projektbeschreibung",
             "text": "Mit einer nahbaren, vielsprachigen und multisensorischen Medienkommunikation werden wir am Rundgang 2024 die Türen zur UdK Berlin weiter öffnen. Dazu gestalteten wir den konzeptionellen Rahmen, welchen Studierende verschiedener Fakultäten und sprachlicher Hintergründe mit Übersetzungen des Wortes “Rundgang” in nicht-lateinische Schriftsysteme füllen. In diesem kollaborativen Prozess geben wir der Vielsprachigkeit der Studierenden eine laute Stimme und laden eine ebenso vielfältige Stadt zum Rundgang 2024 ein."
         },
-        "mute_all": "Alle stummschalten",
-        "unmute_all": "Alle wiedergeben"
+        "muteAll": "Alle stummschalten",
+        "unmuteAll": "Alle wiedergeben"
     },
     "Project": {
         "title": "UdK Rundgang 2024",

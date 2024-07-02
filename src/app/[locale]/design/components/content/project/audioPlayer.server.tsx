@@ -8,8 +8,8 @@ export default function DesignContentProjectAudioPlayer({
     <DesignContentProjectAudioContainer>
       <AudioPlayer
         src={`/assets/projects/${languageSearchParam}/audio.mp3`}
-        width={30}
-        height={30}
+        width={25}
+        height={25}
       />
     </DesignContentProjectAudioContainer>
   );

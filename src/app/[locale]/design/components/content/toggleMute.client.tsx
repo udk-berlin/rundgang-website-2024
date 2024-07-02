@@ -12,16 +12,20 @@ export default function ToggleMute() {
   return (
     <div className="my-auto flex h-header w-1/2">
       <MuteButton handleClick={() => toggleMute('mute')}>
-        <span>{t('mute_all')}</span>
-        <span>
-          <Mute width={30} height={30} />
-        </span>
+        <div className="flex h-full items-end px-gutter-md py-gutter-xs text-xxs text-grey">
+          {t('muteAll')}
+        </div>
+        <div className="flex h-full items-center px-gutter-md">
+          <Mute width={25} height={25} />
+        </div>
       </MuteButton>
       <MuteButton handleClick={() => toggleMute('unmute')}>
-        <span>{t('unmute_all')}</span>
-        <span>
-          <Unmute width={30} height={30} />
-        </span>
+        <div className="flex h-full items-end px-gutter-md py-gutter-xs text-xxs text-grey">
+          {t('unmuteAll')}
+        </div>
+        <div className="flex h-full items-center px-gutter-md">
+          <Unmute width={25} height={25} />
+        </div>
       </MuteButton>
     </div>
   );
@@ -30,7 +34,7 @@ export default function ToggleMute() {
 export function MuteButton({ handleClick, children }) {
   return (
     <button
-      className="border-xs flex h-full w-full items-center justify-around rounded-md border-t-0 border-primary bg-secondary hover:bg-highlight hover:fill-black hover:text-black"
+      className="border-xs flex h-full w-full justify-between rounded-border border-t-0 border-primary bg-secondary hover:bg-highlight hover:fill-black"
       onClick={handleClick}
     >
       {children}
