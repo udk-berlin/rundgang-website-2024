@@ -2,7 +2,7 @@
 'use client';
 
 import { MouseEvent, useCallback, useRef, useState } from 'react';
-import { ItemContent } from '@/types/item';
+import { ItemContentElement } from '@/types/item';
 
 const padTime = (i: number) => (i < 10 ? `0${i}` : `${i}`);
 
@@ -16,7 +16,7 @@ export const minsToHHMMSS = (secs: number) => {
   return `${padTime(hours)}:${padTime(minutes)}:${padTime(seconds)}`;
 };
 
-const AudioPlayer = ({ item }: { item: ItemContent }) => {
+const AudioPlayer = ({ item }: { item: ItemContentElement }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);

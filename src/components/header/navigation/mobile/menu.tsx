@@ -38,9 +38,9 @@ export default function HeaderNavigationMobileMenu({
     <dialog
       open={menuOpen}
       className={cx(
-        'fixed left-0 top-header flex h-content w-full flex-col justify-between rounded-md border-b-0 bg-secondary pt-header text-center text-primary',
+        'animate-showMenu fixed left-0 top-header flex h-content w-full flex-col justify-between rounded-md border-b-0 bg-secondary pt-header text-center text-primary',
       )}
-      onClickCapture={toggleMenuOpen}
+      onClick={toggleMenuOpen}
     >
       <SmoothButton onClick={toggleMenuOpen} color="primary" top>
         <div className={cx('rotate-45 text-[30px] text-secondary')}>+</div>

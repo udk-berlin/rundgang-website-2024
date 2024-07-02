@@ -95,17 +95,16 @@ export const getFilteredGraphQLItems = cache(
   },
 );
 
-export const getFilteredGraphQLLocationItems = cache(
-  async (
-    searchParams: { [key: string]: string | undefined },
-    place: string,
-  ) => {
-    const locationItems = await getLocationItems(place);
-    return getGraphQLItems()
-      .then((items) => items.filter((item) => locationItems.includes(item.id)))
-      .then((items) => filterItemsBySearchParams(items, searchParams));
-  },
-);
+export const getFilteredGraphQLLocationItems = cache(async (place: string) => {
+  const locationItems = await getLocationItems(place);
+  const allItems = await getGraphQLItems();
+  console.log(
+    allItems.map((i) => i.id),
+    locationItems,
+  );
+
+  return allItems.filter((item) => locationItems.includes(item.id));
+});
 
 function filterItemsBySearchParams(
   items: Item[],

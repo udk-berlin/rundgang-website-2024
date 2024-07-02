@@ -84,7 +84,7 @@ body {
 
 * {
   scrollbar-color: rgb(var(--primary)) rgb(var(--secondary));
-  scrollbar-width: thin;
+  scrollbar-width: none;
   scroll-margin: 0;
   scroll-padding: 0;
 }

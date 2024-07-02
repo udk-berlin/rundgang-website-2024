@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const revalidate = 100;
+export const revalidate = 0;
 
 export default async function Page({ searchParams }: ProgramPageProps) {
   const items = await getFilteredGraphQLItems(searchParams);

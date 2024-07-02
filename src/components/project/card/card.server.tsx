@@ -1,9 +1,9 @@
 import { Item } from '@/types/item';
-import ProjectCardImage from '@/components/project/image.server';
-import ProjectCardAuthors from '@/components/project/authors.server';
-import ProjectCardName from '@/components/project/name.server';
-import ProjectCardFilters from '@/components/project/filters/filters.server';
-import ProjectCardContainer from '@/components/project/container.client';
+import ProjectCardAuthors from '@/components/project/card/authors.server';
+import ProjectCardName from '@/components/project/card/name.server';
+import ProjectCardContainer from '@/components/project/card/container.client';
+import ProjectCardFilters from '@/components/project/card/filters.server';
+import ProjectCardImage from '@/components/project/card/image.server';
 
 export type ProjectCardProps = {
   item: Item;

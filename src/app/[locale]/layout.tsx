@@ -28,6 +28,14 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
+    metadataBase: new URL('https://localhost:3000'),
+    alternates: {
+      canonical: '/',
+      languages: {
+        en: '/en',
+        de: '/de',
+      },
+    },
   };
 }
 
@@ -49,8 +57,8 @@ export default async function RootLayout({
             <Header />
             {children}
             {modal}
-            <div id="modal-root" />
             <Footer />
+            <div id="modal-root" />
           </AppStoreProvider>
         </NextIntlClientProvider>
       </body>

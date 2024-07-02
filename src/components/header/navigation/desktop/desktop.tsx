@@ -12,9 +12,7 @@ export default function HeaderNavigationDesktop() {
   return (
     <NavigationDesktopContainer>
       <NavigationLink href="/" isFirst noContentAround>
-        <div className="h-[calc(var(--height-header)-4px)]">
-          <RundgangLogo />
-        </div>
+        <RundgangLogo />
       </NavigationLink>
       <NavigationLink href="/program">{t('program')}</NavigationLink>
       <NavigationLink href="/locations">{t('locations')}</NavigationLink>

@@ -23,17 +23,16 @@ export default function NavigationLink({
   const pathname = usePathname();
   const isActive = useIsActive(href);
   const activeStyle = isFooter
-    ? 'rounded-b-border mt-0'
-    : 'sm:rounded-t-border sm:-mb-xs';
+    ? 'rounded-b-md border-t-secondary '
+    : 'rounded-t-md border-b-secondary';
 
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
       scroll={true}
       className={cx(
-        'm-xs border-0 bg-secondary hover:bg-highlight hover:text-primary',
-        isFooter ? 'my-border' : 'my-border',
-        isActive ? activeStyle : 'rounded-border',
+        'border-x-xs border-y-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
+        isActive ? activeStyle : 'rounded-md',
         isFirst && 'ml-border',
         isLast && 'mr-border',
       )}
@@ -43,7 +42,9 @@ export default function NavigationLink({
       }
       href={href}
     >
-      <div className="h-full content-around text-center">{children}</div>
+      <div className="flex h-full items-center justify-center text-center">
+        {children}
+      </div>
     </Link>
   );
 }

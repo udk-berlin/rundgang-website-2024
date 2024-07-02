@@ -4,7 +4,7 @@ import { useRouter } from '@/navigation';
 import { useCallback } from 'react';
 import Cross from '@/components/icons/cross';
 
-export default function CloseButton() {
+export default function ProjectDetailImageCloseButton() {
   const router = useRouter();
 
   const onCloseProject = useCallback(() => {
@@ -14,7 +14,7 @@ export default function CloseButton() {
   return (
     <SmoothButton onClick={onCloseProject} color="primary" top>
       <Cross
-        className="absolute top-0 z-50 h-content-header w-content-header rotate-45 p-gutter-sm"
+        className="absolute top-0 z-40 h-content-header w-content-header rotate-45 p-gutter-sm"
         color="secondary"
       />
     </SmoothButton>
