@@ -22,12 +22,12 @@ export default function EventContainer({
   }, [isOpen]);
 
   return (
-    <div className="relative flex  w-timeline flex-wrap justify-start">
-      <div className="bg-primary">
-        <div
-          className="sticky left-0 top-0 z-20 mx-xs flex h-gridcell w-screen cursor-pointer items-center justify-start rounded-md border-x-border border-b-border border-primary bg-secondary text-lg hover:font-bold"
-          onClick={handleClick}
-        >
+    <div className="relative flex w-timeline flex-wrap justify-start rounded-md ring-2 ring-inset ring-primary">
+      <button
+        className="sticky left-0 right-0 top-0 z-20 -my-xs h-gridcell w-max overflow-x-visible rounded-md bg-primary"
+        onClick={handleClick}
+      >
+        <div className="flex h-full w-lvw items-center justify-start rounded-md bg-secondary pl-2 text-lg ring-2 ring-inset ring-primary hover:font-bold">
           {location.name}
           <div
             className={cx(
@@ -38,7 +38,7 @@ export default function EventContainer({
             <ArrowRight />
           </div>
         </div>
-      </div>
+      </button>
       {isOpen && <Suspense fallback={''}>{children}</Suspense>}
     </div>
   );

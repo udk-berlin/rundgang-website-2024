@@ -33,6 +33,7 @@
     "Saved": {
         "title": "Saved Projects",
         "saved_items": "Saved Projects",
+        "description": "Projects or events can be saved here.",
         "remove": "remove",
         "save": "save",
         "remove_all": "Remove All"
@@ -56,7 +57,7 @@
         "title": "UdK Rundgang 2024",
         "studentproject": "Project",
         "event": "Event",
-        "meta_description": "{type}: {name}"
+        "meta_description": "{template, select, studentproject {Project: {name}} event {Event: {name}} other {{name}}}"
     },
     "format": "{count, plural, =1 {Format} other {Formats}}",
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",

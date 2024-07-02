@@ -1,6 +1,15 @@
 import Saved from './saved.client';
 import { getGraphQLItems } from '@/api/graphql/items';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('Saved');
+  return {
+    title: t('title'),
+    description: t('description'),
+  };
+}
 export type SavedPageProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };

@@ -31,7 +31,7 @@ export default function NavigationLink({
       aria-current={isActive ? 'page' : undefined}
       scroll={true}
       className={cx(
-        'border-x-xs border-y-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
+        'border-x-xs border-y-border border-primary bg-secondary hover:border-b-white hover:bg-highlight hover:text-black',
         isActive ? activeStyle : 'rounded-md',
         isFirst && 'ml-xs',
         isLast && 'mr-xs',
