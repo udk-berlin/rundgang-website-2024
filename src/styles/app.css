@@ -21,6 +21,7 @@
   );
   --height-footer: 50px;
   --height-modal: calc(100dvh - var(--height-header));
+  --height-tag: 30px;
 }
 
 @media (prefers-color-scheme: dark) {

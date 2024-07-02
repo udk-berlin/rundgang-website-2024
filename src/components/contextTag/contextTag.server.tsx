@@ -1,4 +1,3 @@
-'use server';
 import { ItemContext } from '@/types/item';
 import { useTranslations } from 'next-intl';
 
@@ -6,7 +5,7 @@ export type ContextTagProps = {
   context: ItemContext;
 };
 
-export default async function ContextTag({ context }: ContextTagProps) {
+export default function ContextTag({ context }: ContextTagProps) {
   const t = useTranslations();
   let nameDescription;
 
@@ -18,7 +17,7 @@ export default async function ContextTag({ context }: ContextTagProps) {
 
   return (
     <div className="w-fit max-w-full">
-      <div className="relative w-fit max-w-full truncate rounded-md border-white bg-secondary px-[13px] py-[8px] text-xxs text-primary ring-2 ring-primary">
+      <div className="h-tag flex w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight">
         {nameDescription ? `${nameDescription}: ` : ''} {context.name}
       </div>
     </div>
