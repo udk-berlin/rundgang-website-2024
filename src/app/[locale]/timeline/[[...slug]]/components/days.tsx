@@ -52,7 +52,7 @@ export default function Days() {
   };
 
   return (
-    <div ref={scrollRef} className="sticky left-0 top-0 z-40 h-gridcell pb-10">
+    <div ref={scrollRef} className="sticky left-0 top-0 z-30 h-gridcell pb-10">
       <div className="flex w-full justify-stretch bg-primary px-xs">
         {Object.entries(DAYS).map(([name, date]) => (
           <Day
@@ -83,7 +83,7 @@ function Day({
     <button
       className={cx(
         'h-gridcell grow rounded-md border-border border-x-xs border-t-0 border-primary px-4 hover:bg-highlight hover:text-black',
-        isSelected ? 'bg-highlight text-secondary' : 'bg-secondary',
+        isSelected ? 'bg-highlight text-black' : 'bg-secondary',
       )}
       onClick={() => scrollToDate(date)}
     >

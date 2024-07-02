@@ -21,9 +21,9 @@ const config: Config = {
       primary: 'rgb(var(--primary))',
       secondary: 'rgb(var(--secondary))',
       highlight: '#00ffa1',
-      grey: '#888888',
-      black: '#000',
-      white: '#fff',
+      grey: '#888888ff',
+      black: '#000000ff',
+      white: '#ffffffff',
     },
     fontSize: {
       xl: [
@@ -174,8 +174,9 @@ const config: Config = {
       animation: {
         bounceLeft: `bounceLeft 1s infinite`,
         bounceRight: `bounceRight 1s infinite`,
-        showModal: `showModal 1s ease normal`,
-        hideModal: `hideModal 1s ease normal`,
+        showModal: `showModal 1s linear normal`,
+        hideModal: `hideModal 1s linear normal`,
+        showMenu: `showMenu 1s linear normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -209,14 +210,31 @@ const config: Config = {
         showModal: {
           from: {
             transform: 'translateY(200%)',
+            borderTop: '2px solid white',
           },
           to: {
             transform: 'translateY(0%)',
+            borderTop: '0px solid white',
           },
         },
         hideModal: {
+          from: {
+            transform: 'translateY(0%)',
+            borderTop: '2px solid white',
+          },
           to: {
-            transform: 'translateY(100%)',
+            transform: 'translateY(200%)',
+            borderTop: '0px solid white',
+          },
+        },
+        showMenu: {
+          from: {
+            transform: 'translateY(-200%)',
+            borderTop: '2px solid white',
+          },
+          to: {
+            transform: 'translateY(0%)',
+            borderTop: '0px solid white',
           },
         },
       },

@@ -11,7 +11,7 @@ export type ProgramPageProps = {
 export const revalidate = 0;
 
 export default async function ProgramPage({ place }: ProgramPageProps) {
-  const items = await getFilteredGraphQLLocationItems({}, place);
+  const items = await getFilteredGraphQLLocationItems(place);
 
   return (
     items && (
@@ -33,7 +33,7 @@ export type ProgramProps = {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <div className="z-50 -ml-xs h-content max-h-content min-h-content bg-primary md:col-span-2 md:overflow-y-scroll">
+    <div className="z-40 -ml-xs h-content max-h-content min-h-content bg-primary md:col-span-2 md:overflow-y-scroll">
       <div className="col-span-1 grid max-h-fit min-h-content w-full columns-1 items-start justify-start gap-border bg-primary px-border md:grid-cols-2">
         {children}
       </div>

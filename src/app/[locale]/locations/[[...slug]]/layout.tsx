@@ -3,5 +3,9 @@ export default function LocationsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="h-full w-full bg-primary">{children}</div>;
+  return (
+    <main className="relative flex h-content max-h-content min-h-content flex-col overflow-x-hidden overflow-y-visible">
+      {children}
+    </main>
+  );
 }

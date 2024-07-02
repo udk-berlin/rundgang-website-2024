@@ -12,7 +12,7 @@ export const useIsActive = (href: string) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    setIsActive(pathname === href || selPathname == href);
+    setIsActive(pathname === href);
   }, [pathname, selPathname, href]);
 
   return isActive;

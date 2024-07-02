@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useMemo, useEffect, useState, RefObject } from 'react';
-import { useMap } from 'react-map-gl/maplibre';
+import { ViewStateChangeEvent, useMap } from 'react-map-gl/maplibre';
 import { Context } from '@/types/graphql';
-import { MapLayerMouseEvent, MapLibreZoomEvent } from 'maplibre-gl';
+import { MapLayerMouseEvent } from 'maplibre-gl';
 import { useDebounce } from '@/lib/useDebounce';
 import { useRouter } from '@/navigation';
 import { bbox } from '@turf/bbox';
@@ -55,23 +55,22 @@ const useMapFunctions = (
   }, [locations, debouncedZoom, rundgangMap]);
 
   const focusMap = useCallback(
-    (targetBoundingBox: GeoJSON.Feature<GeoJSON.Point, Building>) => {
+    (targetBoundingBox: GeoJSON.Feature<GeoJSON.Point, Building> | null) => {
       if (rundgangMap) {
         let padding = {
-          right: 0,
+          right: size?.width <= MOBILE_WIDTH ? 0 : 1,
           top: 0,
           left: 0,
           bottom: 0,
         };
-        let maxZoom = size?.width > MOBILE_WIDTH ? 11.4 : 9.1;
+        let maxZoom = size?.width > MOBILE_WIDTH ? 11.5 : 9.2;
         let coords = bbox({
           type: 'Point',
           coordinates: [13.45, 52.5],
         });
 
         if (targetBoundingBox) {
-          padding.right =
-            size?.width <= MOBILE_WIDTH ? 0 : padding.right * size.width * 0.4;
+          padding.right = padding.right * size.width * 0.4;
           padding.left = 0;
           padding.bottom = size?.width <= MOBILE_WIDTH ? 0 : 400;
           padding.top = 0;
@@ -92,6 +91,12 @@ const useMapFunctions = (
     focusMap(boundingBoxFeature);
     if (!boundingBoxFeature) {
       setHovered(null);
+    }
+  }, [boundingBoxFeature, size?.width, rundgangMap]);
+
+  const onLoad = useCallback(() => {
+    if (rundgangMap) {
+      focusMap(boundingBoxFeature);
     }
   }, [boundingBoxFeature, size?.width, rundgangMap]);
 
@@ -122,7 +127,7 @@ const useMapFunctions = (
   );
 
   const onClick = useCallback(
-    (e) => {
+    (e: MapLayerMouseEvent) => {
       const feature = e?.features?.[0];
       if (feature) {
         if (!feature.properties.cluster) {
@@ -163,7 +168,7 @@ const useMapFunctions = (
     [rundgangMap],
   );
 
-  const onZoom = (e: MapLibreZoomEvent & { viewState: { zoom: number } }) => {
+  const onZoom = (e: ViewStateChangeEvent) => {
     setZoom(e.viewState.zoom);
   };
 
@@ -173,7 +178,7 @@ const useMapFunctions = (
     onMouseLeave,
     onClick,
     onZoom,
-    focusMap,
+    onLoad,
   };
 };
 

@@ -46,7 +46,7 @@ export default function JumpToTop() {
   return (
     <button
       ref={scrollRef}
-      className="fixed bottom-[calc(var(--height-footer)+12px)] right-[20px] z-50 fill-secondary hover:fill-highlight"
+      className="fixed bottom-[calc(var(--height-footer)+12px)] right-[20px] z-40 fill-secondary hover:fill-highlight"
       onClick={() => handleClick()}
     >
       {isScrolled && (

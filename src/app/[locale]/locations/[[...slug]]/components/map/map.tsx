@@ -33,11 +33,11 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
 
   const size = useWindowSize();
 
-  const { markers, onClick, onMouseMove, onMouseLeave, onZoom } =
+  const { markers, onClick, onMouseMove, onMouseLeave, onZoom, onLoad } =
     useMapFunctions(selectedBuilding, buildings, size);
   return (
-    <div className="h-full w-full ">
-      <div className="pointer-events-auto z-0 h-[60dvh] w-full rounded-md px-border sm:fixed sm:top-header sm:h-content dark:invert">
+    <div className="w-screen">
+      <div className="pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-x-border border-b-xs sm:fixed sm:top-header sm:h-content dark:invert">
         <Map
           id="rundgangMap"
           reuseMaps
@@ -61,6 +61,7 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
           onMouseLeave={onMouseLeave}
           onZoom={onZoom}
           onClick={onClick}
+          onLoad={onLoad}
           attributionControl={false}
           renderWorldCopies={false}
           pitchWithRotate={false}

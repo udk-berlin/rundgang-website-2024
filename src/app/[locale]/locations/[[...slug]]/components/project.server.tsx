@@ -9,7 +9,7 @@ export default async function ProjectPage({ projectId }: ProjectPageProps) {
   const item = await getParsedItem(decodeURIComponent(projectId));
 
   return (
-    <div className="fixed left-0 top-header z-50 col-span-2 h-content overflow-y-scroll border-l-border sm:relative sm:top-0">
+    <div className="fixed left-0 top-header z-40 col-span-2 h-content max-h-content min-h-content w-full overflow-y-scroll border-l-border sm:relative sm:top-0">
       <SelectedProject item={item} />
     </div>
   );

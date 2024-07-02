@@ -22,19 +22,21 @@ export default function EventContainer({
   }, [isOpen]);
 
   return (
-    <div className="animate-height relative mb-border flex w-timeline flex-wrap justify-start">
-      <div
-        className="sticky left-0 top-0 z-30 mx-xs flex w-screen cursor-pointer rounded-md bg-secondary p-border text-lg ring-2 ring-primary hover:font-bold"
-        onClick={handleClick}
-      >
-        {location.name}
+    <div className="animate-height relative flex  w-timeline flex-wrap justify-start">
+      <div className="bg-primary">
         <div
-          className={cx(
-            'absolute right-2 h-8 w-8 fill-primary text-md font-bold transition-transform duration-500',
-            isOpen ? '-rotate-90' : 'rotate-90',
-          )}
+          className="sticky left-0 top-0 z-20 mx-xs flex h-gridcell w-screen cursor-pointer items-center justify-start rounded-md border-x-border border-b-border border-primary bg-secondary text-lg hover:font-bold"
+          onClick={handleClick}
         >
-          <ArrowRight />
+          {location.name}
+          <div
+            className={cx(
+              'w-gridcell absolute right-2 h-gridcell fill-primary p-2 text-md font-bold transition-transform duration-500',
+              isOpen ? '-rotate-90' : 'rotate-90',
+            )}
+          >
+            <ArrowRight />
+          </div>
         </div>
       </div>
       {isOpen && <Suspense fallback={''}>{children}</Suspense>}
