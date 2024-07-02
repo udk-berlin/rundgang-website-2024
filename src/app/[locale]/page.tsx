@@ -1,5 +1,8 @@
 import { unstable_setRequestLocale } from 'next-intl/server';
-import Landing, { LandingProps } from './(landing)/components/landing.server';
+import LandingDesktop, {
+  LandingProps,
+} from '@/app/(landing)/components/desktop/landing.server';
+import LandingMobile from '@/app/(landing)/components/mobile/landing.server';
 
 export type LandingPageProps = {
   params: { locale: string };
@@ -11,5 +14,11 @@ export default function LandingPage({
   searchParams,
 }: LandingPageProps) {
   unstable_setRequestLocale(locale);
-  return <Landing searchParams={searchParams} />;
+
+  return (
+    <>
+      <LandingDesktop searchParams={searchParams} />
+      <LandingMobile searchParams={searchParams} />
+    </>
+  );
 }

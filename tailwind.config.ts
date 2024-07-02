@@ -33,6 +33,13 @@ const config: Config = {
           lineHeight: '1',
         },
       ],
+      l: [
+        '45px',
+        {
+          letterSpacing: '1',
+          lineHeight: '1',
+        },
+      ],
       lg: [
         '30px',
         {
@@ -96,6 +103,7 @@ const config: Config = {
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
         place: 'calc(50dvh - var(--height-header) - var(--height-footer))',
+        tag: 'var(--height-tag)',
       },
       height: {
         sm: '35px',
@@ -109,6 +117,7 @@ const config: Config = {
         gridcell: 'var(--height-gridcell)',
         timeline:
           'calc(100dvh - var(--height-header) - var(--height-footer) - 2 * var(--height-gridcell))',
+        tag: 'var(--height-tag)',
       },
       maxHeight: {
         header: 'var(--height-header)',
@@ -126,6 +135,7 @@ const config: Config = {
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
         timeline: '6000px',
+        tag: 'var(--height-tag)',
       },
       top: {
         header: 'var(--height-header)',
@@ -165,6 +175,7 @@ const config: Config = {
       },
       gridTemplateColumns: {
         'header-info': 'minmax(100px, 1fr) 50px 50px 50px',
+        'landing-writing-info': '2fr 1fr',
       },
       fontFamily: {
         jungka: ['var(--font-jungka)', 'var(--font-noto)', 'sans-serif'],

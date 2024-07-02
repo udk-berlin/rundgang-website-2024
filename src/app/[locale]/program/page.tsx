@@ -1,6 +1,5 @@
 import { getFilteredGraphQLItems } from '@/api/graphql/items';
 import Program from '@/app/program/components/program.server';
-import ProgramContainer from '@/app/program/components/container.client';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import ProgramFilters from '@/app/program/components/filters/filters';

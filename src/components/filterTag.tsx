@@ -8,23 +8,25 @@ import { useSearchParams } from 'next/navigation';
 export type FilterTagProps = {
   filter: Filter;
   disabled?: boolean;
+  withBorder?: boolean;
 };
 
 export default function FilterTag({
   filter,
   disabled = false,
+  withBorder = false,
 }: FilterTagProps) {
   const searchParams = useSearchParams();
   const selectedId = searchParams.get(filter?.searchParam ?? '');
   const { changeParameter } = useQuery(filter.searchParam);
 
-  const handleClickFilter = useCallback(() => {
+  const onClick = useCallback(() => {
     changeParameter(filter?.id);
   }, [filter?.id, changeParameter]);
 
   return (
     <div
-      onClick={handleClickFilter}
+      onClick={onClick}
       className={cx(
         'w-fit max-w-full cursor-pointer',
         disabled && 'pointer-events-none',
@@ -32,11 +34,10 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'relative w-fit max-w-full truncate rounded-md border-white px-[13px] py-[8px] text-xxs ring-2 ring-primary',
-          selectedId == filter.id
-            ? 'bg-highlight text-black'
-            : 'bg-secondary text-primary hover:bg-highlight hover:text-black',
+          'h-tag flex w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight',
+          selectedId == filter.id && '!bg-highlight',
           disabled && 'pointer-events-none opacity-35',
+          withBorder && 'border-border',
         )}
       >
         {filter.name}
