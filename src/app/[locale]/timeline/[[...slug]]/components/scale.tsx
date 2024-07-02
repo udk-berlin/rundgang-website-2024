@@ -2,7 +2,7 @@ import { TIMES } from '@/api/constants';
 
 export default function TimeScale() {
   return (
-    <div className="sticky top-10 z-40 flex h-gridcell w-full px-border">
+    <div className="sticky top-10 z-40 flex h-gridcell w-timeline bg-primary px-border">
       {TIMES.map((tick) => (
         <TimeTick key={tick[0]} tick={tick} />
       ))}
@@ -13,7 +13,7 @@ export default function TimeScale() {
 function TimeTick({ tick }: { tick: (typeof TIMES)[number] }) {
   return (
     <div
-      className="pointer-events-none absolute top-0 flex h-gridcell w-[100px] items-center justify-center rounded-md border-x-xs border-b-border border-t-0 border-primary bg-secondary"
+      className="pointer-events-none absolute top-0 flex h-gridcell w-[100px] items-center justify-center rounded-md border-x-xs border-b-xs border-t-0 border-primary bg-secondary"
       key={`scale-hour-${tick[0]}-${tick[1]}`}
       style={{
         left: tick[0],

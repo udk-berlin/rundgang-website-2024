@@ -16,18 +16,22 @@ export default function EventContainer({
   children,
 }: EventContainerProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [close, setClose] = useState(false);
 
   const handleClick = useCallback(() => {
+    if (isOpen) {
+      setClose(true);
+    }
     setIsOpen(!isOpen);
   }, [isOpen]);
 
   return (
-    <div className="relative flex w-timeline flex-wrap justify-start rounded-md ring-2 ring-inset ring-primary">
+    <div className={cx('relative flex w-timeline flex-wrap justify-start')}>
       <button
-        className="sticky left-0 right-0 top-0 z-20 -my-xs h-gridcell w-max overflow-x-visible rounded-md bg-primary"
+        className="sticky left-0 right-0 top-0 z-20 h-full w-max overflow-x-visible bg-primary"
         onClick={handleClick}
       >
-        <div className="flex h-full w-lvw items-center justify-start rounded-md bg-secondary pl-2 text-lg ring-2 ring-inset ring-primary hover:font-bold">
+        <div className="flex h-gridcell w-lvw items-center justify-start rounded-md bg-secondary pl-2 text-lg ring-[1px] ring-inset ring-primary hover:font-bold">
           {location.name}
           <div
             className={cx(
@@ -39,7 +43,17 @@ export default function EventContainer({
           </div>
         </div>
       </button>
-      {isOpen && <Suspense fallback={''}>{children}</Suspense>}
+      <div
+        className={cx(
+          isOpen
+            ? 'animate-openTimeline'
+            : close
+              ? 'animate-closeTimeline'
+              : '',
+        )}
+      >
+        {isOpen && <Suspense fallback={''}>{children}</Suspense>}
+      </div>
     </div>
   );
 }

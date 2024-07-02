@@ -185,11 +185,12 @@ const config: Config = {
       animation: {
         bounceLeft: `bounceLeft 1s infinite`,
         bounceRight: `bounceRight 1s infinite`,
-        showModal: `showModal 1s linear normal`,
-        hideModal: `hideModal 1s linear normal`,
-        showMenu: `showMenu 1s linear normal`,
-        closeMenu: `closeMenu 1s linear normal`,
-        openTimeline: `openTimeline 1s linear normal`,
+        showModal: `showModal 800ms linear normal`,
+        hideModal: `hideModal 800ms linear normal`,
+        showMenu: `showMenu 800ms ease normal`,
+        closeMenu: `closeMenu 800ms ease normal`,
+        openTimeline: `openTimeline 800ms ease normal`,
+        closeTimeline: `closeTimeline 500ms ease-out normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -246,7 +247,7 @@ const config: Config = {
             borderWidth: '0px 6px',
             color: 'var(--secondary)',
           },
-          '50%': {
+          '60%': {
             transform: 'translateY(0%) scaleX(33%)',
             borderWidth: '0px 6px',
             color: 'var(--secondary)',
@@ -262,7 +263,7 @@ const config: Config = {
             transform: 'translateX(0%) scaleX(100%)',
             borderWidth: '0px 2px',
           },
-          '50%': {
+          '40%': {
             transform: 'translateY(0%) scaleX(33%)',
             borderWidth: '0px 6px',
           },
@@ -272,13 +273,25 @@ const config: Config = {
           },
         },
         openTimeline: {
-          '0%': {
-            transform: 'scaleY(0%)',
-            borderWidth: '2px 2px',
+          from: {
+            maxHeight: 'var(--height-header)',
+            overflow: 'hidden',
           },
-          '100%': {
-            transform: 'scaleY(100%)',
-            borderWidth: '6px 2px',
+          to: {
+            maxHeight: '500px',
+          },
+        },
+        closeTimeline: {
+          from: {
+            maxHeight: '500px',
+            minHeight: '120px',
+            height: '100%',
+          },
+          to: {
+            minHeight: 'var(--height-header)',
+            maxHeight: 'var(--height-header)',
+            height: 'var(--height-header)',
+            overflow: 'hidden',
           },
         },
       },
