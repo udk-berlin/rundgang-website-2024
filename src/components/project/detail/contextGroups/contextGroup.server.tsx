@@ -25,7 +25,7 @@ export default function ProjectDetailContextGroup({
       </div>
       <div className="flex flex-col gap-gutter-xs">
         {contextGroup.map((context) => (
-          <ContextTag key={context.id} context={context} />
+          <ContextTag key={context.id} context={context} withBorder />
         ))}
       </div>
     </ProjectDetailContextGroupContainer>

@@ -76,7 +76,7 @@ export default function SmoothButton({
         'group absolute h-content-header w-content-header hover:text-highlight',
         bgMapper[color],
         hoverBgMapper[color],
-        bottom ? 'bottom-0 right-0 rounded-br-border rounded-tl-border' : '',
+        bottom ? 'bottom-0 right-0 rounded-br-[2px] rounded-tl-border' : '',
         top ? 'right-0 top-0 rounded-bl-border rounded-tr-border' : '',
       )}
       title={title}
