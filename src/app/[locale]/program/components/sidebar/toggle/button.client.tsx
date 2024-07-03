@@ -3,10 +3,10 @@ import ArrowRight from '@/components/icons/arrowRight';
 import { cn } from '@/lib/utils';
 import { ReactNodeProps } from '@/types/types';
 import { useShallow } from 'zustand/react/shallow';
-import { useLandingSidebarStore } from '@/lib/stores/sidebar/landing';
+import { useProgrammSidebarStore } from '@/lib/stores/sidebar/programm';
 
-export default function SidebarToggle() {
-  const [isOpen, toggleIsOpen] = useLandingSidebarStore(
+export default function SidebarToggleButton() {
+  const [isOpen, toggleIsOpen] = useProgrammSidebarStore(
     useShallow((state) => [state.isOpen, state.toggleIsOpen]),
   );
 
@@ -30,7 +30,7 @@ function SidebarToggleContainer({
 }: ReactNodeProps & { onClick: (_: any) => void }) {
   return (
     <div
-      className="pointer-events-auto absolute right-0 z-50 aspect-square h-content-header cursor-pointer rounded-bl-border bg-primary"
+      className="pointer-events-auto absolute right-0 z-50 aspect-square h-content-header cursor-pointer rounded-bl-border bg-primary md:hidden"
       onClick={onClick}
     >
       <div className="flex h-full items-center justify-center">{children}</div>

@@ -1,10 +1,10 @@
 import { ReactNodeProps } from '@/types/types';
 import JumpToTop from '@/components/jumpToTop';
 import { Item } from '@/types/item';
-import ProgramProjects from '@/app/program/components/projects/projects.server';
-import SidebarToggle from '@/app/program/components/sidebarToggle.client';
-import ProgramProjectsContainer from '@/app/program/components/projects/container.server';
-import ProgramLayoutMovableContentContainer from '@/app/program/components/container.client';
+import SidebarToggleButton from '@/app/program/components/sidebar/toggle/button.client';
+import ProgramProjectsContainer from '@/app/program/components/program/projects/container.server';
+import ProgramProjects from '@/app/program/components/program/projects/projects.server';
+import ProgramMovableContentContainer from '@/app/program/components/program/container.client';
 
 export type ProgramProps = {
   items: Item[];
@@ -13,7 +13,7 @@ export type ProgramProps = {
 export default function Program({ items }: ProgramProps) {
   return (
     <ProgramContainer>
-      <SidebarToggle />
+      <SidebarToggleButton />
       <div className="h-content-body max-h-content-body min-h-content-body w-full overflow-y-auto overflow-x-hidden">
         <ProgramProjectsContainer>
           <ProgramProjects projects={items} />
@@ -26,9 +26,9 @@ export default function Program({ items }: ProgramProps) {
 
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
-    <ProgramLayoutMovableContentContainer>
+    <ProgramMovableContentContainer>
       <div className="h-content-header max-h-content-header min-h-content-header bg-secondary" />
       {children}
-    </ProgramLayoutMovableContentContainer>
+    </ProgramMovableContentContainer>
   );
 }

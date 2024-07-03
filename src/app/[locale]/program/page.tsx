@@ -1,8 +1,8 @@
 import { getFilteredGraphQLItems } from '@/api/graphql/items';
-import Program from '@/app/program/components/program.server';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import ProgramFilters from '@/app/program/components/filters/filters';
+import ProgramSidebar from '@/app/program/components/sidebar/sidebar';
+import Program from '@/app/program/components/program/program.server';
 
 export type ProgramPageProps = {
   params: { locale: string };
@@ -25,7 +25,7 @@ export default async function Page({ searchParams }: ProgramPageProps) {
   const items = await getFilteredGraphQLItems(searchParams);
   return (
     <>
-      <ProgramFilters searchParams={searchParams} items={items} />
+      <ProgramSidebar searchParams={searchParams} items={items} />
       <Program items={items} />
     </>
   );

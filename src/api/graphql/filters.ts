@@ -90,9 +90,10 @@ export const getExistingGraphQLFilters = cache(
   async (
     items: Item[],
     searchParams: { [key: string]: string | string[] | undefined },
+    returnOnlyExisting: boolean = false,
   ) => {
     return getGraphQLFilters().then((filters) =>
-      filterExisting(items, filters, searchParams),
+      filterExisting(items, filters, searchParams, returnOnlyExisting),
     );
   },
 );
@@ -101,6 +102,7 @@ function filterExisting(
   items: Item[],
   filters: Filters,
   searchParams: { [key: string]: string | string[] | undefined },
+  returnOnlyExisting: boolean = false,
 ) {
   let filteredFormats = filters.formats.map((format: Filter) => ({
     ...format,
@@ -130,8 +132,14 @@ function filterExisting(
   }));
 
   return {
-    formats: filteredFormats,
-    faculties: filteredFaculties,
-    languages: filteredLanguages,
+    formats: returnOnlyExisting
+      ? filteredFormats.filter((f) => f.exists)
+      : filteredFormats,
+    faculties: returnOnlyExisting
+      ? filteredFaculties.filter((f) => f.exists)
+      : filteredFaculties,
+    languages: returnOnlyExisting
+      ? filteredLanguages.filter((f) => f.exists)
+      : filteredLanguages,
   };
 }

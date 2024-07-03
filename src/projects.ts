@@ -125,6 +125,7 @@ const projects = {
     subject: 'Bildende Kunst',
     language: {
       name: 'Cantonese',
+      nativeName: '粵語',
       iso_639_1_code: 'zh',
       searchParam: 'yue',
     },
@@ -140,9 +141,6 @@ const projects = {
     },
   },
 };
-
-// Use the default: `always`
-export const localePrefix = undefined;
 
 export type ProjectLanguages = keyof typeof projects;
 export default projects;

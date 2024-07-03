@@ -8,13 +8,11 @@ import { useSearchParams } from 'next/navigation';
 
 export type FilterTagProps = {
   context: ItemContext | ItemFilterableContext;
-  isDisabled?: boolean;
   withBorder?: boolean;
 };
 
 export default function ContextTagButton({
   context,
-  isDisabled = false,
   withBorder = false,
 }: FilterTagProps) {
   const searchParams = useSearchParams();
@@ -35,7 +33,9 @@ export default function ContextTagButton({
       onClick={onClick}
       className={cx(
         'w-fit max-w-full cursor-pointer',
-        isDisabled && 'pointer-events-none',
+        'exists' in context &&
+          !context.exists &&
+          'pointer-events-none opacity-35',
       )}
     >
       <ContextTagPlain

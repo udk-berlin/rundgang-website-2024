@@ -1,5 +1,4 @@
 import { Filter, ReactNodeProps } from '@/types/types';
-import ContextTagLink from '@/components/contextTag/link';
 import ContextTag from '@/components/contextTag/contextTag.server';
 
 export type FilterGroupProps = {

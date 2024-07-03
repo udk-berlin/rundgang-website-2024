@@ -6,7 +6,7 @@ import ContextTagButton from '@/components/contextTag/button.client';
 export type ContextTagType = 'plain' | 'link' | 'button';
 
 export type ContextTagProps = {
-  type: ContextTagType;
+  type?: ContextTagType;
   context: ItemContext | ItemFilterableContext;
   withBorder?: boolean;
 };

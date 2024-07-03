@@ -1,5 +1,6 @@
-import { getGraphQLFilters } from '@/api/graphql/filters';
+import { getExistingGraphQLFilters } from '@/api/graphql/filters';
 import LandingFiltersGroup from '@/app/(landing)/components/mobile/filters/groups/group.server';
+import { getFilteredGraphQLItems } from '@/api/graphql/items';
 
 const fetchers: {
   translationKey: 'format' | 'faculty' | 'language';
@@ -11,14 +12,15 @@ const fetchers: {
 ];
 
 export default async function LandingFiltersGroups() {
-  const filters = await getGraphQLFilters();
+  const items = await getFilteredGraphQLItems({});
+  const contextGroups = await getExistingGraphQLFilters(items, {}, true);
   return (
     <>
       {fetchers.map((fetcher) => (
         <LandingFiltersGroup
           key={fetcher.translationKey}
           translationKey={fetcher.translationKey}
-          filters={filters[fetcher.filtersKey]}
+          filters={contextGroups[fetcher.filtersKey]}
         />
       ))}
     </>
