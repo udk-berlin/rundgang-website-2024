@@ -1,9 +1,13 @@
 import Info from '@/app/info/components/info.server';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('Info');
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Info' });
   return {
     title: t('title'),
     description: t('description'),
@@ -12,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
-export default function InfoPage() {
+export default function InfoPage(props: any) {
+  unstable_setRequestLocale(props.params.locale);
   return <Info />;
 }

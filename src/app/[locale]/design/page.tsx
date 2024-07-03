@@ -1,6 +1,6 @@
 import Design from '@/app/design/components/design.server';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('Design');
@@ -12,6 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
-export default async function Page() {
+export default async function Page(props: any) {
+  unstable_setRequestLocale(props.params.locale);
   return <Design />;
 }
