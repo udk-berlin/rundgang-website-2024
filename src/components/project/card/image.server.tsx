@@ -11,7 +11,7 @@ export default function ProjectCardImage({
     <div className="relative w-full overflow-hidden">
       <ProjectLink href={`${linkPathname}/${item.id}`}>
         <Image
-          className="rounded-md bg-primary"
+          className="rounded-md bg-highlight"
           src={
             item.thumbnail != '' ? item.thumbnail : '/assets/placeholder.png'
           }

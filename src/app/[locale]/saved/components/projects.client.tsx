@@ -5,11 +5,14 @@ import { useUIStore } from '@/lib/uiStore';
 import { useStore } from 'zustand';
 import ProjectCard from '@/components/project/card/card.server';
 import { SavedProps } from '@/app/saved/components/saved.server';
+import DesignProject from './designProject';
 
 export default function SavedProjects({ items }: SavedProps) {
   const savedItems = useStore(useUIStore, (state) => state.savedItems);
+
   return (
     <SavedProjectsContainer>
+      <DesignProject />
       {items
         .filter((item) => savedItems.includes(item.id))
         .map((item) => (

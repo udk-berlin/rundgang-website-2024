@@ -11,7 +11,7 @@ export default function SavedHeaderRemoveAll() {
   return (
     <button
       onClick={removeAll}
-      className="col-span-1 flex items-end rounded-border bg-secondary px-gutter-sm text-xxs text-grey hover:bg-highlight md:px-gutter-m md:text-xs"
+      className="col-span-1 flex items-end rounded-b-border bg-secondary px-gutter-sm text-xxs text-grey hover:bg-highlight sm:rounded-border md:px-gutter-m md:text-xs"
     >
       <div className="py-gutter-xs">{t('remove-all')}</div>
       <div className="ml-auto flex h-full items-center justify-center">

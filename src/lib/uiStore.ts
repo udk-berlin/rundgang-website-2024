@@ -16,7 +16,7 @@ export type UIStore = {
 export const useUIStore = create<UIStore>()(
   persist(
     (set) => ({
-      savedItems: [],
+      savedItems: ['design'],
       menuOpen: false,
       allMuted: 'none',
       toggleMute: (mute: string) => set(() => ({ allMuted: mute })),
@@ -35,7 +35,7 @@ export const useUIStore = create<UIStore>()(
       },
       removeAll: () => {
         set(() => ({
-          savedItems: [],
+          savedItems: ['design'],
         }));
       },
     }),

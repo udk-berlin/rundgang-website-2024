@@ -3,7 +3,7 @@ import { useTranslations } from 'next-intl';
 import { HtmlProps } from '@/components/html/html';
 import NavigationLink from '@/components/navigationLink';
 import RundgangLogo from '@/components/header/navigation/rundgangLogo';
-import SavedItems from '@/components/header/navigation/desktop/savedItems';
+import SavedItems from '@/components/header/navigation/savedItems';
 import LocaleSwitcher from '@/components/header/navigation/desktop/localeSwitcher';
 import ColorSchemeSwitcher from '@/components/header/navigation/colorSchemeSwitcher';
 

@@ -54,13 +54,13 @@ export default function Modal({ children }: { children: React.ReactNode }) {
           ref={dialogRef}
           open={isActive}
           className={cx(
-            'fixed bottom-0 left-0 z-50 overflow-x-hidden overflow-y-scroll overscroll-contain rounded-md border-x-border border-primary sm:w-1/3',
+            'fixed bottom-0 left-0 z-50 overflow-x-hidden overflow-y-scroll overscroll-contain border-x-border border-primary sm:w-1/3',
             margin,
             animation,
           )}
           onClose={onDismiss}
         >
-          <div className="absolute right-0 top-0 p-8 text-primary">
+          <div className="absolute right-0 top-0 p-0 text-primary">
             <SmoothButton onClick={onDismiss} top>
               <Cross className="w-gridcell h-gridcell rotate-45 p-2" />
             </SmoothButton>

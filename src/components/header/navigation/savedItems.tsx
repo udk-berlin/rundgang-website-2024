@@ -3,9 +3,13 @@ import NavigationLink from '@/components/navigationLink';
 import { useUIStore } from '@/lib/uiStore';
 import { useStore } from 'zustand';
 
-export type SavedItemsProps = {};
+export type SavedItemsProps = { isLast?: boolean };
 
-export default function SavedItems({}: SavedItemsProps) {
+export default function SavedItems({ isLast }: SavedItemsProps) {
   const numberSaved = useStore(useUIStore, (state) => state.savedItems.length);
-  return <NavigationLink href="/saved">{numberSaved}</NavigationLink>;
+  return (
+    <NavigationLink isLast={isLast} href="/saved">
+      {numberSaved}
+    </NavigationLink>
+  );
 }

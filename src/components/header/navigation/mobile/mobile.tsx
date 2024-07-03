@@ -7,6 +7,7 @@ import HeaderNavigationMobileMenu from '@/components/header/navigation/mobile/me
 import { useCallback, useEffect, useState } from 'react';
 import { usePathname } from '@/navigation';
 import MenuBurger from '@/components/icons/menu';
+import SavedItems from '@/components/header/navigation/savedItems';
 export default function HeaderNavigationMobile() {
   const t = useTranslations('Navigation');
   const pathname = usePathname();
@@ -37,9 +38,7 @@ export default function HeaderNavigationMobile() {
             <MenuBurger />
           </div>
         </button>
-        <NavigationLink href="/info" isLast>
-          {t('info')}
-        </NavigationLink>
+        <SavedItems isLast />
       </nav>
       {menuOpen && (
         <HeaderNavigationMobileMenu
