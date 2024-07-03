@@ -7,7 +7,7 @@ export default function RundgangLogo() {
         src="/assets/RNG.svg"
         fill
         alt="rng"
-        className="object-contain py-2 dark:invert"
+        className="object-contain py-2 dark:invert hover:dark:filter-none"
       />
     </div>
   );

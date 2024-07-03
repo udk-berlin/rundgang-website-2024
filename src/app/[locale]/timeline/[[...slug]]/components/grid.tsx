@@ -2,7 +2,7 @@ import { TIMES } from '@/api/constants';
 
 export default function TimeGrid() {
   return (
-    <div className="absolute top-0 z-10 flex h-full w-full px-border">
+    <div className="absolute top-0 z-10 flex h-full w-timeline border-b-border border-primary px-border">
       {TIMES.map((tick: (typeof TIMES)[number]) => (
         <TimeGridLine key={tick[0]} tick={tick} />
       ))}

@@ -11,6 +11,8 @@ import { getGraphQLFilters } from '@/api/graphql/filters';
 import { AppStoreProvider } from '@/lib/useAppContext';
 import { defaultInitState } from '@/lib/appStore';
 import { ReactNode } from 'react';
+import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
+import { ProjectLanguages } from '@/projects';
 
 type RootLayoutProps = {
   children: ReactNode;
@@ -20,21 +22,31 @@ type RootLayoutProps = {
 
 export async function generateMetadata({
   params: { locale },
+  searchParams,
 }: {
   params: { locale: string };
+  searchParams?: { lang: ProjectLanguages };
 }) {
   const t = await getTranslations({ locale, namespace: 'RootLayout' });
+
+  const lang = extractProjectLanguageSearchParam(searchParams);
 
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase: new URL('https://localhost:3000'),
+    metadataBase:
+      process.env.NODE_ENV == 'development'
+        ? new URL('http://localhost:3000')
+        : new URL('http://rundgang-frontend-24.dev.medienhaus.udk-berlin.de'),
     alternates: {
       canonical: '/',
       languages: {
         en: '/en',
         de: '/de',
       },
+    },
+    openGraph: {
+      images: [`/assets/projects/${lang}/writing.png`],
     },
   };
 }

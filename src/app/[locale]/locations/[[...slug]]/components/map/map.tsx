@@ -36,107 +36,101 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
   const { markers, onClick, onMouseMove, onMouseLeave, onZoom, onLoad } =
     useMapFunctions(selectedBuilding, buildings, size);
   return (
-    <div className="w-screen">
-      <div className="pointer-events-auto z-0 h-[60dvh] w-full rounded-md border-x-border border-b-xs sm:fixed sm:top-header sm:h-content dark:invert">
-        <Map
-          id="rundgangMap"
-          reuseMaps
-          interactiveLayerIds={
-            buildings
-              ? [
-                  'clusters',
-                  'buildings',
-                  'unclustered-point',
-                  'clustered-point',
-                ]
-              : []
-          }
-          mapLib={maplibregl}
-          style={{
-            zIndex: 100,
-            width: '100%',
-          }}
-          mapStyle={MAP_STYLE}
-          onMouseMove={onMouseMove}
-          onMouseLeave={onMouseLeave}
-          onZoom={onZoom}
-          onClick={onClick}
-          onLoad={onLoad}
-          attributionControl={false}
-          renderWorldCopies={false}
-          pitchWithRotate={false}
-          dragRotate={false}
-        >
-          {buildings && (
-            <>
-              <AttributionControl
-                position="bottom-right"
-                compact={false}
-                style={{ height: 16, fontSize: 12 }}
-              />
-              <Source
-                type="geojson"
-                id="buildings"
-                data={buildings}
-                generateId={true}
-                cluster={true}
-                clusterMaxZoom={17.0}
-                clusterRadius={30}
-                clusterProperties={{
-                  itemids: ['concat', ['concat', ['get', 'id'], ',']],
-                }}
-              />
-              <Layer
-                source="buildings"
-                id="clustered-point"
-                filter={['has', 'point_count']}
-                type="circle"
-                paint={{
-                  'circle-radius': 24,
-                  'circle-color': '#000',
-                  'circle-stroke-color': '#888',
-                  'circle-stroke-width': 5,
-                  'circle-stroke-opacity': [
-                    'case',
-                    ['boolean', ['feature-state', 'hover'], false],
-                    1,
-                    0,
-                  ],
-                }}
-              />
-              <Layer
-                source="buildings"
-                id="clusters"
-                type="symbol"
-                filter={['has', 'point_count']}
-                layout={{
-                  'text-field': '{point_count_abbreviated}',
-                  'text-font': ['resistRegular'],
-                  'text-size': 20,
-                  'text-offset': [0, -0.05],
-                  'text-allow-overlap': true,
-                }}
-                paint={{
-                  'text-color': '#fff',
-                }}
-              />
-              {buildings.features.map(
-                (building) =>
-                  building?.id in markers && (
-                    <FloorMapMarker
-                      key={building.id}
-                      selected={selectedBuilding == building.id}
-                      building={building}
-                      marker={markers[building.id]}
-                      handleClick={onClick}
-                    />
-                  ),
-              )}
-            </>
-          )}
-          <NavigationControl showCompass={false} visualizePitch={false} />
-        </Map>
-      </div>
+    <div className="pointer-events-auto z-0 h-full w-full rounded-md bg-secondary px-border sm:fixed sm:top-header sm:h-content dark:invert">
+      <Map
+        id="rundgangMap"
+        reuseMaps
+        interactiveLayerIds={
+          buildings
+            ? ['clusters', 'buildings', 'unclustered-point', 'clustered-point']
+            : []
+        }
+        mapLib={maplibregl}
+        style={{
+          zIndex: 100,
+          width: size.width - 4,
+          height: size.width < 1000 ? size.height * 0.5 : size.height,
+        }}
+        mapStyle={MAP_STYLE}
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+        onZoom={onZoom}
+        onClick={onClick}
+        onLoad={onLoad}
+        attributionControl={false}
+        renderWorldCopies={false}
+        pitchWithRotate={false}
+        dragRotate={false}
+      >
+        {buildings && (
+          <>
+            <AttributionControl
+              position="bottom-right"
+              compact={false}
+              style={{ height: 16, fontSize: 12 }}
+            />
+            <Source
+              type="geojson"
+              id="buildings"
+              data={buildings}
+              generateId={true}
+              cluster={true}
+              clusterMaxZoom={17.0}
+              clusterRadius={30}
+              clusterProperties={{
+                itemids: ['concat', ['concat', ['get', 'id'], ',']],
+              }}
+            />
+            <Layer
+              source="buildings"
+              id="clustered-point"
+              filter={['has', 'point_count']}
+              type="circle"
+              paint={{
+                'circle-radius': 24,
+                'circle-color': '#000',
+                'circle-stroke-color': '#888',
+                'circle-stroke-width': 5,
+                'circle-stroke-opacity': [
+                  'case',
+                  ['boolean', ['feature-state', 'hover'], false],
+                  1,
+                  0,
+                ],
+              }}
+            />
+            <Layer
+              source="buildings"
+              id="clusters"
+              type="symbol"
+              filter={['has', 'point_count']}
+              layout={{
+                'text-field': '{point_count_abbreviated}',
+                'text-font': ['resistRegular'],
+                'text-size': 20,
+                'text-offset': [0, -0.05],
+                'text-allow-overlap': true,
+              }}
+              paint={{
+                'text-color': '#fff',
+              }}
+            />
+            {buildings.features.map(
+              (building) =>
+                building?.id in markers && (
+                  <FloorMapMarker
+                    key={building.id}
+                    selected={selectedBuilding == building.id}
+                    building={building}
+                    marker={markers[building.id]}
+                    handleClick={onClick}
+                  />
+                ),
+            )}
+          </>
+        )}
+        <NavigationControl showCompass={false} visualizePitch={false} />
+      </Map>
     </div>
   );
 };

@@ -32,6 +32,7 @@
     },
     "Saved": {
         "title": "Gemerkte Projekte",
+        "description": "Hier können Projekte oder Veranstaltung gespeichert werden",
         "remove": "entfernen",
         "remove-all": "Alle entfernen",
         "save": "merken"
@@ -55,7 +56,7 @@
         "title": "UdK Rundgang 2024",
         "studentproject": "Projekt",
         "event": "Veranstaltung",
-        "meta_description": "{type}: {name}"
+        "meta_description": "{template, select, studentproject {Projekt zum UdK Rundgang 2024 - Autor*innen: {name}} event {Veranstaltung zum UdK Rundgang 2024 - Autor*innen: {name}} other {Autor*innen: {name}}}"
     },
     "format": "{count, plural, =1 {Format} other {Formate}}",
     "faculty": "{count, plural, =1 {Fakultät/Zentrum} other {Fakultäten/Zentren}}",

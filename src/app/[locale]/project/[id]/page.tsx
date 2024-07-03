@@ -2,31 +2,33 @@ import type { Metadata } from 'next';
 import Project from './components/project.server';
 import { getParsedItem } from '@/api/rest/item';
 import { getById } from '@/api/rest/api';
-import { ReactNodeProps } from '@/types/types';
 import { getTranslations } from 'next-intl/server';
 
 export type ProjectsPageProps = {
-  params: { id: string };
+  params: { id: string; locale: 'en' | 'de' };
 };
 
 export async function generateMetadata({
-  params,
+  params: { id, locale },
 }: ProjectsPageProps): Promise<Metadata> {
   // read route params
-  const item = await getParsedItem(decodeURIComponent(params.id));
-  const t = await getTranslations('Project');
+  const item = await getById(decodeURIComponent(id));
+  const t = await getTranslations({ locale, namespace: 'Project' });
 
   return {
     title: item.name,
-    description: t('meta_description', t(item.template), item.name),
+    description: t('meta_description', {
+      template: item.template,
+      name: item.origin.authors.map((a) => a?.name).join(', '),
+    }),
     openGraph: {
       images: [
         {
           url:
             item.thumbnail ??
             'https://www.udk-berlin.de/public/_processed_/c/a/csm_UdK_lang_4c_01b178ddaf.jpg',
-          width: 400,
-          height: 400,
+          width: 800,
+          height: 800,
           alt: 'project image',
         },
       ],

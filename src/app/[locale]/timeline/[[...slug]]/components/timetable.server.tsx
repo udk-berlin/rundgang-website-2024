@@ -12,7 +12,7 @@ export default async function TimeTable() {
 
   return (
     <div
-      className="relative h-fit w-screen overflow-x-scroll"
+      className="relative h-fit w-screen overflow-x-scroll "
       id="timetable-container"
     >
       <Days />
