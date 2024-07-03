@@ -34,7 +34,7 @@ export default function FilterTag({
     >
       <div
         className={cx(
-          'h-tag flex w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight',
+          'flex h-tag w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight',
           selectedId == filter.id && '!bg-highlight',
           disabled && 'pointer-events-none opacity-35',
           withBorder && 'border-border',

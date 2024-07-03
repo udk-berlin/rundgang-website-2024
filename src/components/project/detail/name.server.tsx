@@ -10,9 +10,5 @@ export default function ProjectDetailName({
   className,
   item,
 }: ProjectDetailNameProps) {
-  return (
-    <div className={cx('text-lg font-bold', className)}>
-      {item.name}
-    </div>
-  );
+  return <div className={cx('text-lg font-bold', className)}>{item.name}</div>;
 }

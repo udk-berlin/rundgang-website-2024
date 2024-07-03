@@ -2,14 +2,17 @@ import TimeTable from './components/timetable.server';
 import Project from './components/project.server';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
 
 type TimelinesPageProps = {
   params: { slug: string[] };
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations('Timeline');
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Timeline' });
   return {
     title: t('title'),
     description: t('description'),

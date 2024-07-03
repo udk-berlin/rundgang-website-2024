@@ -3,21 +3,22 @@ import Place from './components/place.server';
 import ProgramPage from './components/program.server';
 import Project from './components/project.server';
 import LocationsMap from './components/map/index.server';
-import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
-import { Suspense } from 'react';
+import { Metadata, ResolvingMetadata } from 'next';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 type LocationsPageProps = {
-  params: { slug: string[] };
+  params: { slug: string[] | undefined; locale: string };
 };
 
-export const revalidate = 1000;
+export const revalidate = 360;
 
-export async function generateMetadata({
-  params,
-}: LocationsPageProps): Promise<Metadata> {
-  const t = await getTranslations('Locations');
-  const place = params.slug ? decodeURIComponent(params.slug[0]) : null;
+export async function generateMetadata(
+  { params: { locale, slug } }: LocationsPageProps,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Locations' });
+  const place = slug ? decodeURIComponent(slug[0]) : null;
+  const previousImages = (await parent).openGraph?.images || [];
   if (place) {
     const location = await getLocationSummary(place);
 
@@ -30,17 +31,24 @@ export async function generateMetadata({
       }),
       description: t('description'),
       openGraph: {
-        images: [`/assets/ogimages/image-${location?.image ?? '9'}.png`],
+        images: [
+          `/assets/ogimages/image-${location?.image ?? '9'}.png`,
+          ...previousImages,
+        ],
       },
     };
   }
   return {
     title: t('title'),
     description: t('description'),
+    openGraph: {
+      images: previousImages,
+    },
   };
 }
 
 export default async function LocationsPage(props: LocationsPageProps) {
+  unstable_setRequestLocale(props.params.locale);
   const place = props.params.slug
     ? decodeURIComponent(props.params.slug[0])
     : null;

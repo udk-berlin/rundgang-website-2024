@@ -14,7 +14,6 @@ export default function LandingPage({
   searchParams,
 }: LandingPageProps) {
   unstable_setRequestLocale(locale);
-
   return (
     <>
       <LandingDesktop searchParams={searchParams} />
