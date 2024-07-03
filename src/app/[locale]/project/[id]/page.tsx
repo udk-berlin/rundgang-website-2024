@@ -24,9 +24,7 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url:
-            item.thumbnail ??
-            'https://www.udk-berlin.de/public/_processed_/c/a/csm_UdK_lang_4c_01b178ddaf.jpg',
+          url: item.thumbnail ?? '/assets/projects/de/writing.png',
           width: 800,
           height: 800,
           alt: 'project image',

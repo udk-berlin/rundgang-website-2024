@@ -42,7 +42,7 @@ export async function generateMetadata(
     title: t('title'),
     description: t('description'),
     openGraph: {
-      images: previousImages,
+      images: ['/assets/ogimages/locations.png', ...previousImages],
     },
   };
 }
