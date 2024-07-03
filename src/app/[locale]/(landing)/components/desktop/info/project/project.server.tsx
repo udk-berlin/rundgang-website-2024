@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import projects from '@/projects';
-import LandingInfoProjectAudioPlayer from '@/app/(landing)/components/desktop/info/project/audioPlayer.client';
+import LandingInfoProjectAudioPlayer from '@/app/(landing)/components/audioPlayer';
 import { LandingInfoProps } from '@/app/(landing)/components/desktop/info/info.server';
 
 export default function LandingInfoProject({ language }: LandingInfoProps) {

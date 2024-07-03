@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import projects from '@/projects';
 import { LandingInfoProps } from '@/app/(landing)/components/desktop/info/info.server';
-import AudioPlayer from '@/components/audioPlayer';
+import AudioPlayer from '@/app/(landing)/components/audioPlayer';
 
 export default function LandingProjectInfo({ language }: LandingInfoProps) {
   const project = projects[language];
@@ -13,11 +13,7 @@ export default function LandingProjectInfo({ language }: LandingInfoProps) {
         <p>{project.subject}</p>
         <p>{project.faculty}</p>
       </div>
-      <AudioPlayer
-        src={`/assets/projects/${language}/audio.mp3`}
-        width={25}
-        height={25}
-      />
+      <AudioPlayer language={language} />
     </LandingProjectInfoContainer>
   );
 }

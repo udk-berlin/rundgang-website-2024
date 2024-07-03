@@ -25,10 +25,10 @@ const headerItems = [
   { title: 'Timeline', href: '/timeline' },
 ];
 const footerItems = [
+  { title: 'Info', href: '/info' },
+  { title: 'Design', href: '/design' },
   { title: 'Contact', href: '/contact' },
   { title: 'Imprint', href: '/imprint' },
-  { title: 'Design', href: '/design' },
-  { title: 'Info', href: '/info' },
 ];
 
 export default function HeaderNavigationMobileMenu({

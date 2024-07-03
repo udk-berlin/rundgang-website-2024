@@ -1,9 +1,9 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Unmute from '@/components/icons/unmute';
 import Mute from '@/components/icons/mute';
-import { LandingInfoProps } from '../info.server';
+import { LandingInfoProps } from './desktop/info/info.server';
 
 export default function LandingInfoProjectAudioPlayer({
   language,

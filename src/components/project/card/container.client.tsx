@@ -21,8 +21,8 @@ export default function ProjectCardContainer({
   return (
     <div
       className={cx(
-        'flex flex-col rounded-border p-gutter-xs text-primary md:hover:bg-highlight',
-        isSaved ? 'bg-highlight' : 'bg-secondary',
+        'flex flex-col rounded-border p-gutter-xs md:hover:bg-highlight md:hover:text-black',
+        isSaved ? 'bg-highlight text-black' : 'bg-secondary text-primary',
       )}
     >
       {children}

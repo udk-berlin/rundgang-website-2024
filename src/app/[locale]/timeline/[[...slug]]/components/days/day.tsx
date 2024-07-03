@@ -15,8 +15,8 @@ export default function TimelineDay({
   return (
     <button
       className={cx(
-        'h-full rounded-border border-x-xs text-sm first:border-l-border last:border-r-border md:hover:bg-highlight md:hover:text-black',
-        isSelected ? 'bg-highlight text-black' : 'bg-secondary',
+        'h-full rounded-border border-x-xs border-primary text-sm first:border-l-border last:border-r-border md:hover:bg-highlight md:hover:text-black',
+        isSelected ? 'bg-highlight text-black' : 'bg-secondary ',
       )}
       onClick={() => scrollToDate(date)}
     >

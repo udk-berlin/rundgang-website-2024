@@ -11,7 +11,7 @@ export default async function TimeTable() {
   const items = await getEventLocations();
 
   return (
-    <div className="relative h-content w-full overflow-x-visible overflow-y-scroll">
+    <div className="relative h-content w-full overflow-x-clip overflow-y-scroll">
       <div
         className="relative h-fit w-screen overflow-y-clip overflow-x-scroll"
         id="timetable-container"

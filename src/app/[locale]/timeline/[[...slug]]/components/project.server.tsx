@@ -10,7 +10,7 @@ export default async function ProjectPage({ projectId }: ProjectPageProps) {
   const item = await getParsedItem(decodeURIComponent(projectId));
 
   return (
-    <div className="fixed right-0 top-[130px] z-40 h-timeline w-full overflow-y-scroll rounded-md border-l-2 border-primary sm:w-2/5">
+    <div className="fixed right-0 top-header z-40 h-content w-full overflow-y-scroll border-l-2 border-primary sm:w-2/5">
       <Suspense fallback={'Loading'}>
         <SelectedProject item={item} />
       </Suspense>
