@@ -20,6 +20,10 @@ type RootLayoutProps = {
   params: { locale: string };
 };
 
+export async function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'de' }];
+}
+
 export async function generateMetadata({
   params: { locale },
   searchParams,
@@ -34,10 +38,9 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
-    metadataBase:
-      process.env.NODE_ENV == 'development'
-        ? new URL('http://localhost:3000')
-        : new URL('http://rundgang-frontend-24.dev.medienhaus.udk-berlin.de'),
+    metadataBase: process.env.BASE_URL
+      ? new URL(process.env.BASE_URL)
+      : new URL('http://rundgang-frontend-24.dev.medienhaus.udk-berlin.de'),
     alternates: {
       canonical: '/',
       languages: {
