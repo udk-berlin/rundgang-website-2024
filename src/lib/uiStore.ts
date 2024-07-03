@@ -4,23 +4,19 @@ import { Item } from '@/types/item';
 
 export type UIStore = {
   savedItems: Item['id'][];
-  menuOpen: boolean;
   allMuted: string;
   toggleMute: (mute: string) => void;
   saveItem: (data: Item['id']) => void;
   removeItem: (data: Item['id']) => void;
   removeAll: () => void;
-  setMenuOpen: () => void;
 };
 
 export const useUIStore = create<UIStore>()(
   persist(
     (set) => ({
       savedItems: ['design'],
-      menuOpen: false,
       allMuted: 'none',
       toggleMute: (mute: string) => set(() => ({ allMuted: mute })),
-      setMenuOpen: () => set((state) => ({ menuOpen: !state.menuOpen })),
       saveItem: (data: Item['id']) => {
         set((state) => ({
           savedItems: state.savedItems.includes(data)
@@ -30,7 +26,9 @@ export const useUIStore = create<UIStore>()(
       },
       removeItem: (data: Item['id']) => {
         set((state) => ({
-          savedItems: state.savedItems.filter((item) => item != data),
+          savedItems: state.savedItems.filter(
+            (item) => item != data || item == 'design',
+          ),
         }));
       },
       removeAll: () => {
