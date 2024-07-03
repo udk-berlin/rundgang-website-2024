@@ -1,14 +1,18 @@
-export type ArrowRightProps = {
+import { ReactNodeProps } from '@/types/types';
+
+export type ArrowRightProps = ReactNodeProps & {
   width?: number | string;
   height?: number | string;
 };
 
 export default function ArrowRight({
+  className,
   width = '100%',
   height = '100%',
 }: ArrowRightProps) {
   return (
     <svg
+      className={className}
       width={width}
       height={height}
       viewBox="0 0 11 18"

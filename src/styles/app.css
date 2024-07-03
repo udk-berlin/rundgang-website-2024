@@ -11,7 +11,7 @@
   --height-md: 50px;
   --gutter-lg: 50px;
   --bdradius: 4px;
-  --height-gridcell: 40px;
+  --height-gridcell: 45px;
 
   --height-header: 50px;
   --height-content: calc(100dvh - var(--height-header) - var(--height-footer));
