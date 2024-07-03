@@ -23,7 +23,7 @@ export default function ContextTag({
   return (
     <div
       className={cx(
-        'h-tag flex w-fit min-w-0 max-w-full items-center rounded-border bg-secondary hover:bg-highlight',
+        'flex h-tag w-fit min-w-0 max-w-full items-center rounded-border bg-secondary hover:bg-highlight',
         withBorder && 'border-border border-primary',
       )}
     >

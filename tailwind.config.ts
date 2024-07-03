@@ -189,8 +189,8 @@ const config: Config = {
         hideModal: `hideModal 800ms linear normal`,
         showMenu: `showMenu 800ms ease normal`,
         closeMenu: `closeMenu 800ms ease normal`,
-        openTimeline: `openTimeline 800ms ease normal`,
-        closeTimeline: `closeTimeline 500ms ease-out normal`,
+        openDetail: `openDetail 800ms ease normal`,
+        closeDetail: `closeDetail 500ms ease-out normal`,
       },
       keyframes: {
         bounceLeft: {
@@ -272,7 +272,7 @@ const config: Config = {
             borderWidth: '0px 6px',
           },
         },
-        openTimeline: {
+        openDetail: {
           from: {
             maxHeight: 'var(--height-header)',
             overflow: 'hidden',
@@ -281,7 +281,7 @@ const config: Config = {
             maxHeight: '500px',
           },
         },
-        closeTimeline: {
+        closeDetail: {
           from: {
             maxHeight: '500px',
             minHeight: '120px',

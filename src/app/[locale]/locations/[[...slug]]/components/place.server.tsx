@@ -15,7 +15,7 @@ export default async function Place({ place }: PlaceProps) {
   return (
     <div className="pointer-events-none relative z-40 col-span-3 h-fit pr-0 sm:h-content sm:overflow-y-scroll sm:overscroll-y-contain">
       <div className="bg-transparent pointer-events-none hidden h-[50dvh] border-r-xs sm:block"></div>
-      <Suspense fallback="Loading...">
+      <Suspense>
         <div className="pointer-events-auto relative max-h-fit min-h-[35dvh] items-start rounded-md border-border border-primary bg-secondary sm:grid sm:min-h-place sm:grid-cols-2 sm:border-r-0 sm:border-t-border">
           <Subnavigation location={location} />
           {location.image != 'simple' && <Floorplan location={location} />}
