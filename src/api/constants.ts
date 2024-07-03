@@ -15,7 +15,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.1,
     labelPosition: 'bottom-0 right-8',
     name: 'Bundesallee 1-12',
-    popupMargin: '-mt-32',
+    popupMargin: '-mt-24 -ml-10',
   },
   '!YIwQSiHDpoiNHDMWmC:content.udk-berlin.de': {
     lng: 13.32215,
@@ -33,7 +33,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.7,
     labelPosition: 'bottom-8 right-8',
     name: 'Hardenbergstraße 33',
-    popupMargin: '-mt-10',
+    popupMargin: '-mt-8',
   },
   '!GFauydmVRlpqvDETXH:content.udk-berlin.de': {
     lng: 13.3588243,
@@ -51,7 +51,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.45,
     labelPosition: 'bottom-8 left-8',
     name: 'Straße des 17. Juni 118',
-    popupMargin: '-mt-20',
+    popupMargin: '-mt-28',
   },
   '!OkEblSLtaWAObRcCHm:content.udk-berlin.de': {
     lng: 13.332849698118526,
@@ -60,7 +60,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.6,
     labelPosition: 'bottom-8 left-8',
     name: 'Lietzenburger Straße 45',
-    popupMargin: '-mt-32',
+    popupMargin: '-mt-20',
   },
   '!fPuAzLpetwUYPJZwCF:content.udk-berlin.de': {
     lng: 13.30389,
@@ -132,7 +132,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.5,
     labelPosition: 'bottom-0 right-8',
     name: 'Bundesallee 1-12',
-    popupMargin: '-mt-32',
+    popupMargin: '-mt-24 -ml-10',
   },
   '!sJUtqUiNvdoxXDNxCG:content.udk-berlin.de': {
     lng: 13.32215,
@@ -150,7 +150,7 @@ export const LOCATION_INFO = {
     maxZoom: 13.2,
     labelPosition: 'bottom-8 right-8',
     name: 'Hardenbergstraße 33',
-    popupMargin: '-mt-10',
+    popupMargin: '-mt-8',
   },
   '!nfZcJbplQdHUXtATXR:content.udk-berlin.de': {
     lng: 13.35885,
@@ -168,7 +168,7 @@ export const LOCATION_INFO = {
     maxZoom: 14.8,
     labelPosition: 'bottom-8 left-8',
     name: 'Straße des 17. Juni 118',
-    popupMargin: '-mt-20',
+    popupMargin: '-mt-28',
   },
   '!CSXYmlMoZpDBByZfqj:content.udk-berlin.de': {
     lng: 13.33283,
@@ -177,7 +177,7 @@ export const LOCATION_INFO = {
     maxZoom: 15.0,
     labelPosition: 'bottom-8 left-8',
     name: 'Lietzenburger Straße 45',
-    popupMargin: '-mt-32',
+    popupMargin: '-mt-20',
   },
   '!oVBzAqSwRRNhoaUgMg:content.udk-berlin.de': {
     lng: 13.30389,
