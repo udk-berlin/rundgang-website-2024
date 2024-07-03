@@ -19,7 +19,10 @@ export default async function TimeTable() {
       <TimeScale />
       <TimeGrid />
       {items.map((eventLocation) => (
-        <EventContainer key={eventLocation.id} location={eventLocation}>
+        <EventContainer
+          key={`container-location-${eventLocation.id}`}
+          location={eventLocation}
+        >
           <EventLocation location={eventLocation} />
         </EventContainer>
       ))}
