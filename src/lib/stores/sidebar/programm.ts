@@ -6,6 +6,7 @@ export type ProgrammSidebarStates = {
 
 export type ProgrammSidebarActions = {
   toggleIsOpen: () => void;
+  onClose: () => void;
 };
 
 export type ProgrammSidebarStore = ProgrammSidebarStates &
@@ -14,4 +15,5 @@ export type ProgrammSidebarStore = ProgrammSidebarStates &
 export const useProgrammSidebarStore = create<ProgrammSidebarStore>((set) => ({
   isOpen: false,
   toggleIsOpen: () => set(({ isOpen }) => ({ isOpen: !isOpen })),
+  onClose: () => set(({ isOpen }) => ({ isOpen: false })),
 }));

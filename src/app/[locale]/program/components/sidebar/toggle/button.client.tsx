@@ -4,11 +4,17 @@ import { cn } from '@/lib/utils';
 import { ReactNodeProps } from '@/types/types';
 import { useShallow } from 'zustand/react/shallow';
 import { useProgrammSidebarStore } from '@/lib/stores/sidebar/programm';
+import { useEffect } from 'react';
 
 export default function SidebarToggleButton() {
-  const [isOpen, toggleIsOpen] = useProgrammSidebarStore(
-    useShallow((state) => [state.isOpen, state.toggleIsOpen]),
+  const [isOpen, toggleIsOpen, onClose] = useProgrammSidebarStore(
+    useShallow((state) => [state.isOpen, state.toggleIsOpen, state.onClose]),
   );
+  useEffect(() => {
+    return () => {
+      onClose();
+    };
+  }, []);
 
   return (
     <SidebarToggleContainer onClick={toggleIsOpen}>

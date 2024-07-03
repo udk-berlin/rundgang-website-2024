@@ -4,11 +4,17 @@ import { cn } from '@/lib/utils';
 import { ReactNodeProps } from '@/types/types';
 import { useShallow } from 'zustand/react/shallow';
 import { useLandingSidebarStore } from '@/lib/stores/sidebar/landing';
+import { useEffect } from 'react';
 
 export default function SidebarToggle() {
-  const [isOpen, toggleIsOpen] = useLandingSidebarStore(
-    useShallow((state) => [state.isOpen, state.toggleIsOpen]),
+  const [isOpen, toggleIsOpen, onClose] = useLandingSidebarStore(
+    useShallow((state) => [state.isOpen, state.toggleIsOpen, state.onClose]),
   );
+  useEffect(() => {
+    return () => {
+      onClose();
+    };
+  }, []);
 
   return (
     <SidebarToggleContainer onClick={toggleIsOpen}>

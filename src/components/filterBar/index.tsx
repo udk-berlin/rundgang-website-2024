@@ -24,7 +24,7 @@ export default function FilterBar() {
 
 function FilterBarContainer({ children }: ReactNodeProps) {
   return (
-    <div className="sticky left-0 right-0 top-0 z-10 flex h-content-header w-full bg-primary">
+    <div className="fixed left-0 right-0 top-0 z-10 mt-content-header h-content-header w-full bg-primary">
       <div className="flex h-full w-full max-w-full items-center gap-gutter-xs rounded-md border-x-border border-b-border bg-secondary px-gutter-sm">
         {children}
       </div>

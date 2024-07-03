@@ -13,8 +13,8 @@ export default function Header() {
 
 function HeaderContainer({ children }: HtmlProps) {
   return (
-    <div className="sticky left-0 right-0 top-0 z-50 bg-primary">
-      {children}
+    <div className="fixed left-0 right-0 top-0 z-50 overflow-hidden bg-primary">
+      <div>{children}</div>
     </div>
   );
 }

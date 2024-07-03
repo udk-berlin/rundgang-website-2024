@@ -70,6 +70,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AppStoreProvider initState={{ ...defaultInitState, ...filters }}>
             <Header />
+            <div className="h-content-header w-screen" ></div>
             {children}
             {modal}
             <Footer />
