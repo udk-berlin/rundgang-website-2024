@@ -25,7 +25,7 @@ export default function InfoContentInfoItem({
       <InfoContentInfoItemTitle item={item} />
       {isOpen && (
         <ResponsiveMultiLineText
-          className="pb-[40px] pt-[14px] text-primary group-hover:text-black [&>a]:underline"
+          className="animate-openDetail pb-[40px] pt-[14px] text-primary md:group-hover:text-black [&>a]:underline"
           text={item.text}
           textSize="sm"
         />
@@ -43,7 +43,7 @@ function InfoContentInfoItemContainer({
   return (
     <ClientResponsiveDiv
       className={cn(
-        'group cursor-pointer rounded-md bg-secondary px-gutter-m md:hover:bg-highlight md:hover:text-black',
+        'group h-full cursor-pointer rounded-md bg-secondary px-gutter-m md:hover:bg-highlight md:hover:text-black',
       )}
       onClick={onClick}
     >

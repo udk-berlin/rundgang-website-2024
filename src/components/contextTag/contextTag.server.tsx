@@ -17,7 +17,7 @@ export default function ContextTag({ context }: ContextTagProps) {
 
   return (
     <div className="w-fit max-w-full">
-      <div className="h-tag flex w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight">
+      <div className="flex h-tag w-fit max-w-full items-center justify-center truncate rounded-border bg-secondary px-gutter-sm text-xxs hover:bg-highlight">
         {nameDescription ? `${nameDescription}: ` : ''} {context.name}
       </div>
     </div>

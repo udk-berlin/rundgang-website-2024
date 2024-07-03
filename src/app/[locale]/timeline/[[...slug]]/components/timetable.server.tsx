@@ -6,13 +6,13 @@ import TimeGrid from './grid';
 import EventLocation from './eventLocation.server';
 import EventContainer from './container';
 
-export const revalidate = 0;
+export const revalidate = 360;
 export default async function TimeTable() {
   const items = await getEventLocations();
 
   return (
     <div
-      className="relative h-fit w-screen overflow-x-scroll "
+      className="relative h-fit w-screen overflow-x-scroll"
       id="timetable-container"
     >
       <Days />

@@ -1,5 +1,5 @@
-import { Filters, ReactNodeProps } from '@/types/types';
 import ProgramFiltersGroup from '@/app/program/components/filters/groups/group/group';
+import { Filters, ReactNodeProps } from '@/types/types';
 
 const filterGroupFetchers: {
   translation: 'format' | 'faculty' | 'language';
@@ -30,7 +30,7 @@ export default function ProgramFiltersGroups({
 
 function ProgramFiltersGroupsContainer({ children }: ReactNodeProps) {
   return (
-    <div className="md:border-r-xs min-h-content-body w-full border-l-0 border-r-border bg-primary md:border-l-border">
+    <div className="min-h-content-body w-full border-l-0 border-r-border bg-primary md:border-l-border md:border-r-xs">
       {children}
     </div>
   );

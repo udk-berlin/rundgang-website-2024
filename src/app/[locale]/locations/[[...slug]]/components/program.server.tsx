@@ -9,7 +9,7 @@ export type ProgramPageProps = {
   place: string;
 };
 
-export const revalidate = 0;
+export const revalidate = 120;
 
 export default async function ProgramPage({ place }: ProgramPageProps) {
   const items = await getFilteredGraphQLLocationItems(place);

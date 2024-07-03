@@ -37,13 +37,13 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     isActive &&
     createPortal(
       <div
-        className="fixed bottom-footer left-0 z-50 h-content w-full backdrop-blur-sm"
+        className="fixed bottom-footer left-0 z-50 h-content w-full overflow-hidden backdrop-blur-sm"
         onClick={onDismiss}
       >
         <dialog
           ref={dialogRef}
           className={cx(
-            'fixed bottom-0 left-0 z-50 overflow-y-scroll overscroll-contain rounded-md border-x-border border-primary sm:w-1/3',
+            'fixed bottom-0 left-0 z-50 overflow-x-hidden overflow-y-scroll overscroll-contain rounded-md border-x-border border-primary sm:w-1/3',
             margin,
             animation,
           )}

@@ -5,13 +5,12 @@ import Project from './components/project.server';
 import LocationsMap from './components/map/index.server';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { Suspense } from 'react';
 
 type LocationsPageProps = {
   params: { slug: string[] };
 };
 
-export const revalidate = 1000;
+export const revalidate = 360;
 
 export async function generateMetadata({
   params,

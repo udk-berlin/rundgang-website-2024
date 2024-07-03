@@ -45,11 +45,7 @@ export default function EventContainer({
       </button>
       <div
         className={cx(
-          isOpen
-            ? 'animate-openTimeline'
-            : close
-              ? 'animate-closeTimeline'
-              : '',
+          isOpen ? 'animate-openDetail' : close ? 'animate-closeDetail' : '',
         )}
       >
         {isOpen && <Suspense fallback={''}>{children}</Suspense>}
