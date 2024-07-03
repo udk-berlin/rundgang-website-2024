@@ -13,13 +13,13 @@
         "filter": "Filters"
     },
     "Program": {
-        "title": "Program UdK Rundgang 2024",
-        "description": "Here you can find the program for the UdK Rundgang 2024"
+        "title": "Program – Rundgang",
+        "description": "Here you can find the program for the Rundgang – Open Days 2024 UdK Berlin"
     },
     "Locations": {
-        "title": "Locations UdK Rundgang 2024",
-        "place_title": "{template, select, room {Location:  {b}, Level {l}, Room {r}} level {Location:  {b}, Level {l}} building {Location: {b}} other {Locations UdK Rundgang 2024}}",
-        "description": "Map of the locations for the UdK Rundgang 2024",
+        "title": "Locations – Rundgang",
+        "place_title": "{template, select, room {Location:  {b}, Level {l}, Room {r}} level {Location:  {b}, Level {l}} building {Location: {b}} other {Locations  Rundgang}}",
+        "description": "Map of the locations for the Rundgang – Open Days 2024 UdK Berlin",
         "levels": "Levels",
         "rooms": "Rooms",
         "level": "level",
@@ -31,7 +31,7 @@
         "description": "From the 19th to the 20th of July, the Berlin University of the Arts invites you to the Rundgang – Open Days. Workshops, studios and rehearsal rooms of the colleges of Fine Arts, Architecture, Media and Design, Music and Performing Arts as well as the Inter-University Centre for Dance Berlin, the Jazz Institute Berlin and the Berlin Career College open their doors at the end of the academic year. From painting, sculpture, and performance to design sketches, fashion shows, and film screenings to concerts, dance, and sound installations, students will show the results and processes of their artistic work."
     },
     "Saved": {
-        "title": "Saved Projects",
+        "title": "Saved Projects – Rundgang",
         "description": "Projects or events can be saved here.",
         "remove": "remove",
         "remove-all": "Remove All",
@@ -42,7 +42,7 @@
         "date": "19th - 21st of July 2024"
     },
     "Design": {
-        "meta_title": "Design UdK Rundgang 2024",
+        "meta_title": "Design – Rundgang",
         "meta_description": "The Rundgang 2024 design was created by the two winners of the Rundgang design competition, Momo Anders and Leon Hochhäuser.",
         "title": "Participants",
         "description": {
@@ -53,10 +53,10 @@
         "unmuteAll": "Unmute All"
     },
     "Project": {
-        "title": "UdK Rundgang 2024",
+        "title": "Rundgang – Open Days 2024 UdK Berlin",
         "studentproject": "Project",
         "event": "Event",
-        "meta_description": "{template, select, studentproject {Project at the UdK Rundgang 2024 - Authors: {name}} event {Event at the UdK Rundgang 2024 - Authors: {name}} other {Authors: {name}}}"
+        "meta_description": "{template, select, studentproject {Project at the Rundgang – Open Days 2024 UdK Berlin – Authors: {name}} event {Event at the Rundgang – Open Days 2024 UdK Berlin – Authors: {name}} other {Rundgang – Open Days 2024 UdK Berlin – Authors: {name}}}"
     },
     "format": "{count, plural, =1 {Format} other {Formats}}",
     "faculty": "{count, plural, =1 {Faculty/Centre} other {Faculties/Centres}}",
@@ -73,18 +73,18 @@
         "audiPlayer": "Your browser does not support the audio element."
     },
     "Imprint": {
-        "title": "Imprint UdK Rundgang 2024",
-        "description": "Legal Information and Team",
+        "title": "Imprint – Rundgang",
+        "description": "Legal Information and Team of Rundgang – Open Days 2024 UdK Berlin",
         "text": "<strong>Berlin University of the Arts</strong><br />Corporation under public law<br />legally represented by the President Prof. Dr. Norbert Palz<br />Einsteinufer 43<br />D-10587 Berlin<br />Phone: 030/3185-0<br />Sales tax identification number: DE811403316<br />Legal supervision: Senate Department for Science, Health, Care and Equality<br /><br /><strong>Development:</strong> udk/spaces<br /><strong>Design:</strong> Momo Anders and Leon Hochhäuser<br /><strong>Website design and development:</strong> Marisa Nest, Juan Pablo Gaviria Bedoya, Lukas Esser, Lilli Joppien<br /><strong>Editing:</strong> Department for Interfaculty Events<br />The editorial responsibility for the program subpages lies with the contributors themselves. The responsible contact persons are named on the program subpages. Program content is continuously updated by their editors.<br /><br /><strong>Note</strong><br />The Berlin University of the Arts (UdK) does not guarantee that the information provided on this website is up-to-date, correct, or complete. This applies in particular to the content of external websites that are referred to directly or indirectly via hyperlinks and over which the UdK Berlin has no control. The offers made by the Rundgang contributors are the responsibility of the respective areas and participants.<br /><br />The content of this website is protected by copyright. The reproduction or distribution of the information provided on this site requires the prior written consent of the UdK Berlin."
     },
     "Contact": {
-        "title": "Contact UdK Rundgang 2024",
-        "description": "Contact Details for the Rundgang – Open Days 2024",
+        "title": "Contact – Rundgang",
+        "description": "Contact Details for the Rundgang – Open Days 2024 UdK Berlin",
         "text": "<strong>Team und Contacts</strong><br />Rundgang – Open Days is an event of the Berlin University of the Arts,  represented by the President Prof. Dr. Norbert Palz.<br />The list is constantly being updated:<br />Event management &amp; event coordination<br />The event management on duty can be reached on the tour days at the service  number:<br />The number will be published shortly before Rundgang.<br /><strong>Event management</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/felix-wolf/'>Felix Wolf</a>,  Department of Construction and Real Estate<br /><strong>Department for Interfaculty Events</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/anne-marie-franz/'>Anne-Marie Franz</a> <a target='_blank' href='https://www.udk-berlin.de/person/mona-voelkel/'>Mona Völkel</a> | <a target='_blank' href='https://www.udk-berlin.de/person/kim-fuellgraf/'>Kim Füllgraf</a> | <a target='_blank' href='https://www.udk-berlin.de/person/alexander-kirchner/'>Alexander Kirchner</a><br /><strong>Press and Public Relations</strong> <br />Press/ Communications Office<br /><a target='_blank' href='https://www.udk-berlin.de/person/claudia-assmann/'>Claudia Assmann</a> | <a    href='https://www.udk-berlin.de/service/stabsstelle-presse-kommunikation/das-team-der-stabsstelle-presse-kommunikation/'>Trang Vu</a> | <a target='_blank' href='https://www.udk-berlin.de/person/anna-maria-roth/'>Anna-Maria Roth</a><br /><strong>Social Media</strong> <br /><a    href='https://www.udk-berlin.de/service/stabsstelle-presse-kommunikation/das-team-der-stabsstelle-presse-kommunikation/'>Press/Communications</a><br /><strong>Awareness</strong> <br />Access Netzwerk<br />The number will be published shortly before Rundgang.<br /><strong>Security</strong> <br />Boretti Solutions GmbH<br /><strong>Anti-Discrimination &amp; Diversity Officer</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/alejandra-nieves-camacho/'>Alejandra Nieves Camacho</a><br /><strong>UdK:Shop</strong> <br /><a    href='https://www.udk-berlin.de/universitaet/stabsstelle-strategisches-marketing/'    target='_blank'>Strategic Marketing Unit</a><br /><strong>Contact persons of the faculties and centers</strong><br /><strong>College of Fine Arts</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/akiko-bernhoeft/'>Akiko Bernhöft</a> | <a target='_blank' href='https://www.udk-berlin.de/person/jakob-rava/'>Jacob Rava</a> | <a target='_blank' href='https://www.udk-berlin.de/person/gregory-cumins/'>Gregory Cumins</a> | <a target='_blank' href='https://www.udk-berlin.de/person/karsten-konrad/'>Karsten Konrad</a><br /><strong>College of Architecture, Media and Design</strong> <br /><em>Institute of Transmedia Design</em> <em>   <br /></em> <a target='_blank' href='https://www.udk-berlin.de/person/constanze-hein/'>Constanze Hein</a> | <a target='_blank' href='https://www.udk-berlin.de/person/lilli-kuschel/'>Lilli Kuschel</a><br /><em>Institute of Experimental Fashion and Textile Design</em> <em>   <br /></em> <a target='_blank' href='https://www.udk-berlin.de/person/franziska-schreiber/'>Franziska Schreiber</a> | <a target='_blank' href='https://www.udk-berlin.de/person/berit-greinke/'>Berit Greinke</a> <a target='_blank' href='https://design.udk-berlin.de/personen/teresa-fagbohoun'>Teresa Fagbohoun</a><br /><em>Institute of Product and Process design</em><br /><a target='_blank' href='https://design.udk-berlin.de/personen/wm-julian-ribler/'>Julian Ribler</a> | <a target='_blank' href='https://www.udk-berlin.de/person/johanna-dehio/'>Johanna Dehio</a><br /><em>Institute of Architecture and Urban Development</em> <em>   <br /></em> <a target='_blank' href='https://www.udk-berlin.de/person/lucie-leder/'>Lucie Leder</a> <br /><br /><strong>College of Music</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/harry-curtis/'>Harry Curtis</a> | <a target='_blank' href='https://www.udk-berlin.de/person/yulia-vashchenko/'>Yulia Vashchenko</a> | <a target='_blank' href='https://www.udk-berlin.de/person/celine-kodim/'>Celine Kodim</a><br /><strong>College of Performing Arts</strong> <br /><a    href='https://www.udk-berlin.de/universitaet/fakultaet-darstellende-kunst/unit-theater-der-universitaet-der-kuenste-berlin/unit-kontakt/kuenstlerisches-betriebsbuero-fakultaet-darstellende-kunst/'>Laura Jimenez Gonzalez</a><br /><strong>Berlin Career College</strong> <br /><a target='_blank' href='https://www.udk-berlin.de/person/kathrin-rusch/'>Kathrin Rusch</a> <a target='_blank' href='https://www.udk-berlin.de/person/sabine-beta/'>Sabine Beta</a><br /><em>Postgraduate Programme Sound Studies and Sonic Arts (M.A.)</em> <em>   <br /></em> <a href='mailto:k.julia@udk-berlin.de'>Julia Koffler</a><br /><em>Artist Training</em> <em>   <br /></em> <a target='_blank' href='https://www.udk-berlin.de/person/kathrin-rusch/'>Kathrin Rusch</a> | <a target='_blank' href='https://www.udk-berlin.de/person/sabine-beta/'>Sabine Beta</a> | <a target='_blank' href='https://www.udk-berlin.de/person/melanie-waldheim/'>Melanie Waldheim</a><br /><strong>Inter-University Center for Dance Berlin (HZT) </strong><br /><a target='_blank' href='https://www.udk-berlin.de/person/nik-haffner/'>Nik Haffner</a> | <a target='_blank' href='https://www.udk-berlin.de/person/sabine-trautwein/'>Sabine Trautwein</a> | <a    href='https://www.hzt-berlin.de/zentrum/personen/judith-brueckmann/'    target='j.brueckmann@hzt-berlin.de'>Judith Brückmann</a><br /><strong>Jazz-Institut Berlin</strong> <strong>   <br /></strong> <a target='_blank' href='https://www.udk-berlin.de/person/heinrich-koebberling/'>Heinrich Köbberling</a> | <a target='_blank' href='https://www.udk-berlin.de/person/paulo-morello/'>Paulo Morello</a> | <a target='_blank' href='https://www.udk-berlin.de/person/johannes-bockholt-dams/'>Johannes Bockholt-Dams</a><br />"
     },
     "Info": {
-        "title": "Info UdK Rundgang 2024",
-        "description": "FAQs and other general information",
+        "title": "Info – Rundgang",
+        "description": "FAQs and other general information about the Rundgang – Open Days 2024 UdK Berlin",
         "information": "Information",
         "about": "About",
         "abouttext": "From the 19th to the 20th of July, the Berlin University of the Arts invites you to the Rundgang – Open Days. Workshops, studios and rehearsal rooms of the colleges of Fine Arts, Architecture, Media and Design, Music and Performing Arts as well as the Inter-University Centre for Dance Berlin, the Jazz Institute Berlin and the Berlin Career College open their doors at the end of the academic year. From painting, sculpture, and performance to design sketches, fashion shows, and film screenings to concerts, dance, and sound installations, students will show the results and processes of their artistic work.<br/><br/>Everyone who would like to get to know the University as a place of encounter and discourse for the arts and sciences is invited to the Rundgang. In addition, a wide range of advisory services offers prospective students a concrete insight into the diverse range of courses offered by the Berlin University of the Arts.",
@@ -164,8 +164,8 @@
         }
     },
     "Timeline": {
-        "title": "Timeline",
-        "description": "Schedule of all events during the Rundgang",
+        "title": "Timeline – Rundgang",
+        "description": "Schedule of all events during the Rundgang – Open Days 2024 UdK Berlin",
         "friday": "Friday",
         "saturday": "Saturday",
         "sunday": "Sunday"
