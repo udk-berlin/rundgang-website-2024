@@ -30,7 +30,7 @@ export default function Rooms({ location }: any) {
                   'fill-white',
                   'stroke-black',
                   'stroke-[10px]',
-                  'pointer-events-auto ',
+                  'pointer-events-auto',
                 );
               } else if (location.rooms?.find((r) => r.id == room.id)) {
                 roomRect.classList.add(
@@ -39,7 +39,7 @@ export default function Rooms({ location }: any) {
                   'hover:fill-white',
                   'stroke-white',
                   'stroke-[10px]',
-                  'pointer-events-auto ',
+                  'pointer-events-auto',
                 );
               } else {
                 roomRect.classList.add('fill-highlight', 'pointer-events-none');
