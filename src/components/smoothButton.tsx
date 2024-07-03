@@ -77,7 +77,7 @@ export default function SmoothButton({
         bgMapper[color],
         hoverBgMapper[color],
         bottom ? 'bottom-0 right-0 rounded-br-[2px] rounded-tl-border' : '',
-        top ? 'right-0 top-0 rounded-bl-border rounded-tr-border' : '',
+        top ? 'right-0 top-0 rounded-bl-border rounded-tr-[2px]' : '',
       )}
       title={title}
     >

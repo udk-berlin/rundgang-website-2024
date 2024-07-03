@@ -18,15 +18,22 @@ export default function ProjectDetailContextGroup({
     return <></>;
   }
 
+  const alreadyDisplayedContextIds: string[] = [];
+
   return (
     <ProjectDetailContextGroupContainer>
       <div className="text-xs text-grey">
         {t(contextGroupKey, { count: 2 })}
       </div>
       <div className="flex flex-col gap-gutter-xs">
-        {contextGroup.map((context) => (
-          <ContextTag key={context.id} context={context} withBorder />
-        ))}
+        {contextGroup.map((context) => {
+          if (alreadyDisplayedContextIds.includes(context.id)) {
+            return <></>;
+          }
+
+          alreadyDisplayedContextIds.push(context.id);
+          return <ContextTag key={context.id} context={context} withBorder />;
+        })}
       </div>
     </ProjectDetailContextGroupContainer>
   );

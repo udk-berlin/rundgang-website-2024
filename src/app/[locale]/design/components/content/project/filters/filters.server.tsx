@@ -13,7 +13,11 @@ export default function DesignContentProjectFilters({ project }) {
       />
       <DesignContentProjectFilter
         title={t('language', { count: 1 })}
-        value={ISO6391.getNativeName(project.language.iso_639_1_code)}
+        value={
+          project.language.nativeName
+            ? project.language.nativeName
+            : ISO6391.getNativeName(project.language.iso_639_1_code)
+        }
       />
     </DesignContentProjectFiltersContainer>
   );

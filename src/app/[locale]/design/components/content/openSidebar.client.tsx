@@ -18,7 +18,7 @@ export default function DesignContentOpenSidebar() {
     <DesignContentOpenSidebarContainer onClick={onClick}>
       <div
         className={cn(
-          'transition-transform duration-700',
+          'fill-secondary transition-transform duration-700',
           sidebarIsOpen ? 'rotate-0' : 'rotate-180',
         )}
       >

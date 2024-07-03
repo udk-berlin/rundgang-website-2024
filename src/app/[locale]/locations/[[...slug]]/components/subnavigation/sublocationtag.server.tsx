@@ -1,5 +1,5 @@
-import cx from 'classnames';
 import { Link } from '@/navigation';
+import TagPlain from '@/components/tag/plain.server';
 
 export type SubLocationTagProps = {
   sublocation: { name: string; id: string };
@@ -21,16 +21,16 @@ export default function SubLocationTag({
       className="cursor-pointer pl-1 pt-1"
       scroll={false}
     >
-      <div
-        className={cx(
-          'relative w-fit rounded-md border-white px-[13px] py-[8px]  text-xxs ring-2 ring-primary',
+      <TagPlain
+        className={
           isSelected
-            ? 'bg-highlight text-black'
-            : 'bg-secondary text-primary hover:bg-highlight hover:text-black',
-        )}
-      >
-        {prefix} {sublocation.name}
-      </div>
+            ? '!bg-highlight text-black'
+            : 'hover:bg-highlight hover:text-black'
+        }
+        prefix={prefix}
+        title={sublocation.name}
+        withBorder
+      />
     </Link>
   );
 }

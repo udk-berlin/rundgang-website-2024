@@ -2,15 +2,21 @@ import { Item } from '@/types/item';
 import ProjectCardAuthors from '@/components/project/card/authors.server';
 import ProjectCardName from '@/components/project/card/name.server';
 import ProjectCardContainer from '@/components/project/card/container.client';
-import ProjectCardFilters from '@/components/project/card/filters.server';
 import ProjectCardImage from '@/components/project/card/image.server';
+import { ContextTagType } from '@/components/contextTag/contextTag.server';
+import ProjectCardContextGroups from '@/components/project/card/context/groups/groups.server';
 
 export type ProjectCardProps = {
   item: Item;
+  contextTagType?: ContextTagType;
   linkPathname?: string;
 };
 
-export default function ProjectCard({ item, linkPathname }: ProjectCardProps) {
+export default function ProjectCard({
+  item,
+  contextTagType = 'plain',
+  linkPathname,
+}: ProjectCardProps) {
   return (
     <ProjectCardContainer item={item}>
       <div>
@@ -19,7 +25,7 @@ export default function ProjectCard({ item, linkPathname }: ProjectCardProps) {
       </div>
       <div className="flex grow flex-col">
         <ProjectCardAuthors item={item} linkPathname={linkPathname} />
-        <ProjectCardFilters item={item} />
+        <ProjectCardContextGroups contextTagType={contextTagType} item={item} />
       </div>
     </ProjectCardContainer>
   );

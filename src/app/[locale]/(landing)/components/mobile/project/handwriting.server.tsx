@@ -8,7 +8,7 @@ export default function LandingProjectHandwriting({
   return (
     <LandingProjectHandwritingContainer>
       <Image
-        className="h-[80%] w-auto dark:invert"
+        className="pointer-events-none h-[80%] w-auto dark:invert"
         src={`/assets/projects/${language}/mobile.png`}
         width={1207}
         height={587}
@@ -24,8 +24,8 @@ function LandingProjectHandwritingContainer({
   children: ReactNode;
 }) {
   return (
-    <div className="absolute bottom-0 left-0 right-0 top-0">
-      <div className="flex h-full w-full items-center justify-center">
+    <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0">
+      <div className="pointer-events-none flex h-full w-full items-center justify-center">
         {children}
       </div>
     </div>

@@ -1,5 +1,6 @@
-import { getGraphQLFilters } from '@/api/graphql/filters';
+import { getExistingGraphQLFilters } from '@/api/graphql/filters';
 import LandingFiltersGroup from '@/app/(landing)/components/desktop/filters/groups/group.server';
+import { getFilteredGraphQLItems } from '@/api/graphql/items';
 
 const keys: ('formats' | 'faculties' | 'languages')[] = [
   'formats',
@@ -8,11 +9,12 @@ const keys: ('formats' | 'faculties' | 'languages')[] = [
 ];
 
 export default async function LandingFiltersGroupsSuspend() {
-  const filters = await getGraphQLFilters();
+  const items = await getFilteredGraphQLItems({});
+  const contextGroups = await getExistingGraphQLFilters(items, {}, true);
   return (
     <>
       {keys.map((key) => (
-        <LandingFiltersGroup key={key} filters={filters[key]} />
+        <LandingFiltersGroup key={key} filters={contextGroups[key]} />
       ))}
     </>
   );

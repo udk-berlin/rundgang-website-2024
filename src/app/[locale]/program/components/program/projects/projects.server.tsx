@@ -10,7 +10,7 @@ export default function ProgramProjects({ projects }: ProgramProjectsProps) {
   return (
     <ProgramProjectsContainer>
       {projects.map((item) => (
-        <ProjectCard key={item.id} item={item} />
+        <ProjectCard key={item.id} contextTagType="button" item={item} />
       ))}
     </ProgramProjectsContainer>
   );

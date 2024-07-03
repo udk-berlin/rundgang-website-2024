@@ -17,7 +17,7 @@ function DesignContentProjectsContainer({ children }: HtmlProps) {
   return (
     <div>
       <div className="hidden h-content-header max-h-content-header min-h-content-header md:block" />
-      <div className="scrollable md:border-r-xs md:border-t-xs col-span-4 grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-auto border-border  border-y-0 bg-primary md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-4">
+      <div className="scrollable col-span-4 grid h-content max-h-content min-h-content grid-cols-1 gap-border overflow-y-auto border-border border-y-0 bg-primary  md:h-content-body md:max-h-content-body md:min-h-content-body md:grid-cols-4 md:border-r-xs md:border-t-xs">
         {children}
       </div>
     </div>

@@ -4,12 +4,16 @@ import cx from 'classnames';
 import { useStore } from 'zustand';
 import { ReactNodeProps } from '@/types/types';
 import { useUIStore } from '@/lib/uiStore';
-import { ProjectCardProps } from '@/components/project/card/card.server';
+import { Item } from '@/types/item';
+
+export type ProjectCardContainerProps = ReactNodeProps & {
+  item: Item;
+};
 
 export default function ProjectCardContainer({
   children,
   item,
-}: ReactNodeProps & ProjectCardProps) {
+}: ProjectCardContainerProps) {
   const isSaved = useStore(useUIStore, (state) =>
     state.savedItems.includes(item.id),
   );
@@ -17,7 +21,7 @@ export default function ProjectCardContainer({
   return (
     <div
       className={cx(
-        'flex flex-col rounded-border p-gutter-xs text-primary hover:bg-highlight',
+        'flex flex-col rounded-border p-gutter-xs text-primary md:hover:bg-highlight',
         isSaved ? 'bg-highlight' : 'bg-secondary',
       )}
     >

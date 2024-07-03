@@ -1,6 +1,7 @@
 import { Filter, ReactNodeProps } from '@/types/types';
 import { useTranslations } from 'next-intl';
 import ContextTagLink from '@/components/contextTag/link';
+import ContextTag from '@/components/contextTag/contextTag.server';
 
 export type FilterGroupProps = {
   translationKey: 'format' | 'faculty' | 'language';
@@ -18,7 +19,7 @@ export default function LandingFiltersGroup({
         {t(translationKey, { count: 2 })}
       </div>
       {filters.map((filter) => (
-        <ContextTagLink key={filter.id} context={filter} />
+        <ContextTag key={filter.id} type="link" context={filter} />
       ))}
     </LandingFiltersGroupContainer>
   );

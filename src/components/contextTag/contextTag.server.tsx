@@ -1,39 +1,29 @@
-import { ItemContext } from '@/types/item';
-import { useTranslations } from 'next-intl';
-import cx from 'classnames';
+import { ItemContext, ItemFilterableContext } from '@/types/item';
+import ContextTagPlain from '@/components/contextTag/plain.server';
+import ContextTagLink from '@/components/contextTag/link.server';
+import ContextTagButton from '@/components/contextTag/button.client';
+
+export type ContextTagType = 'plain' | 'link' | 'button';
 
 export type ContextTagProps = {
-  context: ItemContext;
+  type?: ContextTagType;
+  context: ItemContext | ItemFilterableContext;
   withBorder?: boolean;
 };
 
 export default function ContextTag({
+  type = 'plain',
   context,
   withBorder = false,
 }: ContextTagProps) {
-  const t = useTranslations();
-  let nameDescription;
-
-  if (context.template === 'location-level') {
-    nameDescription = t('level');
-  } else if (context.template === 'location-room') {
-    nameDescription = t('room');
+  switch (type) {
+    case 'plain':
+      return <ContextTagPlain context={context} withBorder={withBorder} />;
+    case 'link':
+      return <ContextTagLink context={context} withBorder={withBorder} />;
+    case 'button':
+      return <ContextTagButton context={context} withBorder={withBorder} />;
+    default:
+      return <ContextTagPlain context={context} withBorder={withBorder} />;
   }
-
-  return (
-    <div
-      className={cx(
-        'flex h-tag w-fit min-w-0 max-w-full items-center rounded-border bg-secondary hover:bg-highlight',
-        withBorder && 'border-border border-primary',
-      )}
-    >
-      <div
-        className={cx(
-          'w-fit min-w-0 max-w-full truncate px-gutter-sm text-xxs',
-        )}
-      >
-        {nameDescription ? `${nameDescription}: ${context.name}` : context.name}
-      </div>
-    </div>
-  );
 }

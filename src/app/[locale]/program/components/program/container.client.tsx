@@ -3,7 +3,7 @@ import { ReactNodeProps } from '@/types/types';
 import { usePathname } from '@/navigation';
 import cx from 'classnames';
 
-export default function ProgramLayoutMovableContentContainer({
+export default function ProgramMovableContentContainer({
   children,
 }: ReactNodeProps) {
   const pathname = usePathname();
