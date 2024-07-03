@@ -3,8 +3,6 @@
 import cx from 'classnames';
 import { Link, usePathname } from '@/navigation';
 import { useIsActive } from '@/lib/useLinkActive';
-import { useCallback } from 'react';
-import { createPortal } from 'react-dom';
 
 export type NavigationLinkProps = {
   href: any;
@@ -13,6 +11,7 @@ export type NavigationLinkProps = {
   isLast?: boolean;
   noContentAround?: boolean;
   children: any;
+  className?: string;
 };
 
 export default function NavigationLink({
@@ -21,12 +20,13 @@ export default function NavigationLink({
   isFirst = false,
   isLast = false,
   children,
+  className,
 }: NavigationLinkProps) {
   const pathname = usePathname();
   const isActive = useIsActive(href);
   const activeStyle = isFooter
-    ? 'rounded-b-md border-t-secondary sm:hover:border-t-white'
-    : 'rounded-t-md border-b-secondary sm:hover:border-t-white';
+    ? 'rounded-b-md border-t-secondary sm:hover:border-t-highlight'
+    : 'rounded-t-md border-b-secondary sm:hover:border-b-highlight';
 
   return (
     <Link
@@ -37,6 +37,7 @@ export default function NavigationLink({
         isActive ? activeStyle : 'rounded-md',
         isFirst && 'ml-xs',
         isLast && 'mr-xs',
+        className,
       )}
       replace={
         (pathname == '/imprint' && href == '/contact') ||

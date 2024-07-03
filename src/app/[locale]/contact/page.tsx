@@ -1,5 +1,4 @@
 import Content from '@/components/modal/content.server';
-import Modal from '@/components/modal/modal';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
@@ -15,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 export default async function Page(props: any) {
   return (
-    <Modal>
+    <main className="border-x-border border-primary">
       <Content title="Contact" />
-    </Modal>
+    </main>
   );
 }

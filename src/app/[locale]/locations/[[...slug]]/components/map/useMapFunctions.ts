@@ -58,10 +58,10 @@ const useMapFunctions = (
     (targetBoundingBox: GeoJSON.Feature<GeoJSON.Point, Building> | null) => {
       if (rundgangMap) {
         let padding = {
-          right: size?.width <= MOBILE_WIDTH ? 0 : 1,
+          right: size?.width <= MOBILE_WIDTH ? 40 : 0,
           top: 0,
           left: 0,
-          bottom: 0,
+          bottom: size?.width <= MOBILE_WIDTH ? 100 : 0,
         };
         let maxZoom = size?.width > MOBILE_WIDTH ? 11.5 : 9.2;
         let coords = bbox({
@@ -70,9 +70,10 @@ const useMapFunctions = (
         });
 
         if (targetBoundingBox) {
-          padding.right = padding.right * size.width * 0.4;
+          padding.right =
+            size?.width <= MOBILE_WIDTH ? padding.right : size.width * 0.4;
           padding.left = 0;
-          padding.bottom = size?.width <= MOBILE_WIDTH ? 0 : 400;
+          padding.bottom = size?.height * 0.5;
           padding.top = 0;
           maxZoom = targetBoundingBox.properties.maxZoom;
           coords = bbox(targetBoundingBox);

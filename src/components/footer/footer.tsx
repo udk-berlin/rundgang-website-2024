@@ -6,14 +6,43 @@ export default function Footer() {
   const t = useTranslations('Navigation');
   return (
     <FooterContainer>
-      <NavigationLink href="/contact" isFooter isFirst>
+      <NavigationLink
+        className="hidden sm:block"
+        href="/contact"
+        isFooter
+        isFirst
+      >
         {t('contact')}
       </NavigationLink>
-      <NavigationLink href="/imprint" isFooter>
+      <NavigationLink
+        className="block sm:hidden"
+        href="/program"
+        isFooter
+        isFirst
+      >
+        {t('program')}
+      </NavigationLink>
+      <NavigationLink className="hidden sm:block" href="/imprint" isFooter>
         {t('imprint')}
       </NavigationLink>
-      <NavigationLink href="/design" isFooter isLast>
+      <NavigationLink className="block sm:hidden" href="/locations" isFooter>
+        {t('locations')}
+      </NavigationLink>
+      <NavigationLink
+        className="hidden sm:block"
+        href="/design"
+        isFooter
+        isLast
+      >
         {t('design')}
+      </NavigationLink>
+      <NavigationLink
+        className="block sm:hidden"
+        href="/timeline"
+        isFooter
+        isLast
+      >
+        {t('timeline')}
       </NavigationLink>
     </FooterContainer>
   );

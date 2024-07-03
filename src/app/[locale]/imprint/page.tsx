@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Page(props: any) {
   return (
-    <main>
+    <main className="border-x-border border-primary">
       <Content title="Imprint" />
     </main>
   );

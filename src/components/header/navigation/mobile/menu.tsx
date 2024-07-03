@@ -28,6 +28,7 @@ const footerItems = [
   { title: 'Contact', href: '/contact' },
   { title: 'Imprint', href: '/imprint' },
   { title: 'Design', href: '/design' },
+  { title: 'Info', href: '/info' },
 ];
 
 export default function HeaderNavigationMobileMenu({
@@ -106,7 +107,7 @@ function MobileMenuItem({ title, href, isTop = false }: MobileMenuItemProps) {
           isTop ? 'text-lg font-bold' : 'text-md',
         )}
       >
-        {isActive ? '>' : ''}
+        {isActive ? '> ' : ''}
         {title}
       </div>
     </Link>
