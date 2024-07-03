@@ -5,6 +5,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/api/constants.ts',
     './src/styles/constants.ts',
   ],
   darkMode: 'selector',
@@ -81,7 +82,7 @@ const config: Config = {
         '12px',
         {
           letterSpacing: '1',
-          lineHeight: '1',
+          lineHeight: '1.2',
           fontWeight: '400',
         },
       ],

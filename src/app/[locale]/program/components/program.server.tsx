@@ -14,7 +14,7 @@ export default function Program({ items }: ProgramProps) {
   return (
     <ProgramContainer>
       <SidebarToggle />
-      <div className="h-content-body max-h-content-body min-h-content-body w-full overflow-y-auto">
+      <div className="h-content-body max-h-content-body min-h-content-body w-full overflow-y-auto overflow-x-hidden">
         <ProgramProjectsContainer>
           <ProgramProjects projects={items} />
         </ProgramProjectsContainer>
@@ -27,7 +27,7 @@ export default function Program({ items }: ProgramProps) {
 function ProgramContainer({ children }: ReactNodeProps) {
   return (
     <ProgramLayoutMovableContentContainer>
-      <div className="h-content-header max-h-content-header min-h-content-header" />
+      <div className="h-content-header max-h-content-header min-h-content-header bg-secondary" />
       {children}
     </ProgramLayoutMovableContentContainer>
   );

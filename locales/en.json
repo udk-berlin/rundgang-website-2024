@@ -22,9 +22,9 @@
         "description": "Map of the locations for the UdK Rundgang 2024",
         "levels": "Levels",
         "rooms": "Rooms",
-        "level": "level",
-        "room": "room",
-        "all": "all"
+        "level": "Level",
+        "room": "Room",
+        "all": "All"
     },
     "RootLayout": {
         "title": "Rundgang – Open Days 2024 UdK Berlin",
