@@ -20,8 +20,8 @@ export function ScrollForwardButton() {
       className="fixed bottom-[50%] right-0 z-40 pr-2"
       onClick={() => scrollForward()}
     >
-      <div className="h-gridcell w-10 cursor-pointer rounded-md bg-primary fill-secondary p-2 text-lg motion-safe:animate-bounceRight">
-        <ArrowRight />
+      <div className="flex aspect-square h-gridcell cursor-pointer items-center justify-center rounded-border bg-primary fill-secondary motion-safe:animate-bounceRight">
+        <ArrowRight width={11} height={18} />
       </div>
     </div>
   );
@@ -44,8 +44,8 @@ export function ScrollBackwardButton() {
       className="fixed bottom-[50%] left-0 z-40 pl-2"
       onClick={() => scrollBackward()}
     >
-      <div className="h-gridcell w-10 cursor-pointer rounded-md bg-primary fill-secondary p-2 text-lg motion-safe:animate-bounceLeft">
-        <ArrowRight />
+      <div className="flex aspect-square h-gridcell cursor-pointer items-center justify-center rounded-border bg-primary fill-secondary motion-safe:animate-bounceLeft">
+        <ArrowRight width={11} height={18} />
       </div>
     </div>
   );

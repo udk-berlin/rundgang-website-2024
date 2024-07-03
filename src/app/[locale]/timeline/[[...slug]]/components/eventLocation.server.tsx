@@ -6,12 +6,12 @@ type EventLocationProps = {
   location: Context;
 };
 
-export const revalidate = 360;
+export const revalidate = 0;
 export default async function EventLocation({ location }: EventLocationProps) {
   const events = await getEventList(location.id);
   if (events?.length == 0) return;
   return (
-    <div className="relative z-20 w-timeline ring-[1px] ring-inset ring-primary">
+    <div className="relative z-20 w-timeline border-x-border border-b-border">
       <div className="py-10">
         {events.map((event) => (
           <EventBar key={event.id} event={event} />
