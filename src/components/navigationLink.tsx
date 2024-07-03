@@ -25,7 +25,7 @@ export default function NavigationLink({
   const pathname = usePathname();
   const isActive = useIsActive(href);
   const activeStyle = isFooter
-    ? 'rounded-b-md border-t-secondary sm:hover:border-b-white'
+    ? 'rounded-b-md border-t-secondary sm:hover:border-t-white'
     : 'rounded-t-md border-b-secondary sm:hover:border-t-white';
 
   return (
