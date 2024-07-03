@@ -14,7 +14,7 @@ export default function Program({ items }: ProgramProps) {
   return (
     <ProgramContainer>
       <SidebarToggle />
-      <div className="h-content-body max-h-content-body min-h-content-body w-full overflow-y-auto border-r-border border-r-primary">
+      <div className="h-content-body max-h-content-body min-h-content-body w-full overflow-y-auto">
         <ProgramProjectsContainer>
           <ProgramProjects projects={items} />
         </ProgramProjectsContainer>

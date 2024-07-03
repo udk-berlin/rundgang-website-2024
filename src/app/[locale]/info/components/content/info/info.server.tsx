@@ -42,7 +42,7 @@ export default async function InfoContentInfo() {
 function InfoContentInfoContainer({ children }: HtmlProps) {
   return (
     <div className="md:col-span-3 md:h-content-body md:max-h-content-body md:min-h-content-body md:overflow-y-auto">
-      <div className="flex w-full flex-col gap-border border-r-border border-r-primary md:h-content-body md:min-h-content-body">
+      <div className="flex w-full flex-col gap-border md:h-content-body md:min-h-content-body">
         {children}
       </div>
     </div>

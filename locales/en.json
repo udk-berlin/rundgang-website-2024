@@ -32,11 +32,10 @@
     },
     "Saved": {
         "title": "Saved Projects",
-        "saved_items": "Saved Projects",
         "description": "Projects or events can be saved here.",
         "remove": "remove",
-        "save": "save",
-        "remove_all": "Remove All"
+        "remove-all": "Remove All",
+        "save": "save"
     },
     "Landing": {
         "title": "UdK Berlin",
@@ -50,8 +49,8 @@
             "title": "Project description",
             "text": "We will open the doors to UdK Berlin at the Rundgang 2024 with an approachable, multilingual, and multisensory media communication. For this purpose, we have designed the conceptual framework, which students from various faculties and linguistic backgrounds will fill with translations of the word 'Rundgang' in non-latin writing systems. In this collaborative process, we amplify the multilingualism of the students, giving them a loud voice, and invite an equally diverse city to the 2024 Rundgang."
         },
-        "mute_all": "Mute All",
-        "unmute_all": "Unmute All"
+        "muteAll": "Mute All",
+        "unmuteAll": "Unmute All"
     },
     "Project": {
         "title": "UdK Rundgang 2024",
