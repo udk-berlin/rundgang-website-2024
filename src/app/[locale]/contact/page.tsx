@@ -13,5 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 export default async function Page(props: any) {
-  return <Content title="Contact" />;
+  return (
+    <main className="border-x-border border-primary">
+      <Content title="Contact" />
+    </main>
+  );
 }
