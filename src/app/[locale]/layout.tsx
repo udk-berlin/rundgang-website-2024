@@ -49,7 +49,7 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      images: [`/assets/projects/${lang}/writing.png`],
+      images: [`/assets/ogimages/${lang}.png`],
     },
   };
 }

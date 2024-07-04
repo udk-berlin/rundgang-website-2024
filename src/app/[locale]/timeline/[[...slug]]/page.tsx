@@ -17,7 +17,7 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     openGraph: {
-      images: ['/assets/projects/uk/writing.png'],
+      images: ['/assets/ogimages/uk.png'],
     },
   };
 }

@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('meta_title'),
     description: t('meta_description'),
     openGraph: {
-      images: ['/assets/projects/ka/writing.png'],
+      images: ['/assets/ogimages/ka.png'],
     },
   };
 }

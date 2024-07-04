@@ -13,7 +13,7 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     openGraph: {
-      images: ['/assets/projects/ru/writing.png'],
+      images: ['/assets/ogimages/ru.png'],
     },
   };
 }
