@@ -19,10 +19,10 @@ type RootLayoutProps = {
   modal: ReactNode;
   params: { locale: string };
 };
-
+/* 
 export async function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'de' }];
-}
+} */
 
 export async function generateMetadata({
   params: { locale },
@@ -70,7 +70,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AppStoreProvider initState={{ ...defaultInitState, ...filters }}>
             <Header />
-            <div className="h-content-header w-screen" ></div>
+            <div className="h-content-header w-screen"></div>
             {children}
             {modal}
             <Footer />
