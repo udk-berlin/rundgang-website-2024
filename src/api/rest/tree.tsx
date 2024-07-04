@@ -18,5 +18,9 @@ export const getItemList = cache(async (id: string): Promise<string[]> => {
     defaultFetchCacheOptions,
   )
     .then((res) => res.json())
-    .then((items) => items.map((item: ItemContext) => item.id));
+    .then((items) => {
+      return Array.isArray(items)
+        ? items.map((item: ItemContext) => item.id)
+        : [];
+    });
 });

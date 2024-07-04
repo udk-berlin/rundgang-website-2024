@@ -8,15 +8,12 @@ import {
 } from '../constants';
 import { getById } from './api';
 import { getGraphQLLanguages } from '../graphql/filters';
-import { getItemList } from './tree';
+import { getItemList, getTreeById } from './tree';
 
 export const getFormats = cache(async () =>
-  getById(restApiFormatsRoot()).then((res) =>
-    Promise.all(
-      Object.values(res.context).map(async (format) => ({
-        ...format,
-        items: await getItemList(format.id),
-      })),
+  getTreeById(restApiFormatsRoot()).then((res) =>
+    Object.values(res.children).filter(
+      (format) => Object.keys(format.children).length != 0,
     ),
   ),
 );
@@ -50,15 +47,12 @@ export const getFilters = cache(async () => {
   const centres = await getCentres();
   const gqlItems = await getGraphQLLanguages();
   return {
-    formats: formats
-      .filter((a) => a.items && a.items.length > 0)
-      .map((a) => ({
-        id: a.id,
-        name: a.name,
-        items: a.items,
-        searchParam: 'format',
-        exists: true,
-      })),
+    formats: formats.map((a) => ({
+      id: a.id,
+      name: a.name,
+      searchParam: 'format',
+      exists: true,
+    })),
     faculties: [...faculties, ...centres]
       .filter((a) => a.items && a.items.length > 0)
       .map((a) => ({
@@ -95,7 +89,7 @@ function filterExisting(
     exists:
       searchParams.format === format.id ||
       items.some((item) =>
-        format.items.some((itemFormat) => itemFormat === item.id),
+        item.formats.some((itemFormat) => format.id == itemFormat.id),
       ),
   }));
 
@@ -104,7 +98,7 @@ function filterExisting(
     exists:
       searchParams.faculty === faculty.id ||
       items.some((item) =>
-        faculty.items.some((itemFaculty) => itemFaculty === item.id),
+        faculty.items!.some((itemFaculty) => itemFaculty === item.id),
       ),
   }));
 
