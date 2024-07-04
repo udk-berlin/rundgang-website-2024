@@ -20,7 +20,7 @@ export default function EventBar({ event }: EventBarProps) {
   );
 
   const isOpen = useMemo(
-    () => showThumbnail == event.id,
+    () => showThumbnail == `${event.id}-${event.start}-${event.end}`,
     [showThumbnail, event],
   );
 
@@ -34,21 +34,23 @@ export default function EventBar({ event }: EventBarProps) {
         }
       } else if (e.pointerType === 'touch' && !isOpen) {
         const scrollContainer = document.getElementById('timetable-container');
-        scrollContainer?.scrollTo({ left: event.left, behavior: 'smooth' });
-        setShowThumbnail(event.id);
+        scrollContainer?.scrollTo({ left: event.start, behavior: 'smooth' });
+        setShowThumbnail(`${event.id}-${event.start}-${event.end}`);
       }
     },
     [router, event, isOpen, pathname, setShowThumbnail],
   );
 
   return (
-    <div className="relative flex h-fit flex-wrap justify-start overflow-visible">
+    <div className="relative">
       <div
-        onMouseEnter={() => setShowThumbnail(event.id)}
+        onMouseEnter={() =>
+          setShowThumbnail(`${event.id}-${event.start}-${event.end}`)
+        }
         onMouseLeave={() => setShowThumbnail(false)}
         onPointerUp={openProject}
         onTouchCancel={() => setShowThumbnail(false)}
-        id={`event-clickable-${event.id}`}
+        id={`event-clickable-${event.id}-${event.start}-${event.end}`}
         className={cx(
           'relative -mt-[2px] h-gridcell cursor-pointer truncate rounded-md border-2 border-primary px-1 leading-10',
           isOpen

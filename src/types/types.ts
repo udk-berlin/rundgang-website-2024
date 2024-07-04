@@ -52,7 +52,7 @@ export type ContextTree = Context & {
 export type EventItem = Space & {
   left: number;
   width: number;
-  start: Date;
+  start: number;
   end: Date;
   allocation: {
     physical?: Physical[];

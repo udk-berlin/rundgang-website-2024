@@ -14,9 +14,14 @@ import { getTreeById } from '@/api/rest/tree';
 import { defaultFetchCacheOptions } from '@/api/rest/caching';
 
 const toPixel = (stamp: number, s: (d: Date) => number) =>
-  s(new Date(stamp * 1000));
-export const toDate = (stamp: number) => new Date(stamp * 1000);
-
+  s(
+    new Date(
+      Math.max(1721376000000, Math.min((stamp + 14400) * 1000, 1721598631000)),
+    ),
+  );
+export const toDate = (stamp: number) => new Date((stamp + 14400) * 1000);
+const toEnd = (end?: string) => parseInt(end ?? '0');
+const toStart = (start?: string) => parseInt(start ?? '0');
 const getThumbnails = cache(
   async (id: string): Promise<{ [key: string]: Item['thumbnail'] }> => {
     return fetch(
@@ -46,66 +51,85 @@ const getEvents = cache(async (id: string): Promise<EventItem[]> => {
   ).then((r) => r.json());
 });
 
-export const getEventList = cache(async (id: string): Promise<EventItem[]> => {
-  const building = await getTreeById(id);
-  if (!building.children) {
-    return [];
-  }
+export const getEventList = cache(
+  async (id: string): Promise<{ [key: string]: EventItem[] }> => {
+    const building = await getTreeById(id);
+    if (!building.children) {
+      return { [building.id]: [] };
+    }
 
-  let events: {
-    [key: string]: Pick<EventItem, 'building' | 'level' | 'room'>;
-  } = buildingEvents(building);
+    let events: {
+      [key: string]: Pick<EventItem, 'building' | 'level' | 'room'>;
+    } = buildingEvents(building);
 
-  Object.values(building.children).map((level: ContextTree) =>
-    Object.values(level.children).map((room: ContextTree) =>
-      Object.values(room.children).map((item) => {
-        if (item.template == 'event') {
-          events[item.id] = {
-            building: building.id,
-            room: room.id,
-            level: level.id,
-          };
-        }
+    Object.values(building.children).map((level: ContextTree) =>
+      Object.values(level.children).map((room: ContextTree) =>
+        Object.values(room.children).map((item) => {
+          if (item.template == 'event') {
+            events[item.id] = {
+              building: building.id,
+              room: room.id,
+              level: level.id,
+            };
+          }
+        }),
+      ),
+    );
+    const thumbnailList = await getThumbnails(id);
+    const eventList = await getEvents(id);
+    const scaleX = scaleTime()
+      .domain(TIME_INTERVAL)
+      .range([TIME_PADDING, TIME_WIDTH])
+      .clamp(true);
+
+    return eventList.reduce(
+      (eventL, ev: Pick<EventItem, 'id' | 'allocation'>) => ({
+        ...eventL,
+        [ev.id]: ev.allocation?.temporal
+          .sort(
+            (a, b) =>
+              toStart(a.start) - toStart(b.start) ||
+              toEnd(b.end) - toEnd(a.end),
+          )
+          .reduce(
+            (previousItems, temporal) => {
+              const start = toStart(temporal.start);
+              const end = toEnd(temporal.end);
+
+              const prev = previousItems.pop();
+              if (prev && prev.width !== 0 && prev.start != start) {
+                previousItems.push(prev);
+              }
+
+              return [
+                ...previousItems,
+                {
+                  ...ev,
+                  ...events[ev.id],
+                  thumbnail: thumbnailList[ev.id],
+                  start: toPixel(start, scaleX),
+                  end: toPixel(end, scaleX),
+                  left: Math.max(
+                    0,
+                    Math.min(
+                      toPixel(start, scaleX),
+                      toPixel(start, scaleX) - (prev.left + prev.width),
+                    ),
+                  ),
+                  width: Math.max(
+                    0,
+                    toPixel(end, scaleX) - toPixel(start, scaleX),
+                  ),
+                },
+              ];
+            },
+            [{ start: 0, width: 0, left: 0 }],
+          ),
       }),
-    ),
-  );
-  const thumbnailList = await getThumbnails(id);
-  const eventList = await getEvents(id);
-
-  const scaleX = scaleTime()
-    .domain(TIME_INTERVAL)
-    .range([TIME_PADDING, TIME_WIDTH]);
-
-  return eventList
-    .map((ev: Pick<EventItem, 'id' | 'allocation'>) => {
-      const start =
-        ev.allocation?.temporal?.length != 0
-          ? ev.allocation?.temporal[0].start
-          : 1721419218;
-      const end =
-        ev.allocation?.temporal?.length != 0
-          ? ev.allocation?.temporal[0].end
-          : 1721419218;
-
-      return {
-        ...ev,
-        ...events[ev.id],
-        thumbnail: thumbnailList[ev.id],
-        start: toDate(start),
-        end: toDate(end),
-        left: Math.max(0, toPixel(start, scaleX)),
-        width: Math.max(0, toPixel(end, scaleX) - toPixel(start, scaleX)),
-      };
-    })
-    .sort((a: EventItem, b: EventItem) => {
-      if (a.start < b.start) {
-        return -1;
-      } else if (a.start > b.start) {
-        return 1;
-      }
-      return a.room.localeCompare(b.room);
-    });
-});
+      {},
+    );
+  },
+);
 
 const buildingEvents = (building: ContextTree) => {
   let events: {
