@@ -22,9 +22,9 @@ export default function TimelineDays() {
   return (
     <div
       ref={scrollRef}
-      className="sticky left-0 top-0 z-30 h-gridcell w-screen  border-b-border"
+      className="sticky left-0 top-0 z-30 h-gridcell w-screen"
     >
-      <div className="grid h-full w-full grid-cols-3 bg-primary">
+      <div className="grid h-full w-full grid-cols-3 border-b-border bg-primary">
         {Object.entries(DAYS).map(([name, date]) => (
           <TimelineDay
             key={name}

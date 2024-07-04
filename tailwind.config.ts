@@ -169,6 +169,7 @@ const config: Config = {
         'content-height': 'var(--height-content-height)',
         'content-body': 'var(--height-content-body)',
         footer: 'var(--height-footer)',
+        timeline: 'calc(var(--height-header) + 2* var(--height-gridcell))',
       },
       inset: {
         border: '2px',
