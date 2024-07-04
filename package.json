@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "engines": {
-    "npm": ">=10.0.0 <11.0.0",
-    "node": ">=20.0.0 <21.0.0"
+    "npm": ">=9.0.0 <11.0.0",
+    "node": ">=19.0.0 <21.0.0"
   },
   "dependencies": {
     "@apollo/client": "^3.10.1",
@@ -39,8 +39,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.2.2",
     "eslint-config-prettier": "^9.1.0",
