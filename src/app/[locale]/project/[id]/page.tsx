@@ -13,6 +13,7 @@ export async function generateMetadata({
 }: ProjectsPageProps): Promise<Metadata> {
   // read route params
   const item = await getById(decodeURIComponent(id));
+  if (!item?.name) return {};
   const t = await getTranslations({ locale, namespace: 'Project' });
 
   return {
