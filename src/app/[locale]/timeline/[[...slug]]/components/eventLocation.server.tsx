@@ -1,6 +1,6 @@
 import { Context } from '@/types/graphql';
 import { getEventList } from '@/api/rest/events';
-import EventBar from './eventBar.server';
+import EventBar from './eventBar';
 
 type EventLocationProps = {
   location: Context;

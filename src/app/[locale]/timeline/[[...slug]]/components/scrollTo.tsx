@@ -17,7 +17,7 @@ export function ScrollForwardButton() {
   return (
     <div
       ref={scrollRef}
-      className="fixed bottom-[50%] right-0 z-40 pr-2"
+      className="fixed bottom-[50%] right-0 z-40 pr-2 md:z-50"
       onClick={() => scrollForward()}
     >
       <div className="flex aspect-square h-gridcell cursor-pointer items-center justify-center rounded-border bg-primary fill-secondary motion-safe:animate-bounceRight">

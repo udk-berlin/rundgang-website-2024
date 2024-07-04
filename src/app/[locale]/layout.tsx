@@ -7,7 +7,7 @@ import IntlProvider from '@/lib/intlProvider';
 import { noto, jungka } from '../fonts/fonts';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
-import { getGraphQLFilters } from '@/api/graphql/filters';
+import { getFilters } from '@/api/rest/filters';
 import { AppStoreProvider } from '@/lib/useAppContext';
 import { defaultInitState } from '@/lib/appStore';
 import { ReactNode } from 'react';
@@ -63,7 +63,7 @@ export default async function RootLayout({
 }: Readonly<RootLayoutProps>) {
   unstable_setRequestLocale(locale);
   const messages = await getMessages({ locale });
-  const filters = await getGraphQLFilters();
+  const filters = await getFilters();
   return (
     <html lang={locale}>
       <body

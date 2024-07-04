@@ -10,7 +10,7 @@ export type ImageProps = {
 export default function Image({ className, src, alt }: ImageProps) {
   return (
     <NextImage
-      src={src ?? '/assets/placeholder.png'}
+      src={src && src != '' ? src : '/assets/placeholder.png'}
       height={500}
       width={500}
       alt={alt ?? 'Thumbnail of student project'}
