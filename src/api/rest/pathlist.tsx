@@ -1,6 +1,7 @@
 import { baseUrl } from '@/api/rest/api';
 import { cache } from 'react';
 import { RestApiContext } from '@/types/restApi';
+import { defaultFetchCacheOptions } from '@/api/rest/caching';
 
 export function pathListUrl(id: string): string {
   return baseUrl({ query: `${id}/pathlist` });
@@ -8,7 +9,8 @@ export function pathListUrl(id: string): string {
 
 export const getPathListById = cache(
   async (id: string): Promise<RestApiContext[]> => {
-    const res = await fetch(pathListUrl(id), { next: { revalidate: 3600 } });
-    return res.json();
+    return fetch(pathListUrl(id), defaultFetchCacheOptions).then((res) =>
+      res.json(),
+    );
   },
 );

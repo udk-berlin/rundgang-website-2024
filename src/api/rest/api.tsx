@@ -1,5 +1,6 @@
 import { cache } from 'react';
 import { RestApiContext } from '@/types/restApi';
+import { defaultFetchCacheOptions } from '@/api/rest/caching';
 
 export const endpoint = process.env.REST_API_ENDPOINT;
 
@@ -8,8 +9,7 @@ export function baseUrl({ query }: { query?: string }): string {
 }
 
 export const getById = cache(async (id: string): Promise<RestApiContext> => {
-  const res = await fetch(baseUrl({ query: id }), {
-    next: { revalidate: 3600 },
-  });
-  return res.json();
+  return fetch(baseUrl({ query: id }), defaultFetchCacheOptions).then((res) =>
+    res.json(),
+  );
 });

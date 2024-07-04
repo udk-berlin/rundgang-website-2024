@@ -17,14 +17,15 @@ export async function generateMetadata({
     },
   };
 }
+
 export type SavedPageProps = {
-  searchParams: { [key: string]: string | string[] | undefined };
+  params: { locale: string };
 };
 
-export const revalidate = 0; // revalidate the data at most every hour
+export const revalidate = 3600;
 
-export default async function SavedPage(props: any) {
-  unstable_setRequestLocale(props.params.locale);
+export default async function Page({ params }: SavedPageProps) {
+  unstable_setRequestLocale(params.locale);
   const items = await getGraphQLItems();
   return <Saved items={items} />;
 }

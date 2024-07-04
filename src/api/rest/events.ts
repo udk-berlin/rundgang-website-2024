@@ -11,6 +11,7 @@ import { scaleTime } from 'd3-scale';
 import { ContextTree, EventItem } from '@/types/types';
 import { Item } from '@/types/item';
 import { getTreeById } from '@/api/rest/tree';
+import { defaultFetchCacheOptions } from '@/api/rest/caching';
 
 const toPixel = (stamp: number, s: (d: Date) => number) =>
   s(new Date(stamp * 1000));
@@ -18,7 +19,10 @@ export const toDate = (stamp: number) => new Date(stamp * 1000);
 
 const getThumbnails = cache(
   async (id: string): Promise<{ [key: string]: Item['thumbnail'] }> => {
-    return fetch(baseUrl({ query: `${id}/fullList/filter/type/item` }))
+    return fetch(
+      baseUrl({ query: `${id}/fullList/filter/type/item` }),
+      defaultFetchCacheOptions,
+    )
       .then((r) => r.json())
       .then((r) =>
         r.reduce(
@@ -38,6 +42,7 @@ const getThumbnails = cache(
 const getEvents = cache(async (id: string): Promise<EventItem[]> => {
   return fetch(
     baseUrl({ query: `${id}/list/filter/allocation/temporal` }),
+    defaultFetchCacheOptions,
   ).then((r) => r.json());
 });
 

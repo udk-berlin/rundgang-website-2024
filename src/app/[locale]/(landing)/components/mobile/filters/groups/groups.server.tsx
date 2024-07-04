@@ -11,6 +11,8 @@ const fetchers: {
   { translationKey: 'language', filtersKey: 'languages' },
 ];
 
+export const revalidate = 3600;
+
 export default async function LandingFiltersGroups() {
   const items = await getFilteredGraphQLItems({});
   const contextGroups = await getExistingGraphQLFilters(items, {}, true);

@@ -8,6 +8,8 @@ const keys: ('formats' | 'faculties' | 'languages')[] = [
   'languages',
 ];
 
+export const revalidate = 3600;
+
 export default async function LandingFiltersGroupsSuspend() {
   const items = await getFilteredGraphQLItems({});
   const contextGroups = await getExistingGraphQLFilters(items, {}, true);
