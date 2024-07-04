@@ -1,4 +1,4 @@
-import { getExistingGraphQLFilters } from '@/api/graphql/filters';
+import { getExistingFilters } from '@/api/rest/filters';
 import LandingFiltersGroup from '@/app/(landing)/components/desktop/filters/groups/group.server';
 import { getFilteredGraphQLItems } from '@/api/graphql/items';
 
@@ -12,7 +12,7 @@ export const revalidate = 3600;
 
 export default async function LandingFiltersGroupsSuspend() {
   const items = await getFilteredGraphQLItems({});
-  const contextGroups = await getExistingGraphQLFilters(items, {}, true);
+  const contextGroups = await getExistingFilters(items, {}, true);
   return (
     <>
       {keys.map((key) => (

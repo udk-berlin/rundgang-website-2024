@@ -272,7 +272,7 @@ export function restApiStructureRootId(): string {
 
   return REST_API_STRUCTURE_ROOT_ID;
 }
-
+export const CENTRES_ROOT_ID = '!mtlJdXVKdValsudxWA:content.udk-berlin.de';
 export const REST_API_FORMATS_ROOT_ID = process.env.REST_API_FORMATS_ROOT_ID;
 
 export function restApiFormatsRoot(): string {

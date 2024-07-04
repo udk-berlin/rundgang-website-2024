@@ -6,6 +6,7 @@ import { Item } from '@/types/item';
 import { extractAuthors } from '@/lib/data/utils';
 import { getLocationItems } from '../rest/location';
 import ISO6391 from 'iso-639-1';
+import { getFaculties } from '../rest/filters';
 
 const graphQLItemsQuery: DocumentNode = gql`
   query Items {
@@ -88,29 +89,44 @@ export const getGraphQLItems = cache(async () => {
 });
 
 export const getFilteredGraphQLItems = cache(
-  async (searchParams: { [key: string]: string | string[] | undefined }) => {
+  async (searchParams: { [key: string]: string | undefined }) => {
     return getGraphQLItems().then((items) =>
       filterItemsBySearchParams(items, searchParams),
     );
   },
 );
 
-export const getFilteredGraphQLLocationItems = cache(async (place: string) => {
-  const locationItems = await getLocationItems(place);
-  const allItems = await getGraphQLItems();
+export const getFilteredGraphQLLocationItems = cache(
+  async (
+    place: string,
+    searchParams: { [key: string]: string | undefined },
+  ) => {
+    const locationItems = await getLocationItems(place);
+    return getGraphQLItems()
+      .then((r) => r.filter((item) => locationItems.includes(item.id)))
+      .then((items) => filterItemsBySearchParams(items, searchParams));
+  },
+);
 
-  return allItems.filter((item) => locationItems.includes(item.id));
-});
-
-function filterItemsBySearchParams(
+async function filterItemsBySearchParams(
   items: Item[],
-  searchParams: { [key: string]: string | string[] | undefined },
+  searchParams: { [key: string]: string | undefined },
 ) {
   let filteredItems: Item[] = items;
-
+  const faculties = await getFaculties();
+  filteredItems = filteredItems.map((item) => ({
+    ...item,
+    faculties: faculties
+      .filter((f) => f.items.includes(item.id))
+      .map((f) => ({
+        id: f.id,
+        name: f.name,
+        searchParam: 'faculty',
+      })),
+  }));
   if (searchParams?.faculty) {
     filteredItems = filteredItems.filter((item) =>
-      item.faculties.find((faculty) => faculty.id == searchParams?.faculty),
+      item.faculties.some((f) => f.id == searchParams?.faculty),
     );
   }
 

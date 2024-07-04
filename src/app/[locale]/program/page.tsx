@@ -6,7 +6,7 @@ import Program from '@/app/program/components/program/program.server';
 
 export type ProgramPageProps = {
   params: { locale: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | undefined };
 };
 
 export async function generateMetadata({

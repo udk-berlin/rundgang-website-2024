@@ -1,4 +1,4 @@
-import { getExistingGraphQLFilters } from '@/api/graphql/filters';
+import { getExistingFilters } from '@/api/rest/filters';
 import { ReactNodeProps } from '@/types/types';
 import { Item } from '@/types/item';
 import ProgramSidebarContextGroups from '@/app/program/components/sidebar/contextGroups/groups';
@@ -14,7 +14,7 @@ export default async function ProgramSidebar({
   searchParams,
   items,
 }: ProgramSidebarProps) {
-  const contextGroups = await getExistingGraphQLFilters(items, searchParams);
+  const contextGroups = await getExistingFilters(items, searchParams);
   return (
     <ProgramSidebarContainer>
       <ProgramSidebarContextGroups contextGroups={contextGroups} />

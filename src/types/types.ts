@@ -31,9 +31,10 @@ export type Filters = {
   languages: Filter[];
 };
 
-export type Filter = Pick<Context, 'id' | 'name' | 'item'> & {
+export type Filter = Pick<Context, 'id' | 'name'> & {
   searchParam: 'format' | 'language' | 'faculty';
   exists?: boolean;
+  items?: string[];
 };
 
 export type Building = {
