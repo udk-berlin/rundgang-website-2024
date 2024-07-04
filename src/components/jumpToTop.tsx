@@ -1,7 +1,8 @@
 'use client';
-
+import cx from 'classnames';
 import { useState, useEffect, useRef, RefObject } from 'react';
 import ArrowRight from '@/components/icons/arrowRight';
+import { usePathname } from '@/navigation';
 
 const useIsScrolled = (scrollRef: RefObject<HTMLButtonElement>) => {
   const [scrolled, setScrolled] = useState(false);
@@ -33,6 +34,7 @@ const useIsScrolled = (scrollRef: RefObject<HTMLButtonElement>) => {
 export default function JumpToTop() {
   const scrollRef = useRef<HTMLButtonElement>(null);
   const isScrolled = useIsScrolled(scrollRef);
+  const pathname = usePathname();
 
   const handleClick = () => {
     if (scrollRef?.current) {
@@ -46,7 +48,12 @@ export default function JumpToTop() {
   return (
     <button
       ref={scrollRef}
-      className="fixed bottom-[calc(var(--height-footer)+12px)] right-[20px] z-40 animate-bounce fill-secondary"
+      className={cx(
+        'fixed bottom-[calc(var(--height-footer)+12px)] z-40 animate-bounce fill-secondary',
+        pathname === '/project/[id]'
+          ? 'left-[20px] hidden md:block'
+          : 'right-[20px]',
+      )}
       onClick={() => handleClick()}
     >
       {isScrolled && (
