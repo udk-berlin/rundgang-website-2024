@@ -10,10 +10,13 @@ import {
 import { getTreeById } from '@/api/rest/tree';
 import { getPathListById } from '@/api/rest/pathlist';
 import { LocationItem, LocationSummary } from '@/types/types';
+import { defaultFetchCacheOptions } from '@/api/rest/caching';
 
 export const getLocationList = cache(async (id: string) => {
-  const res = await fetch(baseUrl({ query: `${id}/list/filter/type/item` }));
-  return res.json();
+  return fetch(
+    baseUrl({ query: `${id}/list/filter/type/item` }),
+    defaultFetchCacheOptions,
+  ).then((res) => res.json());
 });
 
 export const getLocationItems = cache(async (id?: string) => {
