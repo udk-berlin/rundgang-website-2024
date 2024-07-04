@@ -17,6 +17,7 @@ export default getRequestConfig(async ({ locale }) =>
         getMessageFallback({ namespace, key, error }) {
           return key;
         },
+        timeZone: 'Europe/Berlin',
 
         messages: (
           await (locale === 'en'
