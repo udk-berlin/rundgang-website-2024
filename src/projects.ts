@@ -21,7 +21,7 @@ const projects = {
   },
   hi: {
     artist: 'Agneya Chikte',
-    faculty: 'Jazz Institut Berlin',
+    faculty: 'Jazz-Institut Berlin (JIB)',
     subject: 'Master of Music',
     language: {
       name: 'Hindi',
@@ -51,7 +51,7 @@ const projects = {
   },
   mr: {
     artist: 'Agneya Chikte',
-    faculty: 'Jazz Institut Berlin',
+    faculty: 'Jazz-Institut Berlin (JIB)',
     subject: 'Master of Music',
     language: {
       name: 'Marathi',

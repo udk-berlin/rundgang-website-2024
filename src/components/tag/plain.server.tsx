@@ -1,5 +1,6 @@
 import cx from 'classnames';
 import { ReactNodeProps } from '@/types/types';
+import { useTranslations } from 'next-intl';
 
 export type TagPlainProps = ReactNodeProps & {
   prefix?: string;
@@ -13,6 +14,7 @@ export default function TagPlain({
   title,
   withBorder = false,
 }: TagPlainProps) {
+  const t = useTranslations('Tags');
   return (
     <div
       className={cx(
@@ -26,7 +28,7 @@ export default function TagPlain({
           'w-fit min-w-0 max-w-full truncate px-gutter-sm text-xxs',
         )}
       >
-        {prefix ? `${prefix}:` : ''} {title}
+        {prefix ? `${prefix}:` : ''} {t(title)}
       </div>
     </div>
   );

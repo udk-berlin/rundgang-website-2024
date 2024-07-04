@@ -13,12 +13,12 @@
         "filter": "Filter"
     },
     "Program": {
-        "title": "Programm – Rundgang",
+        "title": "Rundgang – Programm",
         "description": "Hier finden Sie das Programm zum Rundgang – Tage der offenen Tür 2024 UdK Berlin"
     },
     "Locations": {
-        "title": "Orte – Rundgang",
-        "place_title": "{template, select, room {Ort:  {b}, Etage {l}, Raum {r}} level {Ort:  {b}, Etage {l}} building {Ort: {b}} other {Orte – Rundgang – Tage der offenen Tür 2024 UdK Berlin}}",
+        "title": "Rundgang – Orte",
+        "place_title": "{template, select, room {Rundgang – Ort:  {b}, Etage {l}, Raum {r}} level {Rundgang – Ort:  {b}, Etage {l}} building {Rundgang – Ort: {b}} other {Rundgang – Orte}}",
         "description": "Karte der Austragungsorte für den Rundgang – Tage der offenen Tür 2024 UdK Berlin",
         "levels": "Etagen",
         "rooms": "Räume",
@@ -31,7 +31,7 @@
         "description": "Die Universität der Künste Berlin lädt vom 19. bis 21. Juli zum Rundgang – Tage der offenen Tür. Werkstätten, Ateliers, Studios und Probenräume der Fakultäten Bildende Kunst, Architektur, Gestaltung, Musik und Darstellende Kunst sowie das Hochschulübergreifende Zentrum Tanz Berlin, das Jazz-Institut Berlin und das Berlin Career College öffnen zum Ende des akademischen Jahres ihre Türen. Von Malerei, Skulptur und Performance über Designentwürfe, Modenschau und Filmscreenings bis hin zu Konzerten, Tanz und Soundinstallationen zeigen Studierende Ergebnisse und Prozesse ihrer künstlerischen Arbeit."
     },
     "Saved": {
-        "title": "Gemerkte Projekte – Rundgang",
+        "title": "Rundgang – Gemerkte Projekte",
         "description": "Hier können Projekte oder Veranstaltung gespeichert werden",
         "remove": "entfernen",
         "remove-all": "Alle entfernen",
@@ -42,7 +42,7 @@
         "date": "19. - 21. Juli 2024"
     },
     "Design": {
-        "meta_title": "Design – Rundgang",
+        "meta_title": "Rundgang – Design",
         "meta_description": "Das Rundgang-Design 2024 wurde von den beiden Gewinnern des Rundgang-Designwettbewerbs, Momo Anders und Leon Hochhäuser, entworfen.",
         "title": "Teilnehmer*innen",
         "description": {
@@ -65,6 +65,40 @@
     "time": "{count, plural, =1 {Zeit} other {Zeiten}}",
     "level": "Etage",
     "room": "Raum",
+    "Tags": {
+        "Ausstellung": "Ausstellung",
+        "Beratungsangebot": "Beratungsangebot",
+        "DJ Set": "DJ Set",
+        "Filmvorführung/Screening": "Filmvorführung/Screening",
+        "Führung": "Führung",
+        "Installation": "Installation",
+        "Klanginstallation": "Klanginstallation",
+        "Konzert": "Konzert",
+        "Gespräch": "Gespräch",
+        "Lesung": "Lesung",
+        "Modenschau": "Modenschau",
+        "Musical": "Musical",
+        "offene Probe": "Offene Probe",
+        "Open Space": "Open Space",
+        "Oper": "Oper",
+        "Performance": "Performance",
+        "Podiumsgespräch": "Podiumsgespräch",
+        "Projektpräsentation": "Projektpräsentation",
+        "Tanz": "Tanz",
+        "Theater": "Theater",
+        "Vortrag": "Vortrag",
+        "Workshop": "Workshop",
+        "Weitere": "Weitere",
+        "Fakultät Bildende Kunst": "Fakultät Bildende Kunst",
+        "Fakultät Gestaltung": "Fakultät Gestaltung",
+        "Fakultät Darstellende Kunst": "Fakultät Darstellende Kunst",
+        "Fakultät Musik": "Fakultät Musik",
+        "Zentren": "Zentren",
+        "designtransfer": "designtransfer",
+        "Berlin Career College": "Berlin Career College",
+        "Hochschulübergreifendes Zentrum Tanz Berlin (HZT)": "Hochschulübergreifendes Zentrum Tanz Berlin (HZT)",
+        "Jazz-Institut Berlin (JIB)": "Jazz-Institut Berlin (JIB)"
+    },
     "errors": {
         "page": {
             "messsage": "Etwas ist schief gegangen.",
@@ -73,17 +107,17 @@
         "audiPlayer": "Dein Browser unterstützt dieses Audioelement nicht."
     },
     "Imprint": {
-        "title": "Impressum – Rundgang",
+        "title": "Rundgang – Impressum",
         "description": "Gesetzliche Informationen und Team. für den Rundgang – Tage der offenen Tür 2024 UdK Berlin",
         "text": "<strong>Universität der Künste Berlin</strong><br />Körperschaft des öffentlichen Rechts<br />gesetzlich vertreten durch den  Präsidenten Prof. Dr. Norbert Palz<br />Einsteinufer 43<br />D-10587 Berlin<br />Telefon:  030/3185-0<br /><strong>Umsatzsteuer-Identifikationsnummer:</strong> DE811403316<br />  <strong>Rechtsaufsicht:</strong> Senatsverwaltung für Wissenschaft,  Gesundheit, Pflege und Gleichstellung<br /><br /><strong>Entwicklung:</strong> udk/spaces<br /><strong>Gestaltung:</strong> Momo Anders und Leon Hochhäuser<br />  <strong>Websitegestaltung und Entwicklung:</strong> Marisa Nest, Juan Pablo  Gaviria Bedoya, Lukas Esser, Lilli Joppien<br /><strong>Redaktion:</strong> Stabsstelle überfakultäre Veranstaltungen<br /><br />  Die redaktionelle Verantwortung der Programmunterseiten liegt bei den  Mitwirkenden selbst. Die zuständigen Ansprechpartner*innen sind auf den  Programmunterseiten genannt. Programminhalte werden laufend durch ihre  Redakteur*innen aktualisiert.<br /><br /><strong>Hinweis</strong><br />  Die Universität der Künste (UdK) Berlin übernimmt keine Gewähr für die  Aktualität, Richtigkeit und Vollständigkeit der auf dieser Website  bereitgestellten Angaben. Dies gilt im besonderen Maße für die Inhalte  externer Internetseiten, auf die über Hyperlinks direkt oder indirekt  verwiesen wird und die von der UdK Berlin nicht beeinflusst werden können. Die  von den Rundgang-Mitwirkenden unterbreiteten Angebote unterliegen der  Verantwortung der jeweiligen Bereiche und Mitwirkenden.<br />  Der Inhalt dieser Website ist urheberrechtlich geschützt. Die Vervielfältigung  oder Verbreitung der auf dieser Seite bereit gestellten Informationen bedarf  der vorherigen schriftlichen Genehmigung durch die UdK Berlin.<br />"
     },
     "Contact": {
-        "title": "Kontakt – Rundgang",
+        "title": "Rundgang – Kontakt",
         "description": "Kontaktdaten zum Rundgang – Tage der offenen Tür 2024 UdK Berlin",
         "text": "Der Rundgang &ndash; Tage der offenen Tür ist eine Veranstaltung der  Universität der Künste Berlin, vertreten durch den Präsidenten Prof. Dr.  Norbert Palz.<br /><br />  Veranstaltungsleitung &amp; Veranstaltungskoordination<br />Die diensthabende  Veranstaltungsleitung ist an den Rundgang-Tagen erreichbar unter der  Dienstnummer:<br />Die Nummer wird zum Rundgang veröffentlicht.<br /><br />  <strong>Veranstaltungsleitung</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/felix-wolf/'> Felix Wolf </a>  , Referat Bau und Liegenschaften<br /><br />  <strong>Stabsstelle überfakultäre Veranstaltungen</strong>  <br />  <a target='_blank' href='https://www.udk-berlin.de/person/anne-marie-franz/'>    Anne-Marie Franz  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/mona-voelkel/'>Mona Völkel</a  >  |  <a target='_blank' href='https://www.udk-berlin.de/person/kim-fuellgraf/'> Kim Füllgraf </a> | <a target='_blank' href='https://www.udk-berlin.de/person/alexander-kirchner/'>    Alexander Kirchner  </a><br /><br />  <strong>Presse- und öffentlichkeitsarbeit</strong>  <br />Stabsstelle Presse/Kommunikation<br />  <a target='_blank' href='https://www.udk-berlin.de/person/claudia-assmann/'>    Claudia Assmann  </a> | <a    href='https://www.udk-berlin.de/service/stabsstelle-presse-kommunikation/das-team-der-stabsstelle-presse-kommunikation/'  >    Trang Vu  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/anna-maria-roth/'>    Anna-Maria Roth  </a><br /><br />  <strong>Social Media</strong> <br />  <a    href='https://www.udk-berlin.de/service/stabsstelle-presse-kommunikation/das-team-der-stabsstelle-presse-kommunikation/'  >    Stabsstelle Presse/Kommunikation  </a><br /><br />  <strong>Awareness</strong> <br />Access Netzwerk<br />Die Nummer wird zum  Rundgang veröffentlicht<br /><br /><strong>Sicherheit</strong> <br />Boretti Solutions GmbH<br /><br />  <strong>Diversitätsbeauftragte</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/alejandra-nieves-camacho/'>    Alejandra Nieves Camacho  </a><br /><br />  <strong>UdK:Shop</strong> <br />  <a    href='https://www.udk-berlin.de/universitaet/stabsstelle-strategisches-marketing/'    target='_blank'  >    Stabsstelle Strategisches Marketing  </a><br /><br />  <strong>Ansprechpartner*innen der Fakultäten und Zentren</strong><br /><br />  <strong>Fakultät Bildende Kunst</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/akiko-bernhoeft/'>    Akiko Bernhöft  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/jakob-rava/'> Jacob Rava </a> | <a target='_blank' href='https://www.udk-berlin.de/person/gregory-cumins/'>    Gregory Cumins  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/karsten-konrad/'>    Karsten Konrad  </a><br /><br />  <strong>Fakultät Gestaltung</strong> <br />  <em>Institut für transmediale Gestaltung</em> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/constanze-hein/'>    Constanze Hein  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/lilli-kuschel/'> Lilli Kuschel </a>  <br />  <em>Institut für experimentelles Bekleidungs- und Textildesign</em>  <br />  <a target='_blank' href='https://www.udk-berlin.de/person/franziska-schreiber/'>    Franziska Schreiber  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/berit-greinke/'> Berit Greinke </a>  | Teresa Fagbohoun<br />  <em>Institut für Produkt- und Prozessgestaltung</em> <br />  <a target='_blank' href='https://design.udk-berlin.de/personen/wm-julian-ribler/'>    Julian Ribler  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/johanna-dehio/'> Johanna Dehio </a><br />  <em>Institut Architektur und Städtebau</em> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/lucie-leder/'> Lucie Leder </a>  <br /><br />  <strong>Fakultät Musik</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/harry-curtis/'> Harry Curtis </a> | <a target='_blank' href='https://www.udk-berlin.de/person/yulia-vashchenko/'>    Yulia Vashchenko  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/celine-kodim/'> Celine Kodim </a><br /><br />  <strong>Fakultät Darstellende Kunst</strong> <br />  <a    href='https://www.udk-berlin.de/universitaet/fakultaet-darstellende-kunst/unit-theater-der-universitaet-der-kuenste-berlin/unit-kontakt/kuenstlerisches-betriebsbuero-fakultaet-darstellende-kunst/'  >    Laura Jimenez Gonzalez  </a><br /><br />  <strong>Berlin Career College</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/kathrin-rusch/'> Kathrin Rusch </a>  |<br />  <span>    <em>Studiengang Sound Studies and Sonic Arts (M.A.)</em>  </span>  <span>    <br />  </span>  <a href='mailto:k.julia@udk-berlin.de'> Julia Koffler </a> <br />  <em>Artist Training</em> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/kathrin-rusch/'> Kathrin Rusch </a> | <a target='_blank' href='https://www.udk-berlin.de/person/sabine-beta/'> Sabine Beta </a> | <a target='_blank' href='https://www.udk-berlin.de/person/melanie-waldheim/'>    Melanie Waldheim  </a><br /><br />  <strong>Hochschulübergreifendes Zentrum Tanz Berlin</strong>  <br />  <a target='_blank' href='https://www.udk-berlin.de/person/nik-haffner/'> Nik Haffner </a> | <a target='_blank' href='https://www.udk-berlin.de/person/sabine-trautwein/'>    Sabine Trautwein  </a> | <a    href='https://www.hzt-berlin.de/zentrum/personen/judith-brueckmann/'    target='j.brueckmann@hzt-berlin.de'  >    Judith Brückmann  </a><br /><br />  <strong>Jazz-Institut Berlin</strong> <br />  <a target='_blank' href='https://www.udk-berlin.de/person/heinrich-koebberling/'>    Heinrich Köbberling  </a> | <a target='_blank' href='https://www.udk-berlin.de/person/paulo-morello/'> Paulo Morello </a> | <a target='_blank' href='https://www.udk-berlin.de/person/johannes-bockholt-dams/'>    Johannes Bockholt-Dams  </a><br /><br />"
     },
     "Info": {
-        "title": "Info – Rundgang",
+        "title": "Rundgang – Info",
         "description": "FAQs und andere allgemeine Informationen zum Rundgang – Tage der offenen Tür 2024 UdK Berlin",
         "information": "Informationen",
         "about": "Über",
@@ -164,7 +198,7 @@
         }
     },
     "Timeline": {
-        "title": "Zeitplan – Rundgang",
+        "title": "Rundgang – Zeitplan",
         "description": "Zeitlicher Ablauf der Veranstaltungen zum Rundgang – Tage der offenen Tür 2024 UdK Berlin",
         "friday": "Freitag",
         "saturday": "Samstag",

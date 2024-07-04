@@ -3,7 +3,7 @@ import {
   unstable_setRequestLocale,
   getMessages,
 } from 'next-intl/server';
-import { NextIntlClientProvider } from 'next-intl';
+import IntlProvider from '@/lib/intlProvider';
 import { noto, jungka } from '../fonts/fonts';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
@@ -69,7 +69,7 @@ export default async function RootLayout({
       <body
         className={`${jungka.className} ${jungka.variable} ${noto.variable}`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <IntlProvider locale={locale} messages={messages}>
           <AppStoreProvider initState={{ ...defaultInitState, ...filters }}>
             <Header />
             <div className="h-content-header w-screen"></div>
@@ -78,7 +78,7 @@ export default async function RootLayout({
             <Footer />
             <div id="modal-root" />
           </AppStoreProvider>
-        </NextIntlClientProvider>
+        </IntlProvider>
       </body>
     </html>
   );

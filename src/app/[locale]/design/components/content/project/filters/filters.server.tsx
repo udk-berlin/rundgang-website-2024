@@ -9,7 +9,7 @@ export default function DesignContentProjectFilters({ project }) {
     <DesignContentProjectFiltersContainer>
       <DesignContentProjectFilter
         title={t('faculty', { count: 1 })}
-        value={project.faculty}
+        value={t(`Tags.${project.faculty}`)}
       />
       <DesignContentProjectFilter
         title={t('language', { count: 1 })}
@@ -18,6 +18,10 @@ export default function DesignContentProjectFilters({ project }) {
             ? project.language.nativeName
             : ISO6391.getNativeName(project.language.iso_639_1_code)
         }
+      />
+      <DesignContentProjectFilter
+        title={''}
+        value={ISO6391.getName(project.language.iso_639_1_code)}
       />
     </DesignContentProjectFiltersContainer>
   );
