@@ -24,7 +24,7 @@ export default function IntlProvider({ messages, locale, children }: any) {
       messages={messages}
       getMessageFallback={getMessageFallback}
       onError={onError}
-      timeZone="Europe/Berlin"
+      timeZone="UTC"
     >
       {children}
     </NextIntlClientProvider>

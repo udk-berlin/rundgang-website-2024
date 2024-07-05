@@ -35,22 +35,26 @@ export default function ProjectDetailContextGroups({
       weekday: 'short',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     });
 
     const startTime = time.start.toLocaleTimeString(locale, {
       hour: '2-digit',
       minute: '2-digit',
+      timeZone: 'UTC',
     });
 
     const endDate = time.end.toLocaleDateString(locale, {
       weekday: 'short',
       month: 'long',
       day: 'numeric',
+      timeZone: 'UTC',
     });
 
     const endTime = time.end.toLocaleTimeString(locale, {
       hour: '2-digit',
       minute: '2-digit',
+      timeZone: 'UTC',
     });
 
     const dateTime =
