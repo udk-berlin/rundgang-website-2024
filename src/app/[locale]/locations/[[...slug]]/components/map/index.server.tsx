@@ -3,7 +3,7 @@ import MapComponent from './map';
 import MapProviderContainer from './container';
 import { LocationSummary } from '@/types/types';
 
-export const revalidate = 3600;
+export const revalidate = 600;
 export default async function LocationsMap({
   location,
 }: {

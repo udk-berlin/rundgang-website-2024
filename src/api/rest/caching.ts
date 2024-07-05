@@ -1,3 +1,3 @@
 export const defaultFetchCacheOptions: RequestInit = {
-  next: { revalidate: 3600 },
+  next: { revalidate: 600 },
 };

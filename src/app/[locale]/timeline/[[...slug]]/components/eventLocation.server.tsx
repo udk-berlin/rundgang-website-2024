@@ -6,7 +6,7 @@ type EventLocationProps = {
   location: Context;
 };
 
-export const revalidate = 3600;
+export const revalidate = 600;
 export default async function EventLocation({ location }: EventLocationProps) {
   const events = await getEventList(location.id);
 

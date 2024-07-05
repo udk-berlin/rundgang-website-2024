@@ -22,7 +22,7 @@ export type SavedPageProps = {
   params: { locale: string };
 };
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export default async function Page({ params }: SavedPageProps) {
   unstable_setRequestLocale(params.locale);

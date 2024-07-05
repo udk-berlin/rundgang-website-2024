@@ -10,7 +10,7 @@ type LocationsPageProps = {
   params: { slug: string[] | undefined; locale: string };
 };
 
-export const revalidate = 360;
+export const revalidate = 600;
 
 export async function generateMetadata(
   { params: { locale, slug } }: LocationsPageProps,

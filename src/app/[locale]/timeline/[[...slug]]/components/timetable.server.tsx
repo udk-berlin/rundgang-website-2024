@@ -6,7 +6,7 @@ import EventLocation from './eventLocation.server';
 import EventContainer from '@/app/timeline/[[...slug]]/components/container/container';
 import TimelineDays from '@/app/timeline/[[...slug]]/components/days/days';
 
-export const revalidate = 3600;
+export const revalidate = 600;
 export default async function TimeTable() {
   const items = await getEventLocations();
 
