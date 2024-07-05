@@ -12,14 +12,10 @@ import { ContextTree, EventItem } from '@/types/types';
 import { Item } from '@/types/item';
 import { getTreeById } from '@/api/rest/tree';
 import { defaultFetchCacheOptions } from '@/api/rest/caching';
-
 const toPixel = (stamp: number, s: (d: Date) => number) =>
-  s(
-    new Date(
-      Math.max(1721376000000, Math.min((stamp + 14400) * 1000, 1721598631000)),
-    ),
-  );
-export const toDate = (stamp: number) => new Date((stamp + 14400) * 1000);
+  s(new Date(Math.max(1721376000000, Math.min(stamp * 1000, 1721598631000))));
+export const toDate = (stamp: number) => new Date(stamp * 1000);
+
 const toEnd = (end?: string) => parseInt(end ?? '0');
 const toStart = (start?: string) => parseInt(start ?? '0');
 const getThumbnails = cache(
@@ -109,6 +105,8 @@ export const getEventList = cache(
                   thumbnail: thumbnailList[ev.id],
                   start: toPixel(start, scaleX),
                   end: toPixel(end, scaleX),
+                  startDate: toDate(start),
+                  endDate: toDate(end),
                   left: Math.max(
                     0,
                     Math.min(
@@ -177,6 +175,6 @@ export const getEventLocations = cache(async (): Promise<EventLocation[]> => {
         return null;
       })
       .filter((b) => b)
-      .sort((a, b) => a?.events - b?.events),
+      .sort((a, b) => a?.name.localeCompare(b.name)),
   );
 });

@@ -194,6 +194,7 @@ const config: Config = {
         closeMenu: `closeMenu 800ms ease normal`,
         openDetail: `openDetail 800ms ease normal`,
         closeDetail: `closeDetail 500ms ease-out normal`,
+        saved: `saved 1s ease infinite`,
       },
       keyframes: {
         bounceLeft: {
@@ -222,6 +223,20 @@ const config: Config = {
           '100%': {
             transform: 'translateX(-10%)',
             animationTimingFunction: 'cubic-bezier(0.8,0,1,1)',
+          },
+        },
+        saved: {
+          '0%': {
+            backgroundColor: 'rgb(var(--secondary))',
+            color: 'rgb(var(--primary))',
+          },
+          '40%': {
+            backgroundColor: 'rgb(var(--highlight))',
+            color: 'black',
+          },
+          '100%': {
+            backgroundColor: 'rgb(var(--secondary))',
+            color: 'rgb(var(--primary))',
           },
         },
         showModal: {
