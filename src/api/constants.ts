@@ -351,10 +351,11 @@ export const DAYS = {
   saturday: 2000,
   sunday: 4200,
 } as const;
-
+export const START_TIME = 1721383200000;
+export const END_TIME = 1721599200000;
 export const TIME_INTERVAL = [
-  new Date(2024, 6, 19, 12),
-  new Date(2024, 6, 22, 0),
+  new Date(START_TIME),
+  new Date(END_TIME),
 ] as const;
 
 export const TIME_PADDING = 0;

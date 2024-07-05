@@ -5,6 +5,8 @@ import {
   TIME_PADDING,
   TIME_WIDTH,
   TIME_INTERVAL,
+  START_TIME,
+  END_TIME,
 } from '../constants';
 import { Context } from '@/types/graphql';
 import { scaleTime } from 'd3-scale';
@@ -13,7 +15,7 @@ import { Item } from '@/types/item';
 import { getTreeById } from '@/api/rest/tree';
 import { defaultFetchCacheOptions } from '@/api/rest/caching';
 const toPixel = (stamp: number, s: (d: Date) => number) =>
-  s(new Date(Math.max(1721376000000, Math.min(stamp * 1000, 1721598631000))));
+  s(new Date(Math.max(START_TIME, Math.min(stamp * 1000, END_TIME))));
 export const toDate = (stamp: number) => new Date(stamp * 1000);
 
 const toEnd = (end?: string) => parseInt(end ?? '0');
