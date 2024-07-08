@@ -6,7 +6,7 @@ import { Item } from '@/types/item';
 import { extractAuthors } from '@/lib/data/utils';
 import { getLocationItems } from '../rest/location';
 import ISO6391 from 'iso-639-1';
-import { getFaculties } from '../rest/filters';
+import { getCentres, getFaculties } from '../rest/filters';
 
 const graphQLItemsQuery: DocumentNode = gql`
   query Items {
@@ -116,9 +116,12 @@ async function filterItemsBySearchParams(
 ) {
   let filteredItems: Item[] = items;
   const faculties = await getFaculties();
+  const centers = await getCentres();
+
   filteredItems = filteredItems.map((item) => ({
     ...item,
     faculties: faculties
+      .concat(centers)
       .filter((f) => f.items.includes(item.id))
       .map((f) => ({
         id: f.id,
