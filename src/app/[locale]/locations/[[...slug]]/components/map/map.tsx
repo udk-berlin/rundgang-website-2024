@@ -41,9 +41,7 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
         id="rundgangMap"
         reuseMaps
         interactiveLayerIds={
-          buildings
-            ? ['clusters', 'buildings', 'unclustered-point', 'clustered-point']
-            : []
+          buildings ? ['clusters', 'unclustered-point', 'clustered-point'] : []
         }
         mapLib={maplibregl}
         style={{
@@ -52,15 +50,21 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
           height: size.height,
         }}
         mapStyle={MAP_STYLE}
+        maxBounds={[
+          [13.0226653, 52.0544213],
+          [13.859637, 52.9176152],
+        ]}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         onZoom={onZoom}
         onClick={onClick}
-        onLoad={onLoad}
         attributionControl={false}
         renderWorldCopies={false}
+        styleDiffing={false}
         pitchWithRotate={false}
         dragRotate={false}
+        touchPitch={false}
+        touchZoomRotate={false}
       >
         {buildings && (
           <>
@@ -129,7 +133,13 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
             )}
           </>
         )}
-        <NavigationControl showCompass={false} visualizePitch={false} />
+        <NavigationControl
+          showCompass={false}
+          visualizePitch={false}
+          style={{
+            border: '2px solid rgb(var(--secondary))',
+          }}
+        />
       </Map>
     </div>
   );
