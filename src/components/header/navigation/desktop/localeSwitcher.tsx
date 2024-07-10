@@ -11,10 +11,9 @@ export default function LocaleSwitcher() {
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
+  const nextLocale = locale == 'en' ? 'de' : 'en';
 
   function onChangeLanguage(event: any) {
-    const nextLocale = locale == 'en' ? 'de' : 'en';
-
     startTransition(() => {
       router.replace(
         // @ts-expect-error -- TypeScript will validate that only known `params`
@@ -32,7 +31,7 @@ export default function LocaleSwitcher() {
         className="p-auto peer h-full w-full justify-center rounded-border border-xs border-y-border border-primary bg-secondary text-center uppercase group-hover:bg-highlight group-hover:text-black group-focus:text-lg"
         onClick={onChangeLanguage}
       >
-        <span>{locale}</span>
+        <span>{nextLocale}</span>
       </button>
     </div>
   );

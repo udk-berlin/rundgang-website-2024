@@ -3,33 +3,37 @@ import { Link } from '@/navigation';
 import ColorSchemeSwitcher from '../colorSchemeSwitcher';
 import SmoothButton from '@/components/smoothButton';
 import { useStore } from 'zustand';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import LocaleSwitcher from './localeSwitcher';
 import { useIsActive } from '@/lib/useLinkActive';
 import { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export type MenuMobileProps = {
   menuOpen: boolean;
   toggleMenuOpen: () => void;
 };
+
+const headerItems = [
+  { title: 'program', href: '/program' },
+  { title: 'locations', href: '/locations' },
+  { title: 'timeline', href: '/timeline' },
+] as const;
+const footerItems = [
+  { title: 'info', href: '/info' },
+  { title: 'design', href: '/design' },
+  { title: 'contact', href: '/contact' },
+  { title: 'imprint', href: '/imprint' },
+] as const;
+
 export type MobileMenuItemProps = {
-  title: string | number;
+  title:
+    | (typeof headerItems)[number]['title']
+    | (typeof footerItems)[number]['title'];
   href: any;
   isTop?: boolean;
   active?: boolean;
 };
-
-const headerItems = [
-  { title: 'Program', href: '/program' },
-  { title: 'Locations', href: '/locations' },
-  { title: 'Timeline', href: '/timeline' },
-];
-const footerItems = [
-  { title: 'Info', href: '/info' },
-  { title: 'Design', href: '/design' },
-  { title: 'Contact', href: '/contact' },
-  { title: 'Imprint', href: '/imprint' },
-];
 
 export default function HeaderNavigationMobileMenu({
   menuOpen,
@@ -99,6 +103,7 @@ export default function HeaderNavigationMobileMenu({
 
 function MobileMenuItem({ title, href, isTop = false }: MobileMenuItemProps) {
   const isActive = useIsActive(href);
+  const t = useTranslations('Navigation');
   return (
     <Link href={href}>
       <div
@@ -108,7 +113,7 @@ function MobileMenuItem({ title, href, isTop = false }: MobileMenuItemProps) {
         )}
       >
         {isActive ? '> ' : ''}
-        {title}
+        {t(title)}
       </div>
     </Link>
   );
