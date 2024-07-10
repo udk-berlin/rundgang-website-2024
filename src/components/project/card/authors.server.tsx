@@ -15,7 +15,7 @@ export default function ProjectCardAuthors({
       className="w-full max-w-full"
     >
       <div className="pb-gutter-md text-right text-xs">
-        {item.authors?.join(' ')}
+        {item.authors?.join(', ')}
       </div>
     </ProjectLink>
   );

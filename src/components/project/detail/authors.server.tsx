@@ -13,7 +13,7 @@ export default function ProjectDetailAuthors({
 
   return (
     <div className="flex w-full justify-end pt-gutter-md">
-      {item.authors.join(' ')}
+      {item.authors.join(', ')}
     </div>
   );
 }
