@@ -8,8 +8,7 @@ export function extractAuthors({
   return (
     item.origin?.authors
       ?.map((a: { name: string }) => a?.name)
-      .filter((n: string) => n && n !== '')
-      .slice(0, 5) ?? []
+      .filter((n: string) => n && n !== '') ?? []
   );
 }
 
