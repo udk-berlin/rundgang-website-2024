@@ -215,6 +215,15 @@ export const LOCATION_INFO = {
     labelPosition: 'bottom-8 left-8',
     popupMargin: '-mt-20',
   },
+  '!UCFDxVzsniAePeqwKw:content.udk-berlin.de': {
+    lat: 52.50891,
+    lng: 13.32808,
+    maxZoom: 14.7,
+    image: 13,
+    name: 'Konzertsaal',
+    labelPosition: 'bottom-8 left-8',
+    popupMargin: '-mt-20',
+  },
 } as const;
 
 export const FLOORPLANS = {
@@ -242,6 +251,7 @@ export const FLOORPLANS = {
   '!oVBzAqSwRRNhoaUgMg:content.udk-berlin.de': 11,
   '!MvJOJtvpfocMzxUHrQ:content.udk-berlin.de': 9,
   '!CTmDtbjUTOOsurMDPc:content.udk-berlin.de': 12,
+  '!UCFDxVzsniAePeqwKw:content.udk-berlin.de': 13,
 } as const;
 
 export const FLOORPLAN_MARGINS = {
