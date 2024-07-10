@@ -33,9 +33,7 @@ export default function ContextTagButton({
       onClick={onClick}
       className={cx(
         'w-fit max-w-full cursor-pointer',
-        'exists' in context &&
-          !context.exists &&
-          'pointer-events-none opacity-35',
+        'exists' in context && !context.exists && 'opacity-35',
       )}
     >
       <ContextTagPlain

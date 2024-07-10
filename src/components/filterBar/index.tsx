@@ -3,14 +3,27 @@ import FilterTag from '@/components/filterTag';
 import { useTranslations } from 'next-intl';
 import useSelectedTags from '@/lib/useSelectedTags';
 import { ReactNodeProps } from '@/types/types';
+import Search from './search';
+import { useShallow } from 'zustand/react/shallow';
+import { useSearchStore } from '@/lib/stores/searchStore';
 
 export default function FilterBar() {
   const t = useTranslations('Filtering');
   const filterItems = useSelectedTags();
+  const searchOpen = useSearchStore(useShallow((state) => state.searchOpen));
+  const setSearchOpen = useSearchStore(
+    useShallow((state) => state.setSearchOpen),
+  );
 
   return (
     <FilterBarContainer>
-      <div className="pr-gutter-xs text-xs text-grey">{t('filter')}:</div>
+      <div
+        onClick={() => setSearchOpen(!searchOpen)}
+        className="pr-gutter-xs text-xs text-grey hover:text-highlight"
+      >
+        {t('filter')}:
+      </div>
+      {searchOpen ? <Search /> : null}
       {filterItems.map((item) => (
         <FilterTag
           key={`selected-filter-${item.id}`}
