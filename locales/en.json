@@ -10,7 +10,8 @@
         "timeline": "Timeline"
     },
     "Filtering": {
-        "filter": "Filters"
+        "filter": "Filters",
+        "search": "search..."
     },
     "Program": {
         "title": "Rundgang – Program",
@@ -129,7 +130,7 @@
             },
             "awareness": {
                 "title": "Awareness",
-                "text": "The UdK Berlin is a place of artistic and academic freedom and of critical but always respectful exchange. We ask for an open mind for diverse perspectives. We do not tolerate hate speech and discrimination.<br />You can read the UdK Berlin Code of Conduct here.<br />To make the Rundgang 2024 safe for everyone, an awareness team will be present on all days at the Hardenbergstraße 33 and on the opening day at the Grunewaldstraße 2–5. You will recognize the members of the awareness team by their purple vests with the label “Awareness”.<br />Should you feel uncomfortable or observe inappropriate behavior, please contact the awareness team or the security staff. This applies without exception for all locations on the Rundgang. The telephone number of the awareness team will be published here on July 19.<br />The awareness team is staffed by employees from the Access Network. The Access Network combines classic security tasks with a feminist approach, discrimination-sensitive working methods, communicative solution strategies, self-critical reflection and an awareness approach. We also have awareness staff at the door to mediate in potential conflict situations.<br />"
+                "text": "The UdK Berlin is a place of artistic and academic freedom and of critical but always respectful exchange. We ask for an open mind for diverse perspectives. We do not tolerate hate speech and discrimination.<br />You can read the UdK Berlin Code of Conduct <a target='_blank' href='https://www.udk-berlin.de/startseite/news/verhaltenskodex-code-of-conduct-der-udk-berlin/'>here</a>.<br />To make the Rundgang 2024 safe for everyone, an awareness team will be present on all days at the Hardenbergstraße 33 and on the opening day at the Grunewaldstraße 2–5. You will recognize the members of the awareness team by their purple vests with the label “Awareness”.<br />Should you feel uncomfortable or observe inappropriate behavior, please contact the awareness team or the security staff. This applies without exception for all locations on the Rundgang. The telephone number of the awareness team will be published here on July 19.<br />The awareness team is staffed by employees from the Access Network. The Access Network combines classic security tasks with a feminist approach, discrimination-sensitive working methods, communicative solution strategies, self-critical reflection and an awareness approach. We also have awareness staff at the door to mediate in potential conflict situations.<br />"
             },
             "wristbands": {
                 "title": "Wristbands",
@@ -137,7 +138,7 @@
             },
             "accessibility": {
                 "title": "Accessibility",
-                "text": "You can find all information on the (wheelchair) accessibility of the locations <a target='_blank' href='https://www.udk-berlin.de/en/service/barrier-free-studies/'>here</a>.<br />During Rundgang 2024, the awareness team and security staff will be available to help you if you need support or have any questions. On the days of the event, you can reach the awareness team by phone or via Whatsapp and Signal.The phone number will be published here on July 19.<br />If you have any questions before the Rundgang, please contact <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a> or Christian Schmidts, the representative for students with disabilities and chronic illnesses, on<br /><a href='tel:+49 (0)1525 3088865'>+49 (0)1525 3088865</a><br /><a href='mailto:teilhabe@udk-berlin.de'>teilhabe@udk-berlin.de</a><br />"
+                "text": "You can find all information on the (wheelchair) accessibility of the locations <a target='_blank' href='https://www.udk-berlin.de/en/service/barrier-free-studies/'>here</a>.<br />During Rundgang 2024, the awareness team and security staff will be available to help you if you need support or have any questions. On the days of the event, you can reach the awareness team by phone or via Whatsapp and Signal.The phone number will be published here on July 19.<br />If you have any questions before the Rundgang, please contact <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a> or Christian Schmidts, the representative for students with disabilities and chronic illnesses, on<br /><a href='mailto:teilhabe@udk-berlin.de'>teilhabe@udk-berlin.de</a><br />"
             },
             "payment": {
                 "title": "Payment",

@@ -10,7 +10,8 @@
         "timeline": "Zeitplan"
     },
     "Filtering": {
-        "filter": "Filter"
+        "filter": "Filter",
+        "search": "suche..."
     },
     "Program": {
         "title": "Rundgang – Programm",
@@ -129,7 +130,7 @@
             },
             "awareness": {
                 "title": "Awareness",
-                "text": "Die UdK Berlin ist ein Ort der Kunst- und Wissenschaftsfreiheit und des kritischen, aber immer respektvollen Austauschs. Wir bitten um einen offenen Blick für vielfältige Perspektiven. Hassrede und Diskriminierung dulden wir nicht.<br />Den Verhaltenskodex der UdK Berlin kannst du hier einsehen.<br/>Um den Rundgang 2024 für alle Personen sicher zu gestalten, wird ein Awarenessteam an allen Tagen am Standort Hardenbergstraße 33 und am Eröffnungstag am Standort Grunewaldstraße 2-5 eingesetzt. Du erkennst die Mitarbeitenden des Awarenessteams an ihren lila Westen mit der Aufschrift „Awareness“.<br/>Solltest Du Dich unwohl fühlen oder unangebrachtes Verhalten beobachten, wende Dich bitte an das Awarenessteam oder das Sicherheitspersonal. Dies gilt ausnahmslos für alle Standorte des Rundgangs. Die Telefonnummer des Awarenessteams wird am 19. Juli hier veröffentlicht.<br/>Das Awarenessteam setzt sich aus Mitarbeitenden des Access-Netzwerks zusammen. Das Access-Netzwerk verbindet klassische Sicherheitsaufgaben mit feministischer Haltung, diskriminierungssensibler Arbeitsweise, kommunikativen Lösungsstrategien, selbstkritischer Reflexion und Awarenessansatz. Auch an der Tür werden Awarenesspersonen eingesetzt, um in möglichen Konfliktsituationen vermitteln zu können."
+                "text": "Die UdK Berlin ist ein Ort der Kunst- und Wissenschaftsfreiheit und des kritischen, aber immer respektvollen Austauschs. Wir bitten um einen offenen Blick für vielfältige Perspektiven. Hassrede und Diskriminierung dulden wir nicht.<br />Den Verhaltenskodex der UdK Berlin kannst du <a target='_blank' href='https://www.udk-berlin.de/startseite/news/verhaltenskodex-code-of-conduct-der-udk-berlin/' >hier</a> einsehen.<br/>Um den Rundgang 2024 für alle Personen sicher zu gestalten, wird ein Awarenessteam an allen Tagen am Standort Hardenbergstraße 33 und am Eröffnungstag am Standort Grunewaldstraße 2-5 eingesetzt. Du erkennst die Mitarbeitenden des Awarenessteams an ihren lila Westen mit der Aufschrift „Awareness“.<br/>Solltest Du Dich unwohl fühlen oder unangebrachtes Verhalten beobachten, wende Dich bitte an das Awarenessteam oder das Sicherheitspersonal. Dies gilt ausnahmslos für alle Standorte des Rundgangs. Die Telefonnummer des Awarenessteams wird am 19. Juli hier veröffentlicht.<br/>Das Awarenessteam setzt sich aus Mitarbeitenden des Access-Netzwerks zusammen. Das Access-Netzwerk verbindet klassische Sicherheitsaufgaben mit feministischer Haltung, diskriminierungssensibler Arbeitsweise, kommunikativen Lösungsstrategien, selbstkritischer Reflexion und Awarenessansatz. Auch an der Tür werden Awarenesspersonen eingesetzt, um in möglichen Konfliktsituationen vermitteln zu können."
             },
             "wristbands": {
                 "title": "Bändchen",
@@ -137,7 +138,7 @@
             },
             "accessibility": {
                 "title": "Barrierefreiheit",
-                "text": "Alle Informationen zu den (Rollstuhl-)Zugänglichkeiten der Standorte findest Du <a target='_blank' href='https://www.udk-berlin.de/service/barrierefreies-studium/#c25211'  >hier</a>. Während des Rundgangs 2024 stehen Dir das Awarenessteam und dasSicherheitspersonal zur Verfügung, solltest Du Unterstützung benötigen oderFragen haben. An den Veranstaltungstagen erreichst du das Awarenessteamtelefonisch oder per Whatsapp und Signal. Die Telefonnummer wird am 19. Julihier veröffentlicht. Bei Fragen vor dem Rundgang wende Dich gern an <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a> oder an Christian Schmidts, den Beauftragten für Studierende mit Behinderungen undchronischen Krankheiten unter: <a href='tel:+49(0)1525 3088865'>+49 (0)1525 3088865</a><br /><a href='mailto:teilhabe@udk-berlin.de'>teilhabe@udk-berlin.de</a>"
+                "text": "Alle Informationen zu den (Rollstuhl-)Zugänglichkeiten der Standorte findest Du <a target='_blank' href='https://www.udk-berlin.de/service/barrierefreies-studium/#c25211'  >hier</a>. Während des Rundgangs 2024 stehen Dir das Awarenessteam und dasSicherheitspersonal zur Verfügung, solltest Du Unterstützung benötigen oderFragen haben. An den Veranstaltungstagen erreichst du das Awarenessteamtelefonisch oder per Whatsapp und Signal. Die Telefonnummer wird am 19. Juli hier veröffentlicht. Bei Fragen vor dem Rundgang wende Dich gern an <a href='mailto:rundgang@udk-berlin.de'>rundgang@udk-berlin.de</a> oder an Christian Schmidts, den Beauftragten für Studierende mit Behinderungen undchronischen Krankheiten unter: <a href='mailto:teilhabe@udk-berlin.de'>teilhabe@udk-berlin.de</a>"
             },
             "payment": {
                 "title": "Bezahlung",
