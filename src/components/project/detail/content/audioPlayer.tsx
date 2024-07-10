@@ -58,7 +58,7 @@ const AudioPlayer = ({ item }: { item: ItemContentElement }) => {
   );
 
   return (
-    <div className="w-100 flex-start flex items-center text-center">
+    <div className="w-100 flex items-center justify-start pb-gutter-sm text-center">
       <audio
         id="player"
         ref={audioRef}
@@ -66,12 +66,15 @@ const AudioPlayer = ({ item }: { item: ItemContentElement }) => {
       >
         <source src={item.content} type="audio/mpeg" />
       </audio>
-      <button className="pointer border-md " onClick={() => handleClickPay()}>
+      <button
+        className="pointer mr-gutter-xs h-header w-header rounded-md border-border"
+        onClick={() => handleClickPay()}
+      >
         {isPlaying ? <span>&#9632;</span> : <span>&#9654;</span>}
       </button>
-      <span>{minsToHHMMSS(currentTime)}</span>
+      <span className="mr-gutter-xs">{minsToHHMMSS(currentTime)}</span>
       <input
-        className="w-100 flex-grow-1 relative float-left m-0 h-[19px] p-0 "
+        className="w-100 flex-grow-1 relative float-left m-0 h-header p-0 "
         type="range"
         max={duration}
         min={0}
@@ -79,7 +82,7 @@ const AudioPlayer = ({ item }: { item: ItemContentElement }) => {
         onChange={(e) => handleChangeTime(e)}
       />
 
-      <span>{minsToHHMMSS(duration)}</span>
+      <span className="ml-gutter-xs">{minsToHHMMSS(duration)}</span>
     </div>
   );
 };
