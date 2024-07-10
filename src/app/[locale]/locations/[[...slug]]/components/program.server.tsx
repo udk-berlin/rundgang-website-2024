@@ -41,7 +41,7 @@ function ProgramContainer({ children }: ReactNodeProps) {
   return (
     <div className="z-40 col-span-1 -ml-xs flex h-content max-h-content min-h-content w-full bg-primary md:col-span-2 md:overflow-y-scroll">
       <Suspense>
-        <div className="wrap grid w-full grid-cols-2 justify-stretch gap-border bg-primary px-border">
+        <div className="wrap grid h-fit w-full grid-cols-2 justify-stretch gap-border bg-primary px-border">
           {children}
         </div>
       </Suspense>
