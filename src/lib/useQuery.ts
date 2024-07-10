@@ -1,5 +1,5 @@
 import { usePathname, useRouter } from '@/navigation';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useParams } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
 const useQuery = (param: string) => {
@@ -27,8 +27,9 @@ const useQuery = (param: string) => {
   );
 
   const changeParameter = (value: string) => {
+    const realPath = pathname == '/project/[id]' ? '/program' : pathname;
     // @ts-expect-error
-    router.push(pathname + '?' + createQueryString(param, value));
+    router.push(realPath + '?' + createQueryString(param, value));
   };
 
   return {
