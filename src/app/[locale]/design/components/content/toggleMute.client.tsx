@@ -2,7 +2,7 @@
 
 import Mute from '@/components/icons/mute';
 import Unmute from '@/components/icons/unmute';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { useTranslations } from 'next-intl';
 import { useStore } from 'zustand';
 

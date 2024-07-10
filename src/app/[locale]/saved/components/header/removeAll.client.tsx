@@ -1,6 +1,6 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { useStore } from 'zustand';
 import Cross from '@/components/icons/cross';
 

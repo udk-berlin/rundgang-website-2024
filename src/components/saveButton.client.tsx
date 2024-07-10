@@ -1,6 +1,6 @@
 'use client';
 import cx from 'classnames';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { MouseEvent, useCallback } from 'react';
 import SmoothButton from '@/components/smoothButton';
 import { useTranslations } from 'next-intl';

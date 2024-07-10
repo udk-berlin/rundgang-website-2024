@@ -1,6 +1,6 @@
 'use client';
 import NavigationLink from '@/components/navigationLink';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { useEffect, useRef, useState } from 'react';
 import { useStore } from 'zustand';
 import cx from 'classnames';

@@ -9,7 +9,7 @@ import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
 import { getFilters } from '@/api/rest/filters';
 import { AppStoreProvider } from '@/lib/useAppContext';
-import { defaultInitState } from '@/lib/appStore';
+import { defaultInitState } from '@/lib/stores/appStore';
 import { ReactNode } from 'react';
 import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
 import { ProjectLanguages } from '@/projects';

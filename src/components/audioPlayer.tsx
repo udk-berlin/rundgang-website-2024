@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Unmute from '@/components/icons/unmute';
 import Mute from '@/components/icons/mute';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { useStore } from 'zustand';
 
 export type AudioPlayerProps = {

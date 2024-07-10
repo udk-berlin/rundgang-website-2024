@@ -1,7 +1,7 @@
 'use client';
 import { type ReactNode, createContext, useRef, useContext } from 'react';
 import { type StoreApi, useStore } from 'zustand';
-import { type AppStore, createAppStore, AppState } from './appStore';
+import { type AppStore, createAppStore, AppState } from './stores/appStore';
 
 export const AppStoreContext = createContext<StoreApi<AppStore> | null>(null);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { ReactNodeProps } from '@/types/types';
-import { useUIStore } from '@/lib/uiStore';
+import { useUIStore } from '@/lib/stores/uiStore';
 import { useStore } from 'zustand';
 import ProjectCard from '@/components/project/card/card.server';
 import { SavedProps } from '@/app/saved/components/saved.server';
