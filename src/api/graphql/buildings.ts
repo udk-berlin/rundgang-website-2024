@@ -27,6 +27,11 @@ async function fetchGraphQLContexts(): Promise<
   return getGraphQLClient().query({
     query: graphQLContextsQuery,
     variables: {},
+    context: {
+      fetchOptions: {
+        next: { revalidate: 600 },
+      },
+    },
   });
 }
 

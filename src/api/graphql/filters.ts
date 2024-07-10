@@ -22,6 +22,11 @@ async function fetchGraphQLLanguages(): Promise<
   return getGraphQLClient().query({
     query: graphQLFiltersQuery,
     variables: {},
+    context: {
+      fetchOptions: {
+        next: { revalidate: 600 },
+      },
+    },
   });
 }
 

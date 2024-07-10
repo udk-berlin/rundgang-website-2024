@@ -36,6 +36,11 @@ async function fetchGraphQLItems(): Promise<ApolloQueryResult<GraphQlItems>> {
   return getGraphQLClient().query({
     query: graphQLItemsQuery,
     variables: {},
+    context: {
+      fetchOptions: {
+        next: { revalidate: 600 },
+      },
+    },
   });
 }
 
