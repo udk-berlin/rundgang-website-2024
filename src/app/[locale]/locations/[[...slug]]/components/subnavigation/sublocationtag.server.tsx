@@ -15,6 +15,7 @@ export default function SubLocationTag({
   return (
     <Link
       href={{
+        // @ts-expect-error
         pathname: '/locations/[place]',
         params: { place: sublocation.id },
       }}

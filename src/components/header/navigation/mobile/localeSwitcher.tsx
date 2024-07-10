@@ -15,13 +15,19 @@ export default function LocaleSwitcher() {
 
   function onChangeLanguage(nextLocale: 'de' | 'en') {
     startTransition(() => {
-      router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        { pathname, params },
-        { locale: nextLocale },
-      );
+      if (pathname == '/project/[id]') {
+        router.push({ pathname: '/program' }, { locale: nextLocale });
+      } else if (pathname == '/timeline/[[...slug]]') {
+        router.push({ pathname: '/timeline' }, { locale: nextLocale });
+      } else {
+        router.replace(
+          // @ts-expect-error -- TypeScript will validate that only known `params`
+          // are used in combination with a given `pathname`. Since the two will
+          // always match for the current route, we can skip runtime checks.
+          { pathname, params },
+          { locale: nextLocale },
+        );
+      }
     });
   }
   return (

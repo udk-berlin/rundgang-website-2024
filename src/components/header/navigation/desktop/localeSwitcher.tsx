@@ -11,17 +11,23 @@ export default function LocaleSwitcher() {
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
   const params = useParams();
-  const nextLocale = locale == 'en' ? 'de' : 'en';
 
   function onChangeLanguage(event: any) {
     startTransition(() => {
-      router.replace(
-        // @ts-expect-error -- TypeScript will validate that only known `params`
-        // are used in combination with a given `pathname`. Since the two will
-        // always match for the current route, we can skip runtime checks.
-        { pathname, params },
-        { locale: nextLocale },
-      );
+      const nextLocale = locale == 'en' ? 'de' : 'en';
+      if (pathname == '/project/[id]') {
+        router.push({ pathname: '/program' }, { locale: nextLocale });
+      } else if (pathname == '/timeline/[[...slug]]') {
+        router.push({ pathname: '/timeline' }, { locale: nextLocale });
+      } else {
+        router.replace(
+          // @ts-expect-error -- TypeScript will validate that only known `params`
+          // are used in combination with a given `pathname`. Since the two will
+          // always match for the current route, we can skip runtime checks.
+          { pathname, params },
+          { locale: nextLocale },
+        );
+      }
     });
   }
 
@@ -31,7 +37,7 @@ export default function LocaleSwitcher() {
         className="p-auto peer h-full w-full justify-center rounded-border border-xs border-y-border border-primary bg-secondary text-center uppercase group-hover:bg-highlight group-hover:text-black group-focus:text-lg"
         onClick={onChangeLanguage}
       >
-        <span>{nextLocale}</span>
+        <span>{locale == 'en' ? 'de' : 'en'}</span>
       </button>
     </div>
   );

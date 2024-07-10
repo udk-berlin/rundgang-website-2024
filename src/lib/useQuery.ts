@@ -27,6 +27,7 @@ const useQuery = (param: string) => {
   );
 
   const changeParameter = (value: string) => {
+    // @ts-expect-error
     router.push(pathname + '?' + createQueryString(param, value));
   };
 

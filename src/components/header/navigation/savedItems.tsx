@@ -9,7 +9,7 @@ export type SavedItemsProps = { isLast?: boolean };
 
 export default function SavedItems({ isLast }: SavedItemsProps) {
   const numberSaved = useStore(useUIStore, (state) => state.savedItems.length);
-  const [ping, setPing] = useState(0);
+  const [ping, setPing] = useState(numberSaved);
   const timer = useRef<number | NodeJS.Timeout>();
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function SavedItems({ isLast }: SavedItemsProps) {
     <NavigationLink
       isLast={isLast}
       href="/saved"
+      aria-label="saved"
       className={cx(ping == numberSaved ? 'animate-saved' : '')}
     >
       {numberSaved}

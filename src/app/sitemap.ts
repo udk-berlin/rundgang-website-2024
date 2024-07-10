@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     key: keyof typeof pathnames,
     locale: (typeof locales)[number],
   ) {
+    // @ts-expect-error
     const pathname = getPathname({ locale, href: key });
     return `${host}/${locale}${pathname === '/' ? '' : pathname}`;
   }

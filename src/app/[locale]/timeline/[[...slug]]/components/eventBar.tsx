@@ -28,8 +28,10 @@ export default function EventBar({ event }: EventBarProps) {
     (e: any) => {
       if (e.pointerType !== 'touch' || isOpen) {
         if (pathname.endsWith(']')) {
+          // @ts-expect-error
           router.replace(`/timeline/${event.id}`, { scroll: false });
         } else {
+          // @ts-expect-error
           router.push(`/timeline/${event.id}`, { scroll: false });
         }
       } else if (e.pointerType === 'touch' && !isOpen) {
