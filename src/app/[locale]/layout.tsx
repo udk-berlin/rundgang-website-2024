@@ -11,8 +11,8 @@ import { getFilters } from '@/api/rest/filters';
 import { AppStoreProvider } from '@/lib/useAppContext';
 import { defaultInitState } from '@/lib/stores/appStore';
 import { ReactNode } from 'react';
-import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
 import { ProjectLanguages } from '@/projects';
+import { extractProjectLanguageSearchParam } from '@/lib/extractLanguage';
 
 type RootLayoutProps = {
   children: ReactNode;

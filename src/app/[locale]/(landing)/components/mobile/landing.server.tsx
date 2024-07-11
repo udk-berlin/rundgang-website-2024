@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ProjectLanguages } from '@/projects';
-import { extractProjectLanguageSearchParam } from '@/app/(landing)/components/desktop/landing.server';
+import { extractProjectLanguageSearchParam } from '@/lib/extractLanguage';
 import LandingTitle from '@/app/(landing)/components/mobile/title.server';
 import SidebarToggle from '@/app/(landing)/components/mobile/sidebar/toggle.client';
 import SidebarContainer from '@/app/(landing)/components/mobile/sidebar/container.client';

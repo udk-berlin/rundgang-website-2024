@@ -1,6 +1,6 @@
 import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
 import { GraphQLFilters, GraphQlItem } from '@/types/graphql';
-import { getGraphQLClient } from '@/api/graphql/api';
+import { getClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import ISO6391 from 'iso-639-1';
 import { Filter, Filters } from '@/types/types';
@@ -19,7 +19,7 @@ const graphQLFiltersQuery: DocumentNode = gql`
 async function fetchGraphQLLanguages(): Promise<
   ApolloQueryResult<GraphQLFilters>
 > {
-  return getGraphQLClient().query({
+  return getClient().query({
     query: graphQLFiltersQuery,
     variables: {},
     context: {

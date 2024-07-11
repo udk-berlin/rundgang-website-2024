@@ -13,7 +13,8 @@
     "node": ">=19.0.0 <21.0.0"
   },
   "dependencies": {
-    "@apollo/client": "^3.10.1",
+    "@apollo/client": "^3.10.8",
+    "@apollo/experimental-nextjs-app-support": "^0.11.2",
     "@turf/bbox": "^7.0.0",
     "classnames": "^2.5.1",
     "d3-scale": "^4.0.2",

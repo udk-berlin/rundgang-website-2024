@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import Cross from '../icons/cross';
 import { useSearchStore } from '@/lib/stores/searchStore';
 import { useTranslations } from 'next-intl';
@@ -10,6 +10,10 @@ export default function Search({}) {
     state.setSearch,
     state.setSearchOpen,
   ]);
+
+  useEffect(() => {
+    document?.getElementById('search')?.focus();
+  }, []);
 
   const handleInputChange = useCallback(
     (e: any) => {

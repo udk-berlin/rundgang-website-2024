@@ -4,6 +4,7 @@ import projects, { ProjectLanguages } from '@/projects';
 import LandingFiltersGroupsHeaders from '@/app/(landing)/components/desktop/filters/groups/headers/headers.server';
 import LandingProjectHandWriting from '@/app/(landing)/components/desktop/projectHandWriting.server';
 import LandingFiltersGroups from '@/app/(landing)/components/desktop/filters/groups/groups.server';
+import { extractProjectLanguageSearchParam } from '@/lib/extractLanguage';
 
 export type LandingProps = {
   searchParams?: {
@@ -37,15 +38,4 @@ function LandingContainer({ children }: { children: ReactNode }) {
       {children}
     </main>
   );
-}
-
-export function extractProjectLanguageSearchParam(
-  searchParams: LandingProps['searchParams'],
-) {
-  const languages = Object.keys(projects);
-  if (searchParams?.lang) {
-    return searchParams.lang;
-  }
-  const number = Math.floor(Math.random() * languages.length);
-  return languages[number] as ProjectLanguages;
 }

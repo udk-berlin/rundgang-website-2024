@@ -1,6 +1,6 @@
 import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
 import { GraphQlContexts, Context } from '@/types/graphql';
-import { getGraphQLClient } from '@/api/graphql/api';
+import { getClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import { Building } from '@/types/types';
 import { LOCATION_INFO } from '../constants';
@@ -24,7 +24,7 @@ const graphQLContextsQuery: DocumentNode = gql`
 async function fetchGraphQLContexts(): Promise<
   ApolloQueryResult<GraphQlContexts>
 > {
-  return getGraphQLClient().query({
+  return getClient().query({
     query: graphQLContextsQuery,
     variables: {},
     context: {

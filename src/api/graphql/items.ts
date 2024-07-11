@@ -1,6 +1,6 @@
 import { ApolloQueryResult, DocumentNode, gql } from '@apollo/client';
 import { GraphQlItems, GraphQlItem, Description } from '@/types/graphql';
-import { getGraphQLClient } from '@/api/graphql/api';
+import { getClient } from '@/api/graphql/api';
 import { cache } from 'react';
 import { Item } from '@/types/item';
 import { extractAuthors } from '@/lib/data/utils';
@@ -33,7 +33,7 @@ const graphQLItemsQuery: DocumentNode = gql`
 `;
 
 async function fetchGraphQLItems(): Promise<ApolloQueryResult<GraphQlItems>> {
-  return getGraphQLClient().query({
+  return getClient().query({
     query: graphQLItemsQuery,
     variables: {},
     context: {

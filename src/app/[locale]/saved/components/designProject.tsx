@@ -1,6 +1,5 @@
 import ProjectCard from '@/components/project/card/card.server';
-import Image from 'next/image';
-import { extractProjectLanguageSearchParam } from '../../(landing)/components/desktop/landing.server';
+import { extractProjectLanguageSearchParam } from '@/lib/extractLanguage';
 
 const staticData = {
   id: 'design',
