@@ -18,16 +18,12 @@ export default function TagPlain({
   return (
     <div
       className={cx(
-        'flex h-tag w-fit min-w-0 max-w-full items-center rounded-border bg-secondary text-primary',
+        'flex w-fit min-w-0 max-w-full items-center rounded-border bg-secondary py-gutter-xs text-primary',
         withBorder && 'border-border border-primary',
         className,
       )}
     >
-      <div
-        className={cx(
-          'w-fit min-w-0 max-w-full truncate px-gutter-sm text-xxs',
-        )}
-      >
+      <div className={cx('w-fit min-w-0 max-w-full px-gutter-sm text-xxs')}>
         {prefix ? `${prefix}:` : ''} {t(title)}
       </div>
     </div>
