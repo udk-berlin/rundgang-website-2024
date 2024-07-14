@@ -1,5 +1,5 @@
 'use client';
-import { useTranslations } from 'next-intl';
+
 import cx from 'classnames';
 import NavigationLink from '@/components/navigationLink';
 import RundgangLogo from '@/components/header/navigation/rundgangLogo';
@@ -8,8 +8,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { usePathname } from '@/navigation';
 import MenuBurger from '@/components/icons/menu';
 import SavedItems from '@/components/header/navigation/savedItems';
+
 export default function HeaderNavigationMobile() {
-  const t = useTranslations('Navigation');
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -30,8 +30,10 @@ export default function HeaderNavigationMobile() {
         <button
           onClick={toggleMenuOpen}
           className={cx(
-            'border-x-xs border-y-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
-            menuOpen ? 'rounded-t-md border-b-secondary' : 'rounded-border',
+            'border-x-xs border-t-border border-primary bg-secondary hover:bg-highlight hover:text-primary',
+            menuOpen
+              ? 'rounded-t-md border-b-secondary pb-border'
+              : 'rounded-border border-b-border',
           )}
         >
           <div className="h-4 justify-center text-center">

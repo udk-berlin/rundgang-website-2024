@@ -8,6 +8,7 @@ import LocaleSwitcher from './localeSwitcher';
 import { useIsActive } from '@/lib/useLinkActive';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
+import Cross from '@/components/icons/cross';
 
 export type MenuMobileProps = {
   menuOpen: boolean;
@@ -59,7 +60,7 @@ export default function HeaderNavigationMobileMenu({
     <dialog
       open={menuOpen}
       className={cx(
-        'fixed left-0 top-header h-content w-full rounded-md border-x-border border-b-0 bg-secondary pt-header text-center text-primary',
+        'fixed left-0 top-header h-content w-full border-x-border border-b-0 bg-secondary pt-header text-center text-primary',
         isClosed ? 'animate-closeMenu' : 'animate-showMenu',
       )}
       onClick={onDismiss}
@@ -70,8 +71,16 @@ export default function HeaderNavigationMobileMenu({
           showContent ? 'opacity-100' : 'opacity-0',
         )}
       >
-        <SmoothButton onClick={onDismiss} color="primary" top>
-          <div className="rotate-45 text-[30px] text-secondary">+</div>
+        <SmoothButton
+          className="!rounded-t-[0px]"
+          onClick={onDismiss}
+          color="primary"
+          top
+        >
+          <Cross
+            className="absolute top-0 z-40 h-content-header w-content-header rotate-45 p-gutter-sm"
+            color="secondary"
+          />
         </SmoothButton>
         <div className="flex-grow-2">
           {headerItems.map((item) => (
@@ -92,7 +101,7 @@ export default function HeaderNavigationMobileMenu({
           </Link>
         </div>
         <div className="flex w-full justify-center">
-          <div className="h-header w-header rounded-t-md border-border border-primary">
+          <div className="h-header w-header">
             <ColorSchemeSwitcher />
           </div>
         </div>

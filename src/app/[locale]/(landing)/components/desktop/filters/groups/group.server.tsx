@@ -17,7 +17,7 @@ export default function LandingFiltersGroup({ filters }: FilterGroupProps) {
 
 function LandingFiltersGroupContainer({ children }: ReactNodeProps) {
   return (
-    <div className="flex h-full w-full flex-wrap gap-border bg-primary">
+    <div className="flex h-full w-full flex-wrap content-start gap-border bg-primary">
       {children}
     </div>
   );

@@ -2,12 +2,12 @@ import Image from 'next/image';
 
 export default function RundgangLogo() {
   return (
-    <div className="relative m-2 h-full w-full justify-around overflow-hidden text-center">
+    <div className="relative h-full w-full">
       <Image
         src="/assets/RNG.svg"
         fill
         alt="rng"
-        className="object-contain py-2 dark:invert hover:dark:filter-none"
+        className="object-contain py-[10px] dark:invert md:hover:dark:filter-none"
       />
     </div>
   );

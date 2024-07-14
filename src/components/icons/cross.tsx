@@ -20,7 +20,7 @@ export default function Cross({
   color = 'primary',
 }: PlusProps) {
   return (
-    <div className={cx('group-hover:invert', className)}>
+    <div className={cx('md:group-hover:invert', className)}>
       <svg
         className={cx('dark:invert')}
         width={width}
