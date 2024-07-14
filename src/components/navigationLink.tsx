@@ -25,16 +25,21 @@ export default function NavigationLink({
   const pathname = usePathname();
   const isActive = useIsActive(href);
   const activeStyle = isFooter
-    ? 'rounded-b-md border-t-secondary sm:hover:border-t-highlight'
-    : 'rounded-t-md border-b-secondary sm:hover:border-b-highlight';
+    ? 'rounded-b-md pt-border'
+    : 'rounded-t-md pb-border';
 
   return (
     <Link
       aria-current={isActive ? 'page' : undefined}
       scroll={true}
       className={cx(
-        'border-x-xs border-y-border border-primary bg-secondary sm:hover:bg-highlight sm:hover:text-black',
-        isActive ? activeStyle : 'rounded-md',
+        'border-x-xs border-primary bg-secondary sm:hover:bg-highlight sm:hover:text-black',
+        isFooter ? 'border-b-border' : 'border-t-border',
+        isActive
+          ? activeStyle
+          : isFooter
+            ? 'rounded-md border-t-border'
+            : 'rounded-md border-b-border',
         isFirst && 'ml-xs',
         isLast && 'mr-xs',
         className,

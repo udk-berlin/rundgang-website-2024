@@ -261,12 +261,12 @@ const config: Config = {
         },
         showMenu: {
           '0%': {
-            transform: 'translateY(-200%) scaleX(33%)',
+            transform: 'translateY(-200%) scaleX(33.7%)',
             borderWidth: '0px 6px',
             color: 'var(--secondary)',
           },
           '60%': {
-            transform: 'translateY(0%) scaleX(33%)',
+            transform: 'translateY(0%) scaleX(33.7%)',
             borderWidth: '0px 6px',
             color: 'var(--secondary)',
           },
