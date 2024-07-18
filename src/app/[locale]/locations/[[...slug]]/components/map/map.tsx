@@ -58,13 +58,13 @@ const MapComponent = ({ buildings, location }: MapComponentProps) => {
         onMouseLeave={onMouseLeave}
         onZoom={onZoom}
         onClick={onClick}
+        onLoad={onLoad}
         attributionControl={false}
         renderWorldCopies={false}
         styleDiffing={false}
         pitchWithRotate={false}
         dragRotate={false}
         touchPitch={false}
-        touchZoomRotate={false}
       >
         {buildings && (
           <>
